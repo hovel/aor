@@ -1,0 +1,26 @@
+{% extends 'pybb/base.html' %}
+{% load i18n pybb_tags %}
+
+{% block head %}
+    {{ block.super }}
+    {% include "pybb/markitup.html" %}
+{% endblock head %}
+
+{% block content %}
+
+<h1>{% if forum %}{% trans "New topic" %}{% else %}{% trans "New reply" %}{% endif %}</h1>
+
+{% include "pybb/add_post_form.html" %}
+{% endblock content %}
+
+{% block breadcrumb %}
+    {{block.super}} &#187;
+{% if forum %}
+    {% pybb_link forum.category %} &#187;
+    {% pybb_link forum %}
+{% else %}
+    {% pybb_link topic.forum.category %} &#187;
+    {% pybb_link topic.forum %} &#187;
+    {% pybb_link topic %}
+{% endif %}
+{% endblock %}

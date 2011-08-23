@@ -1,0 +1,27 @@
+{% load i18n comments %}
+{% get_comment_form for object as form %}
+<form action="{% comment_form_target %}" method="post">
+{% csrf_token %}
+{% for field in form.visible_fields %}
+{% if forloop.first %}
+    {% for hidden in form.hidden_fields %}{{ hidden }}{% endfor %}
+{% endif %}
+{% if field.name == 'comment' or field.name == 'honeypot' %}
+<div class="fieldbox {% ifequal field.name 'honeypot' %}hidden{% endifequal %}">
+    {% if field.errors %}<div class="errors"><ul>{{field.errors}}</ul></div>{% endif %}
+    <div class="label">{{field.label_tag}}:</div>
+    <div class="field">{{field}}</div>
+    <div class="help_text">{{field.help_text}}</div>
+</div>
+{% endif %}
+{% endfor %}
+<div class="submit">
+    <input type="submit" name="post" class="submit-post" value="{% trans "Post" %}" />
+    <input type="submit" name="preview" class="submit-preview" value="{% trans "Preview" %}" />
+</div>
+{% if next %}
+<div>
+    <input type="hidden" name="next" value="{{ next }}" />
+</div>
+{% endif %}
+</form>

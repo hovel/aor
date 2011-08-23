@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Create post entry" %}{% endblock %}
+
+{% block content %}
+<h1 class="title">{% trans "Post entry form" %}</h1>
+<form action="." method="post">
+{% include 'form.html' %}
+</form>
+{% endblock %}

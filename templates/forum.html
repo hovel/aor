@@ -1,0 +1,14 @@
+{% extends "main.html" %}
+{% load i18n %}
+
+{% block main %}
+    <div id="forum">
+        <div id="breadcrumb">
+        {% block breadcrumb %}
+            <a href="{% url front-page %}">{% trans "Front page" %}</a>
+        {% endblock %}
+        </div>
+    {% block content %}
+    {% endblock %}
+    </div>
+{% endblock %}

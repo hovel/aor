@@ -1,0 +1,9 @@
+syntax: glob
+
+media/*
+*.pyc
+*~
+database.db
+local.py
+local_path.py
+fabfile.py

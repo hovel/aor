@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{{object}} - {{block.super}}{% endblock %}
+
+{% block content %}
+<h1 class="title">{{object}}</h1>
+{% if user == object.author %}
+<a href="{% url post:create %}">{% trans "Create post entry" %}</a>
+{% endif %}
+<ul class="posts">
+{% for post in blog.author.post_set.all %}
+<li><a href="{% url post:detail post.id %}">{{post}}</a></li>
+{% endfor %}
+</ul>
+{% endblock %}

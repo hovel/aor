@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Account activation" %} | {{block.super}}{% endblock %}
+
+{% block content %}
+<h1>{% trans "Account activation" %}</h1>
+{% if account %}
+{% trans "Registration complete. Now your account is activated." %}
+{% else %}
+{% trans "The activation code is incorrect." %}
+{% endif %}
+{% endblock %}

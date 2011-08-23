@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Approve a comment" %} - {{block.super}}{% endblock %}
+
+{% block content %}
+  <h1 class="title">{% trans "Really make this comment public?" %}</h1>
+  <blockquote>{{ comment|linebreaks }}</blockquote>
+  <form action="." method="post">{% csrf_token %}
+    {% if next %}
+    <div>
+        <input type="hidden" name="next" value="{{ next }}" id="next" />
+    </div>
+    {% endif %}
+    <p class="submit">
+      <input type="submit" name="submit" value="{% trans "Approve" %}" />
+      or <a href="{{ comment.get_absolute_url }}">cancel</a>
+    </p>
+  </form>
+{% endblock %}

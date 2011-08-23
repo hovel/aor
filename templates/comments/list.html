@@ -1,0 +1,15 @@
+{% load i18n comments %}
+{% get_comment_list for object as comment_list %}
+{% if comment_list %}
+<ul class="comments">
+{% for comment in comment_list %}
+<li><a name="c{{comment.id}}"></a>
+<div class="meta">{% trans "Author" %}: {{ comment.user_name }}
+{% trans "Posted" %}: {{ comment.submit_date|date:"SHORT_DATETIME_FORMAT" }}</div>
+<div class="comment">{{ comment.comment }}</div>
+</li>
+{% endfor %}
+</ul>
+{% else %}
+<p>{% trans "No comments." %}</p>
+{% endif %}

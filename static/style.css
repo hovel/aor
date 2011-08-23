@@ -1,0 +1,364 @@
+body {
+color:#222;
+background:#F6F9FC;
+font-family:Arial,"Liberation Sans",sans-serif;
+font-size:10pt;
+line-height:1.5em;
+min-width:1000px;
+margin:0;
+padding:0;
+}
+
+a {
+color:#0088CC;
+text-decoration:none;
+}
+
+a:hover {
+text-decoration:underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+color:#444;
+margin:1.2em 0 0.5em 0;
+font-weight:bold;
+}
+
+h1 {
+font-size:14pt;
+}
+
+h2 {
+font-size:13pt;
+}
+
+h3 {
+font-size:12pt;
+}
+
+h4 {
+font-size:11pt;
+}
+
+h5 {
+font-size:10pt;
+}
+
+h6 {
+font-size:10pt;
+}
+
+form {
+width:500px;
+margin:50px auto;
+}
+
+form table {
+width:100%;
+}
+
+form th {
+text-align:left;
+vertical-align:top;
+font-weight:bold;
+}
+
+form h1, form h2, form h3 {
+text-align:center;
+}
+
+input[type="text"], input[type="password"], textarea {
+width:100%;
+}
+
+pre {
+background:#DDFFDD;
+border:1px solid #B4C5CC;
+padding:10px;
+margin:1em;
+overflow:auto;
+}
+
+ul {
+}
+
+li {
+list-style:square;
+}
+
+td.submit {
+display:inline-block;
+text-align:center;
+}
+
+#header {
+color:#AAA;
+background:#333;
+height:60px;
+border-bottom:5px solid #0088CC;
+}
+
+#logo{
+background:#333;
+padding:0;
+margin:0;
+float:left;
+}
+
+#logo h1 {
+padding:0;
+margin:0;
+}
+
+#logo a {
+background:url("logo.png") no-repeat #333;
+height:50px;
+width:230px;
+margin:5px 0 5px 20px;
+padding:0;
+display:block;
+}
+
+#logo a span {
+display:none;
+}
+
+#logo img {
+border:0;
+}
+
+#topmenu {
+background:#333;
+height:60px;
+margin:0;
+padding:0;
+float:right;
+}
+
+#topmenu li {
+list-style:none;
+float:left;
+margin:0;
+padding:0;
+}
+
+#topmenu a {
+color:#AAA;
+font-size:14px;
+font-weight:bold;
+line-height:60px;
+text-decoration:none;
+margin:0;
+padding:0 10px;
+display:block;
+}
+
+#topmenu a:hover {
+color:#EEE;
+}
+
+#breadcrumb {
+color:#99C;
+/* padding:5px; */
+}
+
+#breadcrumb a {
+color:#888;
+}
+
+#content {
+padding:10px 2%;
+width:66%;
+float:left;
+}
+
+#sidebar {
+padding:10px 2%;
+width:26%;
+float:left;
+}
+
+#sidebar ul {
+margin:0;
+padding:0 0 0 5%;
+}
+
+#sidebar li {
+list-style:none;
+}
+
+#footer {
+color:#666;
+font-size:8pt;
+border-top:5px solid #DEEDEE;
+padding-top:1em;
+clear:both;
+}
+
+#footer p {
+text-align:center;
+margin:0;
+padding:0;
+}
+
+/* forum */
+
+#forum {
+background:#FEFEFE;
+border:1px solid #BBCCDD;
+margin:20px;
+padding:20px;
+}
+
+.category {
+margin:0;
+padding:0;
+}
+
+.category h1 {
+color:#888;
+font-size:11pt;
+}
+
+.forum-row, .topic-row, .posts {
+border:1px solid #BBCCDD;
+margin:0;
+padding:0;
+}
+
+.head-row {
+color:#666;
+background:#EBF1F5;
+font-size:8pt;
+}
+
+.head-row .forum-name, .head-row .forum-last-post,
+.head-row .topic-name, .head-row .topic-last-post {
+text-align:left;
+}
+
+.post-header {
+text-align:left;
+margin:0;
+padding:5px 10px;
+}
+
+.post-header .permalink {
+font-weight:normal;
+}
+
+.posts {
+border-bottom:none;
+}
+
+.post {
+width:100%;
+}
+
+.post .info {
+border-left:none;
+vertical-align:top;
+}
+
+.post .content {
+border-right:none;
+}
+
+.forum-name, .topic-name {
+vertical-align:top;
+margin:0;
+padding:0;
+}
+
+.forum-name a, .topic-name a {
+font-size:11pt;
+}
+
+.forum-description {
+color:#555;
+line-height:1em;
+margin:0;
+padding:0;
+}
+
+.topic-list, .post {
+border-collapse:collapse;
+margin:0;
+padding:0;
+}
+
+.unread a {
+font-weight:bold;
+}
+
+.centered {
+text-align:center;
+}
+
+.published {
+color:#666;
+font-size:.8em;
+font-weight:normal;
+float:right;
+}
+
+
+.meta {
+color:#666;
+background:#F3F8FC;
+border:1px solid #DDD;
+border-radius:3px;
+padding:5px;
+}
+
+.meta th {
+text-align:left;
+}
+
+ul.news, ul.posts {
+margin:0;
+padding:0;
+}
+
+ul.news > li, ul.posts > li {
+list-style:none;
+margin-bottom:2em;
+}
+
+ul.news h2, ul.posts h2 {
+border-bottom:1px dotted #888;
+}
+
+ul.news h2 a, ul.posts h2 a {
+text-decoration:none;
+}
+
+.help_text {
+color:#666;
+margin-bottom:2em;
+}
+
+.paginator {
+text-align:center;
+margin:2em 0;
+}
+
+.paginator a {
+text-decoration:none;
+}
+
+.paginator a:hover {
+text-decoration:underline;
+}
+
+.profile th {
+text-align:left;
+}
+
+.hidden {
+display:none;
+}
+
+.right {
+float:right;
+}
