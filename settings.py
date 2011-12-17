@@ -7,7 +7,7 @@ import os
 BASE_DIR = lambda *x: os.path.abspath(os.path.join(
                      os.path.dirname(__file__), *x))
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -20,7 +20,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR('databse.db'),
+        'NAME': BASE_DIR('database.db'),
     }
 }
 
@@ -35,13 +35,11 @@ USE_L10N = True
 MEDIA_ROOT = BASE_DIR('media')
 MEDIA_URL = '/media/'
 
-ADMIN_MEDIA_PREFIX = '/static/admin/'
+ADMIN_MEDIA_PREFIX = '/media/static/admin/'
 
-STATIC_ROOT = ''
-STATIC_URL = '/static/'
-STATICFILES_DIRS = (
-    BASE_DIR('/static/'),
-)
+STATIC_ROOT = BASE_DIR('media/static')
+STATIC_URL = '/media/static/'
+STATICFILES_DIRS = (BASE_DIR('static'),)
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
