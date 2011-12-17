@@ -1,4 +1,4 @@
-#!env/bin/python
+#!/usr/bin/env python
 import sys
 try:
     import local_path
