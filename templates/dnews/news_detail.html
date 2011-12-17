@@ -10,7 +10,7 @@
 {% trans "Published" %}:
 {{object.created|date:"SHORT_DATE_FORMAT"}}
 {% trans "Author" %}:
-<a href="{% pybb:user object.author.username %}">{{object.author}}</a>
+<a href="{% url pybb:user object.author.username %}">{{object.author}}</a>
 {% if object.source %}
 {% trans "Source" %}: <a href="{{object.source}}">{{object.source}}</a>
 {% endif %}
