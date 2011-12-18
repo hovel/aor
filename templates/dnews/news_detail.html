@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n thumbnail %}
+{% load i18n thumbnail comments %}
 
 {% block title %}{{object}} - {{block.super}}{% endblock %}
 
@@ -12,8 +12,14 @@
 {% trans "Author" %}:
 <a href="{% url pybb:user object.author.username %}">{{object.author}}</a>
 {% if object.source %}
-{% trans "Source" %}: <a href="{{object.source}}">{{object.source}}</a>
+{% trans "Source" %}: {{object.source|urlize}}
 {% endif %}
+</div>
+
+<div id="comments">
+    <h3>{% trans "Comments:" %}</h3>
+{% render_comment_list for object %}
+{% render_comment_form for object %}
 </div>
 {% endblock %}
 

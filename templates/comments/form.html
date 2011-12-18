@@ -1,10 +1,12 @@
 {% load i18n comments %}
+
+{% if user.is_authenticated %}
 {% get_comment_form for object as form %}
-<form action="{% comment_form_target %}" method="post">
+<form action="{% comment_form_target %}?next={{object.get_absolute_url}}" method="post">
 {% csrf_token %}
 {% for field in form.visible_fields %}
 {% if forloop.first %}
-    {% for hidden in form.hidden_fields %}{{ hidden }}{% endfor %}
+    {% for hidden in form.hidden_fields %}{{hidden}}{% endfor %}
 {% endif %}
 {% if field.name == 'comment' or field.name == 'honeypot' %}
 <div class="fieldbox {% ifequal field.name 'honeypot' %}hidden{% endifequal %}">
@@ -21,7 +23,10 @@
 </div>
 {% if next %}
 <div>
-    <input type="hidden" name="next" value="{{ next }}" />
+    <input type="hidden" name="next" value="{{object.get_absolute_url}}" />
 </div>
 {% endif %}
 </form>
+{% else %}
+Для отправки комментариев необходимо <a href="{% url auth_login %}">предствиться</a>.
+{% endif %}

@@ -29,6 +29,9 @@ SITE_ID = 1
 TIME_ZONE = 'Europe/Moscow'
 
 LANGUAGE_CODE = 'ru-RU'
+LANGUAGES = (
+    ('ru', 'Russian'),
+    ('ua', 'Ukraine'),)
 USE_I18N = True
 USE_L10N = True
 
@@ -102,7 +105,6 @@ INSTALLED_APPS = (
     'pybb',
 )
 
-
 AUTH_PROFILE_MODULE = 'pybb.Profile'
 FILE_UPLOAD_PERMISSIONS = 0644
 LOGIN_REDIRECT_URL = '/'
@@ -117,8 +119,6 @@ PYBB_MARKUP_ENGINES = {
                     clean=True,
                     tag_data=None),
 }
-
-
 
 LOGGING = {
     'version': 1,

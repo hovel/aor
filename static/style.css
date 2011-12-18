@@ -338,6 +338,10 @@ color:#666;
 margin-bottom:2em;
 }
 
+.errorlist {
+color:#F00;
+}
+
 .paginator {
 text-align:center;
 margin:2em 0;
