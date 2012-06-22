@@ -1,0 +1,12 @@
+{% load i18n comments %}
+{% for comment in comments %}
+    <li>
+        <div><a href="{% pybb:user comment.user.username %}">
+            {{ comment.user }}</a></div>
+        <div><a href="{% get_comment_permalink comment %}">
+            {{ comment.content_object }}</a></div>
+        <div>{{ comment.comment|truncatewords:10 }}</div>
+    </li>
+{% empty %}
+    <li>{% trans "No comments." %}</li>
+{% endfor %}

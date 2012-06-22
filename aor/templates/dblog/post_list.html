@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load i18n comments %}
+
+{% block title %}{% trans "Posts" %} - {{ block.super }}{% endblock %}
+
+{% block content %}
+    <h1 class="title">{{ title }}</h1>
+    <ul class="posts">
+        {% for object in object_list %}
+            <li>
+                <h1><a href="{% url post:detail object.id %}">{{ object }}</a>
+                </h1>
+                {{ object.body_html|safe|truncatewords_html:30 }}
+
+                <div class="meta">
+                    {% get_comment_count for object as comment_count %}
+                    {% trans "Posted" %}:
+                    {{ object.created|date:"SHORT_DATETIME_FORMAT" }}
+
+                    {% trans "Total comments" %}:
+                    <a href="{% url post:detail object.id %}#comments">{{ comment_count }}</a><br/>
+
+                    {% trans "Author" %}:
+                    <a href="{% url pybb:user object.author.username %}">{{ object.author }}</a>
+
+                    {% trans "Blog" %}:
+                    <a href="{% url blog:detail object.blog.id %}">
+                        {{ object.blog }}</a><br/>
+
+                    {% if object.get_tags.count %}
+                        {% trans "Tags" %}:
+                        {% for tag in object.get_tags %}
+                            <a href="{% url post:tagged tag %}">{{ tag }}</a>
+                            {% if not forloop.last %},
+                            {% else %}.{% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </div>
+
+            </li>
+        {% endfor %}
+    </ul>
+
+    {% include 'paginator.html' %}
+
+{% endblock %}
+
+
+{% block sidebar %}
+    <h2>{% trans "Control" %}</h2>
+    <ul class="control">
+        {% if blog %}
+            <li><a href="{% url pybb:user blog.author.username %}">
+                {% trans "Profile" %} {{ blog.author }}</a></li>
+        {% endif %}
+        {% if user.is_authenticated %}
+            <li>
+                <a href="{% url post:create %}">{% trans "Create post entry" %}</a>
+            </li>
+            {% if user.id == blog.author.id %}
+                <li>
+                    <a href="{% url blog:drafts blog.id %}">{% trans "Drafts" %}</a>
+                </li>
+            {% endif %}
+            {% if blog %}
+                <li>
+                    <a href="{% url blog:update blog.id %}">{% trans "Update blog" %}</a>
+                </li>
+            {% endif %}
+        {% endif %}
+    </ul>
+    {{ block.super }}
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'pybb/base.html' %}
+{% load pybb_tags i18n thumbnail %}
+
+{% block title %}{% trans "Profile editing" %}{% endblock title %}
+
+{% block content %}
+    <h1>{% trans "Profile editing" %}</h1>
+    <div class="avatar">
+        {% thumbnail profile.avatar "80x80" as avatar %}
+            <img src="{{ avatar.url }}" alt="{{profile.user}} avatar">
+        {% empty %}
+            <img src="{{PYBB_DEFAULT_AVATAR_URL}}" alt="Default avatar">
+        {% endthumbnail %}
+    </div>
+    <p>
+        <a href="{% url auth_password_change %}">{% trans "Change the password" %}</a>
+    </p>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset>
+            <legend>{% trans "Profile editing" %}</legend>
+            {{ form.as_p }}
+            <p>
+                {% if PYBB_BUTTONS.save %}
+                    <input type="image"
+                           src="{{STATIC_URL}}{{PYBB_BUTTONS.save}}"
+                           alt="{% trans "Save" %}"/>
+                {% else %}
+                    <input type="submit" value="{% trans 'Save' %}"/>
+                {% endif %}
+            </p>
+        </fieldset>
+    </form>
+    <h1>{% trans "Subscriptions on topics" %}</h1>
+    <ul>
+        {% for sub in user.subscriptions.all %}
+            <li>
+                {% pybb_link sub %}
+                &mdash;
+                <strong>
+                    <a href="{% url pybb:delete_subscription sub.id %}">
+                        {% trans "delete" %}
+                    </a>
+                </strong>
+            </li>
+        {% empty %}
+            <li>{% trans "No subscriptions." %}</li>
+        {% endfor %}
+    </ul>
+{% endblock content %}
+
+{% block breadcrumb %}
+    {{ block.super }} &#187; {% trans "Profile" %} {{ profile.user.username }}
+{% endblock %}
+

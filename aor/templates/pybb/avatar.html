@@ -1,0 +1,11 @@
+{% load thumbnail %}
+
+<div class="avatar">
+    <a href="{% url pybb:user post.user.username %}">
+        {% thumbnail post.user.get_profile.avatar "80x80" as avatar %}
+            <img src="{{avatar.url}}" alt="{{post.user}} avatar"/>
+        {% empty %}
+            <img src="{{PYBB_DEFAULT_AVATAR_URL}}" alt="default avatar"/>
+        {% endthumbnail %}
+    </a>
+</div>

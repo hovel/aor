@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+
+{% block content %}
+    <h1 class="title">{% trans "Send a request to delete" %} {{ object }}?</h1>
+    <form action="" method="post">
+        {% include "form.html" %}
+    </form>
+{% endblock %}
