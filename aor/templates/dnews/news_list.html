@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n thumbnail %}
+{% load i18n %}
 
 {% block title %}{% trans "News" %} - {{ block.super }}{% endblock %}
 
@@ -21,9 +21,8 @@
 {% block sidebar %}
     <h4>{% trans "Control" %}</h4>
     <ul>
-        <li>{% if perms.news.can_create %}
-            <a href="{% url news:create %}">{% trans "Create news" %}</a>
-        {% endif %}
+        <li>
+            <a href="{% url news:create %}">{% trans "Add news" %}</a>
         </li>
     </ul>
     {{ block.super }}

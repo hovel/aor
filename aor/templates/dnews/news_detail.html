@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n thumbnail comments %}
+{% load i18n comments %}
 
 {% block title %}{{ object }} - {{ block.super }}{% endblock %}
 
@@ -8,40 +8,35 @@
     {{ object.body_html|safe }}
     <div class="meta">
         {% trans "Published" %}:
-        {{ object.created|date:"SHORT_DATETIME_FORMAT" }}
+        {{ object.created|date:"DATETIME_FORMAT" }}<br/>
         {% trans "Author" %}:
-        <a href="{% url pybb:user object.author.username %}">{{ object.author }}</a>
+        {#        <a href="{% url pybb:user object.author.username %}">{{ object.author }}</a><br />#}
+        {{ object.author }}<br />
         {% if object.source %}
             {% trans "Source" %}: {{ object.source|urlize }}
         {% endif %}
     </div>
 
-    <div id="comments">
-        <h3>{% trans "Comments:" %}</h3>
-        {% render_comment_list for object %}
-        {% render_comment_form for object %}
-    </div>
+{#    <div id="comments">#}
+{#        <h3>{% trans "Comments:" %}</h3>#}
+{#        {% render_comment_list for object %}#}
+{#        {% render_comment_form for object %}#}
+{#    </div>#}
 {% endblock %}
 
 {% block sidebar %}
     <h2>{% trans "Control" %}</h2>
 
     <ul>
-        {% if perms.news.can_add %}
-            <li>
-                <a href="{% url news:create %}">{% trans "Create news" %}</a>
-            </li>
-        {% endif %}
-        {% if perms.news.can_edit %}
-            <li>
-                <a href="{% url news:update object.pk %}">{% trans "Update this news" %}</a>
-            </li>
-        {% endif %}
-        {% if perms.news.can_delete %}
-            <li>
-                <a href="{% url news:delete object.pk %}">{% trans "Delete this news" %}</a>
-            </li>
-        {% endif %}
+        <li>
+            <a href="{% url news:create %}">{% trans "Add news" %}</a>
+        </li>
+        <li>
+            <a href="{% url news:update object.pk %}">{% trans "Update this news" %}</a>
+        </li>
+        <li>
+            <a href="{% url news:delete object.pk %}">{% trans "Delete this news" %}</a>
+        </li>
     </ul>
 
     {{ block.super }}
