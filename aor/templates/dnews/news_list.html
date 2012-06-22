@@ -12,14 +12,14 @@
                     <a href="{% url news:detail object.pk %}">{{ object }}</a>
                     <span class="published">{{ object.created|date:"SHORT_DATE_FORMAT" }}</span>
                 </h2>
-                {{ object.body_html|safe|truncatewords_html:50 }}</li>
+                {{ object.body_html|safe }}</li>
         {% endfor %}
     </ul>
     {% include "paginator.html" %}
 {% endblock %}
 
 {% block sidebar %}
-    <h4>{% trans "Control" %}</h4>
+    <h1>{% trans "Control" %}</h1>
     <ul>
         <li>
             <a href="{% url news:create %}">{% trans "Add news" %}</a>

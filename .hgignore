@@ -1,10 +1,9 @@
 syntax: glob
 
-media/*
-*.pyc
 *~
+*.pyc
 database.db
 local.py
 local_path.py
 fabfile.py
-.idea/*
+media/*

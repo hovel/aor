@@ -91,6 +91,14 @@ pre {
     overflow: auto;
 }
 
+code {
+    background: #ffffdd;
+}
+
+pre code {
+    background: #DDFFDD;
+}
+
 blockquote{
     background: #fffcc4;
     border: 1px solid #cfbf7f;

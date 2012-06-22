@@ -1,5 +1,7 @@
 Django==1.4
+Fabric==1.4.2
 Markdown==2.1.1
+MySQL-python==1.2.3
 PIL==1.1.7
 South==0.7.5
 argparse==1.2.1
@@ -8,7 +10,10 @@ django-registration==0.8
 django-robots==0.8.1
 django-simple-captcha==0.3.4
 django-tagging==0.3.1
+-e hg+ssh://hg@bitbucket.org/amigo/dnews@b66d0e6e83cc118049e16f3ccade30e70b5b376b#egg=dnews-dev
 gunicorn==0.14.3
+html2text==3.200.3
+pycrypto==2.6
 sorl-thumbnail==11.12
+ssh==1.7.14
 wsgiref==0.1.2
--e hg+ssh://hg@bitbucket.org/amigo/dnews#egg=dnews
