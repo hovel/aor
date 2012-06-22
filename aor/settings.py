@@ -99,11 +99,11 @@ INSTALLED_APPS = (
     'sorl.thumbnail',
     'tagging',
     'dnews',
-#    'dblog',
-#    'pybb',
     'robots',
     'captcha',
     'gunicorn',
+#    'pybb',
+#    'dblog',
     )
 
 CAPTCHA_LENGTH = 7

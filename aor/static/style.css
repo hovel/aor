@@ -20,10 +20,11 @@ a {
     text-decoration: none;
 }
 
-a:hover {
+a:hover, a:visited {
     color: #888;
-    text-decoration: underline;
+    text-decoration: none;
 }
+
 
 h1, h2, h3, h4, h5, h6 {
     color: #444;
