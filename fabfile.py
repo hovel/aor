@@ -12,10 +12,13 @@ env.hosts = ['zeus@zeus.webfactional.com', 'amigo@amigo.webfactional.com']
 def clone_project():
     with cd(PROJECT_BASEDIR):
         run('hg clone %s' % PROJECT_SOURCE)
+    put_settings()
+
 def update_project():
     with cd(PROJECT_ROOT):
         run('hg pull')
         run('hg update -C default')
+    put_settings()
 
 def setup_env():
     with cd(PROJECT_BASEDIR):
@@ -43,11 +46,11 @@ def start():
 
 def restart():
     with cd(PROJECT_BASEDIR):
-        run('kill -HUP `cat aor.pid`')
+        run('kill -HUP `cat ~/aor.pid`')
 
 def stop():
     with cd(PROJECT_BASEDIR):
-        run('kill `cat aor.pid`')
+        run('kill `cat ~/aor.pid`')
 
 def put_settings():
     put('aor/settings_local.py', '~/webapps/aor/aor/local.py')
@@ -59,7 +62,6 @@ def install():
     clone_project()
     setup_env()
     update_env()
-    put_settings()
     syncdb_all()
     collect_static()
 
