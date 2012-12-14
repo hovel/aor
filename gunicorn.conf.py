@@ -1,4 +1,4 @@
-bind = "unix:./aor.sock"
+bind = "localhost:24524"
 pidfile = "./aor.pid"
 max_requests = 1024
 timeout = 15
