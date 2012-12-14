@@ -1,5 +1,9 @@
-bind = "localhost:24524"
-pidfile = "./aor.pid"
+bind = "127.0.0.1:24524"
+pidfile = "~/webapps/aor/aor.pid"
 max_requests = 1024
 timeout = 15
 daemon = True
+workers = 2
+daemon = True
+accesslog = '~/webapps/aor/access.log'
+errorlog = '~/webapps/aor/error.log'
