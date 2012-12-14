@@ -104,7 +104,6 @@ INSTALLED_APPS = (
     'south',
     'registration',
     'sorl.thumbnail',
-    'tagging',
     'robots',
     'captcha',
     'gunicorn',
