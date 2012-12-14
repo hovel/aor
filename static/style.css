@@ -38,3 +38,13 @@ h6 {
 .forum-last-post {
     width: 200px;
 }
+
+.post-form {
+    width: 50%;
+    margin: auto;
+}
+
+.post-form input[type="text"], .post-form input[type="password"],
+.post-form textarea {
+    width: 100%;
+}
