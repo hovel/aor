@@ -1,0 +1,24 @@
+{% extends "registration/base.html" %}
+{% load i18n %}
+
+{% block content %}
+    <form action="." method="post" class="form-horizontal">
+        {% include "registration/form.html" %}
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">
+                <i class="icon-ok icon-white"></i>
+                {% trans "Sign in" %}
+            </button>
+            <a href="{% url auth_password_reset %}" class="btn">
+                {% trans "Password reset" %}
+            </a>
+        </div>
+    </form>
+{% endblock %}
+
+
+{% block title %}
+    {% trans "Sign in" %}
+    |
+    {{ block.super }}
+{% endblock %}

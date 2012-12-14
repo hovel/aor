@@ -1,0 +1,6 @@
+Someone, maybe it's you, register account on mankala.ru.
+To continue registration please follow link below.
+
+http://mankala.ru{% url registration_activate activation_key %}
+
+This link will be expired at {{ expiration_days }} days.

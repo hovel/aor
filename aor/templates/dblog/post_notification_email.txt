@@ -1,6 +1,0 @@
-{% load i18n %}
-{% trans "Manage post" %}: http://{{site}}{% url post:manage instance.id %}
-{% trans "Author" %}: {{instance.author}}
-{% trans "Title" %}: {{instance.title}}
-{% trans "Body" %}:
-{{instance.body}}

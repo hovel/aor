@@ -1,0 +1,18 @@
+{% extends "main.html" %}
+{% load i18n %}
+
+{% block main %}
+    <div class="row-fluid">
+        <div class="span12">
+            {% block breadcrumb %}
+                <a href="{% url front-page %}">{% trans "Front page" %}</a>
+            {% endblock %}
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span12 forum">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+{% endblock %}

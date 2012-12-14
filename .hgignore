@@ -3,7 +3,6 @@ syntax: glob
 *~
 *.pyc
 database.db
+settings_local.py
 local.py
-local_path.py
-fabfile.py
 media/*

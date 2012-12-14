@@ -1,6 +1,0 @@
-{% load i18n %}
-{% trans "Approve comment" %}: http://{{site}}{% url comments-approve comment.id %}
-{% trans "Delete comment" %}: http://{{site}}{% url comments-delete comment.id %}
-{% trans "Author" %}: {{comment.user}}
-{% trans "Comment:" %}
-{{comment.comment}}

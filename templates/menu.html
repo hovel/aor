@@ -1,0 +1,42 @@
+{% load i18n %}
+<ul class="nav">
+    <li>
+        <a class="brand" href="/" style="vertical-align: bottom">
+            <img src="{{ STATIC_URL }}logo.png" alt="" style="opacity: .7">
+            {% trans "Archlinux Russian" %}
+        </a>
+    </li>
+    <li class="{{ menu_forum }}">
+        <a href="{% url pybb:index %}">
+            {% trans "Forum" %}
+        </a>
+    </li>
+</ul>
+
+<ul class="nav pull-right">
+    {% if user.is_staff %}
+        <li class="{{ menu_admin }}">
+            <a href="{% url admin:index %}">
+                {% trans "Admin" %}
+            </a>
+        </li>
+    {% endif %}
+    {% if user.is_authenticated %}
+        <li class="{{ menu_profile }}">
+            <a href="{{ user.get_profile.get_absolute_url }}">
+                {% trans "Profile" %}
+            </a>
+        </li>
+    {% else %}
+        <li class="{{ menu_login }}">
+            <a href="{% url login %}">
+                {% trans "Login" %}
+            </a>
+        </li>
+        <li class="{{ menu_register }}">
+            <a href="{% url registration %}">
+                {% trans "Register" %}
+            </a>
+        </li>
+    {% endif %}
+</ul>

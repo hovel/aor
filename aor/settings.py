@@ -1,8 +1,6 @@
-#from postmarkup import render_bbcode
-import os
+from os.path import abspath, join, dirname
 
-BASE_DIR = lambda *x: os.path.abspath(os.path.join(
-    os.path.dirname(__file__), *x))
+PROJECT_ROOT = abspath(join(dirname(__file__), '..'))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -16,9 +14,19 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR('database.db'),
-        }
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'HOST': 'localhost',
+        'NAME': 'aor',
+        'USER': 'web',
+        'PASSWORD': 'web',
+        },
+    'phpbb3': {
+        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'arch_forum', # Or path to database file if using sqlite3.
+        'USER': 'root', # Not used with sqlite3.
+        'PASSWORD': '', # Not used with sqlite3.
+    }
+
 }
 
 SITE_ID = 1
@@ -29,17 +37,18 @@ LANGUAGE_CODE = 'ru-RU'
 LANGUAGES = (
     ('ru', 'Russian'),
     ('ua', 'Ukraine'),)
+
 USE_I18N = True
 USE_L10N = True
 
-MEDIA_ROOT = BASE_DIR('media')
+MEDIA_ROOT = join(PROJECT_ROOT, 'media')
 MEDIA_URL = '/media/'
 
 ADMIN_MEDIA_PREFIX = '/media/static/admin/'
 
-STATIC_ROOT = BASE_DIR('media', 'static')
+STATIC_ROOT = join(MEDIA_ROOT, 'static')
 STATIC_URL = '/media/static/'
-STATICFILES_DIRS = (BASE_DIR('static'),)
+STATICFILES_DIRS = (join(PROJECT_ROOT, 'static'),)
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -48,7 +57,7 @@ STATICFILES_FINDERS = (
     )
 
 # Make this unique, and don't share it with anybody.
-#SECRET_KEY = 'Insert your SECRET_KEY from your local.py'
+SECRET_KEY = 'Insert your SECRET_KEY from your local.py'
 
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
@@ -68,9 +77,7 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'aor.urls'
 
-TEMPLATE_DIRS = (
-    BASE_DIR('templates'),
-    )
+TEMPLATE_DIRS = (join(PROJECT_ROOT,'templates'),)
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
@@ -79,7 +86,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.media',
     'django.core.context_processors.static',
     'django.contrib.messages.context_processors.messages',
-#    'pybb.context_processors.processor',
+    'pybb.context_processors.processor',
     )
 
 INSTALLED_APPS = (
@@ -98,23 +105,30 @@ INSTALLED_APPS = (
     'registration',
     'sorl.thumbnail',
     'tagging',
-    'dnews',
     'robots',
     'captcha',
     'gunicorn',
-#    'pybb',
-#    'dblog',
+    'pybb',
+    'django-field-attributes',
     )
 
 CAPTCHA_LENGTH = 7
 CAPTCHA_LETTER_ROTATION = (-60, 60)
 CAPTCHA_TIMEOUT = 1
-EMAIL_PORT = 2525
 ROBOTS_CACHE_TIMEOUT = 60 * 60 * 24
 AUTH_PROFILE_MODULE = 'pybb.Profile'
 FILE_UPLOAD_PERMISSIONS = 0644
 LOGIN_REDIRECT_URL = '/'
 PYBB_TEMPLATE = 'forum.html'
+# disable pybb smiles
+PYBB_SMILES = dict()
+# disable auto subscribe
+PYBB_DEFAULT_AUTOSUBSCRIBE = False
+
+PHPBB_TABLE_PREFIX = 'phpbb_'
+PHPBB_CAPTCHA_QUESTIONS_MODEL_EXIST = True
+
+
 #PYBB_SMILES_PREFIX = STATIC_URL + 'pybb/emoticons/'
 #PYBB_MARKUP_ENGINES = {
 #    'bbcode': lambda str: render_bbcode(str,
@@ -149,3 +163,9 @@ try:
 except ImportError:
     pass
 
+if DEBUG:
+    MIDDLEWARE_CLASSES += ('debug_toolbar.middleware.DebugToolbarMiddleware',)
+    INSTALLED_APPS += ('debug_toolbar', 'django_phpBB3', 'migration',)
+    INTERNAL_IPS = ('127.0.0.1',)
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    DATABASE_ROUTERS = ['aor.routers.PHPBB3',]

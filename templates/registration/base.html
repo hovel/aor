@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block main %}
+    <div class="row-fluid">
+        <div class="span8 offset2">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block title %}
+    {{ block.super }}
+{% endblock %}
