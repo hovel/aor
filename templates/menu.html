@@ -27,6 +27,11 @@
                 {% trans "Profile" %}
             </a>
         </li>
+        <li class="{{ menu_logout }}">
+            <a href="{% url auth_logout %}">
+                {% trans "Logout" %}
+            </a>
+        </li>
     {% else %}
         <li class="{{ menu_login }}">
             <a href="{% url login %}">
