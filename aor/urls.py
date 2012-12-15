@@ -3,8 +3,9 @@ from django.conf.urls import patterns, include, url
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib import admin
 from django.views.generic.base import RedirectView
+from pybb.views import ProfileEditView
 from registration.views import register
-from aor.forms import  AuthenticationFormCaptcha, RegistrationFormCaptcha
+from aor.forms import  AuthenticationFormCaptcha, RegistrationFormCaptcha, AORProfileForm
 from django.contrib.auth.views import login
 
 admin.autodiscover()
@@ -18,6 +19,7 @@ urlpatterns = patterns('',
 #            backend='registration.backends.default.DefaultBackend'),
 #        name="registration_register"),
     url(r'^accounts/', include('registration.backends.default.urls')),
+    url(r'^forum/profile/edit/$', ProfileEditView.as_view(form_class=AORProfileForm), name='pybb:edit_profile'),
     url(r'^forum/', include('pybb.urls', namespace='pybb')),
     url(r'^comments/', include('django.contrib.comments.urls')),
 
@@ -31,3 +33,10 @@ urlpatterns = patterns('',
 )
 
 urlpatterns += staticfiles_urlpatterns()
+
+if settings.DEBUG:
+    urlpatterns += patterns('',
+        url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
+            'document_root': settings.MEDIA_ROOT,
+            }),
+    )
