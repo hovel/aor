@@ -123,9 +123,11 @@ PYBB_TEMPLATE = 'forum.html'
 PYBB_SMILES = dict()
 # disable auto subscribe
 PYBB_DEFAULT_AUTOSUBSCRIBE = False
+PYBB_DEFAULT_TITLE = 'Forum'
 
 PHPBB_TABLE_PREFIX = 'phpbb_'
 PHPBB_CAPTCHA_QUESTIONS_MODEL_EXIST = True
+
 
 
 #PYBB_SMILES_PREFIX = STATIC_URL + 'pybb/emoticons/'
