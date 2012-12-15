@@ -1,0 +1,117 @@
+{% load i18n pybb_tags thumbnail %}
+
+<a name="post-{{ post.id }}"></a> {# may be remove this string? #}
+<table class="table table-bordered post
+    {% if post.on_moderation %}on-moderation{% endif %}"
+       id="post-{{ post.id }}">
+    <thead>
+    <tr>
+        <td class="post-author">
+            <a href="{{ post.user.get_profile.get_absolute_url }}">
+                {{ post.user.username }}
+            </a>
+        </td>
+        <td class="post-date">
+            <a class="permalink" href="{{ post.get_absolute_url }}">#</a>
+            {{ post.created|date:"DATETIME_FORMAT" }}
+        </td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td class="post-info">
+            {% include "pybb/avatar.html" %}
+            {% if post.user.get_profile.rank %}
+                {% with post.user.get_profile as profile %}
+                    <div class='rank'>
+                        {% trans "Rank" %}: {{ profile.rank }}
+                        {% if user.is_authenticated and user != post.user %}
+                            <a href='#' class='vote'
+                               rel='{{ profile.get_vote_up_url }}'>+</a>
+                            <a href='#' class='vote'
+                               rel='{{ profile.get_vote_down_url }}'>-</a>
+                        {% endif %}
+                    </div>
+                {% endwith %}
+            {% endif %}
+        </td>
+        <td class="post-content">
+            {{ post.body_html|safe }}
+            {% if not user.is_authenticated or user.get_profile.show_signatures %}
+                {% if post.user.get_profile.signature %}
+                    <div class="post-signature">
+                        {{ post.user.get_profile.signature_html|safe }}
+                    </div>
+                {% endif %}
+            {% endif %}
+            {% if post.updated %}
+                <div class="updated-message">{% trans "Edited" %} {% pybb_time post.updated %}</div>
+            {% endif %}
+
+            {% comment %}
+                    {% if post.attachment_cache %}
+                    {% for attach in post.attachment_cache %}
+                    <br/>
+                    {% trans "Attachment" %}: <a href="{{ attach.get_absolute_url }}">{{ attach.name }}</a> ({{ attach.size_display }})
+                    {% endfor %}
+                    {% endif %}
+            {% endcomment %}
+            <div class="post-related">
+                <div class='attachments'>
+                    {% for attachment in post.attachments.all %}
+                        <a href="{{ attachment.file.url }}"><img
+                                src="{{ STATIC_URL }}pybb/img/attachment.png"> {{ attachment.size_display }}
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <td class="post-extra-info">
+            {% if user.is_superuser %}
+                {{ post.user_ip }}
+            {% endif %}
+        </td>
+        <td class="post-control">
+            <a href="{% url pybb:add_post topic.id %}?quote_id={{ post.id }}"
+               rel="tooltip"
+               title="{% trans "quote" %}">
+                <i class="icon-share"></i></a>
+            {% if user.is_moderator or post|pybb_posted_by:user %}
+                <a href="{% url pybb:edit_post pk=post.id %}"
+                   rel="tooltip"
+                   title="{% trans "Edit" %}">
+                    <i class="icon-edit"></i></a>
+            {% endif %}
+            {% if user.is_moderator %}
+                <a onclick="pybb_delete_post('{% url pybb:delete_post post.id %}',
+                        'post-{{ post.id }}', '{% trans 'Delete post?' %}'); return false;"
+                   href="{% url pybb:delete_post post.id %}"
+                   rel="tooltip"
+                   title="{% trans "Delete" %}">
+                    <i class="icon-remove"></i></a>
+                {% if post.on_moderation %}
+                    <a href="{% url pybb:moderate_post pk=post.id %}"
+                       rel="tooltip"
+                       title="{% trans "Approve post" %}">
+                        <i class="icon-check"></i></a>
+                {% endif %}
+            {% endif %}
+
+            {% if perms.pybb.change_post and user.is_staff %}
+                <a href="{% url admin:pybb_post_change post.id %}"
+                   rel="tooltip"
+                   title="{% trans 'Admin' %}">
+                    <i class="icon-cog"></i></a>
+            {% endif %}
+        </td>
+    </tr>
+    </tfoot>
+</table>
+
+<script type="text/javascript">
+    $('a').tooltip();
+</script>
