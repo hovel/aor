@@ -109,6 +109,7 @@ INSTALLED_APPS = (
     'gunicorn',
     'pybb',
     'django-field-attributes',
+    'news',
     )
 
 CAPTCHA_LENGTH = 7

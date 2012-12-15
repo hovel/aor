@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+
+{% block content %}{% endblock %}
+
+
+{% block title %}
+    {% trans "News" %}
+{% endblock %}
+
+
+{% block menu %}
+    {% include "menu.html" with menu_news="active" %}
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "news/base.html" %}
+{% load i18n %}
+
+{% block main %}
+    <div class="row-fluid">
+        <div class="span12">
+            <form action="." method="post" class="form-horizontal">
+                <legend>
+                    {% if object %}
+                        {% trans "Update news" %}
+                    {% else %}
+                        {% trans "Create news" %}
+                    {% endif %}
+                </legend>
+                {% include "form.html" %}
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="icon-ok icon-white"></i>
+                        {% trans "Save" %}
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+{% block title %}
+    {% if object %}
+        {% trans "Update news" %}
+    {% else %}
+        {% trans "Create news" %}
+    {% endif %}
+{% endblock %}

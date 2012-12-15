@@ -21,6 +21,7 @@ urlpatterns = patterns('',
     url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^forum/profile/edit/$', ProfileEditView.as_view(form_class=AORProfileForm), name='pybb:edit_profile'),
     url(r'^forum/', include('pybb.urls', namespace='pybb')),
+    url(r'^news/', include('news.urls', namespace='news')),
     url(r'^comments/', include('django.contrib.comments.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
