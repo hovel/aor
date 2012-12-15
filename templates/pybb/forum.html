@@ -16,7 +16,7 @@
                 {{ forum.headline|safe }}
             </div>
         {% endif %}
-        <table class="table topic-list">
+        <table class="table table-bordered table-striped topic-list">
             <thead>
                 <tr class="topic-row head-row">
                     <th class="topic-name">
@@ -35,7 +35,7 @@
             </thead>
             <tbody>
             {% for topic in topic_list|pybb_topic_unread:user  %}
-                <tr class="topic-row {% if topic.sticky %} sticky {% endif %} {% cycle "odd" "even" %} {% if topic.on_moderation %} on-moderation {% endif %}">
+                <tr class="topic-row {% if topic.sticky %} sticky {% endif %}{% if topic.on_moderation %} on-moderation {% endif %}">
                     <td class="topic-name{% if topic.unread %} topic-unread{% endif %}">
                         <div class="state-indicator"></div>
                         <a href="{{ topic.get_absolute_url }}">{{ topic.name|truncatewords:10 }}</a>
