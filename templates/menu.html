@@ -2,8 +2,8 @@
 <ul class="nav">
     <li>
         <a class="brand" href="/" style="vertical-align: bottom">
-            <img src="{{ STATIC_URL }}logo.png" alt="" style="opacity: .7; vertical-align: top">
-{#            {% trans "Russian Community" %}#}
+            <img src="{{ STATIC_URL }}logo.png" alt=""
+                 style="opacity: .7; vertical-align: top">
         </a>
     </li>
     <li class="{{ menu_news }}">
@@ -19,34 +19,54 @@
 </ul>
 
 <ul class="nav pull-right">
-    {% if user.is_staff %}
-        <li class="{{ menu_admin }}">
-            <a href="{% url admin:index %}">
-                {% trans "Admin" %}
-            </a>
-        </li>
-    {% endif %}
-    {% if user.is_authenticated %}
-        <li class="{{ menu_profile }}">
-            <a href="{{ user.get_profile.get_absolute_url }}">
+    <li class="dropdown">
+        <a class="dropdown-toggle" role="button" data-toggle="dropdown"
+           href="#">
+            {% if user.is_authenticated %}
+                {{ user }}
+            {% else %}
                 {% trans "Profile" %}
-            </a>
-        </li>
-        <li class="{{ menu_logout }}">
-            <a href="{% url auth_logout %}">
-                {% trans "Logout" %}
-            </a>
-        </li>
-    {% else %}
-        <li class="{{ menu_login }}">
-            <a href="{% url auth_login %}">
-                {% trans "Login" %}
-            </a>
-        </li>
-        <li class="{{ menu_register }}">
-            <a href="{% url registration_register %}">
-                {% trans "Register" %}
-            </a>
-        </li>
-    {% endif %}
+            {% endif %}
+            <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+            {% if user.is_authenticated %}
+                <li>
+                    <a href="{{ user.get_profile.get_absolute_url }}">
+                        {% trans "Profile" %}
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url auth_password_change %}">
+                        {% trans "Password change" %}
+                    </a>
+                </li>
+                {% if user.is_staff %}
+                    <li class="divider"></li>
+                    <li class="{{ menu_admin }}">
+                        <a href="{% url admin:index %}">
+                            {% trans "Admin" %}
+                        </a>
+                    </li>
+                {% endif %}
+                <li class="divider"></li>
+                <li>
+                    <a href="{% url auth_logout %}">
+                        {% trans "Logout" %}
+                    </a>
+                </li>
+            {% else %}
+                <li>
+                    <a href="{% url auth_login %}">
+                        {% trans "Login" %}
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url registration_register %}">
+                        {% trans "Registration" %}
+                    </a>
+                </li>
+            {% endif %}
+        </ul>
+    </li>
 </ul>
