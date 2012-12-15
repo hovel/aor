@@ -25,6 +25,8 @@ class Command(BaseCommand):
             if created:
                 new_user.email = user.email
             new_user.set_unusable_password()
+            new_user.date_joined = user.registration_datetime()
+            new_user.last_login = user.lastvisit_datetime()
             new_user.save()
 #                Profile.objects.create(user=new_user)
 
