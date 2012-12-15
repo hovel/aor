@@ -222,7 +222,7 @@ msgstr "и"
 
 #: templates/comments/preview.html:19
 msgid "Post your comment"
-msgstr "Ращзместить комментарий"
+msgstr "Разместить комментарий"
 
 #: templates/comments/preview.html:20
 msgid "or make changes"
