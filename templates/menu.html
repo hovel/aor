@@ -34,12 +34,12 @@
         </li>
     {% else %}
         <li class="{{ menu_login }}">
-            <a href="{% url login %}">
+            <a href="{% url auth_login %}">
                 {% trans "Login" %}
             </a>
         </li>
         <li class="{{ menu_register }}">
-            <a href="{% url registration %}">
+            <a href="{% url registration_register %}">
                 {% trans "Register" %}
             </a>
         </li>
