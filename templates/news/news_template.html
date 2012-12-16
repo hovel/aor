@@ -8,11 +8,13 @@
     {{ object.text_html|safe }}
     <div class="news-info">
         {% trans "Source" %}:
-            {{ object.source|urlize }}
+        {{ object.source|urlize }}
         <br>
         {% trans "Author" %}:
+        {{ object.author }}
         <br>
         {% trans "Date" %}:
+        {{ object.date }}
         <br>
     </div>
 </div>
