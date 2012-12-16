@@ -2,9 +2,12 @@
 <html lang="{{ LANGUAGE_CODE|default:"ru" }}">
 <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
         {% block title %}
-            {% trans "Arch Linux Russian Community" %}{% endblock %}</title>
+            {% trans "Arch Linux Russian Community" %}
+        {% endblock %}
+    </title>
     <link rel="shortcut icon" href="{{ STATIC_URL }}favicon.ico"
           type="image/x-icon" />
     <link rel="stylesheet" type="text/css"
