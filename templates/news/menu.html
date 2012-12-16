@@ -1,0 +1,25 @@
+{% load i18n %}
+<ul class="nav nav-tabs nav-stacked">
+    <li class="{{ menu_list }}">
+        <a href="{% url news:list %}">
+            {% trans "News list" %}
+        </a>
+    </li>
+    <li class="{{ menu_create }}">
+        <a href="{% url news:create %}">
+            {% trans "Create news" %}
+        </a>
+    </li>
+    {% if object %}
+        <li class="{{ menu_update }}">
+            <a href="{% url news:update object.pk %}">
+                {% trans "Update this news" %}
+            </a>
+        </li>
+        <li class="{{ menu_delete }}">
+            <a href="{% url news:delete object.pk %}">
+                {% trans "Remove this news" %}
+            </a>
+        </li>
+    {% endif %}
+</ul>

@@ -2,28 +2,14 @@
 {% load i18n %}
 
 
-{% block main %}
-    <div class="row-fluid">
-        <div class="span12">
-            <h1>{% trans "News" %}</h1>
-            {% if perms.news.can_create %}
-                <a href="{% url news:create %}"
-                   class="btn">
-                    <i class="icon-pencil"></i>
-                    {% trans "Create news" %}
-                </a>
-            {% endif %}
-            <ul>
-                {% for object in object_list %}
-                    <li>
-                        <a href="{% url news:detail object.pk %}">
-                            {{ object }}
-                        </a>
-                    </li>
-                {% empty %}
-                    <li>{% trans "No news found." %}</li>
-                {% endfor %}
-            </ul>
-        </div>
+{% block content %}
+    <div class="news-list">
+        {% for object in object_list %}
+            {% include "news/news_template.html" %}
+        {% endfor %}
     </div>
+{% endblock %}
+
+{% block sidebar %}
+    {% include "news/menu.html" with menu_list="active" %}
 {% endblock %}

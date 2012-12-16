@@ -1,0 +1,18 @@
+{% load i18n %}
+<div class="news">
+    <h1 class="header">
+        <a href="{% url news:detail object.pk %}">
+            {{ object }}
+        </a>
+    </h1>
+    {{ object.text_html|safe }}
+    <div class="news-info">
+        {% trans "Source" %}:
+            {{ object.source|urlize }}
+        <br>
+        {% trans "Author" %}:
+        <br>
+        {% trans "Date" %}:
+        <br>
+    </div>
+</div>

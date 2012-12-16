@@ -2,11 +2,11 @@
 {% load i18n %}
 
 
-{% block main %}
-    <div class="row-fluid">
-        <div class="span12">
-            <h1>{{ object }}</h1>
-            {{ object.text_html|safe }}
-        </div>
-    </div>
+{% block content %}
+    {% include "news/news_template.html" %}
+{% endblock %}
+
+
+{% block sidebar %}
+    {% include "news/menu.html" %}
 {% endblock %}

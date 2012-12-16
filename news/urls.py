@@ -1,5 +1,7 @@
 from django.conf.urls import patterns, url
-from news.views import NewsList, NewsCreate, NewsDetail, NewsUpdate, NewsDelete
+from news.views import (NewsList, NewsCreate, NewsDetail, NewsUpdate,
+                        NewsDelete, NewsFeed)
+
 
 urlpatterns = patterns('',
     url(r'^$', NewsList.as_view(), name='list'),
@@ -7,4 +9,8 @@ urlpatterns = patterns('',
     url(r'^(?P<pk>\d+)/$', NewsDetail.as_view(), name='detail'),
     url(r'^(?P<pk>\d+)/update/$', NewsUpdate.as_view(), name='update'),
     url(r'^(?P<pk>\d+)/delete/$', NewsDelete.as_view(), name='delete'),
+)
+
+urlpatterns += patterns('',
+    url(r'^feed/$', NewsFeed(), name='feed'),
 )

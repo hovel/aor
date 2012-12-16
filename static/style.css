@@ -143,6 +143,29 @@ blockquote {
     opacity: 1;
 }
 
+.news {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin: 0 0 20px 0;
+    padding: 10px;
+}
+
+h1 .btn {
+    margin: 0 10px;
+    visibility: hidden;
+}
+
+h1:hover .btn {
+    visibility: visible;
+}
+
+.news-info {
+    color: #999;
+    background: #fafafa;
+    margin: 20px -10px -10px -10px;
+    padding: 10px;
+}
+
 .pagination {
     text-align: center;
 }
