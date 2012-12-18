@@ -21,10 +21,16 @@ DATABASES = {
         'PASSWORD': 'web',
         },
     'phpbb3': {
-        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'arch_forum', # Or path to database file if using sqlite3.
-        'USER': 'root', # Not used with sqlite3.
-        'PASSWORD': '', # Not used with sqlite3.
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'arch_forum',
+        'USER': 'root',
+        'PASSWORD': '',
+    },
+    'drupal': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'arch_drupal',
+        'USER': 'root',
+        'PASSWORD': '',
     }
 
 }
@@ -109,7 +115,8 @@ INSTALLED_APPS = (
     'gunicorn',
     'pybb',
     'django-field-attributes',
-    'news',
+    'pybb4news',
+    'pybb4blogs',
     )
 
 CAPTCHA_LENGTH = 7
@@ -126,9 +133,11 @@ PYBB_SMILES = dict()
 PYBB_DEFAULT_AUTOSUBSCRIBE = False
 PYBB_DEFAULT_TITLE = 'Forum'
 
+PYBB_NEWS_FORUM_ID = 1
+PYBB_BLOGS_FORUM_ID = 21
+
 PHPBB_TABLE_PREFIX = 'phpbb_'
 PHPBB_CAPTCHA_QUESTIONS_MODEL_EXIST = True
-
 
 
 #PYBB_SMILES_PREFIX = STATIC_URL + 'pybb/emoticons/'
@@ -167,8 +176,9 @@ except ImportError:
 
 if DEBUG:
     MIDDLEWARE_CLASSES += ('debug_toolbar.middleware.DebugToolbarMiddleware',)
-    INSTALLED_APPS += ('debug_toolbar', 'django_phpBB3', 'migration',)
+    INSTALLED_APPS += ('debug_toolbar', 'django_phpBB3', 'migration',
+                       'drupango')
     INTERNAL_IPS = ('127.0.0.1',)
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-    DATABASE_ROUTERS = ['aor.routers.PHPBB3',]
+    DATABASE_ROUTERS = ['aor.routers.PHPBB3', 'aor.routers.Drupal']
     DEBUG_TOOLBAR_CONFIG = {'INTERCEPT_REDIRECTS': False}

@@ -18,3 +18,24 @@ class PHPBB3(object):
             return False
         return None
 
+
+class Drupal(object):
+    """
+    Drupal database router
+    """
+
+    def db_for_read(self, model, **hints):
+        if model._meta.app_label == 'drupango':
+            return 'drupal'
+        return None
+
+    def db_for_write(self, model, **hints):
+        if model._meta.app_label == 'drupango':
+            return 'drupal'
+        return None
+
+    def allow_syncdb(self, db, model):
+        if db == 'default' and model._meta.app_label == 'drupango':
+            return False
+        return None
+

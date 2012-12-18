@@ -1,0 +1,32 @@
+{% extends 'pybb4news/base.html' %}
+{% load pybb_tags i18n %}
+
+{% block title %}{% trans "News" %}{% endblock title %}
+
+{% block breadcrumb %}
+    {% with forum as object %}
+        {% include "pybb/breadcrumb.html" %}
+    {% endwith %}
+{% endblock %}
+
+{% block content %}
+    {% for topic in topic_list|pybb_topic_unread:user %}
+        <div class="block">
+            <div class="header">
+                <a href="{{ topic.get_absolute_url }}">{{ topic.name }}</a>
+            </div>
+            {{ topic.head.body_html|safe }}
+        </div>
+    {% endfor %}
+
+    {% include "pybb/pagination.html" %}
+
+    {% if PYBB_ENABLE_ANONYMOUS_POST or not user.get_profile.is_banned %}
+        <div class="controls">
+            <a href="{% url pybb:add_topic forum.id %}"
+               class="btn btn-primary">
+                {% trans "Add news" %}
+            </a>
+        </div>
+    {% endif %}
+{% endblock content %}

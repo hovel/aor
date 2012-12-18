@@ -16,6 +16,21 @@
             {% trans "Forum" %}
         </a>
     </li>
+    <li class="{{ menu_blogs }}">
+        <a href="{% url blogs:list %}">
+            {% trans "Blogs" %}
+        </a>
+    </li>
+    <li>
+        <a href="https://wiki.archlinux.org/">
+            {% trans "Wiki" %}
+        </a>
+    </li>
+    <li>
+        <a href="https://archlinux.org/download/">
+            {% trans "Download" %}
+        </a>
+    </li>
 </ul>
 
 <ul class="nav pull-right">
