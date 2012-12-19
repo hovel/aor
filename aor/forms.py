@@ -17,4 +17,5 @@ class AuthenticationFormCaptcha(AuthenticationForm):
 
 
 class AORProfileForm(EditProfileForm):
-    signature = forms.CharField(widget=forms.Textarea, label=_('Signature'))
+    signature = forms.CharField(widget=forms.Textarea, label=_('Signature'),
+        required=False)
