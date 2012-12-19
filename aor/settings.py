@@ -83,7 +83,7 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'aor.urls'
 
-TEMPLATE_DIRS = (join(PROJECT_ROOT,'templates'),)
+TEMPLATE_DIRS = (join(PROJECT_ROOT, 'aor', 'templates'),)
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',

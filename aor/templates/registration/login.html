@@ -2,24 +2,22 @@
 {% load i18n %}
 
 {% block content %}
-    <form action="." method="post" class="form-horizontal">
+    <form action="" method="post" class="form-horizontal">
         {% include "registration/form.html" %}
         <div class="form-actions">
             <button type="submit" class="btn btn-primary">
-                {% trans "Password reset" %}
+                {% trans "Login" %}
             </button>
+            <a href="{% url auth_password_reset %}" class="btn">
+                {% trans "Password reset" %}
+            </a>
         </div>
     </form>
 {% endblock %}
 
-{% block sidebar %}
-    <div class="well">
-        <p>{% trans "Type your e-mail address and follow instructions." %}</p>
-    </div>
-{% endblock %}
 
 {% block title %}
-    {% trans "Reset password" %}
+    {% trans "Sign in" %}
     |
     {{ block.super }}
 {% endblock %}
