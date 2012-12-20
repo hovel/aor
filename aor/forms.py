@@ -4,6 +4,7 @@ from django.utils.translation import ugettext as _
 from pybb.forms import EditProfileForm
 from registration.forms import RegistrationFormUniqueEmail
 from captcha.fields import CaptchaField
+from profiles.models import Profile
 
 
 class RegistrationFormCaptcha(RegistrationFormUniqueEmail):
@@ -17,5 +18,10 @@ class AuthenticationFormCaptcha(AuthenticationForm):
 
 
 class AORProfileForm(EditProfileForm):
+    class Meta:
+        model = Profile
+        fields = ('signature', 'show_signatures', 'theme', 'time_zone',
+                  'language', 'avatar')
+
     signature = forms.CharField(widget=forms.Textarea, label=_('Signature'),
         required=False)

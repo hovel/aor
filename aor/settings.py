@@ -1,3 +1,4 @@
+from django.utils.translation import ugettext_lazy as _
 from os.path import abspath, join, dirname
 
 PROJECT_ROOT = abspath(join(dirname(__file__), '..'))
@@ -73,6 +74,7 @@ TEMPLATE_LOADERS = (
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
+    'django.middleware.gzip.GZipMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -93,6 +95,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.static',
     'django.contrib.messages.context_processors.messages',
     'pybb.context_processors.processor',
+    'profiles.context_processor.user_theme',
     )
 
 INSTALLED_APPS = (
@@ -117,13 +120,14 @@ INSTALLED_APPS = (
     'django-field-attributes',
     'pybb4news',
     'pybb4blogs',
+    'profiles',
     )
 
 CAPTCHA_LENGTH = 7
 CAPTCHA_LETTER_ROTATION = (-60, 60)
 CAPTCHA_TIMEOUT = 1
 ROBOTS_CACHE_TIMEOUT = 60 * 60 * 24
-AUTH_PROFILE_MODULE = 'pybb.Profile'
+#AUTH_PROFILE_MODULE = 'pybb.Profile'
 FILE_UPLOAD_PERMISSIONS = 0644
 LOGIN_REDIRECT_URL = '/'
 PYBB_TEMPLATE = 'forum.html'
@@ -135,6 +139,16 @@ PYBB_DEFAULT_TITLE = 'Forum'
 
 PYBB_NEWS_FORUM_ID = 1
 PYBB_BLOGS_FORUM_ID = 21
+
+PYBB_NEWS_PAGE_SIZE = 10
+PYBB_BLOGS_PAGE_SIZE = 10
+
+AUTH_PROFILE_MODULE = 'profiles.Profile'
+
+AOR_THEMES = (
+    ('default', _('default theme')),
+    ('dark', _('dark theme')),
+)
 
 PHPBB_TABLE_PREFIX = 'phpbb_'
 PHPBB_CAPTCHA_QUESTIONS_MODEL_EXIST = True

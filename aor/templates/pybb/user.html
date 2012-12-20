@@ -35,7 +35,7 @@
             <a href='{% url pybb:block_user target_user.username %}'>{% trans 'Block' %}</a>
         {% endif %}
         {% if perms.pybb.can_edit %}
-            <a href='{% url admin:pybb_profile_change target_user.pybb_profile.id %}'>{% trans 'Admin' %}</a>
+            <a href='{% url admin:profiles_profile_change target_user.get_profile.id %}'>{% trans 'Admin' %}</a>
         {% endif %}
     </div>
 

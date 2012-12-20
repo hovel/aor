@@ -1,8 +1,5 @@
 import HTMLParser
 from datetime import datetime
-from django.contrib.comments import Comment
-from django.contrib.contenttypes.models import ContentType
-from django.contrib.sites.models import Site
 from django.db.models import Q
 import re
 from django.contrib.auth.models import User
@@ -20,11 +17,11 @@ class Command(BaseCommand):
     help = 'Migration phpbb3 to pybbm'
 
     def handle(self, *args, **options):
-    #        self.migrate_users()
-    #        self.migrate_categories()
-    #        self.migrate_forums()
-    #        self.mirgate_topics()
-#        self.migrate_news()
+        self.migrate_users()
+        self.migrate_categories()
+        self.migrate_forums()
+        self.mirgate_topics()
+        self.migrate_news()
         self.migrate_blogs()
 
     def migrate_users(self):
