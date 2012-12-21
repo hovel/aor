@@ -150,6 +150,8 @@ AOR_THEMES = (
     ('dark', _('dark theme')),
 )
 
+ACCOUNT_ACTIVATION_DAYS = 3
+
 PHPBB_TABLE_PREFIX = 'phpbb_'
 PHPBB_CAPTCHA_QUESTIONS_MODEL_EXIST = True
 
