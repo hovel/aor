@@ -25,3 +25,6 @@ class AORProfileForm(EditProfileForm):
 
     signature = forms.CharField(widget=forms.Textarea, label=_('Signature'),
         required=False)
+
+class SearchForm(forms.Form):
+    q = forms.CharField()

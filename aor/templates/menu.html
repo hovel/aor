@@ -33,6 +33,12 @@
     </li>
 </ul>
 
+<form action="{% url search %}" method="get" class="navbar-form pull-left">
+{#    {% csrf_token %}#}
+    <input name="q" type="text" placeholder="{% trans "Search" %}"
+           class="search-query" value="{{ query }}">
+</form>
+
 <ul class="nav pull-right">
     <li class="dropdown">
         <a class="dropdown-toggle" role="button" data-toggle="dropdown"
