@@ -53,10 +53,10 @@ def stop():
         run('kill `cat ~/aor.pid`')
 
 def put_settings():
-    put('aor/settings_local.py', '~/webapps/aor/aor/local.py')
+    put('aor/settings_local.py', '~/webapps/aor/aor/aor/local.py')
 
 def get_settings():
-    get('~/webapps/aor/aor/local.py', 'aor/settings_local.py')
+    get('~/webapps/aor/aor/aor/local.py', 'aor/settings_local.py')
 
 def install():
     clone_project()
