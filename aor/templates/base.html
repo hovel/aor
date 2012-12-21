@@ -19,6 +19,7 @@
     <link rel="stylesheet/less" type="text/css"
           href="{{ STATIC_URL }}{{ AOR_THEME }}.less">
     {% block css %}{% endblock %}
+    {% block extra_style %}{% endblock %}
     <script type="text/javascript"
             src="{{ STATIC_URL }}less-1.3.1.min.js"></script>
     <script type="text/javascript"
@@ -27,6 +28,7 @@
             src="{{ STATIC_URL }}bootstrap/js/bootstrap.min.js"></script>
     {% block js %}{% endblock %}
     {% block extra_head %}{% endblock %}
+    {% block extra_script %}{% endblock %}
 </head>
 <body>
 

@@ -1,10 +1,12 @@
 from django.conf import settings
 from django.conf.urls import patterns, include, url
+from django.contrib.sites.models import Site
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib import admin
 from django.views.generic.base import  TemplateView
 from pybb.views import ProfileEditView
-from aor.forms import AORProfileForm
+from registration.views import register
+from aor.forms import AORProfileForm, RegistrationFormCaptcha
 from aor.views import Search
 
 admin.autodiscover()
@@ -14,10 +16,14 @@ urlpatterns = patterns('',
         name='front-page'),
     #    url(r'^accounts/login/$', login, name="auth_login",
     #        kwargs=dict(authentication_form=AuthenticationFormCaptcha)),
-    #    url(r'^accounts/register/$', register,
-    #        kwargs=dict(form_class=RegistrationFormCaptcha,
-    #            backend='registration.backends.default.DefaultBackend'),
-    #        name="registration_register"),
+#        url(r'^accounts/register/$', register,
+#            kwargs=dict(form_class=RegistrationFormCaptcha,
+#                backend='registration.backends.default.DefaultBackend'),
+#            name="registration_register"),
+        url(r'^accounts/register/$', register,
+            kwargs=dict(extra_context=dict(host='http://amigo.webfactional.com'),
+                backend='registration.backends.default.DefaultBackend'),
+            name="registration_register"),
     url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^forum/profile/edit/$',
         ProfileEditView.as_view(form_class=AORProfileForm),
