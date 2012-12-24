@@ -15,11 +15,11 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.mysql',
         'HOST': 'localhost',
         'NAME': 'aor',
-        'USER': 'web',
-        'PASSWORD': 'web',
+        'USER': 'root',
+        'PASSWORD': '',
         },
     'phpbb3': {
         'ENGINE': 'django.db.backends.mysql',
@@ -47,6 +47,7 @@ LANGUAGES = (
 
 USE_I18N = True
 USE_L10N = True
+USE_TZ = True
 
 MEDIA_ROOT = join(PROJECT_ROOT, 'media')
 MEDIA_URL = '/media/'
@@ -138,7 +139,7 @@ PYBB_DEFAULT_AUTOSUBSCRIBE = False
 PYBB_DEFAULT_TITLE = 'Forum'
 
 PYBB_NEWS_FORUM_ID = 1
-PYBB_BLOGS_FORUM_ID = 21
+PYBB_BLOGS_FORUM_ID = 25
 
 PYBB_NEWS_PAGE_SIZE = 10
 PYBB_BLOGS_PAGE_SIZE = 10
