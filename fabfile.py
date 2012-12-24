@@ -3,7 +3,7 @@ from fabric.api import *
 PROJECT_NAME = 'archlinux'
 
 PROJECT_BASEDIR = '/home/amigo/archlinux'
-PROJECT_ROOT = '/home/amigo/archlinux/app'
+PROJECT_ROOT = '/home/amigo/archlinux/aor'
 PROJECT_SOURCE = 'https://amigo@bitbucket.org/amigo/aor'
 
 env.hosts = ['amigo@ec2-50-17-136-53.compute-1.amazonaws.com']
@@ -25,8 +25,8 @@ def setup_env():
         run('virtualenv --clear --no-site-packages env')
 
 def update_env():
-    with cd(PROJECT_BASEDIR):
-        run('./env/bin/pip install -U -r %s/build/pipreq.txt' % PROJECT_NAME)
+    with cd(PROJECT_ROOT):
+        run('%s/env/bin/pip install -U -r %s/build/pipreq.txt' % (PROJECT_BASEDIR, PROJECT_ROOT))
 
 def syncdb():
     with cd(PROJECT_ROOT):
@@ -53,10 +53,10 @@ def stop():
         run('kill `cat /home/amigo/archlinux/log/pidfile`')
 
 def put_settings():
-    put('aor/settings_local.py', '/home/amigo/archlinux/app/aor/local.py')
+    put('aor/settings_local.py', '/home/amigo/archlinux/aor/aor/local.py')
 
 def get_settings():
-    get('/home/amigo/archlinux/app/aor/local.py', 'aor/settings_local.py')
+    get('/home/amigo/archlinux/aor/aor/local.py', 'aor/settings_local.py')
 
 def install():
     clone_project()
