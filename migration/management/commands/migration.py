@@ -30,7 +30,7 @@ class Command(BaseCommand):
                 username=slugify(user.username_clean)[:20])
             if created:
                 new_user.email = user.email
-            new_user.set_unusable_password()
+            new_user.make_random_password()
             new_user.date_joined = user.registration_datetime()
             new_user.last_login = user.lastvisit_datetime()
             new_user.save()
