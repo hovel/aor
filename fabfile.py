@@ -1,12 +1,12 @@
 from fabric.api import *
 
-PROJECT_NAME = 'aor'
+PROJECT_NAME = 'archlinux'
 
-PROJECT_BASEDIR = '~/webapps/%s' % PROJECT_NAME
-PROJECT_ROOT = '~/webapps/%s/%s' % (PROJECT_NAME, PROJECT_NAME)
-PROJECT_SOURCE = 'https://amigo@bitbucket.org/amigo/%s' % PROJECT_NAME
+PROJECT_BASEDIR = '/home/amigo/archlinux'
+PROJECT_ROOT = '/home/amigo/archlinux/app'
+PROJECT_SOURCE = 'https://amigo@bitbucket.org/amigo/aor'
 
-env.hosts = ['zeus@zeus.webfactional.com', 'amigo@amigo.webfactional.com']
+env.hosts = ['amigo@ec2-50-17-136-53.compute-1.amazonaws.com']
 
 
 def clone_project():
@@ -46,17 +46,17 @@ def start():
 
 def restart():
     with cd(PROJECT_BASEDIR):
-        run('kill -HUP `cat ~/aor.pid`')
+        run('kill -HUP `cat /home/amigo/archlinux/log/pidfile`')
 
 def stop():
     with cd(PROJECT_BASEDIR):
-        run('kill `cat ~/aor.pid`')
+        run('kill `cat /home/amigo/archlinux/log/pidfile`')
 
 def put_settings():
-    put('aor/settings_local.py', '~/webapps/aor/aor/aor/local.py')
+    put('aor/settings_local.py', '/home/amigo/archlinux/app/aor/local.py')
 
 def get_settings():
-    get('~/webapps/aor/aor/aor/local.py', 'aor/settings_local.py')
+    get('/home/amigo/archlinux/app/aor/local.py', 'aor/settings_local.py')
 
 def install():
     clone_project()
