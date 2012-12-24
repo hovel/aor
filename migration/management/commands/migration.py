@@ -17,11 +17,11 @@ class Command(BaseCommand):
     help = 'Migration phpbb3 to pybbm'
 
     def handle(self, *args, **options):
-        self.migrate_users()
-        self.migrate_categories()
-        self.migrate_forums()
-        self.mirgate_topics()
-        self.migrate_news()
+#        self.migrate_users()
+#        self.migrate_categories()
+#        self.migrate_forums()
+#        self.mirgate_topics()
+#        self.migrate_news()
         self.migrate_blogs()
 
     def migrate_users(self):
@@ -30,9 +30,9 @@ class Command(BaseCommand):
                 username=slugify(user.username_clean)[:20])
             if created:
                 new_user.email = user.email
-            new_user.make_random_password()
+            new_user.set_password(User.objects.make_random_password())
             new_user.date_joined = user.registration_datetime()
-            new_user.last_login = user.lastvisit_datetime()
+            new_user.last_login = user.lastvisit_datetime() or datetime.now()
             new_user.save()
 
     def migrate_categories(self):
@@ -46,9 +46,12 @@ class Command(BaseCommand):
                 description=forum.forum_desc)
 
     def mirgate_topics(self):
-    #        for topic in phpbb3Topic.objects.iterator():
-        for topic in phpbb3Topic.objects.all()[:300]:
-            forum = Forum.objects.get(name=topic.forum.forum_name)
+        for topic in phpbb3Topic.objects.all():
+            try:
+                forum = Forum.objects.get(name=topic.forum.forum_name)
+            except Forum.DoesNotExist:
+                category, created = Category.objects.get_or_create(name=topic.forum.forum_name)
+                forum, created = Forum.objects.get_or_create(name=topic.forum.forum_name, category=category)
             try:
                 user = User.objects.get(
                     username=slugify(topic.first_poster_name))
@@ -71,8 +74,10 @@ class Command(BaseCommand):
         posts = phpbb3Post.objects.filter(topic=topic)
         for post in posts:
             try:
-                user = User.objects.get(
-                    username=slugify(post.poster.username_clean))
+                username = 'zeus'
+                if post.poster:
+                    username = slugify(post.poster.username_clean)
+                user = User.objects.get(username=username)
                 created = datetime.fromtimestamp(post.time)
                 updated = post.edit_time and datetime.fromtimestamp(
                     post.edit_time) or None
@@ -88,6 +93,7 @@ class Command(BaseCommand):
                 pass
 
     def migrate_news(self):
+        print "Migrate news"
         print "Forum list:"
         for forum in Forum.objects.all():
             print "%s: %s" % (forum.pk, forum.name)
@@ -118,6 +124,7 @@ class Command(BaseCommand):
             self.migrate_comments(page, topic)
 
     def migrate_blogs(self):
+        print "Migrate blogs"
         print "Forum list:"
         for forum in Forum.objects.all():
             print "%s: %s" % (forum.pk, forum.name)
