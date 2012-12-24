@@ -40,7 +40,7 @@ msgstr "Начало"
 
 #: templates/index.html:22
 msgid "Join us"
-msgstr "Присоедениться"
+msgstr "Присоединиться"
 
 #: templates/index.html:26 templates/menu.html:76
 #: templates/registration/login.html:9
