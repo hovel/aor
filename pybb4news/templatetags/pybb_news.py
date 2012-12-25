@@ -8,5 +8,5 @@ register = template.Library()
 
 @register.inclusion_tag('pybb4news/last_news.html')
 def last_news(count=5, *args, **kwargs):
-    news = Topic.objects.filter(forum_id=FORUM_ID)[:count]
+    news = Topic.objects.filter(forum_id=FORUM_ID).order_by('-created', '-updated')[:count]
     return dict(object_list=news)
