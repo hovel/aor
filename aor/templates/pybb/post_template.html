@@ -20,7 +20,7 @@
     <tbody>
     <tr>
         <td class="post-info">
-            {% include "pybb/avatar.html" %}
+            {% include "pybb/avatar.html" with user=post.user %}
             {% if post.user.get_profile.rank %}
                 {% with post.user.get_profile as profile %}
                     <div class='rank'>

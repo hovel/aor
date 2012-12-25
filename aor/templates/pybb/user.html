@@ -6,7 +6,7 @@
 {% block content %}
     <h1>{{ target_user.username }}</h1>
     <div class="userinfo">
-        {% include "pybb/avatar.html" %}
+        {% include "pybb/avatar.html" with user=target_user %}
         <div class="info">
             <div class="label">{% trans "Statistics" %}</div>
             <div>{% trans "Number of posts" %}: {{ target_user.posts.all.count }}.
