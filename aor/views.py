@@ -6,7 +6,8 @@ from pybb.models import Post, Topic
 
 class Search(generic.ListView):
     template_name = 'search/search.html'
-    paginate_by = 20
+    paginate_by = defaults.PYBB_FORUM_PAGE_SIZE
+    paginator_class = Paginator
 
     def dispatch(self, request, *args, **kwargs):
         self.query = request.GET.get('q')
