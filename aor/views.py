@@ -39,6 +39,6 @@ class LastTopics(generic.ListView):
         qs = Topic.objects.filter(forum__hidden=False)
         qs = qs.filter(forum__category__hidden=False)
         qs = qs.filter(on_moderation=False)
-        qs = qs.order_by('-sticky','-updated')
+        qs = qs.order_by('-updated')
         qs = qs.select_related()
         return qs
