@@ -6,7 +6,7 @@ from django.views.generic.base import  TemplateView
 from pybb.views import ProfileEditView
 from registration.views import register
 from aor.forms import AORProfileForm, RegistrationFormCaptcha
-from aor.views import Search
+from aor.views import Search, LastTopics
 
 admin.autodiscover()
 
@@ -23,6 +23,7 @@ urlpatterns = patterns('',
     url(r'^forum/profile/edit/$',
         ProfileEditView.as_view(form_class=AORProfileForm),
         name='pybb:edit_profile'),
+    url(r'^forum/topic/latest/$', LastTopics.as_view(), name='latest'),
     url(r'^forum/', include('pybb.urls', namespace='pybb')),
     url(r'^search/$', Search.as_view(), name='search'),
     #    url(r'^news/', include('news.urls', namespace='news')),

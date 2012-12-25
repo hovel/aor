@@ -1,5 +1,7 @@
 from django.db.models import Q
 from django.views import generic
+from pure_pagination import Paginator
+from pybb import defaults
 from pybb.models import Post, Topic
 
 class Search(generic.ListView):
@@ -24,3 +26,18 @@ class Search(generic.ListView):
         context = super(Search, self).get_context_data(**kwargs)
         context['query'] = self.query
         return context
+
+
+class LastTopics(generic.ListView):
+    paginate_by = defaults.PYBB_FORUM_PAGE_SIZE
+    context_object_name = 'topic_list'
+    template_name = 'pybb/latest_topics.html'
+    paginator_class = Paginator
+
+    def get_queryset(self):
+        qs = Topic.objects.filter(forum__hidden=False)
+        qs = qs.filter(forum__category__hidden=False)
+        qs = qs.filter(on_moderation=False)
+        qs = qs.order_by('-sticky','-updated')
+        qs = qs.select_related()
+        return qs
