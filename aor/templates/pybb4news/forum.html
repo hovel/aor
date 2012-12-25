@@ -4,9 +4,13 @@
 {% block title %}{% trans "News" %}{% endblock title %}
 
 {% block breadcrumb %}
-    {% with forum as object %}
-        {% include "pybb/breadcrumb.html" %}
-    {% endwith %}
+    <li>
+        <a href="{% url home %}">
+            {% trans "Home" %}
+        </a>
+        <span class="divider">/</span>
+    </li>
+    <li>{% trans "News" %}</li>
 {% endblock %}
 
 {% block content %}

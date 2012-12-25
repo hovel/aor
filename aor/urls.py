@@ -13,7 +13,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^$', TemplateView.as_view(template_name='index.html'),
-        name='front-page'),
+        name='home'),
     #    url(r'^accounts/login/$', login, name="auth_login",
     #        kwargs=dict(authentication_form=AuthenticationFormCaptcha)),
     url(r'^accounts/register/$', register,
