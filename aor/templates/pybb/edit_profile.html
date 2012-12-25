@@ -6,13 +6,7 @@
 {% block content %}
     <div class="row-fluid">
         <div class="span4">
-            <div class="avatar">
-                {% thumbnail form.instance.avatar "80x80" as avatar %}
-                    <img src="{{ avatar.url }}" alt="avatar">
-                {% empty %}
-                    <img src="{{ PYBB_DEFAULT_AVATAR_URL }}" alt="avatar">
-                {% endthumbnail %}
-            </div>
+            {% include "pybb/avatar.html" %}
             <p>
                 <a href="{% url auth_password_change %}">{% trans "Change the password" %}</a>
             </p>
