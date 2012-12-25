@@ -18,29 +18,31 @@
         {% endif %}
         <table class="table table-bordered table-striped topic-list">
             <thead>
-                <tr class="topic-row head-row">
-                    <th class="topic-name">
-                        {% trans "Topic" %}
-                    </th>
-                    <th class="topic-post-count">
-                        {% trans "Posts" %}
-                    </th>
-                    <th class="topic-view-count">
-                        {% trans "Views" %}
-                    </th>
-                    <th class="topic-last-post">
-                        {% trans "Last post" %}
-                    </th>
-                </tr>
+            <tr class="topic-row head-row">
+                <th class="topic-name">
+                    {% trans "Topic" %}
+                </th>
+                <th class="topic-post-count">
+                    {% trans "Posts" %}
+                </th>
+                <th class="topic-view-count">
+                    {% trans "Views" %}
+                </th>
+                <th class="topic-last-post">
+                    {% trans "Last post" %}
+                </th>
+            </tr>
             </thead>
             <tbody>
-            {% for topic in topic_list|pybb_topic_unread:user  %}
+            {% for topic in topic_list|pybb_topic_unread:user %}
                 <tr class="topic-row {% if topic.sticky %} sticky {% endif %}{% if topic.on_moderation %} on-moderation {% endif %}">
                     <td class="topic-name{% if topic.unread %} topic-unread{% endif %}">
                         <div class="state-indicator"></div>
                         <a href="{{ topic.get_absolute_url }}">{{ topic.name|truncatewords:10 }}</a>
-                        {% if topic.sticky %} &nbsp;[{% trans "Sticky" %}] {% endif %}
-                        {% if topic.closed %} &nbsp;[{% trans "Closed" %}] {% endif %}
+                        {% if topic.sticky %} &nbsp;[{% trans "Sticky" %}
+                            ] {% endif %}
+                        {% if topic.closed %} &nbsp;[{% trans "Closed" %}
+                            ] {% endif %}
                         {% with topic|pybb_topic_inline_pagination as pages %}
                             {% if pages|length > 1 %}
                                 <span class="mini-pagination">
@@ -66,11 +68,14 @@
                     </td>
                     <td class="topic-last-post">
                         {% if topic.updated %}
-                            {% pybb_time topic.updated %}
+                            <a href="{{ topic.last_post.get_absolute_url }}">
+                                {{ topic.updated|timesince }}
+                            </a><br>
+                            {{ topic.last_post.user }}
                         {% endif %}
                     </td>
                 </tr>
-            {%  endfor %}
+            {% endfor %}
             </tbody>
         </table>
         {% include "pybb/pagination.html" %}
