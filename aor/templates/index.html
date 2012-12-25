@@ -2,33 +2,35 @@
 {% load pybb_news pybb_blogs i18n %}
 
 {% block main %}
-    <div class="row-fluid">
-        <div class="span12">
-            <div class="hero-unit">
-                <p>Arch Linux™ - гибкий и простой дистрибутив, разработанный для
-                    удовлетворения нужд опытных пользователей Linux. Он
-                    является одновременно мощным и простым в управлении, что
-                    делает его идеальным дистрибутивом для серверов и рабочих
-                    станций.</p>
+    {% if not user.is_authenticated %}
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="hero-unit">
+                    <p>Arch Linux™ - гибкий и простой дистрибутив,
+                        разработанный для удовлетворения нужд опытных
+                        пользователей Linux. Он является одновременно мощным и
+                        простым в управлении, что делает его идеальным
+                        дистрибутивом для серверов и рабочих станций.</p>
 
-                <p>Развивайте систему на базе Arch в любом нужном
-                    направлении: если вы разделяете данный взгляд на то, каким
-                    должен быть дистрибутив GNU/Linux®, тогда добро пожаловать в
-                    сообщество Arch Linux!</p>
+                    <p>Развивайте систему на базе Arch в любом нужном
+                        направлении: если вы разделяете данный взгляд на то,
+                        каким должен быть дистрибутив GNU/Linux®, тогда добро
+                        пожаловать в сообщество Arch Linux!</p>
 
-                <div class="controls pull-right">
-                    <a href="{% url registration_register %}"
-                       class="btn btn-primary btn-large">
-                        {% trans "Join us" %}
-                    </a>
-                    <a href="{% url auth_login %}"
-                       class="btn btn-success btn-large">
-                        {% trans "Login" %}
-                    </a>
+                    <div class="controls pull-right">
+                        <a href="{% url registration_register %}"
+                           class="btn btn-primary btn-large">
+                            {% trans "Join us" %}
+                        </a>
+                        <a href="{% url auth_login %}"
+                           class="btn btn-success btn-large">
+                            {% trans "Login" %}
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    {% endif %}
     <div class="row-fluid">
         <div class="span6 block">
             <h6>
