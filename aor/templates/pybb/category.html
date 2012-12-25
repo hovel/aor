@@ -42,7 +42,7 @@
                 </td>
                 <td class="forum-last-post">
                     {% if forum.updated %}
-                        {{ forum.updated|date:"d.m.Y H:i" }}
+                        {% pybb_time forum.updated %}
                     {% endif %}
                 </td>
             </tr>

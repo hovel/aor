@@ -13,7 +13,7 @@
         </td>
         <td class="post-date">
             <a class="permalink" href="{{ post.get_absolute_url }}">#</a>
-            {{ post.created|date:"DATETIME_FORMAT" }}
+            {% pybb_time post.created %}
         </td>
     </tr>
     </thead>
