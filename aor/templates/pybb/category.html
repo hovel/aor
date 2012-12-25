@@ -44,9 +44,9 @@
                     {% if forum.updated %}
 {#                        {{ forum.last_post.user }}#}
 {#                        {% trans "in" %}<br>#}
-                        <a href="{{ forum.last_post.get_absolute_url }}">
-                            {{ forum.last_post.topic.name|slice:"20" }}…
-                        </a><br>
+{#                        <a href="{{ forum.last_post.get_absolute_url }}">#}
+{#                            {{ forum.last_post.topic.name|slice:"20" }}…#}
+{#                        </a><br>#}
                         {{ forum.updated|timesince }}
                     {% endif %}
                 </td>
