@@ -1,12 +1,11 @@
 from django.conf import settings
 from django.conf.urls import patterns, include, url
-from django.contrib.auth.views import login
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib import admin
 from django.views.generic.base import  TemplateView
 from pybb.views import ProfileEditView
 from registration.views import register
-from aor.forms import AORProfileForm, RegistrationFormCaptcha, AuthenticationFormCaptcha
+from aor.forms import AORProfileForm, RegistrationFormCaptcha
 from aor.views import Search
 
 admin.autodiscover()
