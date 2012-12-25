@@ -1,0 +1,29 @@
+{% extends 'pybb/base.html' %}
+{% load pybb_tags i18n %}
+
+{% block title %}{{ target }} {% trans "posts" %}{% endblock %}
+
+
+{% block breadcrumb %}
+    {{ block.super }}
+    <li>
+        <a href="{% url pybb:user target %}">
+            {{ target }}
+        </a>
+        <span class="divider">/</span>
+    </li>
+    <li>{{ target }} {% trans "posts" %}</li>
+{% endblock %}
+
+{% block content %}
+    <div class="posts">
+        {% for post in object_list %}
+            {% include "pybb/post_template.html" %}
+        {% endfor %}
+    </div>
+    <div>&nbsp;</div>
+    {% with _('Posts') as label %}
+        {% include "pybb/pagination.html" %}
+    {% endwith %}
+
+{% endblock %}

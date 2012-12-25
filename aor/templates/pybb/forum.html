@@ -70,6 +70,7 @@
                         {% if topic.updated %}
                             <a href="{{ topic.last_post.get_absolute_url }}">
                                 {{ topic.updated|timesince }}
+                                {% trans "ago" %}
                             </a><br>
                             {{ topic.last_post.user }}
                         {% endif %}

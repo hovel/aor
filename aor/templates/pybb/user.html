@@ -9,11 +9,22 @@
         {% include "pybb/avatar.html" with user=target_user %}
         <div class="info">
             <div class="label">{% trans "Statistics" %}</div>
-            <div>{% trans "Number of posts" %}: {{ target_user.posts.all.count }}.
+            <div>
+                <a href="{% url user_topics target_user %}">
+                    {% trans "Number of topics" %}:
+                    {{ topic_count }}
+                </a>
             </div>
-            <div>{% trans "Number of topics" %}: {{ topic_count }}.
+            <div>
+                <a href="{% url user_posts target_user %}">
+                    {% trans "Number of posts" %}:
+                    {{ target_user.posts.all.count }}
+                </a>
             </div>
-            <div>{% trans "Date of registration" %}: {% pybb_time target_user.date_joined %}</div>
+            <div>
+                {% trans "Date of registration" %}:
+                {% pybb_time target_user.date_joined %}
+            </div>
         </div>
         <div class="clear"></div>
     </div>

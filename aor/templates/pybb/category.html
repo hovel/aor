@@ -43,11 +43,14 @@
                 <td class="forum-last-post">
                     {% if forum.updated %}
 {#                        {{ forum.last_post.user }}#}
-{#                        {% trans "in" %}<br>#}
 {#                        <a href="{{ forum.last_post.get_absolute_url }}">#}
 {#                            {{ forum.last_post.topic.name|slice:"20" }}…#}
 {#                        </a><br>#}
-                        {{ forum.updated|timesince }}
+                        {% trans "passed" %} {{ forum.updated|timesince }}<br>
+{#                        {% pybb_time forum.updated %}<br>#}
+                            <a href="{{ forum.last_post.get_absolute_url }}">
+                                {{ forum.last_post.user }}
+                            </a><br>
                     {% endif %}
                 </td>
             </tr>
