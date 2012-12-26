@@ -33,7 +33,7 @@
     </li>
 </ul>
 
-<form action="{% url search %}" method="get" class="navbar-form pull-left">
+<form action="{% url search %}" method="get" class="navbar-form pull-right">
 {#    {% csrf_token %}#}
     <input name="q" type="text" placeholder="{% trans "Search" %}"
            class="search-query" value="{{ query }}">
