@@ -21,6 +21,25 @@
     <tr>
         <td class="post-info">
             {% include "pybb/avatar.html" with user=post.user %}
+            <div class="label">{% trans "Statistics" %}</div>
+            <div>
+                {% trans "Topics" %}:
+                <a href="{% url user_topics post.user %}">
+                    {{ post.user.topic_set.count }}
+                </a>
+            </div>
+            <div>
+                {% trans "Posts" %}:
+                <a href="{% url user_posts post.user %}">
+                    {{ post.user.posts.all.count }}
+                </a>
+            </div>
+            <div>
+                {% trans "Member" %}:<br>
+{#                {% pybb_time post.user.date_joined %}#}
+                {{ post.user.date_joined|timesince }}
+            </div>
+
             {% if post.user.get_profile.rank %}
                 {% with post.user.get_profile as profile %}
                     <div class='rank'>
