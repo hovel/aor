@@ -3,7 +3,5 @@
 <div class="avatar">
     {% thumbnail user.get_profile.avatar "80x80" format="PNG" as avatar %}
         <img src="{{ avatar.url }}" alt="{{ user }} avatar" />
-    {% empty %}
-        <img src="{{PYBB_DEFAULT_AVATAR_URL}}" alt="default avatar" />
     {% endthumbnail %}
 </div>
