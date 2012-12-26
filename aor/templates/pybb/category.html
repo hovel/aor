@@ -42,10 +42,10 @@
                 </td>
                 <td class="forum-last-post">
                     {% if forum.updated %}
-                        <a href="{% url pybb:topic forum.last_post.topic.pk %}">
-                            {{ forum.last_post.topic }}
-                        </a>
-                        <br>
+{#                        <a href="{% url pybb:topic forum.last_post.topic.pk %}">#}
+{#                            {{ forum.last_post.topic }}#}
+{#                        </a>#}
+{#                        <br>#}
                         {% pybb_time forum.updated %}
 {#                        {{ forum.updated|timesince }}#}
                     {% endif %}
