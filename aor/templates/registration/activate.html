@@ -1,0 +1,17 @@
+{% extends "registration/base.html" %}
+{% load i18n %}
+
+{% block content %}
+    <h1>{% trans "Registration almost complete" %}</h1>
+
+    <p>{% trans "Activation of the account is successfull." %}
+        <a href="{% url auth_login %}">Login</a>
+    </p>
+{% endblock %}
+
+
+{% block title %}
+    {% trans "Activation completed" %}
+    |
+    {{ block.super }}
+{% endblock %}
