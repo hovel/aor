@@ -72,7 +72,10 @@
                                 {{ topic.updated|timesince }}
                                 {% trans "ago" %}
                             </a><br>
-                            {{ topic.last_post.user }}
+                            {% trans "posted by" %}
+                            <a href="{% url pybb:user topic.last_post.user.username %}">
+                                {{ topic.last_post.user }}
+                            </a>
                         {% endif %}
                     </td>
                 </tr>
