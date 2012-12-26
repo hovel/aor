@@ -1,10 +1,10 @@
 from django.db.models import Q
 from django.views import generic
-from pure_pagination import Paginator
+from pure_pagination import Paginator, PaginationMixin
 from pybb import defaults
 from pybb.models import Post, Topic
 
-class Search(generic.ListView):
+class Search(PaginationMixin, generic.ListView):
     template_name = 'search/search.html'
     paginate_by = defaults.PYBB_FORUM_PAGE_SIZE
     paginator_class = Paginator
