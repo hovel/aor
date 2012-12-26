@@ -72,3 +72,9 @@ def update():
     syncdb()
     collect_static()
     start()
+
+def soft_update():
+    update_project()
+    syncdb()
+    collect_static()
+    restart()
