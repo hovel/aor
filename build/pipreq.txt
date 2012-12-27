@@ -9,7 +9,7 @@ django-pure-pagination==0.2.1
 django-registration==0.8
 django-robots==0.9.1
 django-simple-captcha==0.3.4
-gunicorn==0.16.1
+gunicorn==0.17.0
 postmarkup==1.2.0
 pybbm==0.12.2
 pytils==0.2.3
