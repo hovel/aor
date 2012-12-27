@@ -1,4 +1,4 @@
-Someone, maybe it's you, register account on mankala.ru.
+Someone, maybe it's you, register account on http://archlinux.org.ru/
 To continue registration please follow link below.
 
 http://archlinux.org.ru{% url registration_activate activation_key %}
