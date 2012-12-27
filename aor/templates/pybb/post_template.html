@@ -13,7 +13,8 @@
         </td>
         <td class="post-date">
             <a class="permalink" href="{{ post.get_absolute_url }}">#</a>
-            {% pybb_time post.created %}
+            {{ post.created|timesince }} {% trans "ago" %}
+{#            {% pybb_time post.created %}#}
         </td>
     </tr>
     </thead>
