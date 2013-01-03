@@ -1,11 +1,12 @@
 from django.conf import settings
+from django.contrib.syndication.views import Feed
 from django.db.models import Q
 from django.http import Http404
 from django.shortcuts import get_object_or_404
 from django.views import generic
 from pure_pagination import Paginator
 from pybb import defaults
-from pybb.models import Forum
+from pybb.models import Forum, Topic
 
 
 FORUM_ID = getattr(settings, 'PYBB_NEWS_FORUM_ID', 1)
@@ -34,3 +35,20 @@ class ForumView(generic.ListView):
             else:
                 qs = qs.filter(on_moderation=False)
         return qs
+
+
+class LatestNewsFeed(Feed):
+    title = 'News archlinux.org.ru'
+    link = '/news/'
+    description = 'Latest news'
+
+    def items(self):
+        forum = Forum.objects.get(pk=FORUM_ID)
+        topics = Topic.objects.filter(forum=forum)[:defaults.PYBB_FORUM_PAGE_SIZE]
+        return topics
+
+    def item_title(self, item):
+        return item.name
+
+    def item_description(self, item):
+        return item.head.body_html

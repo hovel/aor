@@ -1,6 +1,12 @@
 {% extends "forum.html" %}
 {% load i18n %}
 
+{% block extra_head %}
+    {{ block.super }}
+    <link rel="alternate" type="application/atom+xml" href="{% url news:feed %}" title="{% trans "Latest news" %}" >
+
+{% endblock %}
+
 
 {% block title %}
     {% trans "News" %}
