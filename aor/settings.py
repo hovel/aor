@@ -1,5 +1,9 @@
+from django.conf import settings
+from django.template.defaultfilters import urlize
 from django.utils.translation import ugettext_lazy as _
+from markdown import Markdown
 from os.path import abspath, join, dirname
+from postmarkup import render_bbcode
 
 PROJECT_ROOT = abspath(join(dirname(__file__), '..'))
 
@@ -97,6 +101,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.messages.context_processors.messages',
     'pybb.context_processors.processor',
     'profiles.context_processor.user_theme',
+    'django.core.context_processors.request',
     )
 
 INSTALLED_APPS = (
@@ -157,17 +162,24 @@ PHPBB_TABLE_PREFIX = 'phpbb_'
 PHPBB_CAPTCHA_QUESTIONS_MODEL_EXIST = True
 
 
+PYBB_SMILES_PREFIX = 'pybb/emoticons/'
+def smile_it(str):
+    s = str
+    for smile, url in PYBB_SMILES.items():
+        s = s.replace(smile, '<img src="%s%s%s" alt="smile" />' % (settings.STATIC_URL, PYBB_SMILES_PREFIX, url))
+    return s
 
-#PYBB_SMILES_PREFIX = STATIC_URL + 'pybb/emoticons/'
-#PYBB_MARKUP_ENGINES = {
-#    'bbcode': lambda str: render_bbcode(str,
-#        encoding="utf-8",
-#        exclude_tags=['size', 'center'],
-#        auto_urls=True,
-#        paragraphs=True,
-#        clean=True,
-#        tag_data=None),
-#    }
+PYBB_MARKUP_ENGINES = getattr(settings, 'PYBB_MARKUP_ENGINES', {
+    'bbcode': lambda str: urlize(
+        smile_it(
+            render_bbcode(
+                str,
+                exclude_tags=['size', 'center'],
+                cosmetic_replace=False,
+                render_unknown_tags=True))),
+    'markdown': lambda str: urlize(smile_it(Markdown(safe_mode='escape').convert(str)))
+})
+
 
 LOGGING = {
     'version': 1,
