@@ -10,7 +10,6 @@ TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
     ('Pavel Zhukov', 'gelios@gmail.com'),
-    ('Vladimir Korsun', 'korsun.vladimir@gmail.com'),
     ('Sergey Fursov', 'geyser85@gmail.com'),
     )
 
@@ -126,6 +125,7 @@ INSTALLED_APPS = (
     'pybb4news',
     'pybb4blogs',
     'profiles',
+    'mailer',
     )
 
 CAPTCHA_LENGTH = 7
