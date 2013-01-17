@@ -161,13 +161,12 @@ PHPBB_CAPTCHA_QUESTIONS_MODEL_EXIST = True
 
 PYBB_MARKUP_ENGINES = {
     'bbcode': lambda str:
-        smile_it(
             render_bbcode(
                 str,
                 exclude_tags=['size', 'center'],
                 cosmetic_replace=False,
-                render_unknown_tags=True)),
-    'markdown': lambda str: smile_it(Markdown(safe_mode='escape').convert(str))
+                render_unknown_tags=True),
+    'markdown': lambda str: Markdown(safe_mode='escape').convert(str)
 }
 
 
