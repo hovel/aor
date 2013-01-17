@@ -170,14 +170,14 @@ def smile_it(str):
     return s
 
 PYBB_MARKUP_ENGINES = getattr(settings, 'PYBB_MARKUP_ENGINES', {
-    'bbcode': lambda str: urlize(
+    'bbcode': lambda str:
         smile_it(
             render_bbcode(
                 str,
                 exclude_tags=['size', 'center'],
                 cosmetic_replace=False,
-                render_unknown_tags=True))),
-    'markdown': lambda str: urlize(smile_it(Markdown(safe_mode='escape').convert(str)))
+                render_unknown_tags=True)),
+    'markdown': lambda str: smile_it(Markdown(safe_mode='escape').convert(str))
 })
 
 
