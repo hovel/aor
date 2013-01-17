@@ -159,15 +159,7 @@ ACCOUNT_ACTIVATION_DAYS = 3
 PHPBB_TABLE_PREFIX = 'phpbb_'
 PHPBB_CAPTCHA_QUESTIONS_MODEL_EXIST = True
 
-
-PYBB_SMILES_PREFIX = 'pybb/emoticons/'
-def smile_it(str):
-    s = str
-    for smile, url in PYBB_SMILES.items():
-        s = s.replace(smile, '<img src="%s%s%s" alt="smile" />' % (settings.STATIC_URL, PYBB_SMILES_PREFIX, url))
-    return s
-
-PYBB_MARKUP_ENGINES = getattr(settings, 'PYBB_MARKUP_ENGINES', {
+PYBB_MARKUP_ENGINES = {
     'bbcode': lambda str:
         smile_it(
             render_bbcode(
@@ -176,7 +168,7 @@ PYBB_MARKUP_ENGINES = getattr(settings, 'PYBB_MARKUP_ENGINES', {
                 cosmetic_replace=False,
                 render_unknown_tags=True)),
     'markdown': lambda str: smile_it(Markdown(safe_mode='escape').convert(str))
-})
+}
 
 
 LOGGING = {
