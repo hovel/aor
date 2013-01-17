@@ -1,5 +1,3 @@
-from django.conf import settings
-from django.template.defaultfilters import urlize
 from django.utils.translation import ugettext_lazy as _
 from markdown import Markdown
 from os.path import abspath, join, dirname
