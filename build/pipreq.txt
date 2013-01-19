@@ -1,6 +1,6 @@
 Django==1.4.3
 Fabric==1.5.1
-MySQL-python==1.2.4c1
+MySQL-python==1.2.4
 Pillow==1.7.8
 South==0.7.6
 django-annoying==0.7.6
@@ -10,7 +10,7 @@ django-robots==0.9.1
 django-simple-captcha==0.3.4
 gunicorn==0.17.0
 postmarkup==1.2.0
-pybbm==0.12.2
+-e git+https://github.com/hovel/pybbm.git#egg=pybbm
 pytils==0.2.3
 sorl-thumbnail==11.12
 -e git+https://github.com/hovel/django-pure-pagination.git@44a0567d3982408055291a968fd9b5cc5ced0834#egg=django_pure_pagination
