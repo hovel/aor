@@ -1,8 +1,12 @@
+from django.conf import settings
 from django.db.models import Q
 from django.views import generic
 from pure_pagination import Paginator, PaginationMixin
 from pybb import defaults
 from pybb.models import Post, Topic, Forum
+
+BLOGS_FORUM_ID = getattr(settings, 'PYBB_BLOGS_FORUM_ID', 1)
+NEWS_FORUM_ID = getattr(settings, 'PYBB_NEWS_FORUM_ID', 1)
 
 class Search(PaginationMixin, generic.ListView):
     template_name = 'search/search.html'
@@ -36,9 +40,9 @@ class LastTopics(generic.ListView):
     paginator_class = Paginator
 
     def get_queryset(self):
-        qs = Topic.objects.filter(forum__hidden=False)
-        qs = qs.filter(forum__category__hidden=False)
+        qs = Topic.objects.filter(forum__hidden=False, forum__category__hidden=False)
         qs = qs.filter(on_moderation=False)
+        qs = qs.exclude(forum_id__in=[BLOGS_FORUM_ID, NEWS_FORUM_ID, ])
         qs = qs.order_by('-updated', '-created')
         qs = qs.select_related()
         return qs
@@ -50,8 +54,7 @@ class ForumList(generic.ListView):
 
     def get_queryset(self):
         qs = super(ForumList, self).get_queryset()
-        qs = qs.filter(hidden=False)
-        qs = qs.filter(category__hidden=False)
+        qs = qs.filter(hidden=False, category__hidden=False)
         qs = qs.order_by('category')
         qs = qs.select_related()
         return qs
