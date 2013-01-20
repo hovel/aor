@@ -122,6 +122,7 @@ INSTALLED_APPS = (
     'gunicorn',
     'pybb',
     'django-field-attributes',
+    'aor',
     'pybb4news',
     'pybb4blogs',
     'profiles',

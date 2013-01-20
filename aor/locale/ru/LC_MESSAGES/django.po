@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-20 18:44+0400\n"
+"POT-Creation-Date: 2013-01-20 19:37+0400\n"
 "PO-Revision-Date: 2012-02-02 23:43+0400\n"
 "Last-Translator: Vladimir Korsun <korsun.vladimir@gmail.com>\n"
 "Language-Team: Russian <>\n"
@@ -30,11 +30,11 @@ msgstr "Введите текст с изображения каптчи"
 msgid "Signature"
 msgstr "Подпись"
 
-#: settings.py:154
+#: settings.py:155
 msgid "default theme"
 msgstr "тема по умолчанию"
 
-#: settings.py:155
+#: settings.py:156
 msgid "dark theme"
 msgstr "темная"
 
@@ -57,10 +57,14 @@ msgstr "Вход"
 msgid "News"
 msgstr "Новости"
 
-#: templates/index.html:51 templates/menu.html:21
+#: templates/index.html:44 templates/menu.html:21
 #: templates/pybb4blogs/base.html:6 templates/pybb4blogs/forum.html:14
 msgid "Blogs"
 msgstr "Блоги"
+
+#: templates/index.html:52
+msgid "Last topics"
+msgstr "Последние темы"
 
 #: templates/menu.html:16
 msgid "Forum"

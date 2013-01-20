@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load pybb_news pybb_blogs i18n %}
+{% load pybb_news pybb_blogs i18n aor_tags %}
 
 {% block main %}
     {% if not user.is_authenticated %}
@@ -32,29 +32,27 @@
         </div>
     {% endif %}
     <div class="row-fluid">
-        <div class="span6 block">
-            <h6>
-                <a href="{% url news:list %}">
-                    {% trans "News" %}
-                </a>
-            </h6>
-            {% last_news %}
+        <div class="span6">
+            <div class="row-fluid">
+                <div class="span12 block">
+                    <h6><a href="{% url news:list %}">{% trans "News" %}</a></h6>
+                    {% last_news %}
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span12 block">
+                    <h6><a href="{% url blogs:list %}">{% trans "Blogs" %}</a> </h6>
+                    {% last_blogs %}
+                </div>
+            </div>
         </div>
         <div class="span6 block">
-            Last topics
-        </div>
-    </div>
-    <div class="row-fluid">
-        <div class="span6 block">
-            <h6>
-                <a href="{% url blogs:list %}">
-                    {% trans "Blogs" %}
-                </a>
-            </h6>
-            {% last_blogs %}
-        </div>
-        <div class="span6 block">
-            Last something
+            <div class="row-fluid">
+                <div class="span12">
+                    <h6>{% trans "Last topics" %}</h6>
+                    {% last_topics %}
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}
