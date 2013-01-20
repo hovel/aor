@@ -47,6 +47,12 @@
 <div class="container-fluid wrapper">
     <div class="row-fluid">
         <div class="span12 main">
+            <div class="row-fluid">
+                <div class="span12">
+                    {% block breadcrumb %}
+                    {% endblock %}
+                </div>
+            </div>
             {% block main %}
             {% endblock %}
         </div>

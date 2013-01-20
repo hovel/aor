@@ -4,13 +4,15 @@
 {% block title %}{% trans "News" %}{% endblock title %}
 
 {% block breadcrumb %}
+    <ul class='breadcrumb'>
     <li>
         <a href="{% url home %}">
-            {% trans "Home" %}
+            ArchLinux.org.ru
         </a>
         <span class="divider">/</span>
     </li>
     <li>{% trans "News" %}</li>
+    </ul>
 {% endblock %}
 
 {% block content %}
