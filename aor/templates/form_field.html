@@ -4,9 +4,16 @@
     {% if field.is_required %}required{% endif %}
     {% if field.errors %}error{% endif %}">
 
-    {% if field|is_widget:"CheckboxInput" %}
+    {% if field|is_widget:"CheckboxInput,CheckboxSelectMultiple,CheckboxSelect" %}
         <div class="controls">
             <label class="checkbox">
+                {{ field }}
+                {{ field.field.label }}
+            </label>
+        </div>
+    {% elif field|is_widget:"RadioSelect" %}
+        <div class="controls">
+            <label class="radio">
                 {{ field }}
                 {{ field.field.label }}
             </label>
