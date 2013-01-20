@@ -8,22 +8,28 @@
         <div class="controls">
             <label class="checkbox">
                 {{ field }}
-                {{ field.field.label }}
+                {% if not hide_labels or hide_labels == 0 %}
+                    {{ field.field.label }}
+                {% endif %}
             </label>
         </div>
     {% elif field|is_widget:"RadioSelect" %}
         <div class="controls">
             <label class="radio">
                 {{ field }}
-                {{ field.field.label }}
+                {% if not hide_labels or hide_labels == 0 %}
+                    {{ field.field.label }}
+                {% endif %}
             </label>
         </div>
     {% else %}
-        <label class="control-label" for="{{ field.auto_id }}">
-            {{ field.field.label }}
-        </label>
+        {% if not hide_labels or hide_labels == 0 %}
+            <label class="control-label" for="{{ field.auto_id }}">
+                {{ field.field.label }}
+            </label>
+        {% endif %}
         <div class="controls">
-            {% field field class="span12" placeholder=field.help_text required=field.field.required %}
+            {% field field class="span12" placeholder=field.help_text required=False %}
             {% for error in field.errors %}
                 <span class="help-inline">{{ field.errors }}</span>
             {% endfor %}
