@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-20 19:37+0400\n"
+"POT-Creation-Date: 2013-01-22 22:07+0400\n"
 "PO-Revision-Date: 2012-02-02 23:43+0400\n"
 "Last-Translator: Vladimir Korsun <korsun.vladimir@gmail.com>\n"
 "Language-Team: Russian <>\n"
@@ -95,22 +95,6 @@ msgstr "Выйти"
 msgid "Registration"
 msgstr "Регистрация"
 
-#: templates/paginator.html:7
-msgid "previous"
-msgstr "предыдущая"
-
-#: templates/paginator.html:11
-msgid "Page"
-msgstr "Старница"
-
-#: templates/paginator.html:11
-msgid "of"
-msgstr "из"
-
-#: templates/paginator.html:15
-msgid "next"
-msgstr "следующая"
-
 #: templates/pybb/category.html:9 templates/pybb/category.html.py:31
 msgid "Hidden"
 msgstr "Скрытый"
@@ -132,7 +116,7 @@ msgstr "Сообщения"
 msgid "Last posts"
 msgstr "Последние сообщения"
 
-#: templates/pybb/category.html:46 templates/pybb/forum.html:73
+#: templates/pybb/category.html:46 templates/pybb/forum.html:71
 #: templates/pybb/post_template.html:16 templates/pybb/user_topics.html:79
 msgid "ago"
 msgstr "назад"
@@ -186,17 +170,17 @@ msgstr "Последнее сообщение"
 msgid "Sticky"
 msgstr "Закреплена"
 
-#: templates/pybb/forum.html:44 templates/pybb/latest_topics.html:43
+#: templates/pybb/forum.html:43 templates/pybb/latest_topics.html:43
 #: templates/pybb/user_topics.html:45 templates/search/search.html:30
 msgid "Closed"
 msgstr "Закрыта"
 
-#: templates/pybb/forum.html:49 templates/pybb/latest_topics.html:47
+#: templates/pybb/forum.html:47 templates/pybb/latest_topics.html:47
 #: templates/pybb/user_topics.html:50 templates/search/search.html:34
 msgid "pages"
 msgstr "страница"
 
-#: templates/pybb/forum.html:75
+#: templates/pybb/forum.html:73
 msgid "posted by"
 msgstr "опубликовано"
 
@@ -421,6 +405,18 @@ msgstr "Регистрация  завершена"
 #: templates/registration/registration_form.html:31
 msgid "Register"
 msgstr "Регистрация"
+
+#~ msgid "previous"
+#~ msgstr "предыдущая"
+
+#~ msgid "Page"
+#~ msgstr "Старница"
+
+#~ msgid "of"
+#~ msgstr "из"
+
+#~ msgid "next"
+#~ msgstr "следующая"
 
 #~ msgid "Wiki"
 #~ msgstr "Энциклопедия"

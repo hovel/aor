@@ -34,7 +34,7 @@
                 </tr>
             </thead>
             <tbody>
-            {% for topic in topic_list|pybb_topic_unread:user  %}
+            {% for topic in topic_list|pybb_topic_unread:user %}
                 <tr class="topic-row {% if topic.sticky %} sticky {% endif %}{% if topic.on_moderation %} on-moderation {% endif %}">
                     <td class="topic-name{% if topic.unread %} topic-unread{% endif %}">
                         <div class="state-indicator"></div>
@@ -70,7 +70,7 @@
                         {% endif %}
                     </td>
                 </tr>
-            {%  endfor %}
+            {% endfor %}
             </tbody>
         </table>
         {% if user.is_authenticated %}
