@@ -5,14 +5,9 @@
 
 
 {% block breadcrumb %}
-    {{ block.super }}
-    <li>
-        <a href="{% url pybb:user target %}">
-            {{ target }}
-        </a>
-        <span class="divider">/</span>
-    </li>
-    <li>{{ target }} {% trans "topics" %}</li>
+    {% with extra_crumb=_("topics") %}
+        {% include "pybb/breadcrumb.html" %}
+    {% endwith %}
 {% endblock %}
 
 
