@@ -4,7 +4,7 @@
 {% block title %}{% trans "Latest topics" %}{% endblock title %}
 
 {% block breadcrumb %}
-    {% with extra_crumb="Latest topics" %}
+    {% with extra_crumb=_("Latest topics") %}
         {% include "pybb/breadcrumb.html" %}
     {% endwith %}
 {% endblock %}
@@ -65,14 +65,13 @@
                         {{ topic.views }}
                     </td>
                     <td class="topic-last-post">
-                        {% if topic.updated %}
-                            {% pybb_time topic.updated %}
-                        {% endif %}
+                        {% include "pybb/topic_last_message_info.html" %}
                     </td>
                 </tr>
             {% endfor %}
             </tbody>
         </table>
+        {% include "pybb/pagination.html" %}
         {% if user.is_authenticated %}
             <div id='mark-all-as-read'>
                 <a href='{% url pybb:mark_all_as_read %}'>
@@ -80,7 +79,5 @@
                 </a>
             </div>
         {% endif %}
-        {% include "pybb/pagination.html" %}
     </div>
-
 {% endblock content %}

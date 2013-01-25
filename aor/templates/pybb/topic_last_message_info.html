@@ -1,0 +1,12 @@
+{% load i18n %}
+
+{% if topic.updated %}
+    <a href="{{ topic.last_post.get_absolute_url }}">
+        {{ topic.updated|timesince }}
+        {% trans "ago" %}
+    </a><br>
+    {% trans "posted by" %}
+    <a href="{% url pybb:user topic.last_post.user.username %}">
+        {{ topic.last_post.user }}
+    </a>
+{% endif %}

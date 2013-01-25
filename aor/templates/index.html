@@ -4,6 +4,7 @@
 {% block main %}
     {% if not user.is_authenticated %}
         <div class="row-fluid">
+        <div class="row-fluid">
             <div class="span12">
                 <div class="hero-unit">
                     <p>Arch Linux™ - гибкий и простой дистрибутив,
@@ -49,7 +50,7 @@
         <div class="span6 block">
             <div class="row-fluid">
                 <div class="span12">
-                    <h6><a href="{% url latest %}">{% trans "Last topics" %}</a></h6>
+                    <h6><a href="{% url pybb:topic_latest %}">{% trans "Last topics" %}</a></h6>
                     {% last_topics %}
                 </div>
             </div>

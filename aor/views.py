@@ -31,18 +31,3 @@ class Search(PaginationMixin, generic.ListView):
         context = super(Search, self).get_context_data(**kwargs)
         context['query'] = self.query
         return context
-
-
-class LastTopics(generic.ListView):
-    paginate_by = defaults.PYBB_FORUM_PAGE_SIZE
-    context_object_name = 'topic_list'
-    template_name = 'pybb/latest_topics.html'
-    paginator_class = Paginator
-
-    def get_queryset(self):
-        qs = Topic.objects.filter(forum__hidden=False, forum__category__hidden=False)
-        qs = qs.filter(on_moderation=False)
-        qs = qs.exclude(forum_id__in=[BLOGS_FORUM_ID, NEWS_FORUM_ID, ])
-        qs = qs.order_by('-updated', '-created')
-        qs = qs.select_related()
-        return qs

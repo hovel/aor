@@ -3,33 +3,28 @@
 <div class='category'>
     <table class="table table-bordered table-striped category-table">
         <thead>
-        <tr class="forum-row head-row">
-            <th class="forum-name">
-                {{ category.name }} {% if category.hidden %}[
-                {% trans "Hidden" %}]{% endif %}
-            </th>
-            <th class="forum-topic-count">
-                {% trans "Topics" %}
-            </th>
-            <th class="forum-post-count">
-                {% trans "Posts" %}
-            </th>
-            <th class="forum-last-post">
-                {% trans "Last posts" %}
-            </th>
-        </tr>
+            <tr class="forum-row head-row">
+                <th class="forum-name">
+                    {{ category.name }} {% if category.hidden %}[
+                    {% trans "Hidden" %}]{% endif %}
+                </th>
+                <th class="forum-topic-count">
+                    {% trans "Topics" %}
+                </th>
+                <th class="forum-post-count">
+                    {% trans "Posts" %}
+                </th>
+                <th class="forum-last-post">
+                    {% trans "Last posts" %}
+                </th>
+            </tr>
         </thead>
         <tbody>
         {% for forum in category.forums_accessed|pybb_forum_unread:user %}
             <tr class="forum-row">
                 <td class="forum-name {% if forum.unread %} forum-unread{% endif %}">
                     <div class="state-indicator"></div>
-                    <a href="{{ forum.get_absolute_url }}">
-                        {{ forum.name }}
-                    </a>
-                    {% if forum.hidden %}
-                        [{% trans "Hidden" %}]
-                    {% endif %}
+                    <a href="{{ forum.get_absolute_url }}">{{ forum.name }}</a> {% if forum.hidden %}[{% trans "Hidden" %}]{% endif %}
                     <div class="forum-description">
                         {{ forum.description|safe }}
                     </div>
