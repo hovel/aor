@@ -867,7 +867,6 @@ td.forum-last-post,td.topic-last-post{font-size:.8em;width:25%;}
 .forum h1{font-size:1.3em;font-weight:400;border-radius:5px;}
 .forum-description{font-size:.8em;}
 .forum-unread a,.topic-unread a{font-weight:bold;}
-.forum-unread .state-indicator,.topic-unread .state-indicator{width:10px;height:10px;border-radius:5px;margin:5px 5px 0 0;background-color:#ff8b00;float:left;}
 .post-info{font-size:.8em;width:150px;}
 .post-extra-info{font-size:.8em;}
 .post-signature{font-size:.8em;border-top:1px dashed;padding-top:10px;margin-top:10px;}
@@ -904,7 +903,8 @@ pre{color:#babdb6;background:#555555;}
 .dropdown-menu .divider{background-color:#555555;border-top-color:#333333;border-bottom-color:#2e2e2e;}
 .form-actions{border-color:#999999;}
 .head-row,.post-extra-info,.post-date{color:#999999;}
-.forum-unread a,.topic-unread a{color:#ff8b00;font-weight:bold;}
+.state-indicator,.state-indicator{width:10px;height:10px;border-radius:5px;margin:5px 5px 0 0;background-color:#999999;float:left;}
+.forum-unread .state-indicator,.topic-unread .state-indicator{background-color:#8cddff;}
 .post-signature{color:#babdb6;border-top-color:#555555;}
 .post-info,.post thead,.post tfoot,.block .header,.block .info{background:#2b2b2b;}
 .post-author{font-weight:bold;}

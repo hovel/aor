@@ -85,13 +85,17 @@ blockquote {
     font-weight: bold;
 }
 
-.forum-unread .state-indicator, .topic-unread .state-indicator {
+.state-indicator, .state-indicator {
   width: 10px;
   height: 10px;
   border-radius: 5px;
   margin: 5px 5px 0 0;
-  background-color: #ff8b00;
+  background-color: @grayLight;
   float: left;
+}
+
+.forum-unread .state-indicator, .topic-unread .state-indicator {
+  background-color: @linkColor;
 }
 
 .post-info {
