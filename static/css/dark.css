@@ -860,11 +860,11 @@ h6{font-size:1.1em;}
 blockquote{border-left:3px solid #dbd8ba;border-radius:3px;padding:10px;margin:0 auto;}
 .wrapper{max-width:1200px;margin:auto;}
 .navbar-inner{border-radius:0;}
-.category h1{font-size:1.2em;font-weight:400;border-radius:5px;padding:0 10px;}
+.category h1{font-size:1.2em;font-weight:400;border-radius:5px;}
 th.forum-topic-count,th.forum-post-count,th.topic-post-count,th.topic-view-count{text-align:center;}
 td.forum-topic-count,td.forum-post-count,td.topic-post-count,td.topic-view-count{font-size:.8em;text-align:center;width:10%;}
 td.forum-last-post,td.topic-last-post{font-size:.8em;width:25%;}
-.forum h1{font-size:1.3em;font-weight:400;border-radius:5px;padding:0 10px;}
+.forum h1{font-size:1.3em;font-weight:400;border-radius:5px;}
 .forum-description{font-size:.8em;}
 .forum-unread a,.topic-unread a{font-weight:bold;}
 .post-info{font-size:.8em;width:150px;}
