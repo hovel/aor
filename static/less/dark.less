@@ -1,38 +1,59 @@
-@butterLight: #fce94f;
-@butter: #edd400;
-@butterDark: #c4a000;
+// CSS Reset
+@import "bootstrap/reset";
 
-@orangeLight: #fcaf3e;
-@orange: #f67900;
-@orangeDark: #ce5c00;
+// Core variables and mixins
+@import "bootstrap/variables"; // Modify this for custom colors, font-sizes, etc
+@import "variables_dark";
+@import "bootstrap/mixins";
 
-@chocolateLight: #e9b96e;
-@chocolate: #c17d11;
-@chocolateDark: #8f5902;
+// Grid system and page structure
+@import "bootstrap/scaffolding";
+@import "bootstrap/grid";
+@import "bootstrap/layouts";
 
-@chameleonLight: #8ae234;
-@chameleon: #73d216;
-@chameleonDark: #4e9a06;
+// Base CSS
+@import "bootstrap/type";
+@import "bootstrap/code";
+@import "bootstrap/forms";
+@import "bootstrap/tables";
 
-@skyblueLight: #729fcf;
-@skyblue: #3465a4;
-@skyblueDark: #204a87;
+// Components: common
+@import "bootstrap/sprites";
+@import "bootstrap/dropdowns";
+@import "bootstrap/wells";
+@import "bootstrap/component-animations";
+@import "bootstrap/close";
 
-@plumLight: #ad7fa8;
-@plum: #75507b;
-@plumDark: #5c3566;
+// Components: Buttons & Alerts
+@import "bootstrap/buttons";
+@import "bootstrap/button-groups";
+@import "bootstrap/alerts"; // Note: alerts share common CSS with buttons and thus have styles in buttons.less
 
-@scarletredLight: #ef2929;
-@scarletred: #cc0000;
-@scarletredDark: #a40000;
+// Components: Nav
+@import "bootstrap/navs";
+@import "bootstrap/navbar";
+@import "bootstrap/breadcrumbs";
+@import "bootstrap/pagination";
+@import "bootstrap/pager";
 
-@aluminiumLight: #eeeeec;
-@aluminium: #d3d7cf;
-@aluminiumDark: #babdb6;
+// Components: Popovers
+@import "bootstrap/modals";
+@import "bootstrap/tooltip";
+@import "bootstrap/popovers";
 
-@grayLight: #888a85;
-@gray: #555753;
-@grayDark: #2e3436;
+// Components: Misc
+@import "bootstrap/thumbnails";
+@import "bootstrap/media";
+@import "bootstrap/labels-badges";
+@import "bootstrap/progress-bars";
+@import "bootstrap/accordion";
+@import "bootstrap/carousel";
+@import "bootstrap/hero-unit";
+
+// Utility classes
+@import "bootstrap/utilities"; // Has to be last to override when necessary
+
+@import "metric";
 
 .gradient(@direction: top, @c1: @gray, @c2: @grayDark) {
   background-image: -webkit-linear-gradient(@direction, @c1, @c2);
@@ -80,18 +101,6 @@
   }
 }
 
-body {
-  color: @aluminiumDark;
-  background: @grayDark;
-}
-
-a {
-  color: @skyblue;
-  &:hover {
-    color: @skyblueLight;
-  }
-}
-
 blockquote {
   background: @gray;
 }
@@ -127,10 +136,6 @@ pre {
   }
 }
 
-.hero-unit {
-  background: @gray;
-}
-
 .breadcrumb {
   color: @aluminium;
   background: @gray;
@@ -143,33 +148,9 @@ pre {
   }
 }
 
-.table-bordered, .table-bordered th, .table-bordered td, .block {
-  border-color: @gray;
-}
-
-.table-striped tbody > tr:nth-child(odd) > td,
-.table-striped tbody > tr:nth-child(odd) > th {
-  background: darken(@grayDark, 2%);
-}
-
-textarea, input[type="text"], input[type="password"], input[type="datetime"],
-input[type="datetime-local"], input[type="date"], input[type="month"],
-input[type="time"], input[type="week"], input[type="number"],
-input[type="email"], input[type="url"], input[type="search"],
-input[type="tel"], input[type="color"], .uneditable-input {
-  background: @aluminiumLight;
-}
-
-.navbar .nav li.dropdown.open > .dropdown-toggle,
-.navbar .nav li.dropdown.active > .dropdown-toggle,
-.navbar .nav li.dropdown.open.active > .dropdown-toggle {
-  color: @aluminiumDark;
-  background-color: @gray;
-}
-
-.dropdown-menu {
-  background-color: @grayDark;
-  border-color: @gray;
+.navbar .nav > li > .dropdown-menu::before,
+.navbar .nav > li > .dropdown-menu::after {
+  border-bottom-color: @grayLight;
 }
 
 .dropdown-menu .divider {
@@ -178,21 +159,7 @@ input[type="tel"], input[type="color"], .uneditable-input {
   border-bottom-color: darken(@grayDark,2%);
 }
 
-.navbar .nav li.dropdown > a:hover .caret,
-.navbar .nav li.dropdown.open > .dropdown-toggle .caret,
-.navbar .nav li.dropdown.active > .dropdown-toggle .caret,
-.navbar .nav li.dropdown.open.active > .dropdown-toggle .caret {
-  border-top-color: @aluminium;
-  border-bottom-color: @aluminium;
-}
-
-.navbar .nav > li > .dropdown-menu::before,
-.navbar .nav > li > .dropdown-menu::after {
-  border-bottom-color: @grayLight;
-}
-
 .form-actions {
-  background-color: @gray;
   border-color: @grayLight;
 }
 
@@ -215,7 +182,7 @@ input[type="tel"], input[type="color"], .uneditable-input {
 
 .post-control a {
   [class^="icon-"], [class*=" icon-"] {
-    background-image: url(bootstrap/img/glyphicons-halflings-white.png);
+    background-image: url(../bootstrap/img/glyphicons-halflings-white.png);
   }
   &:hover {
     background: @gray;
@@ -224,8 +191,6 @@ input[type="tel"], input[type="color"], .uneditable-input {
 }
 
 .pagination ul > li > a, .pagination ul > li > span {
-  border-color: @gray;
-  background: @grayDark;
   &:hover {
     background: @gray;
   }
@@ -235,4 +200,3 @@ input[type="tel"], input[type="color"], .uneditable-input {
   color: @grayLight;
 }
 
-@import "metric";

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-25 00:24+0400\n"
+"POT-Creation-Date: 2013-01-27 18:53+0400\n"
 "PO-Revision-Date: 2012-02-02 23:43+0400\n"
 "Last-Translator: Vladimir Korsun <korsun.vladimir@gmail.com>\n"
 "Language-Team: Russian <>\n"
@@ -83,7 +83,7 @@ msgid "Password change"
 msgstr "Смена пароля"
 
 #: templates/menu.html:73 templates/pybb/post_template.html:128
-#: templates/pybb/topic.html:55 templates/pybb/user.html:37
+#: templates/pybb/user.html:37
 msgid "Admin"
 msgstr "Админка"
 
@@ -94,39 +94,6 @@ msgstr "Выйти"
 #: templates/menu.html:91 templates/registration/registration_form.html:9
 msgid "Registration"
 msgstr "Регистрация"
-
-#: templates/pybb/category.html:9 templates/pybb/category.html.py:27
-msgid "Hidden"
-msgstr "Скрытый"
-
-#: templates/pybb/category.html:12 templates/pybb/post_template.html:27
-msgid "Topics"
-msgstr "Темы"
-
-#: templates/pybb/category.html:15 templates/pybb/forum.html:26
-#: templates/pybb/latest_topics.html:26 templates/pybb/post_template.html:33
-#: templates/pybb/topic.html:36 templates/pybb/user_posts.html:25
-#: templates/pybb/user_topics.html:27 templates/search/search.html:13
-msgid "Posts"
-msgstr "Сообщения"
-
-#: templates/pybb/category.html:18
-msgid "Last posts"
-msgstr "Последние сообщения"
-
-#: templates/pybb/category.html:41 templates/pybb/post_template.html:16
-#: templates/pybb/topic_last_message_info.html:6
-#: templates/pybb/user_topics.html:79
-msgid "ago"
-msgstr "назад"
-
-#: templates/pybb/category.html:46
-msgid "No forums created"
-msgstr "Отметить форумы прочтенными"
-
-#: templates/pybb/category.html:47
-msgid "Add forum now"
-msgstr "Добавить форум сейчас"
 
 #: templates/pybb/edit_profile.html:4
 msgid "Profile editing"
@@ -148,35 +115,12 @@ msgstr "Подписки на темы"
 msgid "delete"
 msgstr "удалить"
 
-#: templates/pybb/forum.html:23 templates/pybb/latest_topics.html:23
-#: templates/pybb/user_topics.html:24 templates/search/search.html:10
-msgid "Topic"
-msgstr "Тема"
-
-#: templates/pybb/forum.html:29 templates/pybb/latest_topics.html:29
-#: templates/pybb/user_topics.html:30 templates/search/search.html:16
-msgid "Views"
-msgstr "Просмотры"
-
-#: templates/pybb/forum.html:32 templates/pybb/latest_topics.html:32
-#: templates/pybb/user_topics.html:33 templates/search/search.html:19
-msgid "Last post"
-msgstr "Последнее сообщение"
-
-#: templates/pybb/forum.html:42 templates/pybb/latest_topics.html:42
-#: templates/pybb/user_topics.html:43 templates/search/search.html:29
-msgid "Sticky"
-msgstr "Закреплена"
-
-#: templates/pybb/forum.html:43 templates/pybb/latest_topics.html:43
-#: templates/pybb/user_topics.html:45 templates/search/search.html:30
-msgid "Closed"
-msgstr "Закрыта"
-
-#: templates/pybb/forum.html:47 templates/pybb/latest_topics.html:47
-#: templates/pybb/user_topics.html:50 templates/search/search.html:34
-msgid "pages"
-msgstr "страница"
+#: templates/pybb/forum_last_update_info.html:4
+#: templates/pybb/post_template.html:16
+#: templates/pybb/topic_last_message_info.html:6
+#: templates/pybb/user_topics.html:74
+msgid "ago"
+msgstr "назад"
 
 #: templates/pybb/index.html:7
 msgid "Index"
@@ -190,22 +134,27 @@ msgstr "Нет категорий"
 msgid "Add a category now"
 msgstr "Добавить форум сейчас"
 
-#: templates/pybb/index.html:24 templates/pybb/latest_topics.html:4
-#: templates/pybb/latest_topics.html:7
-msgid "Latest topics"
-msgstr "Последние темы"
+#: templates/pybb/index.html:24
+#, fuzzy
+msgid "Last updates in topics"
+msgstr "Последние обновления в темах форума"
 
 #: templates/pybb/index.html:29
 msgid "Mark all forums as read"
 msgstr "Отметить форумы прочтенными"
 
-#: templates/pybb/latest_topics.html:77
-msgid "Mark all topics as read"
-msgstr "Отметить все темы как прочтенные"
-
 #: templates/pybb/post_template.html:25 templates/pybb/user.html:11
 msgid "Statistics"
 msgstr "Статистика"
+
+#: templates/pybb/post_template.html:27
+msgid "Topics"
+msgstr "Темы"
+
+#: templates/pybb/post_template.html:33 templates/pybb/user_posts.html:20
+#: templates/pybb/user_topics.html:22 templates/search/search.html:13
+msgid "Posts"
+msgstr "Сообщения"
 
 #: templates/pybb/post_template.html:39
 msgid "Member"
@@ -239,34 +188,6 @@ msgstr "Удалить"
 msgid "Approve post"
 msgstr "Подтвердить комментарий"
 
-#: templates/pybb/topic.html:44
-msgid "Unstick topic"
-msgstr "Открепить тему"
-
-#: templates/pybb/topic.html:46
-msgid "Stick topic"
-msgstr "Прикрепить тему"
-
-#: templates/pybb/topic.html:50
-msgid "Open topic"
-msgstr "Открыть тему"
-
-#: templates/pybb/topic.html:52
-msgid "Close topic"
-msgstr "Закрыть тему"
-
-#: templates/pybb/topic.html:64
-msgid "Unsubscribe"
-msgstr "Отписаться"
-
-#: templates/pybb/topic.html:66
-msgid "Subscribe"
-msgstr "Подписаться"
-
-#: templates/pybb/topic.html:83
-msgid "Subscribers"
-msgstr "Подписчики"
-
 #: templates/pybb/topic_last_message_info.html:8
 msgid "posted by"
 msgstr "опубликовано"
@@ -287,15 +208,39 @@ msgstr "Дата регистрации"
 msgid "Block"
 msgstr "Блокировать"
 
-#: templates/pybb/user_posts.html:4 templates/pybb/user_posts.html.py:15
+#: templates/pybb/user_posts.html:4 templates/pybb/user_posts.html.py:8
 msgid "posts"
 msgstr "Сообщения"
 
-#: templates/pybb/user_topics.html:4 templates/pybb/user_topics.html.py:15
+#: templates/pybb/user_topics.html:4 templates/pybb/user_topics.html.py:8
 msgid "topics"
 msgstr "Темы"
 
-#: templates/pybb/user_topics.html:64
+#: templates/pybb/user_topics.html:19 templates/search/search.html:10
+msgid "Topic"
+msgstr "Тема"
+
+#: templates/pybb/user_topics.html:25 templates/search/search.html:16
+msgid "Views"
+msgstr "Просмотры"
+
+#: templates/pybb/user_topics.html:28 templates/search/search.html:19
+msgid "Last post"
+msgstr "Последнее сообщение"
+
+#: templates/pybb/user_topics.html:38 templates/search/search.html:29
+msgid "Sticky"
+msgstr "Закреплена"
+
+#: templates/pybb/user_topics.html:40 templates/search/search.html:30
+msgid "Closed"
+msgstr "Закрыта"
+
+#: templates/pybb/user_topics.html:45 templates/search/search.html:34
+msgid "pages"
+msgstr "страница"
+
+#: templates/pybb/user_topics.html:59
 msgid "posted in"
 msgstr "размещено"
 
@@ -404,6 +349,42 @@ msgstr "предыдущая страница"
 #: templates/search/pagination.html:11
 msgid "next page"
 msgstr "следующая страница"
+
+#~ msgid "Hidden"
+#~ msgstr "Скрытый"
+
+#~ msgid "Last posts"
+#~ msgstr "Последние сообщения"
+
+#~ msgid "No forums created"
+#~ msgstr "Отметить форумы прочтенными"
+
+#~ msgid "Add forum now"
+#~ msgstr "Добавить форум сейчас"
+
+#~ msgid "Mark all topics as read"
+#~ msgstr "Отметить все темы как прочтенные"
+
+#~ msgid "Unstick topic"
+#~ msgstr "Открепить тему"
+
+#~ msgid "Stick topic"
+#~ msgstr "Прикрепить тему"
+
+#~ msgid "Open topic"
+#~ msgstr "Открыть тему"
+
+#~ msgid "Close topic"
+#~ msgstr "Закрыть тему"
+
+#~ msgid "Unsubscribe"
+#~ msgstr "Отписаться"
+
+#~ msgid "Subscribe"
+#~ msgstr "Подписаться"
+
+#~ msgid "Subscribers"
+#~ msgstr "Подписчики"
 
 #~ msgid "previous"
 #~ msgstr "предыдущая"

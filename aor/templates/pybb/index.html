@@ -21,7 +21,7 @@
     <div class="btn-group">
         <a href="{% url pybb:topic_latest %}"
            class="btn">
-            {% trans "Latest topics" %}
+            {% trans "Last updates in topics" %}
         </a>
         {% if user.is_authenticated %}
             <a href="{% url pybb:mark_all_as_read %}"
