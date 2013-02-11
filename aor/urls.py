@@ -2,7 +2,7 @@ from django.conf import settings
 from django.conf.urls import patterns, include, url
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib import admin
-from django.views.generic.base import  TemplateView
+from django.views.generic.base import TemplateView
 from pybb.views import ProfileEditView
 from registration.views import register
 from aor.forms import AORProfileForm, RegistrationFormCaptcha
@@ -41,6 +41,10 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^robots.txt$', include('robots.urls')),
     url(r'^captcha/', include('captcha.urls')),
+    # IRC Mibbit widget
+    url(r'^irc/$',
+        TemplateView.as_view(template_name='irc_mibbit_widget.html'),
+        name='irc'),
 )
 
 urlpatterns += staticfiles_urlpatterns()
