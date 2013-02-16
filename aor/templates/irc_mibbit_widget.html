@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block main %}
+    <div class="irc">
+        <iframe style="width: 100%; min-height: 100%; border: none;" id="chat"
+                src="http://widget.mibbit.com/?server=irc.mibbit.net&channel=%23archlinux-ru">
+        </iframe>
+    </div>
+{% endblock %}
+
+{% block title %}
+    {% trans "Arch Chat" %}
+{% endblock %}
