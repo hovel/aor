@@ -1,4 +1,4 @@
-Django==1.4.3
+Django==1.4.4
 Fabric==1.5.1
 MySQL-python==1.2.4
 Pillow==1.7.8
