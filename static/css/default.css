@@ -890,6 +890,7 @@ label.checkbox ul,label.radio ul{list-style:none;}
 .topic-list caption+thead tr:first-child th:first-child,.category-table caption+thead tr:first-child th:first-child,.topic-list caption+tbody tr:first-child td:first-child,.category-table caption+tbody tr:first-child td:first-child,.topic-list colgroup+thead tr:first-child th:first-child,.category-table colgroup+thead tr:first-child th:first-child,.topic-list colgroup+tbody tr:first-child td:first-child,.category-table colgroup+tbody tr:first-child td:first-child{-webkit-border-top-left-radius:4px;-moz-border-radius-topleft:4px;border-top-left-radius:4px;}
 .topic-list caption+thead tr:first-child th:last-child,.category-table caption+thead tr:first-child th:last-child,.topic-list caption+tbody tr:first-child td:last-child,.category-table caption+tbody tr:first-child td:last-child,.topic-list colgroup+thead tr:first-child th:last-child,.category-table colgroup+thead tr:first-child th:last-child,.topic-list colgroup+tbody tr:first-child td:last-child,.category-table colgroup+tbody tr:first-child td:last-child{-webkit-border-top-right-radius:4px;-moz-border-radius-topright:4px;border-top-right-radius:4px;}
 .topic-list tbody>tr:nth-child(odd)>td,.category-table tbody>tr:nth-child(odd)>td,.topic-list tbody>tr:nth-child(odd)>th,.category-table tbody>tr:nth-child(odd)>th{background-color:#f9f9f9;}
+.code pre{max-height:300px;overflow-y:auto;}
 blockquote{background:#f5f2d0;border-left:3px solid #dbd8ba;}
 .category h1{color:#08c;}
 .forum h1{color:#08c;}
