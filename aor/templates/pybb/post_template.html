@@ -13,7 +13,7 @@
         </td>
         <td class="post-date">
             <a class="permalink" href="{{ post.get_absolute_url }}">#</a>
-          {% if request.user.profile.date_show_type == 1 %}{{ post.created }}{% else %}{{ post.created|timesince }} {% trans "ago" %}{% endif %}
+            {% if request.user.profile.date_show_type == 1 %}{{ post.created }}{% else %}{{ post.created|timesince }} {% trans "ago" %}{% endif %}
         </td>
     </tr>
     </thead>
@@ -35,9 +35,9 @@
                 </a>
             </div>
             <div>
-                {% trans "Member" %}:<br>
+                {% trans "Member since" %}:<br>
                 {% if request.user.profile.date_show_type == 1 %}
-                    {{ post.user.date_joined }}
+                    {{ post.user.date_joined|date:'d E Y' }}
                 {% else %}
                     {{ post.user.date_joined|timesince }}
                 {% endif %}

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-28 22:10+0400\n"
+"POT-Creation-Date: 2013-03-28 22:36+0400\n"
 "PO-Revision-Date: 2012-02-02 23:43+0400\n"
 "Last-Translator: Vladimir Korsun <korsun.vladimir@gmail.com>\n"
 "Language-Team: Russian <>\n"
@@ -90,7 +90,7 @@ msgstr "Профиль"
 msgid "Password change"
 msgstr "Смена пароля"
 
-#: templates/menu.html:78 templates/pybb/post_template.html:128
+#: templates/menu.html:78 templates/pybb/post_template.html:130
 #: templates/pybb/user.html:37
 msgid "Admin"
 msgstr "Админка"
@@ -126,7 +126,7 @@ msgstr "удалить"
 #: templates/pybb/forum_last_update_info.html:7
 #: templates/pybb/post_template.html:16
 #: templates/pybb/topic_last_message_info.html:9
-#: templates/pybb/user_topics.html:74
+#: templates/pybb/user_topics.html:77
 msgid "ago"
 msgstr "назад"
 
@@ -150,48 +150,48 @@ msgstr "Последние обновления в темах форума"
 msgid "Mark all forums as read"
 msgstr "Отметить форумы прочтенными"
 
-#: templates/pybb/post_template.html:25 templates/pybb/user.html:11
+#: templates/pybb/post_template.html:24 templates/pybb/user.html:11
 msgid "Statistics"
 msgstr "Статистика"
 
-#: templates/pybb/post_template.html:27
+#: templates/pybb/post_template.html:26
 msgid "Topics"
 msgstr "Темы"
 
-#: templates/pybb/post_template.html:33 templates/pybb/user_posts.html:20
+#: templates/pybb/post_template.html:32 templates/pybb/user_posts.html:20
 #: templates/pybb/user_topics.html:22 templates/search/search.html:13
 msgid "Posts"
 msgstr "Сообщения"
 
-#: templates/pybb/post_template.html:39
-msgid "Member"
-msgstr "Участник"
+#: templates/pybb/post_template.html:38
+msgid "Member since"
+msgstr "Участник с"
 
-#: templates/pybb/post_template.html:47
+#: templates/pybb/post_template.html:49
 msgid "Rank"
 msgstr "Ранг"
 
-#: templates/pybb/post_template.html:68
+#: templates/pybb/post_template.html:70
 msgid "Edited"
 msgstr "Отредактированный"
 
-#: templates/pybb/post_template.html:102
+#: templates/pybb/post_template.html:104
 msgid "quote"
 msgstr "цитировать"
 
-#: templates/pybb/post_template.html:107 templates/pybb/user.html:32
+#: templates/pybb/post_template.html:109 templates/pybb/user.html:32
 msgid "Edit"
 msgstr "Редактировать"
 
-#: templates/pybb/post_template.html:112
+#: templates/pybb/post_template.html:114
 msgid "Delete post?"
 msgstr "Удалить сообщение?"
 
-#: templates/pybb/post_template.html:115
+#: templates/pybb/post_template.html:117
 msgid "Delete"
 msgstr "Удалить"
 
-#: templates/pybb/post_template.html:120
+#: templates/pybb/post_template.html:122
 msgid "Approve post"
 msgstr "Подтвердить комментарий"
 
