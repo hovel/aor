@@ -20,7 +20,7 @@ class AuthenticationFormCaptcha(AuthenticationForm):
 class AORProfileForm(EditProfileForm):
     class Meta:
         model = Profile
-        fields = ('signature', 'show_signatures', 'theme', 'time_zone',
+        fields = ('signature', 'date_show_type', 'show_signatures', 'theme', 'time_zone',
                   'language', 'avatar')
 
     signature = forms.CharField(widget=forms.Textarea, label=_('Signature'),

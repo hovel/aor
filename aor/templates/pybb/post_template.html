@@ -13,8 +13,7 @@
         </td>
         <td class="post-date">
             <a class="permalink" href="{{ post.get_absolute_url }}">#</a>
-            {{ post.created|timesince }} {% trans "ago" %}
-{#            {% pybb_time post.created %}#}
+          {% if request.user.profile.date_show_type == 1 %}{{ post.created }}{% else %}{{ post.created|timesince }} {% trans "ago" %}{% endif %}
         </td>
     </tr>
     </thead>
@@ -37,8 +36,11 @@
             </div>
             <div>
                 {% trans "Member" %}:<br>
-{#                {% pybb_time post.user.date_joined %}#}
-                {{ post.user.date_joined|timesince }}
+                {% if request.user.profile.date_show_type == 1 %}
+                    {{ post.user.date_joined }}
+                {% else %}
+                    {{ post.user.date_joined|timesince }}
+                {% endif %}
             </div>
 
             {% if post.user.get_profile.rank %}

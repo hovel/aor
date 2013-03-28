@@ -2,8 +2,12 @@
 
 {% if topic.updated %}
     <a href="{{ topic.last_post.get_absolute_url }}">
-        {{ topic.updated|timesince }}
-        {% trans "ago" %}
+        {% if request.user.profile.date_show_type == 1 %}
+            {{ topic.updated }}
+        {% else %}
+            {{ topic.updated|timesince }}
+            {% trans "ago" %}
+        {% endif %}
     </a><br>
     {% trans "posted by" %}
     <a href="{% url pybb:user topic.last_post.user.username %}">

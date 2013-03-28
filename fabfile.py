@@ -4,7 +4,7 @@ PROJECT_NAME = 'archlinux'
 
 PROJECT_BASEDIR = '/home/amigo/archlinux'
 PROJECT_ROOT = '/home/amigo/archlinux/aor'
-PROJECT_SOURCE = 'https://amigo@bitbucket.org/amigo/aor'
+PROJECT_SOURCE = 'https://GeyseR@bitbucket.org/GeyseR/aor'
 
 env.hosts = ['amigo@ec2-50-17-136-53.compute-1.amazonaws.com']
 env.always_use_pty = False

@@ -7,10 +7,20 @@ from django.utils.translation import ugettext_lazy as _
 from pybb.models import PybbProfile
 from aor.settings import AOR_THEMES
 
+
 class Profile(PybbProfile):
+    PROFILE_DATE_SHOW_CLASSIC = 1
+    PROFILE_DATE_SHOW_REVERTED = 2
+
+    PROFILE_DATE_SHOW_TYPES = (
+        (PROFILE_DATE_SHOW_REVERTED, _(u'Reverted')),
+        (PROFILE_DATE_SHOW_CLASSIC, _(u'Classic')),
+    )
     user = AutoOneToOneField(User)
     theme = models.CharField(max_length=32, choices=AOR_THEMES,
         default='default')
+    date_show_type = models.IntegerField(verbose_name=_(u'Date show type'), choices=PROFILE_DATE_SHOW_TYPES,
+                                    default=PROFILE_DATE_SHOW_REVERTED)
 
     def __unicode__(self):
         return self.user.username

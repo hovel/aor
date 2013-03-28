@@ -1,5 +1,9 @@
 {% load i18n %}
 {% if forum.updated %}
-    {{ forum.updated|timesince }}
-    {% trans "ago" %}
+    {% if request.user.profile.date_show_type == 1 %}
+      {{ forum.updated }}
+    {% else %}
+      {{ forum.updated|timesince }}
+      {% trans "ago" %}
+    {% endif %}
 {% endif %}
