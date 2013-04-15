@@ -150,6 +150,7 @@ PYBB_NEWS_PAGE_SIZE = 10
 PYBB_BLOGS_PAGE_SIZE = 10
 
 AUTH_PROFILE_MODULE = 'profiles.Profile'
+PYBB_PROFILE_RELATED_NAME = 'profile'
 
 AOR_THEMES = (
     ('default', _('default theme')),
