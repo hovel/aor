@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-28 23:14+0400\n"
+"POT-Creation-Date: 2013-04-20 23:15+0400\n"
 "PO-Revision-Date: 2012-02-02 23:43+0400\n"
 "Last-Translator: Vladimir Korsun <korsun.vladimir@gmail.com>\n"
 "Language-Team: Russian <>\n"
@@ -30,11 +30,11 @@ msgstr "Введите текст с изображения каптчи"
 msgid "Signature"
 msgstr "Подпись"
 
-#: settings.py:155
+#: settings.py:157
 msgid "default theme"
 msgstr "тема по умолчанию"
 
-#: settings.py:156
+#: settings.py:158
 msgid "dark theme"
 msgstr "темная"
 
@@ -102,6 +102,58 @@ msgstr "Выйти"
 #: templates/menu.html:96 templates/registration/registration_form.html:9
 msgid "Registration"
 msgstr "Регистрация"
+
+#: templates/pybb/_markitup.html:14
+msgid "Bold"
+msgstr "Жирный"
+
+#: templates/pybb/_markitup.html:15
+msgid "Italic"
+msgstr "Курсив"
+
+#: templates/pybb/_markitup.html:16
+msgid "Underline"
+msgstr "Подчёркнутый"
+
+#: templates/pybb/_markitup.html:17
+msgid "Strike"
+msgstr "Зачёркнутый"
+
+#: templates/pybb/_markitup.html:19
+msgid "Picture"
+msgstr "Изображение"
+
+#: templates/pybb/_markitup.html:20
+msgid "Link"
+msgstr "Ссылка"
+
+#: templates/pybb/_markitup.html:22
+msgid "Bulleted list"
+msgstr "Ненумерованный список"
+
+#: templates/pybb/_markitup.html:23
+msgid "Numeric list"
+msgstr "Нумерованный список"
+
+#: templates/pybb/_markitup.html:24
+msgid "List item"
+msgstr "Элемент списка"
+
+#: templates/pybb/_markitup.html:26
+msgid "Quotes"
+msgstr "Цитировать"
+
+#: templates/pybb/_markitup.html:27
+msgid "Code"
+msgstr "Код"
+
+#: templates/pybb/_markitup.html:29
+msgid "Clean"
+msgstr "Очистить"
+
+#: templates/pybb/_markitup.html:30
+msgid "Preview"
+msgstr "Предосмотр"
 
 #: templates/pybb/edit_profile.html:4
 msgid "Profile editing"
@@ -489,9 +541,6 @@ msgstr "следующая страница"
 
 #~ msgid "Post"
 #~ msgstr "Сообщение"
-
-#~ msgid "Preview"
-#~ msgstr "Предосмотр"
 
 #~ msgid "No comments."
 #~ msgstr "Комментариев нет."
