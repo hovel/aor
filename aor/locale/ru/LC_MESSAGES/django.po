@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-21 01:14+0400\n"
+"POT-Creation-Date: 2013-04-21 11:41+0400\n"
 "PO-Revision-Date: 2012-02-02 23:43+0400\n"
 "Last-Translator: Vladimir Korsun <korsun.vladimir@gmail.com>\n"
 "Language-Team: Russian <>\n"
@@ -90,7 +90,7 @@ msgstr "Профиль"
 msgid "Password change"
 msgstr "Смена пароля"
 
-#: templates/menu.html:78 templates/pybb/post_template.html:130
+#: templates/menu.html:78 templates/pybb/post_template.html:125
 #: templates/pybb/user.html:37
 msgid "Admin"
 msgstr "Админка"
@@ -219,31 +219,31 @@ msgstr "Сообщения"
 msgid "Member since"
 msgstr "Участник с"
 
-#: templates/pybb/post_template.html:49
+#: templates/pybb/post_template.html:44
 msgid "Rank"
 msgstr "Ранг"
 
-#: templates/pybb/post_template.html:70
+#: templates/pybb/post_template.html:65
 msgid "Edited"
 msgstr "Отредактированный"
 
-#: templates/pybb/post_template.html:104
+#: templates/pybb/post_template.html:99
 msgid "quote"
 msgstr "цитировать"
 
-#: templates/pybb/post_template.html:109 templates/pybb/user.html:32
+#: templates/pybb/post_template.html:104 templates/pybb/user.html:32
 msgid "Edit"
 msgstr "Редактировать"
 
-#: templates/pybb/post_template.html:114
+#: templates/pybb/post_template.html:109
 msgid "Delete post?"
 msgstr "Удалить сообщение?"
 
-#: templates/pybb/post_template.html:117
+#: templates/pybb/post_template.html:112
 msgid "Delete"
 msgstr "Удалить"
 
-#: templates/pybb/post_template.html:122
+#: templates/pybb/post_template.html:117
 msgid "Approve post"
 msgstr "Подтвердить комментарий"
 
