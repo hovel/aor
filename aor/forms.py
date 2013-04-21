@@ -21,7 +21,7 @@ class AORProfileForm(EditProfileForm):
     class Meta:
         model = Profile
         fields = ('signature', 'date_show_type', 'show_signatures', 'theme', 'time_zone',
-                  'language', 'avatar')
+                  'language', 'avatar', 'icq', 'skype', 'jabber', 'site', 'interests')
 
     signature = forms.CharField(widget=forms.Textarea, label=_('Signature'),
         required=False)

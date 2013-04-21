@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-21 11:41+0400\n"
+"POT-Creation-Date: 2013-04-21 23:13+0400\n"
 "PO-Revision-Date: 2012-02-02 23:43+0400\n"
 "Last-Translator: Vladimir Korsun <korsun.vladimir@gmail.com>\n"
 "Language-Team: Russian <>\n"
@@ -46,7 +46,7 @@ msgstr "Русскоязычное Сообщество Arch Linux"
 msgid "Join us"
 msgstr "Присоединиться"
 
-#: templates/index.html:28 templates/menu.html:91
+#: templates/index.html:28 templates/menu.html:94
 #: templates/registration/login.html:9
 msgid "Login"
 msgstr "Вход"
@@ -86,20 +86,24 @@ msgstr "Чат"
 msgid "Profile"
 msgstr "Профиль"
 
-#: templates/menu.html:71
+#: templates/menu.html:70
+msgid "Profile settings"
+msgstr "Редактирование профиля"
+
+#: templates/menu.html:74
 msgid "Password change"
 msgstr "Смена пароля"
 
-#: templates/menu.html:78 templates/pybb/post_template.html:125
-#: templates/pybb/user.html:37
+#: templates/menu.html:81 templates/pybb/post_template.html:125
+#: templates/pybb/user.html:54
 msgid "Admin"
 msgstr "Админка"
 
-#: templates/menu.html:85
+#: templates/menu.html:88
 msgid "Logout"
 msgstr "Выйти"
 
-#: templates/menu.html:96 templates/registration/registration_form.html:9
+#: templates/menu.html:99 templates/registration/registration_form.html:9
 msgid "Registration"
 msgstr "Регистрация"
 
@@ -202,7 +206,7 @@ msgstr "Последние обновления в темах форума"
 msgid "Mark all forums as read"
 msgstr "Отметить форумы прочтенными"
 
-#: templates/pybb/post_template.html:24 templates/pybb/user.html:11
+#: templates/pybb/post_template.html:24 templates/pybb/user.html:29
 msgid "Statistics"
 msgstr "Статистика"
 
@@ -231,7 +235,7 @@ msgstr "Отредактированный"
 msgid "quote"
 msgstr "цитировать"
 
-#: templates/pybb/post_template.html:104 templates/pybb/user.html:32
+#: templates/pybb/post_template.html:104
 msgid "Edit"
 msgstr "Редактировать"
 
@@ -251,19 +255,31 @@ msgstr "Подтвердить комментарий"
 msgid "posted by"
 msgstr "опубликовано"
 
-#: templates/pybb/user.html:14
+#: templates/pybb/user.html:12
+msgid "Information"
+msgstr "Информация"
+
+#: templates/pybb/user.html:23
+msgid "Personal site"
+msgstr "Персональный сайт"
+
+#: templates/pybb/user.html:26
+msgid "Interests"
+msgstr "Интересы"
+
+#: templates/pybb/user.html:32
 msgid "Number of topics"
 msgstr "Количество тем"
 
-#: templates/pybb/user.html:20
+#: templates/pybb/user.html:38
 msgid "Number of posts"
 msgstr "Количество сообщений"
 
-#: templates/pybb/user.html:25
+#: templates/pybb/user.html:43
 msgid "Date of registration"
 msgstr "Дата регистрации"
 
-#: templates/pybb/user.html:34
+#: templates/pybb/user.html:51
 msgid "Block"
 msgstr "Блокировать"
 
