@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-25 22:38+0400\n"
+"POT-Creation-Date: 2013-04-25 23:40+0400\n"
 "PO-Revision-Date: 2012-02-02 23:43+0400\n"
 "Last-Translator: Vladimir Korsun <korsun.vladimir@gmail.com>\n"
 "Language-Team: Russian <>\n"
@@ -90,7 +90,7 @@ msgstr "Профиль"
 msgid "Profile settings"
 msgstr "Редактирование профиля"
 
-#: templates/menu.html:76 templates/pybb/post_template.html:125
+#: templates/menu.html:76 templates/pybb/post_template.html:127
 #: templates/pybb/user.html:54
 msgid "Admin"
 msgstr "Админка"
@@ -202,49 +202,49 @@ msgstr "Последние обновления в темах форума"
 msgid "Mark all forums as read"
 msgstr "Отметить форумы прочтенными"
 
-#: templates/pybb/post_template.html:24 templates/pybb/user.html:29
-msgid "Statistics"
-msgstr "Статистика"
-
-#: templates/pybb/post_template.html:26
+#: templates/pybb/post_template.html:25
 msgid "Topics"
 msgstr "Темы"
 
-#: templates/pybb/post_template.html:32 templates/pybb/topic_list.html:10
+#: templates/pybb/post_template.html:31 templates/pybb/topic_list.html:10
 #: templates/pybb/user_posts.html:20 templates/pybb/user_topics.html:22
 #: templates/search/search.html:13
 msgid "Posts"
 msgstr "Сообщения"
 
-#: templates/pybb/post_template.html:38
+#: templates/pybb/post_template.html:37
 msgid "Member since"
 msgstr "Участник с"
 
-#: templates/pybb/post_template.html:44
+#: templates/pybb/post_template.html:40
+msgid "blocked"
+msgstr "заблокирован"
+
+#: templates/pybb/post_template.html:46
 msgid "Rank"
 msgstr "Ранг"
 
-#: templates/pybb/post_template.html:65
+#: templates/pybb/post_template.html:67
 msgid "Edited"
 msgstr "Отредактированный"
 
-#: templates/pybb/post_template.html:99
+#: templates/pybb/post_template.html:101
 msgid "quote"
 msgstr "цитировать"
 
-#: templates/pybb/post_template.html:104
+#: templates/pybb/post_template.html:106
 msgid "Edit"
 msgstr "Редактировать"
 
-#: templates/pybb/post_template.html:109
+#: templates/pybb/post_template.html:111
 msgid "Delete post?"
 msgstr "Удалить сообщение?"
 
-#: templates/pybb/post_template.html:112
+#: templates/pybb/post_template.html:114
 msgid "Delete"
 msgstr "Удалить"
 
-#: templates/pybb/post_template.html:117
+#: templates/pybb/post_template.html:119
 msgid "Approve post"
 msgstr "Подтвердить комментарий"
 
@@ -267,25 +267,25 @@ msgstr "Просмотры"
 msgid "Last post"
 msgstr "Последнее сообщение"
 
-#: templates/pybb/topic_list.html:26
+#: templates/pybb/topic_list.html:24
 msgid "Go to first unread post"
 msgstr "Перейти к первому непрочитанному"
 
-#: templates/pybb/topic_list.html:27 templates/pybb/user_topics.html:38
+#: templates/pybb/topic_list.html:26 templates/pybb/user_topics.html:38
 #: templates/search/search.html:29
 msgid "Sticky"
 msgstr "Закреплена"
 
-#: templates/pybb/topic_list.html:28 templates/pybb/user_topics.html:40
+#: templates/pybb/topic_list.html:27 templates/pybb/user_topics.html:40
 #: templates/search/search.html:30
 msgid "Closed"
 msgstr "Закрыта"
 
-#: templates/pybb/topic_list.html:30
+#: templates/pybb/topic_list.html:29
 msgid "Author"
 msgstr "Автор"
 
-#: templates/pybb/topic_list.html:34 templates/pybb/user_topics.html:45
+#: templates/pybb/topic_list.html:33 templates/pybb/user_topics.html:45
 #: templates/search/search.html:34
 msgid "pages"
 msgstr "страница"
@@ -301,6 +301,10 @@ msgstr "Персональный сайт"
 #: templates/pybb/user.html:26
 msgid "Interests"
 msgstr "Интересы"
+
+#: templates/pybb/user.html:29
+msgid "Statistics"
+msgstr "Статистика"
 
 #: templates/pybb/user.html:32
 msgid "Number of topics"

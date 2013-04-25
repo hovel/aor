@@ -2,7 +2,7 @@
 
 <a name="post-{{ post.id }}"></a> {# may be remove this string? #}
 <table class="table table-bordered post
-    {% if post.on_moderation %}on-moderation{% endif %}"
+       {% if post.on_moderation %}on-moderation{% endif %}"
        id="post-{{ post.id }}">
     <thead>
     <tr>
@@ -21,7 +21,6 @@
     <tr>
         <td class="post-info">
             {% include "pybb/avatar.html" with user=post.user %}
-            <div class="label">{% trans "Statistics" %}</div>
             <div>
                 {% trans "Topics" %}:
                 <a href="{% url user_topics post.user %}">
@@ -35,8 +34,11 @@
                 </a>
             </div>
             <div>
-                {% trans "Member since" %}:<br>{{ post.user.date_joined|date:'d E Y' }}
+                {% trans "Member since" %}: {{ post.user.date_joined|date:'d E Y' }}
             </div>
+            {% if user.is_active %}
+                <div class="label label-warning">{% trans 'blocked' %}</div>
+            {% endif %}
 
             {% if post.user.get_profile.rank %}
                 {% with post.user.get_profile as profile %}
