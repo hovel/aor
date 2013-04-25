@@ -69,11 +69,6 @@
                 <li>
                     <a href="{% url pybb:edit_profile %}">{% trans 'Profile settings' %}</a>
                 </li>
-                <li>
-                    <a href="{% url auth_password_change %}">
-                        {% trans "Password change" %}
-                    </a>
-                </li>
                 {% if user.is_staff %}
                     <li class="divider"></li>
                     <li class="{{ menu_admin }}">
