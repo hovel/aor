@@ -5,23 +5,17 @@
     {% if field.errors %}error{% endif %}">
 
     {% if field|is_widget:"CheckboxInput,CheckboxSelectMultiple,CheckboxSelect" %}
-        <div class="controls">
+        {% for choice in field.field.choices %}
             <label class="checkbox">
-                {{ field }}
-                {% if not hide_labels or hide_labels == 0 %}
-                    {{ field.field.label }}
-                {% endif %}
+                <input type="checkbox" {% if choice.0 in field.value or choice.0 == field.value %}checked="checked"{% endif %} name="{{ field.html_name }}" id="id_{{ field.html_name }}_{{ forloop.counter }}" value="{{ choice.0 }}">{{ choice.1 }}
             </label>
-        </div>
+        {% endfor %}
     {% elif field|is_widget:"RadioSelect" %}
-        <div class="controls">
+        {% for choice in field.field.choices %}
             <label class="radio">
-                {{ field }}
-                {% if not hide_labels or hide_labels == 0 %}
-                    {{ field.field.label }}
-                {% endif %}
+                <input type="radio" {% if choice.0 == field.value %}checked="checked" {% endif %} name="{{ field.html_name }}" id="id_{{ field.html_name }}_{{ forloop.counter }}" value="{{ choice.0 }}">{{ choice.1 }}
             </label>
-        </div>
+        {% endfor %}
     {% else %}
         {% if not hide_labels or hide_labels == 0 %}
             <label class="control-label" for="{{ field.auto_id }}">
