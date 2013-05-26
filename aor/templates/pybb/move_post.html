@@ -1,7 +1,20 @@
 {% extends 'pybb/base.html' %}
-{% load i18n thumbnail pybb_tags %}
+{% load i18n thumbnail pybb_tags static %}
 
 {% block title %}{% trans "Move post to another topic" %}{% endblock title %}
+
+{% block extra_style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'chosen/chosen.css' %}">
+{% endblock %}
+
+{% block extra_script %}
+    <script type="text/javascript" src="{% static 'chosen/chosen.jquery.min.js' %}"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#{{ form.topic.auto_id }}').chosen({ search_contains: true });
+        });
+    </script>
+{% endblock %}
 
 {% block content %}
     <div class="row-fluid">

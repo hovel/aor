@@ -37,8 +37,8 @@ class MovePostForm(forms.ModelForm):
     def __init__(self, user, *args, **kwargs):
         super(MovePostForm, self).__init__(*args, **kwargs)
         self.fields['topic'].required = True
-        self.fields['topic'].queryset = perms.filter_topics(user, Topic.objects.all()).select_related('forum')\
-            .order_by('forum', 'forum__name', 'name')
+        self.fields['topic'].queryset = perms.filter_topics(user, Topic.objects.filter(closed=False))\
+            .select_related('forum').order_by('forum', 'forum__name', 'name')
 
     class Meta:
         model = Post
