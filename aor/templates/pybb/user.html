@@ -9,7 +9,9 @@
     <div class="userinfo">
         {% include "pybb/avatar.html" with user=target_user %}
         <div class="info">
-            <div class="label">{% trans "Information" %}</div>
+            {% if profile.icq or profile.skype or profile.jabber or profile.site or profile.interests %}
+                <div class="label">{% trans "Information" %}</div>
+            {% endif %}
             {% if profile.icq %}
                 <div>ICQ: {{ profile.icq }}</div>
             {% endif %}
