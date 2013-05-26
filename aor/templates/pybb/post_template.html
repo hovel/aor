@@ -1,5 +1,8 @@
 {% load i18n pybb_tags thumbnail %}
 
+{% pybb_get_profile post.user as post_user_profile %}
+{% pybb_get_profile request.user as request_user_profile %}
+
 <a name="post-{{ post.id }}"></a> {# may be remove this string? #}
 <table class="table table-bordered post
        {% if post.on_moderation %}on-moderation{% endif %}"
@@ -7,13 +10,13 @@
     <thead>
     <tr>
         <td class="post-author">
-            <a href="{{ post.user.get_profile.get_absolute_url }}">
+            <a href="{{ post_user_profile.get_absolute_url }}">
                 {{ post.user.username }}
             </a>
         </td>
         <td class="post-date">
             <a class="permalink" href="{{ post.get_absolute_url }}">#</a>
-            {% if request.user.profile.date_show_type == 1 %}{{ post.created }}{% else %}{{ post.created|timesince }} {% trans "ago" %}{% endif %}
+            {% if request_user_profile.date_show_type == 1 %}{{ post.created }}{% else %}{{ post.created|timesince }} {% trans "ago" %}{% endif %}
         </td>
     </tr>
     </thead>
@@ -30,7 +33,7 @@
             <div>
                 {% trans "Posts" %}:
                 <a href="{% url user_posts post.user %}">
-                    {{ post.user.posts.all.count }}
+                    {{ post_user_profile.post_count }}
                 </a>
             </div>
             <div>
@@ -39,27 +42,13 @@
             {% if not user.is_active %}
                 <div class="label label-warning">{% trans 'blocked' %}</div>
             {% endif %}
-
-            {% if post.user.get_profile.rank %}
-                {% with post.user.get_profile as profile %}
-                    <div class='rank'>
-                        {% trans "Rank" %}: {{ profile.rank }}
-                        {% if user.is_authenticated and user != post.user %}
-                            <a href='#' class='vote'
-                               rel='{{ profile.get_vote_up_url }}'>+</a>
-                            <a href='#' class='vote'
-                               rel='{{ profile.get_vote_down_url }}'>-</a>
-                        {% endif %}
-                    </div>
-                {% endwith %}
-            {% endif %}
         </td>
         <td class="post-content">
             {{ post.body_html|safe }}
-            {% if not user.is_authenticated or user.get_profile.show_signatures %}
-                {% if post.user.get_profile.signature %}
+            {% if not user.is_authenticated or request_user_profile.show_signatures %}
+                {% if post_user_profile.signature %}
                     <div class="post-signature">
-                        {{ post.user.get_profile.signature_html|safe }}
+                        {{ post_user_profile.signature_html|safe }}
                     </div>
                 {% endif %}
             {% endif %}
@@ -67,19 +56,11 @@
                 <div class="updated-message">{% trans "Edited" %} {% pybb_time post.updated %}</div>
             {% endif %}
 
-            {% comment %}
-                    {% if post.attachment_cache %}
-                    {% for attach in post.attachment_cache %}
-                    <br/>
-                    {% trans "Attachment" %}: <a href="{{ attach.get_absolute_url }}">{{ attach.name }}</a> ({{ attach.size_display }})
-                    {% endfor %}
-                    {% endif %}
-            {% endcomment %}
             <div class="post-related">
                 <div class='attachments'>
                     {% for attachment in post.attachments.all %}
-                        <a href="{{ attachment.file.url }}"><img
-                                src="{{ STATIC_URL }}pybb/img/attachment.png"> {{ attachment.size_display }}
+                        <a href="{{ attachment.file.url }}">
+                          <img src="{{ STATIC_URL }}pybb/img/attachment.png"> {{ attachment.size_display }}
                         </a>
                     {% endfor %}
                 </div>
@@ -118,6 +99,12 @@
                        title="{% trans "Approve post" %}">
                         <i class="icon-check"></i></a>
                 {% endif %}
+            {% endif %}
+            {% if user|pybb_may_edit_post:post and post != post.topic.head %}
+                <a href="{% url move_post pk=post.id %}"
+                   rel="tooltip"
+                   title="{% trans "Move post" %}">
+                    <i class="icon-arrow-right"></i></a>
             {% endif %}
 
             {% if perms.pybb.change_post and user.is_staff %}

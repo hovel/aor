@@ -1,0 +1,42 @@
+{% extends 'pybb/base.html' %}
+{% load i18n thumbnail pybb_tags %}
+
+{% block title %}{% trans "Move post to another topic" %}{% endblock title %}
+
+{% block content %}
+    <div class="row-fluid">
+        <h1>{% trans 'Moving post' %}</h1>
+        <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+            {% csrf_token %}
+            <div class="control-group">
+                <label class="control-label" for="{{ form.topic.auto_id }}">
+                    {% trans 'Choose topic where to move post' %}
+                </label>
+                <div class="controls">
+                    <select name="{{ form.topic.html_name }}" id="{{ form.topic.auto_id }}" class="span12">
+
+                        {% for topic in form.fields.topic.queryset %}
+                            {% ifchanged topic.forum.id %}
+                              {% if not forloop.first %}</optgroup>{% endif %}
+                              <optgroup label="{{ topic.forum.name }}">
+                            {% endifchanged %}
+                            <option value="{{ topic.id }}" {% if object.topic.id == topic.id %}selected="selected"{% endif %}>
+                              {{ topic.name }}
+                            </option>
+                        {% endfor %}
+                        </optgroup>
+                    </select>
+                    {% for error in field.errors %}
+                        <span class="help-inline">{{ field.errors }}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">
+                    {% trans "Save" %}
+                </button>
+            </div>
+        </form>
+        {% include 'pybb/post_template.html' with post=object %}
+    </div>
+{% endblock content %}

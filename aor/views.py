@@ -1,12 +1,16 @@
 from django.conf import settings
+from django.core.exceptions import PermissionDenied
 from django.db.models import Q
+from django.utils import timezone
 from django.views import generic
 from pure_pagination import Paginator, PaginationMixin
 from pybb import defaults
 from pybb.models import Post, Topic
+from aor.forms import MovePostForm
 
 BLOGS_FORUM_ID = getattr(settings, 'PYBB_BLOGS_FORUM_ID', 1)
 NEWS_FORUM_ID = getattr(settings, 'PYBB_NEWS_FORUM_ID', 1)
+
 
 class Search(PaginationMixin, generic.ListView):
     template_name = 'search/search.html'
@@ -31,3 +35,35 @@ class Search(PaginationMixin, generic.ListView):
         context = super(Search, self).get_context_data(**kwargs)
         context['query'] = self.query
         return context
+
+
+class MovePostView(generic.UpdateView):
+    model = Post
+    template_name = 'pybb/move_post.html'
+    form_class = MovePostForm
+
+    def get_form_kwargs(self):
+        kwargs = super(MovePostView, self).get_form_kwargs()
+        kwargs['user'] = self.request.user
+        return kwargs
+
+    def get_object(self, queryset=None):
+        post = super(MovePostView, self).get_object()
+        if post == post.topic.head:
+            raise PermissionDenied
+        return post
+
+    def form_valid(self, form):
+        old_topic = self.object.topic
+        old_forum = self.object.topic.forum
+
+        self.object = form.save(commit=False)
+        self.object.created = timezone.now()
+        self.object.save()
+
+        old_topic.update_counters()
+        old_forum.update_counters()
+
+        return super(MovePostView, self).form_valid(form)
+
+

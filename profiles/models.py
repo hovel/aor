@@ -27,7 +27,7 @@ class Profile(PybbProfile):
                            validators=[RegexValidator(regex='\d+')])
     skype = models.CharField(verbose_name=_('Skype username'), max_length=100, null=True, blank=True)
     jabber = models.CharField(verbose_name=_('Jabber address'), max_length=100, null=True, blank=True)
-    site = models.URLField(verbose_name=_('Personal site'), null=True, blank=True, verify_exists=False)
+    site = models.URLField(verbose_name=_('Personal site'), null=True, blank=True)
     interests = models.TextField(verbose_name=_('Interests'), null=True, blank=True)
 
     def __unicode__(self):

@@ -36,7 +36,7 @@
             <div>
                 <a href="{% url user_posts target_user %}">
                     {% trans "Number of posts" %}:
-                    {{ target_user.posts.all.count }}
+                    {{ target_user.post_count }}
                 </a>
             </div>
             <div>

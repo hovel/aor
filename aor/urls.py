@@ -6,7 +6,7 @@ from django.views.generic.base import TemplateView
 from pybb.views import ProfileEditView
 from registration.views import register
 from aor.forms import AORProfileForm, RegistrationFormCaptcha
-from aor.views import Search
+from aor.views import Search, MovePostView
 from profiles.views import UserTopics, UserPosts
 
 admin.autodiscover()
@@ -28,6 +28,7 @@ urlpatterns = patterns('',
         name='user_topics'),
     url(r'^forum/users/(?P<username>[^/]+)/posts/$', UserPosts.as_view(),
         name='user_posts'),
+    url('^forum/post/(?P<pk>\d+)/move/$', MovePostView.as_view(), name='move_post'),
     url(r'^forum/', include('pybb.urls', namespace='pybb')),
 #    url(r'^search/$', Search.as_view(), name='search'),
     url(r'^news/', include('pybb4news.urls', namespace='news')),
