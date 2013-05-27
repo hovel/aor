@@ -26,24 +26,26 @@
                 {% if topic.sticky %} &nbsp;[{% trans "Sticky" %}] {% endif %}
                 {% if topic.closed %} &nbsp;[{% trans "Closed" %}] {% endif %}
                 <br>
-                {% trans 'Author' %}: <a href="{% url pybb:user topic.head.user.username %}">{{ topic.head.user.get_username }}</a>
-                {% with topic|pybb_topic_inline_pagination as pages %}
-                    {% if pages|length > 1 %}
-                        <span class="mini-pagination">
-                            {% trans "pages" %}:
-                            {% for page in pages %}
-                                <span class="page">
-                                {% if page == "..." %}
-                                    ...
-                                {% else %}
-                                    <a href="{{ topic.get_absolute_url }}?page={{ page }}">{{ page }}</a>
-                                {% endif %}
-                                </span>
-                            {% endfor %}
-                        </span>
-                    {% endif %}
-                {% endwith %}
-            </td>
+                <span class="topic-meta">
+                    {% trans 'Author' %}: <a href="{% url pybb:user topic.head.user.username %}">{{ topic.head.user.get_username }}</a>
+                    {% with topic|pybb_topic_inline_pagination as pages %}
+                        {% if pages|length > 1 %}
+                            <span class="mini-pagination">
+                                {% trans "pages" %}:
+                                {% for page in pages %}
+                                    <span class="page">
+                                    {% if page == "..." %}
+                                        ...
+                                    {% else %}
+                                        <a href="{{ topic.get_absolute_url }}?page={{ page }}">{{ page }}</a>
+                                    {% endif %}
+                                    </span>
+                                {% endfor %}
+                            </span>
+                        {% endif %}
+                    {% endwith %}
+                </span>
+                </td>
             <td class="topic-post-count">
                 {{ topic.post_count }}
             </td>

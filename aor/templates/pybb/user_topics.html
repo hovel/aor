@@ -56,10 +56,12 @@
                         {% endif %}
                     {% endwith %}
                 <br>
-                {% trans "posted in" %}
-                <a href="{{ topic.forum.get_absolute_url }}">
-                    {{ topic.forum }}
-                </a>
+                <span class="topic-meta">
+                    {% trans "posted in" %}
+                    <a href="{{ topic.forum.get_absolute_url }}">
+                        {{ topic.forum }}
+                    </a>
+                </span>
                 </td>
                 <td class="topic-post-count">
                     {{ topic.post_count }}
