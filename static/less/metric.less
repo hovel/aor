@@ -48,13 +48,18 @@ th.forum-topic-count, th.forum-post-count, th.topic-post-count, th.topic-view-co
   text-align: center;
 }
 
+.forum-row td, .topic-row td {
+  line-height: 16px;
+}
+
 td.forum-topic-count, td.forum-post-count, td.topic-post-count, td.topic-view-count {
   font-size: .8em;
   text-align: center;
   width: 10%;
 }
 
-td.topic-post-count, td.topic-view-count {
+td.forum-topic-count, td.forum-post-count, td.forum-last-post,
+td.topic-post-count, td.topic-view-count, td.topic-last-post {
   vertical-align: middle
 }
 
@@ -127,6 +132,12 @@ td.forum-last-post, td.topic-last-post {
 
 .pagination {
   text-align: center;
+}
+
+.inline-pagination {
+  display: inline-block;
+  margin: 0;
+  vertical-align: middle;
 }
 
 .footer {
