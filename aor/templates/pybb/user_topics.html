@@ -33,33 +33,32 @@
         {% for topic in object_list|pybb_topic_unread:user %}
             <tr class="topic-row {% if topic.sticky %} sticky {% endif %}{% if topic.on_moderation %} on-moderation {% endif %}">
                 <td class="topic-name{% if topic.unread %} topic-unread{% endif %}">
-                    <div class="state-indicator"></div>
                     <a href="{{ topic.get_absolute_url }}">{{ topic.name|truncatewords:10 }}</a>
                     {% if topic.sticky %} &nbsp;[{% trans "Sticky" %}] {% endif %}
                     {% if topic.closed %} &nbsp;[{% trans "Closed" %}] {% endif %}
                     {% with topic|pybb_topic_inline_pagination as pages %}
-                        {% if pages|length > 1 %}
-                            <div class="inline-pagination pagination pagination-mini">
-                                <ul>
-                                {% for page in pages %}
-                                    <li>
-                                    {% if page == "..." %}
-                                        <span>...</span>
-                                    {% else %}
-                                        <a href="{{ topic.get_absolute_url }}?page={{ page }}">{{ page }}</a>
-                                    {% endif %}
-                                    </li>
-                                {% endfor %}
-                                    <li>
-                                    {% if topic.unread %}
-                                        <a href="{{ topic.get_absolute_url }}?first-unread=1" class="first-unread-post-link" title="{% trans 'Go to first unread post' %}">⇨</a>
-                                    {% else %}
-                                        <a href="{{ topic.get_absolute_url }}?page=last" title="{% trans 'Go to last page' %}">⇨</a>
-                                    {% endif %}
-                                    </li>
-                                </ul>
-                            </div>
-                        {% endif %}
+                        <div class="inline-pagination pagination pagination-mini">
+                            <ul>
+                                {% if pages|length > 1 %}
+                                    {% for page in pages %}
+                                        {% if page == "..." %}
+                                            <li class="disabled">
+                                                <span>...</span>
+                                            </li>
+                                        {% else %}
+                                            <li>
+                                                <a href="{{ topic.get_absolute_url }}?page={{ page }}">{{ page }}</a>
+                                            </li>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                                {% if topic.unread %}
+                                <li>
+                                    <a href="{{ topic.get_absolute_url }}?first-unread=1" class="first-unread-post-link" title="{% trans 'Go to first unread post' %}">⇨</a>
+                                </li>
+                                {% endif %}
+                            </ul>
+                        </div>
                     {% endwith %}
                     <br>
                     <span class="topic-meta">
