@@ -31,7 +31,7 @@
                             {% for page in pages %}
                                 <li>
                                 {% if page == "..." %}
-                                    ...
+                                    <span>...</span>
                                 {% else %}
                                     <a href="{{ topic.get_absolute_url }}?page={{ page }}">{{ page }}</a>
                                 {% endif %}
