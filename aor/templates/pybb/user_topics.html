@@ -60,10 +60,9 @@
                             </ul>
                         </div>
                     {% endwith %}
-                    <br>
-                    <span class="topic-meta">
+                    <div class="topic-meta">
                         {% trans "posted in" %} <a href="{{ topic.forum.get_absolute_url }}">{{ topic.forum }}</a>
-                    </span>
+                    </div>
                 </td>
                 <td class="topic-post-count">
                     {{ topic.post_count }}

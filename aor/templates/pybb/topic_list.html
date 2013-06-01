@@ -48,10 +48,12 @@
                         </ul>
                     </div>
                 {% endwith %}
-                <br>
-                <span class="topic-meta">
+                <div class="topic-meta">
                     {% trans 'Author' %}: <a href="{% url pybb:user topic.head.user.username %}">{{ topic.head.user.get_username }}</a>
-                </span>
+                    {% ifequal request.path '/forum/topic/latest/' %}
+                        {% trans 'posted in' %}: <a href="{{ topic.forum.get_absolute_url }}">{{ topic.forum }}</a>
+                    {% endifequal %}
+                </div>
             </td>
             <td class="topic-post-count">
                 {{ topic.post_count }}
