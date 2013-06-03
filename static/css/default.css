@@ -863,6 +863,7 @@ blockquote{border-left:3px solid #dbd8ba;border-radius:3px;padding:10px;margin:0
 .category h1{font-size:1.2em;font-weight:400;border-radius:5px;}
 th.forum-topic-count,th.forum-post-count,th.topic-post-count,th.topic-view-count{text-align:center;}
 td.topic-name{line-height:16px;}
+.topic-name-header{display:inline-block;line-height:22px;margin:0 4px 3px 0;}
 td.forum-topic-count,td.forum-post-count,td.topic-post-count,td.topic-view-count{font-size:.8em;text-align:center;width:10%;}
 td.forum-topic-count,td.forum-post-count,td.forum-last-post,td.topic-post-count,td.topic-view-count,td.topic-last-post{vertical-align:middle;}
 td.forum-last-post,td.topic-last-post{font-size:.8em;width:25%;}
@@ -874,11 +875,12 @@ td.forum-last-post,td.topic-last-post{font-size:.8em;width:25%;}
 .post-signature{font-size:.8em;border-top:1px dashed;padding-top:10px;margin-top:10px;}
 .post-date{font-size:.8em;}
 .post-control a{border-radius:3px;padding:5px 20px;opacity:.7;}
+.controls.btn-group{margin-bottom:20px;}
 .block{border-width:1px;border-style:solid;border-radius:4px;margin:0 0 20px 0;padding:10px;}
 .block .header{font-weight:bold;border-radius:4px 4px 0 0;line-height:1.5em;margin:-10px -10px 10px;padding:10px;}
 .block .info{border-radius:0 0 4px 4px;margin:20px -10px -10px -10px;padding:10px;}
 .pagination{text-align:center;}
-.inline-pagination{display:inline-block;margin:0 0 0 1ex;vertical-align:middle;}
+.inline-pagination{display:inline-block;margin:0;vertical-align:middle;}
 .footer{padding:30px 10px;margin:0 0 30px 0;}
 label.checkbox ul,label.radio ul{list-style:none;}
 .poll-answer-form .control-group{display:inline-block;width:400px;}
