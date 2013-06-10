@@ -874,6 +874,7 @@ td.forum-last-post,td.topic-last-post{font-size:.8em;width:25%;}
 .post-extra-info{font-size:.8em;}
 .post-signature{font-size:.8em;border-top:1px dashed;padding-top:10px;margin-top:10px;}
 .post-date{font-size:.8em;}
+.post-content{max-width:1033px;}
 .post-control a{border-radius:3px;padding:5px 20px;opacity:.7;}
 .controls.btn-group{margin-bottom:20px;}
 .block{border-width:1px;border-style:solid;border-radius:4px;margin:0 0 20px 0;padding:10px;}
