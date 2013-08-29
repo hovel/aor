@@ -10,6 +10,18 @@
 {% endblock %}
 
 {% block content %}
+    <div class="btn-group top-page-controls">
+        <a href="{% url pybb:topic_latest %}"
+           class="btn">
+            {% trans "Last updates in topics" %}
+        </a>
+        {% if user.is_authenticated %}
+            <a href="{% url pybb:mark_all_as_read %}"
+               class="btn">
+                {% trans "Mark all forums as read" %}
+            </a>
+        {% endif %}
+    </div>
     {% if categories %}
         {% for category in categories %}
             {% include 'pybb/category.html' %}
