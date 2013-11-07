@@ -11,7 +11,9 @@ from profiles.views import UserTopics, UserPosts
 
 admin.autodiscover()
 
-urlpatterns = patterns('',
+urlpatterns = patterns(
+    '',
+    url(r'^robots.txt$', TemplateView.as_view(template_name='robots.txt')),
     url(r'^$', TemplateView.as_view(template_name='index.html'),
         name='home'),
     #    url(r'^accounts/login/$', login, name="auth_login",
