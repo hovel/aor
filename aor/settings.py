@@ -117,7 +117,6 @@ INSTALLED_APPS = (
     'south',
     'registration',
     'sorl.thumbnail',
-    'robots',
     'captcha',
     'gunicorn',
     'pybb',
@@ -132,7 +131,6 @@ INSTALLED_APPS = (
 CAPTCHA_LENGTH = 7
 CAPTCHA_LETTER_ROTATION = (-60, 60)
 CAPTCHA_TIMEOUT = 1
-ROBOTS_CACHE_TIMEOUT = 60 * 60 * 24
 #AUTH_PROFILE_MODULE = 'pybb.Profile'
 FILE_UPLOAD_PERMISSIONS = 0644
 LOGIN_REDIRECT_URL = '/'

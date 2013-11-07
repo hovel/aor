@@ -95,11 +95,9 @@ def install():
 
 
 def update():
-    stop()
     update_project()
     syncdb()
     collect_static()
-    start()
 
 
 def soft_update():

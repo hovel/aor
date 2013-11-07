@@ -6,7 +6,6 @@ South==0.7.6
 django-annoying==0.7.6
 django-field-attributes==1.2.2
 django-registration==0.8
-django-robots==0.9.1
 django-simple-captcha==0.3.4
 gunicorn==0.17.0
 postmarkup==1.2.0

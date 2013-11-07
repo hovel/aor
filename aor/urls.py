@@ -13,7 +13,6 @@ admin.autodiscover()
 
 urlpatterns = patterns(
     '',
-    url(r'^robots.txt$', TemplateView.as_view(template_name='robots.txt')),
     url(r'^$', TemplateView.as_view(template_name='index.html'),
         name='home'),
     #    url(r'^accounts/login/$', login, name="auth_login",
@@ -42,7 +41,6 @@ urlpatterns = patterns(
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^robots.txt$', include('robots.urls')),
     url(r'^captcha/', include('captcha.urls')),
     # IRC Mibbit widget
     url(r'^irc/$',
