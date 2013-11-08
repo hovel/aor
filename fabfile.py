@@ -98,6 +98,7 @@ def update():
     update_project()
     syncdb()
     collect_static()
+    restart()
 
 
 def soft_update():

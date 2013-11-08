@@ -1,0 +1,11 @@
+dependencies:
+  pre:
+    - pip install -r build/pipreq.txt -U
+test:
+  override:
+    - ./manage.py test aor --noinput
+deployment:
+  production:
+    branch: master
+    commands:
+      - fab update
