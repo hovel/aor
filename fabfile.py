@@ -1,6 +1,11 @@
 import urllib
 import urllib2
-from aor.settings_local import CLOUDFLARE_TOKEN, CLOUDFLARE_EMAIL
+
+try:
+    from aor.local import CLOUDFLARE_TOKEN, CLOUDFLARE_EMAIL
+except ImportError:
+    pass
+
 from fabric.api import *
 
 PROJECT_NAME = 'archlinux'
