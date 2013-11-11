@@ -158,9 +158,6 @@ AOR_THEMES = (
 
 ACCOUNT_ACTIVATION_DAYS = 3
 
-PHPBB_TABLE_PREFIX = 'phpbb_'
-PHPBB_CAPTCHA_QUESTIONS_MODEL_EXIST = True
-
 PYBB_MARKUP_ENGINES = {
     'bbcode': lambda str:
             render_bbcode(
@@ -203,9 +200,7 @@ except ImportError:
 
 if DEBUG:
     MIDDLEWARE_CLASSES += ('debug_toolbar.middleware.DebugToolbarMiddleware',)
-    INSTALLED_APPS += ('debug_toolbar', 'django_phpBB3', 'migration',
-                       'drupango')
+    INSTALLED_APPS += ('debug_toolbar', )
     INTERNAL_IPS = ('127.0.0.1',)
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-    DATABASE_ROUTERS = ['aor.routers.PHPBB3', 'aor.routers.Drupal']
     DEBUG_TOOLBAR_CONFIG = {'INTERCEPT_REDIRECTS': False}
