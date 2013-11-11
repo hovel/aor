@@ -40,7 +40,6 @@ def update_project():
     with cd(PROJECT_ROOT):
         run('hg pull')
         run('hg update -C default')
-    put_settings()
 
 
 def setup_env():
