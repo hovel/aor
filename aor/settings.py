@@ -17,25 +17,12 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.sqlite3',
         'HOST': 'localhost',
         'NAME': 'aor',
-        'USER': 'root',
-        'PASSWORD': '',
-        },
-    'phpbb3': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'arch_forum',
-        'USER': 'root',
-        'PASSWORD': '',
-    },
-    'drupal': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'arch_drupal',
-        'USER': 'root',
+        'USER': '',
         'PASSWORD': '',
     }
-
 }
 
 SITE_ID = 1
