@@ -12,7 +12,7 @@ PROJECT_NAME = 'archlinux'
 
 PROJECT_BASEDIR = '/home/amigo/archlinux'
 PROJECT_ROOT = '/home/amigo/archlinux/aor'
-PROJECT_SOURCE = 'https://GeyseR@bitbucket.org/GeyseR/aor'
+PROJECT_SOURCE = 'https://github.com/hovel/aor.git'
 
 env.hosts = ['amigo@ec2-50-17-136-53.compute-1.amazonaws.com']
 env.always_use_pty = False
@@ -32,14 +32,14 @@ def purge_clouflare_static():
 
 def clone_project():
     with cd(PROJECT_BASEDIR):
-        run('hg clone %s' % PROJECT_SOURCE)
+        run('git clone %s' % PROJECT_SOURCE)
     put_settings()
 
 
 def update_project():
     with cd(PROJECT_ROOT):
-        run('hg pull')
-        run('hg update -C default')
+        run('git pull origin master')
+        run('git checkout master')
 
 
 def setup_env():
