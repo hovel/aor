@@ -1,3 +1,5 @@
 User-agent: *
-Disallow: /accounts
+Disallow: /accounts/*
+Disallow: *#post-*
+Disallow: */post/add/*
 Crawl-delay: 10
