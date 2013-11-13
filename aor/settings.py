@@ -21,10 +21,7 @@ DATABASES = {
         'HOST': 'localhost',
         'NAME': 'aor',
         'USER': '',
-        'PASSWORD': '',
-        'OPTIONS': {
-            "init_command": "SET storage_engine=INNODB, SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED",
-        }
+        'PASSWORD': ''
     }
 }
 
