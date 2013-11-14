@@ -47,13 +47,15 @@
             </div>
         </div>
         <div class="clear"></div>
-    </div>
+    </div><br>
     <div class='controls'>
         {% if perms.pybb.block_users %}
-            <a href='{% url pybb:block_user target_user.username %}'>{% trans 'Block' %}</a>
+            <form method="post" action="{% url pybb:block_user target_user.username %}" style="display: inline-block;">{% csrf_token %}
+                <button class="btn btn-danger">{% trans 'Block' %}</button>
+            </form>
         {% endif %}
         {% if perms.pybb.can_edit %}
-            <a href='{% url admin:profiles_profile_change target_user.get_profile.id %}'>{% trans 'Admin' %}</a>
+            <a href="{% url admin:profiles_profile_change target_user.get_profile.id %}" class="btn">{% trans 'Admin' %}</a>
         {% endif %}
     </div>
 
