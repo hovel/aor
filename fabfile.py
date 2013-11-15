@@ -14,7 +14,7 @@ PROJECT_BASEDIR = '/home/amigo/archlinux'
 PROJECT_ROOT = '/home/amigo/archlinux/aor'
 PROJECT_SOURCE = 'https://github.com/hovel/aor.git'
 
-env.hosts = ['amigo@ec2-50-17-136-53.compute-1.amazonaws.com']
+env.hosts = ['amigo@ec2-107-20-93-189.compute-1.amazonaws.com']
 env.always_use_pty = False
 
 
