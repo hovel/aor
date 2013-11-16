@@ -51,7 +51,11 @@
     <div class='controls'>
         {% if perms.pybb.block_users %}
             <form method="post" action="{% url pybb:block_user target_user.username %}" style="display: inline-block;">{% csrf_token %}
-                <button class="btn btn-danger">{% trans 'Block' %}</button>
+                {% if target_user.is_active %}
+                    <button class="btn btn-danger">{% trans 'Block' %}</button>
+                {% else %}
+                    <button class="btn btn-success">{% trans 'Unblock' %}</button>
+                {% endif %}
             </form>
         {% endif %}
         {% if perms.pybb.can_edit %}
