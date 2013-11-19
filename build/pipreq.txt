@@ -1,16 +1,16 @@
-Django==1.4.4
+Django>=1.4,<1.5
 Fabric==1.5.1
 MySQL-python==1.2.4
-Pillow==1.7.8
-South==0.7.6
-django-annoying==0.7.6
+Pillow==2.0.0
+South>=0.7.6
+django-annoying>=0.7.6
 django-field-attributes==1.2.2
-django-registration==0.8
-django-simple-captcha==0.3.4
-gunicorn==0.17.0
+django-registration>=0.8
+django-simple-captcha>=0.3.4
+gunicorn>=0.17.0
 postmarkup==1.2.0
--e git+https://github.com/hovel/pybbm.git#egg=pybbm
-pytils==0.2.3
+pybbm
+pytils>=0.2.3
 sorl-thumbnail==11.12
--e git+https://github.com/hovel/django-pure-pagination.git@44a0567d3982408055291a968fd9b5cc5ced0834#egg=django_pure_pagination
+django-pure-pagination
 django-mailer
