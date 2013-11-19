@@ -7,6 +7,11 @@
                 src="http://widget.mibbit.com/?server=irc.mibbit.net&channel=%23archlinux-ru">
         </iframe>
     </div>
+    <script type="application/javascript">
+    $(document).ready(function() {
+        $('#chat').height($(document).height());
+    })
+    </script>
 {% endblock %}
 
 {% block title %}
