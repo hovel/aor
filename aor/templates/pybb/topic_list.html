@@ -51,7 +51,7 @@
                     </div>
                 {% endwith %}
                 <div class="topic-meta">
-                    {% trans 'Author' %}: <a href="{% url pybb:user topic.head.user.username %}">{{ topic.head.user.get_username }}</a>
+                    {% trans 'Author' %}: <a href="{% url pybb:user topic.user.get_username %}">{{ topic.user.get_username }}</a>
                     {% ifequal request.path '/forum/topic/latest/' %}
                         {% trans 'posted in' %}: <a href="{{ topic.forum.get_absolute_url }}">{{ topic.forum }}</a>
                     {% endifequal %}
