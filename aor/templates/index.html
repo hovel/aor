@@ -19,11 +19,11 @@
                         пожаловать в сообщество Arch Linux!</p>
 
                     <div class="controls pull-right">
-                        <a href="{% url registration_register %}"
+                        <a href="{% url 'registration_register' %}"
                            class="btn btn-primary btn-large">
                             {% trans "Join us" %}
                         </a>
-                        <a href="{% url auth_login %}"
+                        <a href="{% url 'auth_login' %}"
                            class="btn btn-success btn-large">
                             {% trans "Login" %}
                         </a>
@@ -36,13 +36,13 @@
         <div class="span6">
             <div class="row-fluid">
                 <div class="span12 block">
-                    <h6><a href="{% url news:list %}">{% trans "News" %}</a></h6>
+                    <h6><a href="{% url 'news:list' %}">{% trans "News" %}</a></h6>
                     {% last_news %}
                 </div>
             </div>
             <div class="row-fluid">
                 <div class="span12 block">
-                    <h6><a href="{% url blogs:list %}">{% trans "Blogs" %}</a> </h6>
+                    <h6><a href="{% url 'blogs:list' %}">{% trans "Blogs" %}</a> </h6>
                     {% last_blogs %}
                 </div>
             </div>
@@ -50,7 +50,7 @@
         <div class="span6 block">
             <div class="row-fluid">
                 <div class="span12">
-                    <h6><a href="{% url pybb:topic_latest %}">{% trans "Last topics" %}</a></h6>
+                    <h6><a href="{% url 'pybb:topic_latest' %}">{% trans "Last topics" %}</a></h6>
                     {% last_topics %}
                 </div>
             </div>

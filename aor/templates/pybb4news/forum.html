@@ -6,7 +6,7 @@
 {% block breadcrumb %}
     <ul class='breadcrumb'>
     <li>
-        <a href="{% url home %}">
+        <a href="{% url 'home' %}">
             ArchLinux.org.ru
         </a>
         <span class="divider">/</span>
@@ -29,7 +29,7 @@
 
     {% if PYBB_ENABLE_ANONYMOUS_POST or not user.get_profile.is_banned %}
         <div class="controls">
-            <a href="{% url pybb:add_topic forum.id %}"
+            <a href="{% url 'pybb:add_topic' forum.id %}"
                class="btn btn-primary">
                 {% trans "Add news" %}
             </a>
