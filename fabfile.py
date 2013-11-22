@@ -100,6 +100,7 @@ def install():
 
 def update():
     update_project()
+    update_env()
     syncdb()
     collect_static()
     restart()
