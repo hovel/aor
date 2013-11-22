@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-16 22:59+0400\n"
+"POT-Creation-Date: 2013-11-22 23:23+0400\n"
 "PO-Revision-Date: 2012-02-02 23:43+0400\n"
 "Last-Translator: Vladimir Korsun <korsun.vladimir@gmail.com>\n"
 "Language-Team: Russian <>\n"
@@ -92,7 +92,7 @@ msgstr "Редактирование профиля"
 
 #: templates/menu.html:81 templates/pybb/post_template.html:113
 #: templates/pybb/topic.html:38 templates/pybb/topic.html.py:94
-#: templates/pybb/user.html:62
+#: templates/pybb/user.html:64
 msgid "Admin"
 msgstr "Админка"
 
@@ -374,7 +374,7 @@ msgstr "Дата регистрации"
 msgid "Block"
 msgstr "Блокировать"
 
-#: templates/pybb/user.html:57
+#: templates/pybb/user.html:59
 msgid "Unblock"
 msgstr "Разблокировать"
 
