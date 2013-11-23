@@ -3,4 +3,5 @@ Disallow: /accounts/*
 Disallow: *#post-*
 Disallow: */post/add/*
 Disallow: /forum/users/*
+Disallow: /forum/topic/latest/*
 Crawl-delay: 10
