@@ -79,6 +79,25 @@
   background-image: linear-gradient(@direction, lighten(@c1, 2%), lighten(@c2, 2%));
 }
 
+// Dark gray
+.btn {
+  .buttonBackground(@btnInverseBackground, @btnInverseBackgroundHighlight);
+}
+// White
+.btn-inverse {
+  .buttonBackground(@btnBackground, @btnBackgroundHighlight, @grayDark, 0 1px 1px rgba(255,255,255,.75));
+}
+// Fix wrong cascade
+.btn-warning {
+  .buttonBackground(@btnWarningBackground, @btnWarningBackgroundHighlight);
+}
+.btn-danger {
+  .buttonBackground(@btnDangerBackground, @btnDangerBackgroundHighlight);
+}
+.btn-info {
+  .buttonBackground(@btnInfoBackground, @btnInfoBackgroundHighlight);
+}
+
 .btn-primary {
   color: @aluminium;
   background-color: @skyblue;
@@ -121,6 +140,11 @@ pre {
     text-shadow: 0 -1px 0 @grayDark;
     &:hover {
       color: @aluminium;
+    }
+  }
+  .dropdown-menu a {
+    &:hover {
+      background: @gray;
     }
   }
   .active {
@@ -195,7 +219,7 @@ pre {
 
 .post-control a {
   [class^="icon-"], [class*=" icon-"] {
-    background-image: url(../bootstrap/img/glyphicons-halflings-white.png);
+    background-image: url(../img/glyphicons-halflings-white.png);
   }
   &:hover {
     background: @gray;
