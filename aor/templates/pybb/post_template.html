@@ -16,13 +16,6 @@
             </a>
         </td>
         <td class="post-date">
-            <!-- REMOVE THIS AFTER STATIC CACHE UPDATE -->
-            <style>
-            .post{margin-bottom: 0;}
-            .post-control{float:right;}
-            .post-control a{border-radius:3px;padding:3px 10px 7px;opacity:.7;}
-            </style>
-            <!-- / REMOVE -->
             <div class="post-control">
                 {% if user.is_moderator %}
                     {% if post != post.topic.head %}
