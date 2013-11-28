@@ -4,8 +4,6 @@
 {% pybb_get_profile request.user as request_user_profile %}
 
 <table class="table post
-       {% if forloop.first %}post-first{%endif%}
-       {% if forloop.last %}post-last{%endif%}
        {% if post.on_moderation %}on-moderation{% endif %}"
        id="post-{{ post.id }}">
     <thead>
