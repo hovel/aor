@@ -875,9 +875,8 @@ td.forum-last-post,td.topic-last-post{font-size:.8em;width:25%;}
 .post-signature{font-size:.8em;border-top:1px dashed;padding-top:10px;margin-top:10px;}
 .post-date{font-size:.8em;}
 .post-content{max-width:1033px;}
-.post-control a{border-radius:3px;padding:5px 20px;opacity:.7;}
-.post-control-common{float:left;}
-.post-control-admin{float:right;}
+.post-control{float:right;}
+.post-control a{border-radius:3px;padding:3px 10px 7px;opacity:.7;}
 .controls.btn-group{margin-bottom:20px;}
 .block{border-width:1px;border-style:solid;border-radius:4px;margin:0 0 20px 0;padding:10px;}
 .block .header{font-weight:bold;border-radius:4px 4px 0 0;line-height:1.5em;margin:-10px -10px 10px;padding:10px;}

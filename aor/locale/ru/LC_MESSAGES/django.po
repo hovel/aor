@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-22 23:23+0400\n"
+"POT-Creation-Date: 2013-11-28 20:51+0400\n"
 "PO-Revision-Date: 2012-02-02 23:43+0400\n"
 "Last-Translator: Vladimir Korsun <korsun.vladimir@gmail.com>\n"
 "Language-Team: Russian <>\n"
@@ -90,9 +90,8 @@ msgstr "Профиль"
 msgid "Profile settings"
 msgstr "Редактирование профиля"
 
-#: templates/menu.html:81 templates/pybb/post_template.html:113
-#: templates/pybb/topic.html:38 templates/pybb/topic.html.py:94
-#: templates/pybb/user.html:64
+#: templates/menu.html:81 templates/pybb/topic.html:38
+#: templates/pybb/topic.html.py:94 templates/pybb/user.html:64
 msgid "Admin"
 msgstr "Админка"
 
@@ -177,7 +176,7 @@ msgid "delete"
 msgstr "удалить"
 
 #: templates/pybb/forum_last_update_info.html:7
-#: templates/pybb/post_template.html:19
+#: templates/pybb/post_template.html:51
 #: templates/pybb/topic_last_message_info.html:9
 #: templates/pybb/user_topics.html:82
 msgid "ago"
@@ -222,52 +221,56 @@ msgstr "Переместить сообщение"
 msgid "Choose topic where to move post"
 msgstr "Выберите тему для перемещения"
 
-#: templates/pybb/post_template.html:28
+#: templates/pybb/post_template.html:23
+msgid "Move post"
+msgstr "Переместить сообщение"
+
+#: templates/pybb/post_template.html:29
+msgid "Approve post"
+msgstr "Подтвердить комментарий"
+
+#: templates/pybb/post_template.html:33
+msgid "Delete post?"
+msgstr "Удалить сообщение?"
+
+#: templates/pybb/post_template.html:36
+msgid "Delete"
+msgstr "Удалить"
+
+#: templates/pybb/post_template.html:42
+msgid "Edit"
+msgstr "Редактировать"
+
+#: templates/pybb/post_template.html:47
+msgid "quote"
+msgstr "цитировать"
+
+#: templates/pybb/post_template.html:53
+msgid "from"
+msgstr "с адреса"
+
+#: templates/pybb/post_template.html:63
 msgid "Topics"
 msgstr "Темы"
 
-#: templates/pybb/post_template.html:34 templates/pybb/topic.html:55
+#: templates/pybb/post_template.html:69 templates/pybb/topic.html:55
 #: templates/pybb/topic.html.py:75 templates/pybb/topic_list.html:10
 #: templates/pybb/user_posts.html:20 templates/pybb/user_topics.html:22
 #: templates/search/search.html:13
 msgid "Posts"
 msgstr "Сообщения"
 
-#: templates/pybb/post_template.html:40
+#: templates/pybb/post_template.html:75
 msgid "Member since"
 msgstr "Участник с"
 
-#: templates/pybb/post_template.html:43
+#: templates/pybb/post_template.html:78
 msgid "blocked"
 msgstr "заблокирован"
 
-#: templates/pybb/post_template.html:56
+#: templates/pybb/post_template.html:91
 msgid "Edited"
 msgstr "Отредактированный"
-
-#: templates/pybb/post_template.html:81
-msgid "quote"
-msgstr "цитировать"
-
-#: templates/pybb/post_template.html:86
-msgid "Edit"
-msgstr "Редактировать"
-
-#: templates/pybb/post_template.html:91
-msgid "Delete post?"
-msgstr "Удалить сообщение?"
-
-#: templates/pybb/post_template.html:94
-msgid "Delete"
-msgstr "Удалить"
-
-#: templates/pybb/post_template.html:99
-msgid "Approve post"
-msgstr "Подтвердить комментарий"
-
-#: templates/pybb/post_template.html:105
-msgid "Move post"
-msgstr "Переместить сообщение"
 
 #: templates/pybb/topic.html:27 templates/pybb/topic.html.py:83
 #, fuzzy
