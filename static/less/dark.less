@@ -236,7 +236,12 @@ input[type="color"],
   border-top-color: @gray;
 }
 
-.post-info, .post thead, .post tfoot, .block .header, .block .info {
+.post-info, .block .header, .block .info {
+  background: darken(@grayDark, 3%);
+}
+
+.post thead th,
+.post thead td {
   background: darken(@grayDark, 3%);
 }
 
