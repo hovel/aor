@@ -30,6 +30,7 @@
                     {% endif %}
                     <a onclick="pybb_delete_post('{% url pybb:delete_post post.id %}',
                             'post-{{ post.id }}', '{% trans 'Delete post?' %}'); return false;"
+                       class="post-control-delete"
                        href="{% url pybb:delete_post post.id %}"
                        rel="tooltip"
                        title="{% trans "Delete" %}">

@@ -881,6 +881,7 @@ td.forum-last-post,td.topic-last-post{font-size:.8em;width:25%;}
 .post-date{font-size:.8em;}
 .post-content{max-width:1033px;}
 .post-control{float:right;}
+.post-control-delete{margin-right:24px;}
 .post-control a{border-radius:3px;padding:3px 10px 7px;opacity:.7;}
 .controls.btn-group{margin-bottom:20px;}
 .block{border-width:1px;border-style:solid;border-radius:4px;margin:0 0 20px 0;padding:10px;}
