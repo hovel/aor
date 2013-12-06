@@ -870,11 +870,6 @@ td.forum-last-post,td.topic-last-post{font-size:.8em;width:25%;}
 .forum h1{font-size:1.3em;font-weight:400;border-radius:5px;}
 .forum-description{font-size:.8em;}
 .forum-unread a,.topic-unread a{font-weight:bold;}
-.post{margin-bottom:0;border-collapse:separate;border-style:solid;border-color:#555555;border-width:0 1px 1px 0;}.post th,.post td{border-left:1px solid #555555;}
-.post:first-of-type{border-top-width:1px;-webkit-border-top-left-radius:4px;-moz-border-radius-topleft:4px;border-top-left-radius:4px;-webkit-border-top-right-radius:4px;-moz-border-radius-topright:4px;border-top-right-radius:4px;}.post:first-of-type thead tr:first-child td:first-child{-webkit-border-top-left-radius:4px;-moz-border-radius-topleft:4px;border-top-left-radius:4px;}
-.post:first-of-type thead tr:first-child td:last-child{-webkit-border-top-right-radius:4px;-moz-border-radius-topright:4px;border-top-right-radius:4px;}
-.post:last-of-type{-webkit-border-bottom-left-radius:4px;-moz-border-radius-bottomleft:4px;border-bottom-left-radius:4px;-webkit-border-bottom-right-radius:4px;-moz-border-radius-bottomright:4px;border-bottom-right-radius:4px;}.post:last-of-type tbody tr:last-child td:first-child{-webkit-border-bottom-left-radius:4px;-moz-border-radius-bottomleft:4px;border-bottom-left-radius:4px;}
-.post:last-of-type tbody tr:last-child td:last-child{-webkit-border-bottom-right-radius:4px;-moz-border-radius-bottomright:4px;border-bottom-right-radius:4px;}
 .post-info{font-size:.8em;width:150px;}
 .post-extra-info{font-size:.8em;}
 .post-signature{font-size:.8em;border-top:1px dashed;padding-top:10px;margin-top:10px;max-height:40px;overflow:auto;}
@@ -939,8 +934,7 @@ select,textarea,input[type="text"],input[type="password"],input[type="datetime"]
 .state-indicator,.state-indicator{width:10px;height:10px;border-radius:5px;margin:5px 5px 0 0;background-color:#999999;float:left;}
 .forum-unread .state-indicator,.topic-unread .state-indicator{background-color:#8cddff;}
 .post-signature{color:#babdb6;border-top-color:#555555;}
-.post-info,.block .header,.block .info{background:#2b2b2b;}
-.post thead th,.post thead td{background:#2b2b2b;}
+.post-info,.post thead,.post tfoot,.block .header,.block .info{background:#2b2b2b;}
 .post-author{font-weight:bold;}
 .post-control a [class^="icon-"],.post-control a [class*=" icon-"]{background-image:url(../img/glyphicons-halflings-white.png);}
 .post-control a:hover{background:#555555;opacity:1;}
