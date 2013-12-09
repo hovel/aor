@@ -79,6 +79,26 @@
   background-image: linear-gradient(@direction, lighten(@c1, 2%), lighten(@c2, 2%));
 }
 
+// Dark gray
+.btn {
+  .buttonBackground(@btnInverseBackground, @btnInverseBackgroundHighlight);
+  color: @aluminium
+}
+// White
+.btn-inverse {
+  .buttonBackground(@btnBackground, @btnBackgroundHighlight, @grayDark, 0 1px 1px rgba(255,255,255,.75));
+}
+// Fix wrong cascade
+.btn-warning {
+  .buttonBackground(@btnWarningBackground, @btnWarningBackgroundHighlight);
+}
+.btn-danger {
+  .buttonBackground(@btnDangerBackground, @btnDangerBackgroundHighlight);
+}
+.btn-info {
+  .buttonBackground(@btnInfoBackground, @btnInfoBackgroundHighlight);
+}
+
 .btn-primary {
   color: @aluminium;
   background-color: @skyblue;
@@ -102,12 +122,38 @@
 }
 
 blockquote {
-  background: @gray;
+  background: #39393D;
 }
 
 pre {
   color: @aluminiumDark;
-  background: @gray;
+  background: #343636;
+}
+
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+  color: #ddd;
+  border: 1px solid #666;
+}
+
+.label,
+.badge {
+  color: #ddd;
 }
 
 .navbar-inner {
@@ -121,6 +167,11 @@ pre {
     text-shadow: 0 -1px 0 @grayDark;
     &:hover {
       color: @aluminium;
+    }
+  }
+  .dropdown-menu a {
+    &:hover {
+      background: @gray;
     }
   }
   .active {
@@ -185,7 +236,12 @@ pre {
   border-top-color: @gray;
 }
 
-.post-info, .post thead, .post tfoot, .block .header, .block .info {
+.post-info, .block .header, .block .info {
+  background: darken(@grayDark, 3%);
+}
+
+.post thead th,
+.post thead td {
   background: darken(@grayDark, 3%);
 }
 
@@ -195,7 +251,7 @@ pre {
 
 .post-control a {
   [class^="icon-"], [class*=" icon-"] {
-    background-image: url(../bootstrap/img/glyphicons-halflings-white.png);
+    background-image: url(../img/glyphicons-halflings-white.png);
   }
   &:hover {
     background: @gray;

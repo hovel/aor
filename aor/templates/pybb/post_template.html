@@ -3,8 +3,7 @@
 {% pybb_get_profile post.user as post_user_profile %}
 {% pybb_get_profile request.user as request_user_profile %}
 
-<a name="post-{{ post.id }}"></a> {# may be remove this string? #}
-<table class="table table-bordered post
+<table class="table post
        {% if post.on_moderation %}on-moderation{% endif %}"
        id="post-{{ post.id }}">
     <thead>
@@ -15,8 +14,44 @@
             </a>
         </td>
         <td class="post-date">
+            <div class="post-control">
+                {% if user.is_moderator %}
+                    {% if post != post.topic.head %}
+                        <a href="{% url move_post pk=post.id %}"
+                           rel="tooltip"
+                           title="{% trans "Move post" %}">
+                            <i class="icon-arrow-right"></i></a>
+                    {% endif %}
+                    {% if post.on_moderation %}
+                        <a href="{% url pybb:moderate_post pk=post.id %}"
+                           rel="tooltip"
+                           title="{% trans "Approve post" %}">
+                            <i class="icon-check"></i></a>
+                    {% endif %}
+                    <a onclick="pybb_delete_post('{% url pybb:delete_post post.id %}',
+                            'post-{{ post.id }}', '{% trans 'Delete post?' %}'); return false;"
+                       class="post-control-delete"
+                       href="{% url pybb:delete_post post.id %}"
+                       rel="tooltip"
+                       title="{% trans "Delete" %}">
+                        <i class="icon-remove"></i></a>
+                {% endif %}
+                {% if user.is_moderator or post|pybb_posted_by:user %}
+                    <a href="{% url pybb:edit_post pk=post.id %}"
+                       rel="tooltip"
+                       title="{% trans "Edit" %}">
+                        <i class="icon-pencil"></i></a>
+                {% endif %}
+                <a href="{% url pybb:add_post post.topic.id %}?quote_id={{ post.id }}"
+                   rel="tooltip"
+                   title="{% trans "quote" %}">
+                    <i class="icon-comment"></i></a>
+            </div>
             <a class="permalink" href="{{ post.get_absolute_url }}">#</a>
             {% if request_user_profile.date_show_type == 1 %}{{ post.created }}{% else %}{{ post.created|timesince }} {% trans "ago" %}{% endif %}
+            {% if user.is_superuser %}
+                {% trans "from" %} {{ post.user_ip }}
+            {% endif %}
         </td>
     </tr>
     </thead>
@@ -76,33 +111,39 @@
             {% endif %}
         </td>
         <td class="post-control">
-            <a href="{% url 'pybb:add_post' post.topic.id %}?quote_id={{ post.id }}"
+            <a href="{% url pybb:add_post post.topic.id %}?quote_id={{ post.id }}"
                rel="tooltip"
                title="{% trans "quote" %}">
                 <i class="icon-share"></i></a>
             {% if user.is_moderator or post|pybb_posted_by:user %}
-                <a href="{% url 'pybb:edit_post' pk=post.id %}"
+                <a href="{% url pybb:edit_post pk=post.id %}"
                    rel="tooltip"
                    title="{% trans "Edit" %}">
                     <i class="icon-edit"></i></a>
             {% endif %}
             {% if user.is_moderator %}
-                <a onclick="pybb_delete_post('{% url 'pybb:delete_post' post.id %}',
+                <a onclick="pybb_delete_post('{% url pybb:delete_post post.id %}',
                         'post-{{ post.id }}', '{% trans 'Delete post?' %}'); return false;"
-                   href="{% url 'pybb:delete_post' post.id %}"
+                   href="{% url pybb:delete_post post.id %}"
                    rel="tooltip"
                    title="{% trans "Delete" %}">
                     <i class="icon-remove"></i></a>
                 {% if post.on_moderation %}
-                    <a href="{% url 'pybb:moderate_post' pk=post.id %}"
+                    <a href="{% url pybb:moderate_post pk=post.id %}"
                        rel="tooltip"
                        title="{% trans "Approve post" %}">
                         <i class="icon-check"></i></a>
                 {% endif %}
+                {% if post != post.topic.head %}
+                    <a href="{% url move_post pk=post.id %}"
+                       rel="tooltip"
+                       title="{% trans "Move post" %}">
+                        <i class="icon-arrow-right"></i></a>
+                {% endif %}
             {% endif %}
 
             {% if perms.pybb.change_post and user.is_staff %}
-                <a href="{% url 'admin:pybb_post_change' post.id %}"
+                <a href="{% url admin:pybb_post_change post.id %}"
                    rel="tooltip"
                    title="{% trans 'Admin' %}">
                     <i class="icon-cog"></i></a>
