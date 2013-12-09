@@ -103,54 +103,6 @@
         </td>
     </tr>
     </tbody>
-    <tfoot>
-    <tr>
-        <td class="post-extra-info">
-            {% if user.is_superuser %}
-                {{ post.user_ip }}
-            {% endif %}
-        </td>
-        <td class="post-control">
-            <a href="{% url 'pybb:add_post' post.topic.id %}?quote_id={{ post.id }}"
-               rel="tooltip"
-               title="{% trans "quote" %}">
-                <i class="icon-share"></i></a>
-            {% if user.is_moderator or post|pybb_posted_by:user %}
-                <a href="{% url 'pybb:edit_post' pk=post.id %}"
-                   rel="tooltip"
-                   title="{% trans "Edit" %}">
-                    <i class="icon-edit"></i></a>
-            {% endif %}
-            {% if user.is_moderator %}
-                <a onclick="pybb_delete_post('{% url 'pybb:delete_post' post.id %}',
-                        'post-{{ post.id }}', '{% trans 'Delete post?' %}'); return false;"
-                   href="{% url 'pybb:delete_post' post.id %}"
-                   rel="tooltip"
-                   title="{% trans "Delete" %}">
-                    <i class="icon-remove"></i></a>
-                {% if post.on_moderation %}
-                    <a href="{% url 'pybb:moderate_post' pk=post.id %}"
-                       rel="tooltip"
-                       title="{% trans "Approve post" %}">
-                        <i class="icon-check"></i></a>
-                {% endif %}
-                {% if post != post.topic.head %}
-                    <a href="{% url 'move_post' pk=post.id %}"
-                       rel="tooltip"
-                       title="{% trans "Move post" %}">
-                        <i class="icon-arrow-right"></i></a>
-                {% endif %}
-            {% endif %}
-
-            {% if perms.pybb.change_post and user.is_staff %}
-                <a href="{% url 'admin:pybb_post_change' post.id %}"
-                   rel="tooltip"
-                   title="{% trans 'Admin' %}">
-                    <i class="icon-cog"></i></a>
-            {% endif %}
-        </td>
-    </tr>
-    </tfoot>
 </table>
 
 <script type="text/javascript">
