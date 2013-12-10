@@ -3,14 +3,15 @@
 {% pybb_get_profile post.user as post_user_profile %}
 {% pybb_get_profile request.user as request_user_profile %}
 
-<table class="table post
+<table class="table post post-row
        {% if post.on_moderation %}on-moderation{% endif %}"
-       id="post-{{ post.id }}">
+       id="post-{{ post.id }}"
+       >
     <thead>
     <tr>
         <td class="post-author">
             <a href="{{ post_user_profile.get_absolute_url }}">
-                {{ post.user.username }}
+                <span class="post-username">{{ post.user.username }}</span>
             </a>
         </td>
         <td class="post-date">
@@ -44,8 +45,10 @@
                 {% endif %}
                 <a href="{% url 'pybb:add_post' post.topic.id %}?quote_id={{ post.id }}"
                    rel="tooltip"
-                   title="{% trans "quote" %}">
+                   title="{% trans "quote" %}"
+                   class="quote-link">
                     <i class="icon-comment"></i></a>
+                <a href="#" class="quote-selected-link"><i class="icon-hand-down"></i></a>
             </div>
             <a class="permalink" href="{{ post.get_absolute_url }}">#</a>
             {% if request_user_profile.date_show_type == 1 %}{{ post.created }}{% else %}{{ post.created|timesince }} {% trans "ago" %}{% endif %}
