@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-28 20:51+0400\n"
+"POT-Creation-Date: 2013-12-10 22:25+0400\n"
 "PO-Revision-Date: 2012-02-02 23:43+0400\n"
 "Last-Translator: Vladimir Korsun <korsun.vladimir@gmail.com>\n"
 "Language-Team: Russian <>\n"
@@ -90,8 +90,8 @@ msgstr "Профиль"
 msgid "Profile settings"
 msgstr "Редактирование профиля"
 
-#: templates/menu.html:81 templates/pybb/topic.html:38
-#: templates/pybb/topic.html.py:94 templates/pybb/user.html:64
+#: templates/menu.html:81 templates/pybb/topic.html:36
+#: templates/pybb/topic.html.py:92 templates/pybb/user.html:64
 msgid "Admin"
 msgstr "Админка"
 
@@ -176,7 +176,7 @@ msgid "delete"
 msgstr "удалить"
 
 #: templates/pybb/forum_last_update_info.html:7
-#: templates/pybb/post_template.html:51
+#: templates/pybb/post_template.html:54
 #: templates/pybb/topic_last_message_info.html:9
 #: templates/pybb/user_topics.html:82
 msgid "ago"
@@ -187,8 +187,8 @@ msgid "Index"
 msgstr "Все темы"
 
 #: templates/pybb/index.html:16 templates/pybb/index.html.py:36
-#: templates/pybb/latest_topics.html:7 templates/pybb/latest_topics.html:10
-#: templates/pybb/latest_topics.html:24
+#: templates/pybb/latest_topics.html:5 templates/pybb/latest_topics.html:8
+#: templates/pybb/latest_topics.html:22
 msgid "Last updates in topics"
 msgstr "Последние обновления в темах форума"
 
@@ -204,8 +204,7 @@ msgstr "Нет категорий"
 msgid "Add a category now"
 msgstr "Добавить форум сейчас"
 
-#: templates/pybb/latest_topics.html:20 templates/pybb/latest_topics.html:40
-#, fuzzy
+#: templates/pybb/latest_topics.html:18 templates/pybb/latest_topics.html:38
 msgid "Mark all topics as read"
 msgstr "Отметить форумы прочтенными"
 
@@ -233,76 +232,76 @@ msgstr "Подтвердить комментарий"
 msgid "Delete post?"
 msgstr "Удалить сообщение?"
 
-#: templates/pybb/post_template.html:36
+#: templates/pybb/post_template.html:37
 msgid "Delete"
 msgstr "Удалить"
 
-#: templates/pybb/post_template.html:42
+#: templates/pybb/post_template.html:43
 msgid "Edit"
 msgstr "Редактировать"
 
-#: templates/pybb/post_template.html:47
+#: templates/pybb/post_template.html:48
 msgid "quote"
 msgstr "цитировать"
 
-#: templates/pybb/post_template.html:53
+#: templates/pybb/post_template.html:51
+msgid "quote selected"
+msgstr "цитирование выделенного"
+
+#: templates/pybb/post_template.html:56
 msgid "from"
 msgstr "с адреса"
 
-#: templates/pybb/post_template.html:63
+#: templates/pybb/post_template.html:66
 msgid "Topics"
 msgstr "Темы"
 
-#: templates/pybb/post_template.html:69 templates/pybb/topic.html:55
-#: templates/pybb/topic.html.py:75 templates/pybb/topic_list.html:10
+#: templates/pybb/post_template.html:72 templates/pybb/topic.html:53
+#: templates/pybb/topic.html.py:73 templates/pybb/topic_list.html:10
 #: templates/pybb/user_posts.html:20 templates/pybb/user_topics.html:22
 #: templates/search/search.html:13
 msgid "Posts"
 msgstr "Сообщения"
 
-#: templates/pybb/post_template.html:75
+#: templates/pybb/post_template.html:78
 msgid "Member since"
 msgstr "Участник с"
 
-#: templates/pybb/post_template.html:78
+#: templates/pybb/post_template.html:81
 msgid "blocked"
 msgstr "заблокирован"
 
-#: templates/pybb/post_template.html:91
+#: templates/pybb/post_template.html:94
 msgid "Edited"
 msgstr "Отредактированный"
 
-#: templates/pybb/topic.html:27 templates/pybb/topic.html.py:83
-#, fuzzy
+#: templates/pybb/topic.html:25 templates/pybb/topic.html.py:81
 msgid "Unstick topic"
-msgstr "Последние темы"
+msgstr "Открепить тему"
 
-#: templates/pybb/topic.html:29 templates/pybb/topic.html.py:85
-#, fuzzy
+#: templates/pybb/topic.html:27 templates/pybb/topic.html.py:83
 msgid "Stick topic"
-msgstr "Последние темы"
+msgstr "Закрепить тему"
+
+#: templates/pybb/topic.html:31 templates/pybb/topic.html.py:87
+msgid "Open topic"
+msgstr "Открыть тему"
 
 #: templates/pybb/topic.html:33 templates/pybb/topic.html.py:89
-#, fuzzy
-msgid "Open topic"
-msgstr "Новая тема"
-
-#: templates/pybb/topic.html:35 templates/pybb/topic.html.py:91
-#, fuzzy
 msgid "Close topic"
-msgstr "Новая тема"
+msgstr "Закрыть тему"
+
+#: templates/pybb/topic.html:45 templates/pybb/topic.html.py:101
+msgid "Unsubscribe"
+msgstr "Отписаться"
 
 #: templates/pybb/topic.html:47 templates/pybb/topic.html.py:103
-msgid "Unsubscribe"
-msgstr ""
-
-#: templates/pybb/topic.html:49 templates/pybb/topic.html.py:105
 msgid "Subscribe"
-msgstr ""
+msgstr "Подписаться"
 
-#: templates/pybb/topic.html:124
+#: templates/pybb/topic.html:122
 msgid "Subscribers"
-msgstr ""
+msgstr "Подписчики"
 
 #: templates/pybb/topic_last_message_info.html:12
 msgid "posted by"
