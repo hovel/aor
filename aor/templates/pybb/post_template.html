@@ -19,13 +19,11 @@
                 {% if user.is_moderator %}
                     {% if post != post.topic.head %}
                         <a href="{% url 'move_post' pk=post.id %}"
-                           rel="tooltip"
                            title="{% trans "Move post" %}">
                             <i class="icon-arrow-right"></i></a>
                     {% endif %}
                     {% if post.on_moderation %}
                         <a href="{% url 'pybb:moderate_post' pk=post.id %}"
-                           rel="tooltip"
                            title="{% trans "Approve post" %}">
                             <i class="icon-check"></i></a>
                     {% endif %}
@@ -33,18 +31,15 @@
                             'post-{{ post.id }}', '{% trans 'Delete post?' %}'); return false;"
                        class="post-control-delete"
                        href="{% url 'pybb:delete_post' post.id %}"
-                       rel="tooltip"
                        title="{% trans "Delete" %}">
                         <i class="icon-remove"></i></a>
                 {% endif %}
                 {% if user.is_moderator or post|pybb_posted_by:user %}
                     <a href="{% url 'pybb:edit_post' pk=post.id %}"
-                       rel="tooltip"
                        title="{% trans "Edit" %}">
                         <i class="icon-pencil"></i></a>
                 {% endif %}
                 <a href="{% url 'pybb:add_post' post.topic.id %}?quote_id={{ post.id }}"
-                   rel="tooltip"
                    title="{% trans "quote" %}"
                    class="quote-link">
                     <i class="icon-comment"></i></a>
@@ -107,7 +102,3 @@
     </tr>
     </tbody>
 </table>
-
-<script type="text/javascript">
-    $('a').tooltip();
-</script>
