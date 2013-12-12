@@ -1,7 +1,6 @@
 User-agent: *
-Disallow: /accounts/*
-Disallow: *#post-*
+Disallow: /accounts/
 Disallow: */post/add/*
-Disallow: /forum/users/*
-Disallow: /forum/topic/latest/*
+Disallow: /forum/users/
+Disallow: /forum/topic/latest/
 Crawl-delay: 10

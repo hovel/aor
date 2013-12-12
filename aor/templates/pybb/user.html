@@ -30,13 +30,13 @@
 
             <div class="label">{% trans "Statistics" %}</div>
             <div>
-                <a href="{% url user_topics target_user %}">
+                <a href="{% url 'user_topics' target_user %}">
                     {% trans "Number of topics" %}:
                     {{ topic_count }}
                 </a>
             </div>
             <div>
-                <a href="{% url user_posts target_user %}">
+                <a href="{% url 'user_posts' target_user %}">
                     {% trans "Number of posts" %}:
                     {{ profile.post_count }}
                 </a>
@@ -51,17 +51,17 @@
     <div class='controls'>
         {% if perms.pybb.block_users %}
             {% if target_user.is_active %}
-                <form method="post" action="{% url pybb:block_user target_user.username %}" style="display: inline-block;">{% csrf_token %}
+                <form method="post" action="{% url 'pybb:block_user' target_user.username %}" style="display: inline-block;">{% csrf_token %}
                     <button class="btn btn-danger">{% trans 'Block' %}</button>
                 </form>
             {% else %}
-                <form method="post" action="{% url pybb:unblock_user target_user.username %}" style="display: inline-block;">{% csrf_token %}
+                <form method="post" action="{% url 'pybb:unblock_user' target_user.username %}" style="display: inline-block;">{% csrf_token %}
                     <button class="btn btn-success">{% trans 'Unblock' %}</button>
                 </form>
             {% endif %}
         {% endif %}
         {% if perms.pybb.can_edit %}
-            <a href="{% url admin:profiles_profile_change target_user.get_profile.id %}" class="btn">{% trans 'Admin' %}</a>
+            <a href="{% url 'admin:profiles_profile_change' target_user.get_profile.id %}" class="btn">{% trans 'Admin' %}</a>
         {% endif %}
     </div>
 

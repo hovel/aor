@@ -16,11 +16,11 @@
 {% block sidebar %}
     <div class="well">
         <ul>
-            <li>Already registered? Just use <a href="{% url auth_login %}">log
+            <li>Already registered? Just use <a href="{% url 'auth_login' %}">log
                 in form</a>.
             </li>
             <li>Forgot account password? Try
-                <a href="{% url auth_password_reset %}">password
+                <a href="{% url 'auth_password_reset' %}">password
                 recovery form</a>.
             </li>
         </ul>

@@ -4,7 +4,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib import admin
 from django.views.generic.base import TemplateView
 from pybb.views import ProfileEditView
-from registration.views import register
+from registration.backends.default.views import RegistrationView
 from aor.forms import AORProfileForm, RegistrationFormCaptcha
 from aor.views import Search, MovePostView
 from profiles.views import UserTopics, UserPosts
@@ -17,11 +17,7 @@ urlpatterns = patterns(
     url(r'^donate/$', TemplateView.as_view(template_name='donate.html'), name='donate'),
     url(r'^$', TemplateView.as_view(template_name='index.html'),
         name='home'),
-    #    url(r'^accounts/login/$', login, name="auth_login",
-    #        kwargs=dict(authentication_form=AuthenticationFormCaptcha)),
-    url(r'^accounts/register/$', register,
-        kwargs=dict(form_class=RegistrationFormCaptcha,
-            backend='registration.backends.default.DefaultBackend'),
+    url(r'^accounts/register/$', RegistrationView.as_view(form_class=RegistrationFormCaptcha),
         name="registration_register"),
     url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^forum/profile/edit/$',
@@ -36,12 +32,7 @@ urlpatterns = patterns(
 #    url(r'^search/$', Search.as_view(), name='search'),
     url(r'^news/', include('pybb4news.urls', namespace='news')),
     url(r'^blogs/', include('pybb4blogs.urls', namespace='blogs')),
-    #    url(r'^comments/', include('django.contrib.comments.urls')),
 
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
     url(r'^captcha/', include('captcha.urls')),
     # IRC Mibbit widget

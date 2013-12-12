@@ -8,7 +8,7 @@
         <div class="span4">
             {% include "pybb/avatar.html" %}
             <p>
-                <a href="{% url auth_password_change %}">{% trans "Change the password" %}</a>
+                <a href="{% url 'auth_password_change' %}">{% trans "Change the password" %}</a>
             </p>
         </div>
         <div class="span8">
@@ -32,7 +32,7 @@
                         {% pybb_link sub %}
                         &mdash;
                         <strong>
-                            <a href="{% url pybb:delete_subscription sub.id %}">{% trans "delete" %}</a>
+                            <a href="{% url 'pybb:delete_subscription' sub.id %}">{% trans "delete" %}</a>
                         </strong>
                     </li>
                 {% endfor %}

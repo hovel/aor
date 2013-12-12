@@ -7,17 +7,17 @@
         </a>
     </li>
     <li class="{{ menu_news }}">
-        <a href="{% url news:list %}">
+        <a href="{% url 'news:list' %}">
             {% trans "News" %}
         </a>
     </li>
     <li class="{{ menu_forum }}">
-        <a href="{% url pybb:index %}">
+        <a href="{% url 'pybb:index' %}">
             {% trans "Forum" %}
         </a>
     </li>
     <li class="{{ menu_blogs }}">
-        <a href="{% url blogs:list %}">
+        <a href="{% url 'blogs:list' %}">
             {% trans "Blogs" %}
         </a>
     </li>
@@ -45,12 +45,12 @@
 
 <ul class="nav pull-right">
     <li>
-        <a href="{% url donate %}">
+        <a href="{% url 'donate' %}">
             Помощь ресурсу
         </a>
     </li>
     <li>
-        <a href="{% url irc %}#chat">
+        <a href="{% url 'irc' %}#chat">
             {% trans "Chat" %}
         </a>
     </li>
@@ -72,30 +72,30 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{% url pybb:edit_profile %}">{% trans 'Profile settings' %}</a>
+                    <a href="{% url 'pybb:edit_profile' %}">{% trans 'Profile settings' %}</a>
                 </li>
                 {% if user.is_staff %}
                     <li class="divider"></li>
                     <li class="{{ menu_admin }}">
-                        <a href="{% url admin:index %}">
+                        <a href="{% url 'admin:index' %}">
                             {% trans "Admin" %}
                         </a>
                     </li>
                 {% endif %}
                 <li class="divider"></li>
                 <li>
-                    <a href="{% url auth_logout %}">
+                    <a href="{% url 'auth_logout' %}">
                         {% trans "Logout" %}
                     </a>
                 </li>
             {% else %}
                 <li>
-                    <a href="{% url auth_login %}">
+                    <a href="{% url 'auth_login' %}">
                         {% trans "Login" %}
                     </a>
                 </li>
                 <li>
-                    <a href="{% url registration_register %}">
+                    <a href="{% url 'registration_register' %}">
                         {% trans "Registration" %}
                     </a>
                 </li>
@@ -117,7 +117,7 @@
     </div>
 </form>
 
-{#<form action="{% url search %}" method="get" class="navbar-form pull-right">#}
+{#<form action="{% url 'search' %}" method="get" class="navbar-form pull-right">#}
     {#    {% csrf_token %}#}
 {#    <input name="q" type="text" placeholder="{% trans "Search" %}"#}
 {#           class="search-query" value="{{ query }}">#}

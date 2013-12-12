@@ -3,49 +3,47 @@
 {% pybb_get_profile post.user as post_user_profile %}
 {% pybb_get_profile request.user as request_user_profile %}
 
-<table class="table table-bordered post
+<table class="table table-bordered post post-row
        {% if post.on_moderation %}on-moderation{% endif %}"
-       id="post-{{ post.id }}">
+       id="post-{{ post.id }}"
+       >
     <thead>
     <tr>
         <td class="post-author">
             <a href="{{ post_user_profile.get_absolute_url }}">
-                {{ post.user.username }}
+                <span class="post-username">{{ post.user.username }}</span>
             </a>
         </td>
         <td class="post-date">
             <div class="post-control">
                 {% if user.is_moderator %}
                     {% if post != post.topic.head %}
-                        <a href="{% url move_post pk=post.id %}"
-                           rel="tooltip"
+                        <a href="{% url 'move_post' pk=post.id %}"
                            title="{% trans "Move post" %}">
                             <i class="icon-arrow-right"></i></a>
                     {% endif %}
                     {% if post.on_moderation %}
-                        <a href="{% url pybb:moderate_post pk=post.id %}"
-                           rel="tooltip"
+                        <a href="{% url 'pybb:moderate_post' pk=post.id %}"
                            title="{% trans "Approve post" %}">
                             <i class="icon-check"></i></a>
                     {% endif %}
-                    <a onclick="pybb_delete_post('{% url pybb:delete_post post.id %}',
+                    <a onclick="pybb_delete_post('{% url 'pybb:delete_post' post.id %}',
                             'post-{{ post.id }}', '{% trans 'Delete post?' %}'); return false;"
                        class="post-control-delete"
-                       href="{% url pybb:delete_post post.id %}"
-                       rel="tooltip"
+                       href="{% url 'pybb:delete_post' post.id %}"
                        title="{% trans "Delete" %}">
                         <i class="icon-remove"></i></a>
                 {% endif %}
                 {% if user.is_moderator or post|pybb_posted_by:user %}
-                    <a href="{% url pybb:edit_post pk=post.id %}"
-                       rel="tooltip"
+                    <a href="{% url 'pybb:edit_post' pk=post.id %}"
                        title="{% trans "Edit" %}">
                         <i class="icon-pencil"></i></a>
                 {% endif %}
-                <a href="{% url pybb:add_post post.topic.id %}?quote_id={{ post.id }}"
-                   rel="tooltip"
-                   title="{% trans "quote" %}">
+                <a href="{% url 'pybb:add_post' post.topic.id %}?quote_id={{ post.id }}"
+                   title="{% trans "quote" %}"
+                   class="quote-link">
                     <i class="icon-comment"></i></a>
+                <a href="#" title="{% trans 'quote selected' %}" class="quote-selected-link"><i class="icon-hand-down"></i></a>
             </div>
             <a class="permalink" href="{{ post.get_absolute_url }}">#</a>
             {% if request_user_profile.date_show_type == 1 %}{{ post.created }}{% else %}{{ post.created|timesince }} {% trans "ago" %}{% endif %}
@@ -61,13 +59,13 @@
             {% include "pybb/avatar.html" with user=post.user %}
             <div>
                 {% trans "Topics" %}:
-                <a href="{% url user_topics post.user %}">
+                <a href="{% url 'user_topics' post.user %}">
                     {{ post.user.topic_set.count }}
                 </a>
             </div>
             <div>
                 {% trans "Posts" %}:
-                <a href="{% url user_posts post.user %}">
+                <a href="{% url 'user_posts' post.user %}">
                     {{ post_user_profile.post_count }}
                 </a>
             </div>
@@ -104,7 +102,3 @@
     </tr>
     </tbody>
 </table>
-
-<script type="text/javascript">
-    $('a').tooltip();
-</script>
