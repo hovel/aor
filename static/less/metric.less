@@ -88,41 +88,6 @@ td.forum-last-post, td.topic-last-post {
   font-weight: bold;
 }
 
-.post {
-  margin-bottom: 0;
-  border-collapse: separate;
-  border-style: solid;
-  border-color: @tableBorder;
-  border-width: 0 1px 1px 0;
-  th,
-  td {
-    border-left: 1px solid @tableBorder;
-  }
-}
-
-.post:first-of-type {
-  border-top-width: 1px;
-  .border-top-left-radius(@baseBorderRadius);
-  .border-top-right-radius(@baseBorderRadius);
-  thead tr:first-child td:first-child {
-    .border-top-left-radius(@baseBorderRadius);
-  }
-  thead tr:first-child td:last-child {
-    .border-top-right-radius(@baseBorderRadius);
-  }
-}
-
-.post:last-of-type {
-  .border-bottom-left-radius(@baseBorderRadius);
-  .border-bottom-right-radius(@baseBorderRadius);
-  tbody tr:last-child td:first-child {
-    .border-bottom-left-radius(@baseBorderRadius);
-  }
-  tbody tr:last-child td:last-child {
-    .border-bottom-right-radius(@baseBorderRadius);
-  }
-}
-
 .post-info {
   font-size: .8em;
   width: 150px;
@@ -137,6 +102,8 @@ td.forum-last-post, td.topic-last-post {
   border-top: 1px dashed;
   padding-top: 10px;
   margin-top: 10px;
+  max-height: 40px;
+  overflow: auto;
 }
 
 .post-date {
@@ -227,4 +194,17 @@ label.checkbox ul, label.radio ul {
 
 .top-page-controls {
   float: right;
+}
+
+label[for="id_avatar"] + div > a:after {
+  content: '';
+  display: block;
+}
+label[for="avatar-clear_id"] {
+  display: inline-block;
+  margin-bottom: 1em;
+  vertical-align: middle;
+}
+#avatar-clear_id {
+  margin-bottom: 1em;
 }

@@ -121,6 +121,13 @@
   }
 }
 
+.form-search.navbar-form {
+  .btn {
+    border: 1px solid #666;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+  }
+}
+
 blockquote {
   background: #39393D;
 }
@@ -236,12 +243,7 @@ input[type="color"],
   border-top-color: @gray;
 }
 
-.post-info, .block .header, .block .info {
-  background: darken(@grayDark, 3%);
-}
-
-.post thead th,
-.post thead td {
+.post-info, .post thead, .post tfoot, .block .header, .block .info {
   background: darken(@grayDark, 3%);
 }
 
@@ -269,3 +271,69 @@ input[type="color"],
   color: @grayLight;
 }
 
+body .markItUp .markItUpButton1 a,
+body .markItUp .markItUpButton2 a,
+body .markItUp .markItUpButton3 a,
+body .markItUp .markItUpButton4 a,
+body .markItUp .markItUpButton5 a,
+body .markItUp .markItUpButton6 a,
+body .markItUp .markItUpButton7 a,
+body .markItUp .markItUpButton8 a,
+body .markItUp .markItUpButton9 a,
+body .markItUp .markItUpButton10 a,
+body .markItUp .markItUpButton11 a,
+body .markItUp .clean a,
+body .markItUp .preview a {
+    background-image:url(../img/markitup-dark-buttons.png);
+    width: 16px;
+    height: 16px;
+    padding: 0;
+    margin: 6px 3px;
+}
+body .markItUp .markItUpButton1 a	{
+    background-position: 0 0;
+}
+body .markItUp .markItUpButton2 a	{
+    background-position: -16px 0;
+}
+body .markItUp .markItUpButton3 a	{
+    background-position: -32px 0;
+}
+body .markItUp .markItUpButton4 a	{
+    background-position: -48px 0;
+}
+body .markItUp .markItUpButton5 a	{
+    background-position: -64px 0;
+}
+body .markItUp .markItUpButton6 a	{
+    background-position: -80px 0;
+}
+body .markItUp .markItUpButton7 a	{
+    background-position: -96px 0;
+}
+body .markItUp .markItUpButton8 a	{
+    background-position: -112px 0;
+}
+body .markItUp .markItUpButton9 a	{
+    background-position: -128px 0;
+}
+
+body .markItUp .markItUpButton10 a	{
+    background-position: -144px 0;
+}
+body .markItUp .markItUpButton11 a	{
+    background-position: -160px 0;
+    width: 21px;
+}
+body .markItUp .clean a {
+    background-position: -181px 0;
+}
+body .markItUp .preview a {
+    background-position: -197px 0;
+    width: 18px;
+}
+body .markItUpHeader ul .markItUpSeparator {
+    margin: 6px;
+    background-color: #555;
+    color: #555; /* chrome */
+}
