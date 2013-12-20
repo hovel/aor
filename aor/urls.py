@@ -14,6 +14,7 @@ admin.autodiscover()
 urlpatterns = patterns(
     '',
     url(r'^robots.txt$', TemplateView.as_view(template_name='robots.txt')),
+    url(r'^yandex_72c667563364196f.html$', TemplateView.as_view(template_name='yandex_72c667563364196f.html')),
     url(r'^donate/$', TemplateView.as_view(template_name='donate.html'), name='donate'),
     url(r'^$', TemplateView.as_view(template_name='index.html'),
         name='home'),
