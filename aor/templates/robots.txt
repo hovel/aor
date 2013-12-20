@@ -9,6 +9,7 @@ Disallow: /accounts/
 Disallow: /forum/users/
 Disallow: /forum/topic/latest/
 Disallow: /node*
+Disallow: /forum/viewtopic.php*
 Crawl-delay: 1
 
 User-agent: Googlebot
