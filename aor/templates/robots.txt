@@ -1,6 +1,18 @@
 User-agent: *
 Disallow: /accounts/
-Disallow: /*/post/add/*
 Disallow: /forum/users/
 Disallow: /forum/topic/latest/
 Crawl-delay: 10
+
+User-agent: YandexBot
+Disallow: /accounts/
+Disallow: /forum/users/
+Disallow: /forum/topic/latest/
+Disallow: /node*
+Crawl-delay: 1
+
+User-agent: Googlebot
+Disallow: /accounts/
+Disallow: /forum/users/
+Disallow: /forum/topic/latest/
+Crawl-delay: 1
