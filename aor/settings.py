@@ -21,7 +21,8 @@ DATABASES = {
         'HOST': 'localhost',
         'NAME': 'aor',
         'USER': '',
-        'PASSWORD': ''
+        'PASSWORD': '',
+        'ATOMIC_REQUESTS': True
     }
 }
 
