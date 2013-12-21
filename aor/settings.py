@@ -96,6 +96,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sitemaps',
     # 'django.contrib.comments',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
@@ -188,6 +189,6 @@ except ImportError:
 if DEBUG:
     MIDDLEWARE_CLASSES += ('debug_toolbar.middleware.DebugToolbarMiddleware',)
     INSTALLED_APPS += ('debug_toolbar', )
-    INTERNAL_IPS = ('127.0.0.1',)
+    #INTERNAL_IPS = ('127.0.0.1',)
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
     DEBUG_TOOLBAR_CONFIG = {'INTERCEPT_REDIRECTS': False}
