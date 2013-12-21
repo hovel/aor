@@ -1,0 +1,68 @@
+{% extends "postman/base.html" %}
+{% load url from future %}
+{% load i18n postman_tags pybb_tags %}
+{% block content %}
+<div id="postman">
+<h1>{% if pm_messages|length > 1 %}{% trans "Conversation" %}{% else %}{% trans "Message" %}{% endif %}</h1>
+
+{% pybb_get_profile request.user as request_user_profile %}
+
+{% for message in pm_messages %}
+    {% pybb_get_profile message.sender as sender_profile %}
+    <table class="table table-bordered post post-row">
+    <thead>
+    <tr>
+        <td class="post-author">
+            <a href="{{ sender_profile.get_absolute_url }}">
+                <span class="post-username">{{ message.sender.username }}</span>
+            </a>
+        </td>
+        <td class="post-date">
+            {{ message.subject }}
+            {% if request_user_profile.date_show_type == 1 %}{{ message.sent_at }}{% else %}{{ message.sent_at|timesince }} {% trans "ago" %}{% endif %}
+        </td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td class="post-info">
+            {% include "pybb/avatar.html" with user=message.sender %}
+            <div>
+                {% trans "Member since" %}: {{ message.sender.date_joined|date:'d E Y' }}
+            </div>
+            {% if not message.sender %}
+                <div class="label label-warning">{% trans 'blocked' %}</div>
+            {% endif %}
+        </td>
+        <td class="post-content">
+            {{ message.body|linebreaksbr }}
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+    {% if forloop.last %}
+        <form action="" method="post">{% csrf_token %}
+            <input type="hidden" {% if pm_messages|length > 1 and message.thread_id %}name="tpks" value="{{ message.thread_id }}"{% else %}name="pks" value="{{ message.pk }}"{% endif %} />
+
+            <a href="{{ next_url }}" class="btn">{% trans "Back" %}</a>
+            {% if reply_to_pk %}<a class="btn btn-primary" href="{% url 'postman_reply' reply_to_pk %}?next={{ next_url|urlencode }}">{% trans "Reply" %}</a>{% endif %}
+            <span id="pm_buttons">
+                <button class="btn btn-danger btn-small" type="submit" onclick="this.form.action='{% url 'postman_delete' %}?next={{ next_url|urlencode }}'">{% trans "Delete" %}</button>
+                {% if not archived %}
+                    <button class="btn btn-warning btn-small" type="submit" onclick="this.form.action='{% url 'postman_archive' %}?next={{ next_url|urlencode }}'">{% trans "Archive" %}</button>
+                {% endif %}
+            </span>
+        </form>
+
+        {% if reply_to_pk %}<hr />
+            <h2>{% trans 'Reply' %}</h2>
+            <form action="{% url 'postman_reply' reply_to_pk %}?next={{ next_url|urlencode }}" method="post">{% csrf_token %}
+                <div id="pm_reply">{{ form.body }}</div>
+                <button type="submit" class="btn btn-primary">{% trans 'Reply' %}</button>
+            </form>
+        {% endif %}
+    {% endif %}
+{% endfor %}
+</div>
+{% endblock %}

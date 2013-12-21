@@ -1,19 +1,22 @@
 User-agent: *
-Disallow: /accounts/
-Disallow: /forum/users/
-Disallow: /forum/topic/latest/
+Disallow: /accounts
+Disallow: /forum/users
+Disallow: /forum/topic/latest
+Disallow: /messages
 Crawl-delay: 10
 
 User-agent: YandexBot
-Disallow: /accounts/
-Disallow: /forum/users/
-Disallow: /forum/topic/latest/
-Disallow: /node*
-Disallow: /forum/viewtopic.php*
+Disallow: /accounts
+Disallow: /forum/users
+Disallow: /forum/topic/latest
+Disallow: /node
+Disallow: *.php
+Disallow: /messages
 Crawl-delay: 1
 
 User-agent: Googlebot
-Disallow: /accounts/
-Disallow: /forum/users/
-Disallow: /forum/topic/latest/
+Disallow: /accounts
+Disallow: /forum/users
+Disallow: /forum/topic/latest
+Disallow: /messages
 Crawl-delay: 1

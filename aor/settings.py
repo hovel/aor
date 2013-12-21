@@ -87,7 +87,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'pybb.context_processors.processor',
     'profiles.context_processor.user_theme',
     'django.core.context_processors.request',
-    )
+    'postman.context_processors.inbox'
+)
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -114,7 +115,8 @@ INSTALLED_APPS = (
     'pybb4blogs',
     'profiles',
     'mailer',
-    )
+    'postman',
+)
 
 CAPTCHA_LENGTH = 7
 CAPTCHA_LETTER_ROTATION = (-60, 60)
@@ -156,6 +158,11 @@ PYBB_MARKUP_ENGINES = {
     'markdown': lambda str: Markdown(safe_mode='escape').convert(str)
 }
 
+POSTMAN_DISALLOW_ANONYMOUS = True
+POSTMAN_DISABLE_USER_EMAILING = True
+POSTMAN_DISALLOW_MULTIRECIPIENTS = True
+POSTMAN_DISALLOW_COPIES_ON_REPLY = True
+POSTMAN_AUTO_MODERATE_AS = True
 
 LOGGING = {
     'version': 1,
@@ -189,6 +196,6 @@ except ImportError:
 if DEBUG:
     MIDDLEWARE_CLASSES += ('debug_toolbar.middleware.DebugToolbarMiddleware',)
     INSTALLED_APPS += ('debug_toolbar', )
-    #INTERNAL_IPS = ('127.0.0.1',)
+    INTERNAL_IPS = ('127.0.0.1',)
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
     DEBUG_TOOLBAR_CONFIG = {'INTERCEPT_REDIRECTS': False}
