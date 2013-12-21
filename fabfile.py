@@ -69,17 +69,17 @@ def collect_static():
 
 def start():
     with cd(PROJECT_ROOT):
-        run('../env/bin/python manage.py run_gunicorn -c gunicorn.conf.py')
+        run('./gunicorn.sh start')
 
 
 def restart():
     with cd(PROJECT_BASEDIR):
-        run('kill -HUP `cat /home/amigo/archlinux/log/pidfile`')
+        run('./gunicorn.sh reload')
 
 
 def stop():
     with cd(PROJECT_BASEDIR):
-        run('kill `cat /home/amigo/archlinux/log/pidfile`')
+        run('./gunicorn.sh stop')
 
 
 def put_settings():
