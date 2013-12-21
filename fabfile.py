@@ -73,12 +73,12 @@ def start():
 
 
 def restart():
-    with cd(PROJECT_BASEDIR):
+    with cd(PROJECT_ROOT):
         run('./gunicorn.sh reload')
 
 
 def stop():
-    with cd(PROJECT_BASEDIR):
+    with cd(PROJECT_ROOT):
         run('./gunicorn.sh stop')
 
 
