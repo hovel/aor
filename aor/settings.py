@@ -22,7 +22,8 @@ DATABASES = {
         'NAME': 'aor',
         'USER': '',
         'PASSWORD': '',
-        'ATOMIC_REQUESTS': True
+        'ATOMIC_REQUESTS': True,
+        'AUTOCOMMIT': True
     }
 }
 
