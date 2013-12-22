@@ -119,6 +119,7 @@ INSTALLED_APPS = (
     'pybb4blogs',
     'profiles',
     'mailer',
+    'ajax_select',
     'postman',
 )
 
@@ -162,6 +163,12 @@ PYBB_MARKUP_ENGINES = {
     'markdown': lambda str: Markdown(safe_mode='escape').convert(str)
 }
 
+AJAX_LOOKUP_CHANNELS = {
+    'postman_users': {'model': 'auth.user', 'search_field': 'username'},
+}
+POSTMAN_AUTOCOMPLETER_APP = {
+    'arg_default': 'postman_users',
+}
 POSTMAN_DISALLOW_ANONYMOUS = True
 POSTMAN_DISABLE_USER_EMAILING = True
 POSTMAN_DISALLOW_MULTIRECIPIENTS = True

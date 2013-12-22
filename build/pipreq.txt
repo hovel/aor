@@ -15,4 +15,4 @@ sorl-thumbnail==11.12
 -e git+https://github.com/hovel/django-pure-pagination.git#egg=django_pure_pagination
 django-mailer
 hg+http://bitbucket.org/psam/django-postman/#egg=django-postman
-
+django-ajax-selects

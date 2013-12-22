@@ -34,6 +34,7 @@ urlpatterns = patterns(
 #    url(r'^search/$', Search.as_view(), name='search'),
     url(r'^news/', include('pybb4news.urls', namespace='news')),
     url(r'^blogs/', include('pybb4blogs.urls', namespace='blogs')),
+    url(r'^ajax_selects/', include('ajax_select.urls')),
     url(r'^messages/', include('postman.urls')),
 
     url(r'^admin/', include(admin.site.urls)),

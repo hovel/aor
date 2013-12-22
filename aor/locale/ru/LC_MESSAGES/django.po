@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-10 22:25+0400\n"
+"POT-Creation-Date: 2013-12-22 18:20+0400\n"
 "PO-Revision-Date: 2012-02-02 23:43+0400\n"
 "Last-Translator: Vladimir Korsun <korsun.vladimir@gmail.com>\n"
 "Language-Team: Russian <>\n"
@@ -30,11 +30,11 @@ msgstr "Введите текст с изображения каптчи"
 msgid "Signature"
 msgstr "Подпись"
 
-#: settings.py:142
+#: settings.py:150
 msgid "default theme"
 msgstr "тема по умолчанию"
 
-#: settings.py:143
+#: settings.py:151
 msgid "dark theme"
 msgstr "темная"
 
@@ -46,7 +46,7 @@ msgstr "Русскоязычное Сообщество Arch Linux"
 msgid "Join us"
 msgstr "Присоединиться"
 
-#: templates/index.html:28 templates/menu.html:94
+#: templates/index.html:28 templates/menu.html:97
 #: templates/registration/login.html:9
 msgid "Login"
 msgstr "Вход"
@@ -87,21 +87,135 @@ msgid "Profile"
 msgstr "Профиль"
 
 #: templates/menu.html:75
+msgid "Personal messages"
+msgstr "Личные сообщения"
+
+#: templates/menu.html:78
 msgid "Profile settings"
 msgstr "Редактирование профиля"
 
-#: templates/menu.html:81 templates/pybb/topic.html:36
+#: templates/menu.html:84 templates/pybb/topic.html:36
 #: templates/pybb/topic.html.py:92 templates/pybb/user.html:64
 msgid "Admin"
 msgstr "Админка"
 
-#: templates/menu.html:88
+#: templates/menu.html:91
 msgid "Logout"
 msgstr "Выйти"
 
-#: templates/menu.html:99 templates/registration/registration_form.html:9
+#: templates/menu.html:102 templates/registration/registration_form.html:9
 msgid "Registration"
 msgstr "Регистрация"
+
+#: templates/postman/base.html:4
+msgid "Messaging"
+msgstr "Обмен сообщениями"
+
+#: templates/postman/base.html:13
+msgid "Inbox"
+msgstr "Входящие"
+
+#: templates/postman/base.html:14
+msgid "Sent Messages"
+msgstr "Отправленные"
+
+#: templates/postman/base.html:15 templates/pybb/post_template.html:48
+#: templates/pybb/user.html:66
+msgid "Write"
+msgstr "Написать сообщение"
+
+#: templates/postman/base.html:16
+msgid "Archives"
+msgstr "Архив"
+
+#: templates/postman/base.html:17
+msgid "Trash"
+msgstr "Удаленные"
+
+#: templates/postman/base_folder.html:10
+msgid "Sorry, this page number is invalid."
+msgstr "Неверный номер страницы"
+
+#: templates/postman/base_folder.html:15
+msgid "by conversation"
+msgstr "по беседам"
+
+#: templates/postman/base_folder.html:16
+msgid "by message"
+msgstr "по сообщениям"
+
+#: templates/postman/base_folder.html:23 templates/postman/view.html:51
+#: templates/pybb/post_template.html:34
+msgid "Delete"
+msgstr "Удалить"
+
+#: templates/postman/base_folder.html:24 templates/postman/view.html:53
+msgid "Archive"
+msgstr "Архивировать"
+
+#: templates/postman/base_folder.html:25
+msgid "Undelete"
+msgstr "Восстановить"
+
+#: templates/postman/base_folder.html:33
+msgid "Action"
+msgstr "Действие"
+
+#: templates/postman/base_folder.html:34
+msgid "Sender"
+msgstr "Отправитель"
+
+#: templates/postman/base_folder.html:35
+msgid "Recipient"
+msgstr "Получатель"
+
+#: templates/postman/base_folder.html:36
+msgid "Subject"
+msgstr "Тема"
+
+#: templates/postman/base_folder.html:37
+msgid "Date"
+msgstr "Дата отправки"
+
+#: templates/postman/base_folder.html:64
+msgid "No messages."
+msgstr "Сообщений нет."
+
+#: templates/postman/base_write.html:29
+msgid "Send"
+msgstr "Отправить"
+
+#: templates/postman/view.html:6
+msgid "Conversation"
+msgstr "Беседа"
+
+#: templates/postman/view.html:6
+msgid "Message"
+msgstr "Сообщение"
+
+#: templates/postman/view.html:22 templates/pybb/forum_last_update_info.html:7
+#: templates/pybb/post_template.html:52
+#: templates/pybb/topic_last_message_info.html:9
+#: templates/pybb/user_topics.html:82
+msgid "ago"
+msgstr "назад"
+
+#: templates/postman/view.html:31 templates/pybb/post_template.html:76
+msgid "Member since"
+msgstr "Участник с"
+
+#: templates/postman/view.html:34 templates/pybb/post_template.html:79
+msgid "blocked"
+msgstr "заблокирован"
+
+#: templates/postman/view.html:48
+msgid "Back"
+msgstr "Назад"
+
+#: templates/postman/view.html:49 templates/postman/view.html.py:59
+#: templates/postman/view.html:62
+msgid "Reply"
+msgstr "Ответить"
 
 #: templates/pybb/_markitup.html:14
 msgid "Bold"
@@ -175,13 +289,6 @@ msgstr "Подписки на темы"
 msgid "delete"
 msgstr "удалить"
 
-#: templates/pybb/forum_last_update_info.html:7
-#: templates/pybb/post_template.html:54
-#: templates/pybb/topic_last_message_info.html:9
-#: templates/pybb/user_topics.html:82
-msgid "ago"
-msgstr "назад"
-
 #: templates/pybb/index.html:7
 msgid "Index"
 msgstr "Все темы"
@@ -220,58 +327,46 @@ msgstr "Переместить сообщение"
 msgid "Choose topic where to move post"
 msgstr "Выберите тему для перемещения"
 
-#: templates/pybb/post_template.html:23
+#: templates/pybb/post_template.html:22
 msgid "Move post"
 msgstr "Переместить сообщение"
 
-#: templates/pybb/post_template.html:29
+#: templates/pybb/post_template.html:27
 msgid "Approve post"
 msgstr "Подтвердить комментарий"
 
-#: templates/pybb/post_template.html:33
+#: templates/pybb/post_template.html:31
 msgid "Delete post?"
 msgstr "Удалить сообщение?"
 
-#: templates/pybb/post_template.html:37
-msgid "Delete"
-msgstr "Удалить"
-
-#: templates/pybb/post_template.html:43
+#: templates/pybb/post_template.html:39
 msgid "Edit"
 msgstr "Редактировать"
 
-#: templates/pybb/post_template.html:48
+#: templates/pybb/post_template.html:43
 msgid "quote"
 msgstr "цитировать"
 
-#: templates/pybb/post_template.html:51
+#: templates/pybb/post_template.html:46
 msgid "quote selected"
 msgstr "цитирование выделенного"
 
-#: templates/pybb/post_template.html:56
+#: templates/pybb/post_template.html:54
 msgid "from"
 msgstr "с адреса"
 
-#: templates/pybb/post_template.html:66
+#: templates/pybb/post_template.html:64
 msgid "Topics"
 msgstr "Темы"
 
-#: templates/pybb/post_template.html:72 templates/pybb/topic.html:53
+#: templates/pybb/post_template.html:70 templates/pybb/topic.html:53
 #: templates/pybb/topic.html.py:73 templates/pybb/topic_list.html:10
 #: templates/pybb/user_posts.html:20 templates/pybb/user_topics.html:22
 #: templates/search/search.html:13
 msgid "Posts"
 msgstr "Сообщения"
 
-#: templates/pybb/post_template.html:78
-msgid "Member since"
-msgstr "Участник с"
-
-#: templates/pybb/post_template.html:81
-msgid "blocked"
-msgstr "заблокирован"
-
-#: templates/pybb/post_template.html:94
+#: templates/pybb/post_template.html:92
 msgid "Edited"
 msgstr "Отредактированный"
 
