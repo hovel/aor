@@ -1,6 +1,11 @@
 {% extends "postman/base.html" %}
 {% load url from future %}
 {% load i18n postman_tags pybb_tags %}
+
+{% block extra_script %}
+    {% include 'pybb/_markitup.html' %}
+{% endblock %}
+
 {% block content %}
 <div id="postman">
 <h1>{% if pm_messages|length > 1 %}{% trans "Conversation" %}{% else %}{% trans "Message" %}{% endif %}</h1>
@@ -35,7 +40,7 @@
                     {% endif %}
                 </td>
                 <td class="post-content">
-                    {{ message.body|linebreaksbr }}
+                    {{ message.aor_message.body_html|safe|default:message.body|linebreaksbr }}
                 </td>
             </tr>
         </tbody>

@@ -121,6 +121,7 @@ INSTALLED_APPS = (
     'mailer',
     'ajax_select',
     'postman',
+    'aor_messages',
 )
 
 CAPTCHA_LENGTH = 7
