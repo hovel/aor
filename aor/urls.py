@@ -22,6 +22,7 @@ urlpatterns = patterns(
     url(r'^accounts/register/$', RegistrationView.as_view(form_class=RegistrationFormCaptcha),
         name="registration_register"),
     url(r'^accounts/', include('registration.backends.default.urls')),
+    url(r'^accounts/', include('django.contrib.auth.urls')),
     url(r'^forum/profile/edit/$',
         ProfileEditView.as_view(form_class=AORProfileForm),
         name='pybb:edit_profile'),
