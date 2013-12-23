@@ -20,12 +20,12 @@ urlpatterns = patterns(
 
     url(r'^donate/$', TemplateView.as_view(template_name='donate.html'), name='donate'),
     url(r'^$', TemplateView.as_view(template_name='index.html'), name='home'),
+
     url(r'^accounts/register/$', RegistrationView.as_view(form_class=RegistrationFormCaptcha),
         name="registration_register"),
-    url(r'^accounts/password/reset/confirm/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>.+)/$',
-        auth_views.password_reset_confirm, name='auth_password_reset_confirm'),
     url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^accounts/', include('django.contrib.auth.urls')),
+
     url(r'^forum/profile/edit/$',
         ProfileEditView.as_view(form_class=AORProfileForm),
         name='pybb:edit_profile'),
