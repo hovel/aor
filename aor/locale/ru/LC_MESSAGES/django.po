@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-23 14:05+0400\n"
+"POT-Creation-Date: 2013-12-23 14:57+0400\n"
 "PO-Revision-Date: 2012-02-02 23:43+0400\n"
 "Last-Translator: Vladimir Korsun <korsun.vladimir@gmail.com>\n"
 "Language-Team: Russian <>\n"
@@ -148,7 +148,7 @@ msgstr "по сообщениям"
 msgid "Delete"
 msgstr "Удалить"
 
-#: templates/postman/base_folder.html:24 templates/postman/view.html:53
+#: templates/postman/base_folder.html:24 templates/postman/view.html:55
 msgid "Archive"
 msgstr "Архивировать"
 
@@ -211,8 +211,11 @@ msgstr "заблокирован"
 msgid "Back"
 msgstr "Назад"
 
-#: templates/postman/view.html:49 templates/postman/view.html.py:59
-#: templates/postman/view.html:62
+#: templates/postman/view.html:51 templates/postman/view.html.py:55
+msgid "all thread"
+msgstr "все сообщения в беседе"
+
+#: templates/postman/view.html:62 templates/postman/view.html.py:65
 msgid "Reply"
 msgstr "Ответить"
 

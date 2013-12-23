@@ -6,7 +6,7 @@ from pybb.views import ProfileEditView
 from registration.backends.default.views import RegistrationView
 from aor.forms import AORProfileForm, RegistrationFormCaptcha
 from aor.sitemaps import sitemaps
-from aor.views import Search, MovePostView
+from aor.views import Search, MovePostView, AorMessageView, AorConversationView, AorReplyView
 from profiles.views import UserTopics, UserPosts
 
 admin.autodiscover()
@@ -36,6 +36,10 @@ urlpatterns = patterns(
     url(r'^news/', include('pybb4news.urls', namespace='news')),
     url(r'^blogs/', include('pybb4blogs.urls', namespace='blogs')),
     url(r'^ajax_selects/', include('ajax_select.urls')),
+
+    url(r'^messages/reply/(?P<message_id>[\d]+)/$', AorReplyView.as_view(), name='postman_reply'),
+    url(r'^messages/view/(?P<message_id>[\d]+)/$', AorMessageView.as_view(), name='postman_view'),
+    url(r'^messages/view/t/(?P<thread_id>[\d]+)/$', AorConversationView.as_view(), name='postman_view_conversation'),
     url(r'^messages/', include('postman.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
