@@ -45,7 +45,7 @@
                     <i class="icon-comment"></i></a>
                 <a href="#" title="{% trans 'quote selected' %}" class="quote-selected-link"><i class="icon-hand-down"></i></a>
                 {% if user.id != post.user.id %}
-                    <a href="{% url 'postman_write' %}?recipients={{ post.user.username }}" title="{% trans "Write" %}"><i class="icon icon-envelope"></i></a>
+                    <a href="{% url 'postman_write' post.user.username %}" title="{% trans "Write personal message" %}"><i class="icon icon-envelope"></i></a>
                 {% endif %}
             </div>
             <a class="permalink" href="{{ post.get_absolute_url }}">#</a>

@@ -63,7 +63,7 @@
         {% if perms.pybb.can_edit %}
             <a href="{% url 'admin:profiles_profile_change' target_user.get_profile.id %}" class="btn">{% trans 'Admin' %}</a>
         {% endif %}
-        <a class="btn" href="{% url 'postman_write' %}?recipients={{ target_user.username }}">{% trans "Write" %}</a>
+        <a class="btn" href="{% url 'postman_write' target_user.username %}">{% trans "Write personal message" %}</a>
     </div>
 
 {% endblock %}

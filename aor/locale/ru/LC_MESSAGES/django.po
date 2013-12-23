@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-22 18:20+0400\n"
+"POT-Creation-Date: 2013-12-23 14:05+0400\n"
 "PO-Revision-Date: 2012-02-02 23:43+0400\n"
 "Last-Translator: Vladimir Korsun <korsun.vladimir@gmail.com>\n"
 "Language-Team: Russian <>\n"
@@ -119,8 +119,7 @@ msgstr "Входящие"
 msgid "Sent Messages"
 msgstr "Отправленные"
 
-#: templates/postman/base.html:15 templates/pybb/post_template.html:48
-#: templates/pybb/user.html:66
+#: templates/postman/base.html:15
 msgid "Write"
 msgstr "Написать сообщение"
 
@@ -181,7 +180,7 @@ msgstr "Дата отправки"
 msgid "No messages."
 msgstr "Сообщений нет."
 
-#: templates/postman/base_write.html:29
+#: templates/postman/base_write.html:17
 msgid "Send"
 msgstr "Отправить"
 
@@ -350,6 +349,10 @@ msgstr "цитировать"
 #: templates/pybb/post_template.html:46
 msgid "quote selected"
 msgstr "цитирование выделенного"
+
+#: templates/pybb/post_template.html:48 templates/pybb/user.html:66
+msgid "Write personal message"
+msgstr "Написать ЛС"
 
 #: templates/pybb/post_template.html:54
 msgid "from"
