@@ -58,7 +58,7 @@
         <a class="dropdown-toggle" role="button" data-toggle="dropdown"
            href="#">
             {% if user.is_authenticated %}
-                {{ user }}
+                {{ user }} {% if postman_unread_count %}<i class="icon icon-comment" title="{% trans 'New pesonal messages' %}"></i>{% endif %}
             {% else %}
                 {% trans "Profile" %}
             {% endif %}

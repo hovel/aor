@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-23 14:57+0400\n"
+"POT-Creation-Date: 2013-12-25 15:54+0400\n"
 "PO-Revision-Date: 2012-02-02 23:43+0400\n"
 "Last-Translator: Vladimir Korsun <korsun.vladimir@gmail.com>\n"
 "Language-Team: Russian <>\n"
@@ -30,11 +30,11 @@ msgstr "Введите текст с изображения каптчи"
 msgid "Signature"
 msgstr "Подпись"
 
-#: settings.py:150
+#: settings.py:151
 msgid "default theme"
 msgstr "тема по умолчанию"
 
-#: settings.py:151
+#: settings.py:152
 msgid "dark theme"
 msgstr "темная"
 
@@ -81,6 +81,10 @@ msgstr "Скачать"
 #: templates/menu.html:54
 msgid "Chat"
 msgstr "Чат"
+
+#: templates/menu.html:61
+msgid "New pesonal messages"
+msgstr "Новые личные сообщения"
 
 #: templates/menu.html:63 templates/menu.html.py:71
 msgid "Profile"
@@ -143,12 +147,12 @@ msgstr "по беседам"
 msgid "by message"
 msgstr "по сообщениям"
 
-#: templates/postman/base_folder.html:23 templates/postman/view.html:51
+#: templates/postman/base_folder.html:23 templates/postman/view.html:59
 #: templates/pybb/post_template.html:34
 msgid "Delete"
 msgstr "Удалить"
 
-#: templates/postman/base_folder.html:24 templates/postman/view.html:55
+#: templates/postman/base_folder.html:24 templates/postman/view.html:63
 msgid "Archive"
 msgstr "Архивировать"
 
@@ -184,38 +188,42 @@ msgstr "Сообщений нет."
 msgid "Send"
 msgstr "Отправить"
 
-#: templates/postman/view.html:6
+#: templates/postman/view.html:11
 msgid "Conversation"
 msgstr "Беседа"
 
-#: templates/postman/view.html:6
+#: templates/postman/view.html:11
 msgid "Message"
 msgstr "Сообщение"
 
-#: templates/postman/view.html:22 templates/pybb/forum_last_update_info.html:7
+#: templates/postman/view.html:27 templates/pybb/post_template.html:46
+msgid "quote selected"
+msgstr "цитирование выделенного"
+
+#: templates/postman/view.html:30 templates/pybb/forum_last_update_info.html:7
 #: templates/pybb/post_template.html:52
 #: templates/pybb/topic_last_message_info.html:9
 #: templates/pybb/user_topics.html:82
 msgid "ago"
 msgstr "назад"
 
-#: templates/postman/view.html:31 templates/pybb/post_template.html:76
+#: templates/postman/view.html:39 templates/pybb/post_template.html:76
 msgid "Member since"
 msgstr "Участник с"
 
-#: templates/postman/view.html:34 templates/pybb/post_template.html:79
+#: templates/postman/view.html:42 templates/pybb/post_template.html:79
 msgid "blocked"
 msgstr "заблокирован"
 
-#: templates/postman/view.html:48
+#: templates/postman/view.html:56
 msgid "Back"
 msgstr "Назад"
 
-#: templates/postman/view.html:51 templates/postman/view.html.py:55
+#: templates/postman/view.html:59 templates/postman/view.html.py:63
 msgid "all thread"
 msgstr "все сообщения в беседе"
 
-#: templates/postman/view.html:62 templates/postman/view.html.py:65
+#: templates/postman/view.html:70 templates/postman/view.html.py:73
 msgid "Reply"
 msgstr "Ответить"
 
@@ -303,7 +311,7 @@ msgstr "Последние обновления в темах форума"
 
 #: templates/pybb/index.html:21 templates/pybb/index.html.py:41
 msgid "Mark all forums as read"
-msgstr "Отметить форумы прочтенными"
+msgstr "Отметить форумы прочитанными"
 
 #: templates/pybb/index.html:30
 msgid "Forum categories are not created"
@@ -315,7 +323,7 @@ msgstr "Добавить форум сейчас"
 
 #: templates/pybb/latest_topics.html:18 templates/pybb/latest_topics.html:38
 msgid "Mark all topics as read"
-msgstr "Отметить форумы прочтенными"
+msgstr "Отметить форумы прочитанными"
 
 #: templates/pybb/move_post.html:4
 msgid "Move post to another topic"
@@ -348,10 +356,6 @@ msgstr "Редактировать"
 #: templates/pybb/post_template.html:43
 msgid "quote"
 msgstr "цитировать"
-
-#: templates/pybb/post_template.html:46
-msgid "quote selected"
-msgstr "цитирование выделенного"
 
 #: templates/pybb/post_template.html:48 templates/pybb/user.html:66
 msgid "Write personal message"
