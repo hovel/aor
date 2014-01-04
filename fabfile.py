@@ -26,8 +26,8 @@ def purge_clouflare_static():
     response = urllib2.urlopen('https://www.cloudflare.com/api_json.html',
                                data=urllib.urlencode({
                                    'a': 'fpurge_ts',
-                                   'tkn': CLOUDFLARE_TOKEN,
-                                   'email': CLOUDFLARE_EMAIL,
+                                   'tkn': token,
+                                   'email': email,
                                    'z': 'archlinux.org.ru',
                                    'v': '1'
                                }))
@@ -108,6 +108,7 @@ def update():
     syncdb()
     collect_static()
     restart()
+    purge_clouflare_static()
 
 
 def soft_update():
