@@ -1,10 +1,12 @@
 import urllib
 import urllib2
+import os
 
 try:
-    from aor.local import CLOUDFLARE_TOKEN, CLOUDFLARE_EMAIL
+    from aor.settings import CLOUDFLARE_TOKEN, CLOUDFLARE_EMAIL
 except ImportError:
-    pass
+    CLOUDFLARE_TOKEN = None
+    CLOUDFLARE_EMAIL = None
 
 from fabric.api import *
 
@@ -19,6 +21,8 @@ env.always_use_pty = False
 
 
 def purge_clouflare_static():
+    token = os.environ.get('CLOUDFLARE_TOKEN', CLOUDFLARE_TOKEN)
+    email = os.environ.get('CLOUDFLARE_EMAIL', CLOUDFLARE_EMAIL)
     response = urllib2.urlopen('https://www.cloudflare.com/api_json.html',
                                data=urllib.urlencode({
                                    'a': 'fpurge_ts',
