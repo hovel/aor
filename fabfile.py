@@ -1,28 +1,103 @@
+#!/usr/bin/env python
+from fabric.api import *
 import urllib
 import urllib2
 import os
-
 try:
-    from aor.settings import CLOUDFLARE_TOKEN, CLOUDFLARE_EMAIL
+    from statictv.settings import CLOUDFLARE_TOKEN, CLOUDFLARE_EMAIL
 except ImportError:
     CLOUDFLARE_TOKEN = None
     CLOUDFLARE_EMAIL = None
 
-from fabric.api import *
-
 PROJECT_NAME = 'archlinux'
+HOME = '/home/zeus'
+PROJECT_SOURCE = 'git@github.com:hovel/aor.git'
+PROJECT_BASEDIR = '%s/%s' % (HOME, PROJECT_NAME)
+PYTHON_PATH = '%s/.virtualenvs/%s/bin/python' % (HOME, PROJECT_NAME)
+PIP_PATH = '%s/.virtualenvs/%s/bin/pip' % (HOME, PROJECT_NAME)
+env.use_ssh_config = True
+env.sudo_user = 'zeus'
 
-PROJECT_BASEDIR = '/home/amigo/archlinux'
-PROJECT_ROOT = '/home/amigo/archlinux/aor'
-PROJECT_SOURCE = 'https://github.com/hovel/aor.git'
+all_hosts = []
+i = 1
+while True:
+    host = os.environ.get('HOST%s' % i)
+    if host:
+        all_hosts.append(host)
+    else:
+        break
+    i += 1
+env.hosts = all_hosts
 
-env.hosts = ['amigo@ec2-54-226-65-210.compute-1.amazonaws.com']
-env.always_use_pty = False
+
+def uninstall():
+    with cd(HOME):
+        sudo('rm -rf %s' % PROJECT_BASEDIR)
+
+
+def install():
+    with cd(HOME):
+        sudo('mkvirtualenv %s' % PROJECT_NAME)
+        sudo('git clone %s %s' % (PROJECT_SOURCE, PROJECT_NAME))
+        sudo('touch %s/logs/%s.log' % (HOME, PROJECT_NAME))
+        sudo('touch %s/logs/%s-error.log' % (HOME, PROJECT_NAME))
+    put_settings()
+    copy_nginx_config()
+    update()
+    start()
+
+
+def update():
+    with cd(PROJECT_BASEDIR):
+        sudo('git pull')
+        sudo('%s install -r build/pipreq.txt -U' % PIP_PATH)
+        sudo('%s manage.py syncdb' % PYTHON_PATH)
+        sudo('%s manage.py migrate' % PYTHON_PATH)
+        sudo('%s manage.py syncdb --all' % PYTHON_PATH)
+        sudo('%s manage.py collectstatic --noinput' % PYTHON_PATH)
+        sudo('./gunicorn.sh reload')
+    purge_clouflare_static()
+
+
+def start():
+    with cd(PROJECT_BASEDIR):
+        sudo('./gunicorn.sh start')
+
+
+def stop():
+    with cd(PROJECT_BASEDIR):
+        sudo('./gunicorn.sh stop')
+
+
+def restart():
+    with cd(PROJECT_BASEDIR):
+        sudo('./gunicorn.sh restart')
+
+
+def reload():
+    with cd(PROJECT_BASEDIR):
+        sudo('./gunicorn.sh reload')
+
+
+def put_settings():
+    put('conf/local.py', '%s/aor/settings_local.py' % PROJECT_BASEDIR, use_sudo=True, temp_dir='/home/zeus/tmp')
+    with settings(sudo_user='root'):
+        sudo('chown zeus:zeus %s/aor/settings_local.py' % PROJECT_BASEDIR)
+
+
+def copy_nginx_config():
+    with settings(sudo_user='root'), cd(PROJECT_BASEDIR):
+        sudo('cp conf/archlinux.conf /etc/nginx/conf.d/archlinux.conf')
+        sudo('/etc/init.d/nginx restart')
 
 
 def purge_clouflare_static():
     token = os.environ.get('CLOUDFLARE_TOKEN', CLOUDFLARE_TOKEN)
     email = os.environ.get('CLOUDFLARE_EMAIL', CLOUDFLARE_EMAIL)
+    if not token or not email:
+        print 'purge static files failed'
+        return
+
     response = urllib2.urlopen('https://www.cloudflare.com/api_json.html',
                                data=urllib.urlencode({
                                    'a': 'fpurge_ts',
@@ -32,87 +107,3 @@ def purge_clouflare_static():
                                    'v': '1'
                                }))
     print response.read()
-
-
-def clone_project():
-    with cd(PROJECT_BASEDIR):
-        run('git clone %s' % PROJECT_SOURCE)
-    put_settings()
-
-
-def update_project():
-    with cd(PROJECT_ROOT):
-        run('git pull origin master')
-        run('git checkout master')
-
-
-def setup_env():
-    with cd(PROJECT_BASEDIR):
-        run('virtualenv --clear --no-site-packages env')
-
-
-def update_env():
-    with cd(PROJECT_ROOT):
-        run('%s/env/bin/pip install -U -r %s/build/pipreq.txt' % (PROJECT_BASEDIR, PROJECT_ROOT))
-
-
-def syncdb():
-    with cd(PROJECT_ROOT):
-        run('../env/bin/python manage.py syncdb --migrate')
-
-
-def syncdb_all():
-    with cd(PROJECT_ROOT):
-        run('../env/bin/python manage.py syncdb --all')
-
-
-def collect_static():
-    with cd(PROJECT_ROOT):
-        run('../env/bin/python manage.py collectstatic --noinput')
-
-
-def start():
-    with cd(PROJECT_ROOT):
-        run('./gunicorn.sh start')
-
-
-def restart():
-    with cd(PROJECT_ROOT):
-        run('./gunicorn.sh reload')
-
-
-def stop():
-    with cd(PROJECT_ROOT):
-        run('./gunicorn.sh stop')
-
-
-def put_settings():
-    put('aor/settings_local.py', '/home/amigo/archlinux/aor/aor/local.py')
-
-
-def get_settings():
-    get('/home/amigo/archlinux/aor/aor/local.py', 'aor/settings_local.py')
-
-
-def install():
-    clone_project()
-    setup_env()
-    update_env()
-    syncdb_all()
-    collect_static()
-
-
-def update():
-    update_project()
-    update_env()
-    syncdb()
-    collect_static()
-    restart()
-    purge_clouflare_static()
-
-
-def soft_update():
-    update_project()
-    syncdb()
-    collect_static()
-    restart()
