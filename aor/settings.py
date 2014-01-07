@@ -1,12 +1,13 @@
 from django.utils.translation import ugettext_lazy as _
 from markdown import Markdown
-from os.path import abspath, join, dirname
 from postmarkup import render_bbcode
+import os
 
-PROJECT_ROOT = abspath(join(dirname(__file__), '..'))
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+THUMBNAIL_DEBUG = DEBUG
 
 ADMINS = (
     ('Pavel Zhukov', 'gelios@gmail.com'),
@@ -42,20 +43,15 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-MEDIA_ROOT = join(PROJECT_ROOT, 'media')
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
 MEDIA_URL = '/media/'
 
-ADMIN_MEDIA_PREFIX = '/media/static/admin/'
-
-STATIC_ROOT = join(MEDIA_ROOT, 'static')
-STATIC_URL = '/media/static/'
-STATICFILES_DIRS = (join(PROJECT_ROOT, 'static'),)
-
-STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
-    )
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'Insert your SECRET_KEY from your local.py'
@@ -79,7 +75,7 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'aor.urls'
 
-TEMPLATE_DIRS = (join(PROJECT_ROOT, 'aor', 'templates'),)
+TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'aor', 'templates'),)
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
@@ -122,6 +118,7 @@ INSTALLED_APPS = (
     'ajax_select',
     'postman',
     'aor_messages',
+    'storages'
 )
 
 CAPTCHA_LENGTH = 7
