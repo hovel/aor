@@ -1,0 +1,10 @@
+bind = "127.0.0.1:8101"
+max_requests = 10
+workers = 2
+daemon = True
+preload = True
+user = 'zeus'
+group = 'zeus'
+accesslog = '/home/zeus/logs/archlinux.log'
+errorlog = '/home/zeus/logs/archlinux-error.log'
+pidfile = '/home/zeus/archlinux/wsgi.pid'

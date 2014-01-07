@@ -17,3 +17,5 @@ django-mailer
 hg+http://bitbucket.org/psam/django-postman/#egg=django-postman
 django-ajax-selects
 pytz
+boto
+django-storages
