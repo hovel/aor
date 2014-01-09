@@ -48,6 +48,7 @@ def install():
 
 
 def update():
+    db_backup()
     with cd(PROJECT_BASEDIR):
         sudo('git pull')
         sudo('%s install -r build/pipreq.txt -U' % PIP_PATH)
@@ -79,10 +80,22 @@ def reload():
         sudo('./gunicorn.sh reload')
 
 
+def db_backup():
+    with cd(PROJECT_BASEDIR):
+        sudo('./db_backup.sh')
+
+
 def put_settings():
     put('conf/local.py', '%s/aor/settings_local.py' % PROJECT_BASEDIR, use_sudo=True, temp_dir='/home/zeus/tmp')
     with settings(sudo_user='root'):
         sudo('chown zeus:zeus %s/aor/settings_local.py' % PROJECT_BASEDIR)
+
+
+def put_backup_script():
+    put('conf/db_backup.sh', '%s/db_backup.sh' % PROJECT_BASEDIR, use_sudo=True, temp_dir='/home/zeus/tmp')
+    with settings(sudo_user='root'):
+        sudo('chown zeus:zeus %s/db_backup.sh' % PROJECT_BASEDIR)
+        sudo('chmod +x %s/db_backup.sh' % PROJECT_BASEDIR)
 
 
 def copy_nginx_config():
