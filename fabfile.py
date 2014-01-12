@@ -4,7 +4,7 @@ import urllib
 import urllib2
 import os
 try:
-    from statictv.settings import CLOUDFLARE_TOKEN, CLOUDFLARE_EMAIL
+    from aor.settings import CLOUDFLARE_TOKEN, CLOUDFLARE_EMAIL
 except ImportError:
     CLOUDFLARE_TOKEN = None
     CLOUDFLARE_EMAIL = None
