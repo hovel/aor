@@ -42,7 +42,9 @@ def install():
         sudo('touch %s/logs/%s.log' % (HOME, PROJECT_NAME))
         sudo('touch %s/logs/%s-error.log' % (HOME, PROJECT_NAME))
     put_settings()
-    copy_nginx_config()
+    put_nginx_config()
+    put_backup_script()
+    put_supervisord_settings()
     update()
     start()
 
@@ -56,28 +58,23 @@ def update():
         sudo('%s manage.py migrate' % PYTHON_PATH)
         sudo('%s manage.py syncdb --all' % PYTHON_PATH)
         sudo('%s manage.py collectstatic --noinput' % PYTHON_PATH)
-        sudo('./gunicorn.sh reload')
+        restart()
     purge_clouflare_static()
 
 
 def start():
     with cd(PROJECT_BASEDIR):
-        sudo('./gunicorn.sh start')
+        sudo('supervisorctl -c %s/supervisord/supervisord.conf start %s:*' % (HOME, PROJECT_NAME))
 
 
 def stop():
     with cd(PROJECT_BASEDIR):
-        sudo('./gunicorn.sh stop')
+        sudo('supervisorctl -c %s/supervisord/supervisord.conf stop %s:*' % (HOME, PROJECT_NAME))
 
 
 def restart():
     with cd(PROJECT_BASEDIR):
-        sudo('./gunicorn.sh restart')
-
-
-def reload():
-    with cd(PROJECT_BASEDIR):
-        sudo('./gunicorn.sh reload')
+        sudo('supervisorctl -c %s/supervisord/supervisord.conf restart %s:*' % (HOME, PROJECT_NAME))
 
 
 def db_backup():
@@ -98,10 +95,20 @@ def put_backup_script():
         sudo('chmod +x %s/db_backup.sh' % PROJECT_BASEDIR)
 
 
-def copy_nginx_config():
+def put_nginx_config():
     with settings(sudo_user='root'), cd(PROJECT_BASEDIR):
         sudo('cp conf/archlinux.conf /etc/nginx/conf.d/archlinux.conf')
         sudo('/etc/init.d/nginx restart')
+
+
+def put_supervisord_settings():
+    remote_path = '%s/supervisord/conf/%s_sv.conf' % (HOME, PROJECT_NAME)
+    put('conf/%s_sv.conf' % PROJECT_NAME, remote_path, use_sudo=True, temp_dir='/home/zeus/tmp')
+    with settings(sudo_user='root'):
+        sudo('chown zeus:zeus %s' % remote_path)
+        sudo('chmod +x %s' % remote_path)
+    sudo('supervisorctl -c %s/supervisord/supervisord.conf reread' % HOME)
+    sudo('supervisorctl -c %s/supervisord/supervisord.conf update' % HOME)
 
 
 def purge_clouflare_static():
