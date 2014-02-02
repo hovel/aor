@@ -1,4 +1,3 @@
-from django.template.defaultfilters import urlize
 from django.utils.html import urlize
 from django.utils.translation import ugettext_lazy as _
 from markdown import Markdown
