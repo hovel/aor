@@ -3,6 +3,7 @@ from django.utils.translation import ugettext_lazy as _
 from markdown import Markdown
 from postmarkup import render_bbcode
 import os
+from postmarkup.parser import LinkTag
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
@@ -152,6 +153,7 @@ AOR_THEMES = (
 
 ACCOUNT_ACTIVATION_DAYS = 3
 
+LinkTag._safe_chars = LinkTag._safe_chars.union(',')
 PYBB_MARKUP_ENGINES = {
     'bbcode': lambda msg_str:
     urlize(render_bbcode(
