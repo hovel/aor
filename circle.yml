@@ -1,6 +1,6 @@
 dependencies:
   pre:
-    - pip install -r build/pipreq.txt -U
+    - pip install -r build/pipreq.txt -U --allow-unverified postmarkup
 test:
   override:
     - ./manage.py test aor --noinput
