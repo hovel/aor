@@ -1,3 +1,5 @@
+from django.template.defaultfilters import urlize
+from django.utils.html import urlize
 from django.utils.translation import ugettext_lazy as _
 from markdown import Markdown
 from postmarkup import render_bbcode
@@ -12,18 +14,18 @@ THUMBNAIL_DEBUG = DEBUG
 ADMINS = (
     ('Pavel Zhukov', 'gelios@gmail.com'),
     ('Sergey Fursov', 'geyser85@gmail.com'),
-    )
+)
 
 MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'circle_test',                      # Or path to database file if using sqlite3.
-        'USER': 'ubuntu',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'circle_test',
+        'USER': 'ubuntu',
+        'PASSWORD': '',
+        'HOST': '',
+        'PORT': '',
         'TEST_NAME': 'circle_test',
         'TEST_CHARSET': 'utf8',
         'TEST_COLLATION': 'utf8_general_ci'
@@ -60,7 +62,7 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
     #     'django.template.loaders.eggs.Loader',
-    )
+)
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
@@ -71,7 +73,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'pybb.middleware.PybbMiddleware',
-    )
+)
 
 ROOT_URLCONF = 'aor.urls'
 
@@ -152,13 +154,14 @@ AOR_THEMES = (
 ACCOUNT_ACTIVATION_DAYS = 3
 
 PYBB_MARKUP_ENGINES = {
-    'bbcode': lambda str:
-            render_bbcode(
-                str,
-                exclude_tags=['size', 'center'],
-                cosmetic_replace=False,
-                render_unknown_tags=True),
-    'markdown': lambda str: Markdown(safe_mode='escape').convert(str)
+    'bbcode': lambda msg_str:
+    urlize(render_bbcode(
+        msg_str,
+        exclude_tags=['size', 'center'],
+        cosmetic_replace=False,
+        render_unknown_tags=True,
+        auto_urls=False)),
+    'markdown': lambda msg_str: Markdown(safe_mode='escape').convert(msg_str)
 }
 
 AJAX_LOOKUP_CHANNELS = {
@@ -193,8 +196,8 @@ LOGGING = {
             'handlers': ['mail_admins'],
             'level': 'ERROR',
             'propagate': True,
-            },
-        }
+        },
+    }
 }
 
 try:
