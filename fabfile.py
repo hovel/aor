@@ -11,6 +11,7 @@ except ImportError:
 
 PROJECT_NAME = 'archlinux'
 HOME = '/home/zeus'
+CONTROL_PATH = '%s/control' % HOME
 PROJECT_SOURCE = 'git@github.com:hovel/aor.git'
 PROJECT_BASEDIR = '%s/%s' % (HOME, PROJECT_NAME)
 PYTHON_PATH = '%s/.virtualenvs/%s/bin/python' % (HOME, PROJECT_NAME)
@@ -41,7 +42,7 @@ def install():
         sudo('git clone %s %s' % (PROJECT_SOURCE, PROJECT_NAME))
         sudo('touch %s/logs/%s.log' % (HOME, PROJECT_NAME))
         sudo('touch %s/logs/%s-error.log' % (HOME, PROJECT_NAME))
-    put_settings()
+    update_settings()
     put_nginx_config()
     put_backup_script()
     put_supervisord_settings()
@@ -49,17 +50,44 @@ def install():
     start()
 
 
-def update():
-    db_backup()
+def update_repo():
     with cd(PROJECT_BASEDIR):
         sudo('git pull')
-        sudo('%s install -r build/pipreq.txt -U --allow-unverified postmarkup' % PIP_PATH)
+        sudo('git checkout master')
+
+
+def update_requirements():
+    with cd(PROJECT_BASEDIR):
+        sudo('%s install -r build/pipreq.txt -U' % PIP_PATH)
+
+
+def update_db():
+    db_backup()
+    with cd(PROJECT_BASEDIR):
         sudo('%s manage.py syncdb' % PYTHON_PATH)
         sudo('%s manage.py migrate' % PYTHON_PATH)
-        sudo('%s manage.py syncdb --all' % PYTHON_PATH)
+
+
+def update_static():
+    with cd(PROJECT_BASEDIR):
         sudo('%s manage.py collectstatic --noinput' % PYTHON_PATH)
-        restart()
-    purge_clouflare_static()
+
+
+def update_settings():
+    with cd(CONTROL_PATH):
+        sudo('git pull')
+    with cd(PROJECT_BASEDIR):
+        sudo('cp %s/%s/settings_local.py %s/aor/settings_local.py' % (CONTROL_PATH, PROJECT_NAME, PROJECT_BASEDIR))
+
+
+def update():
+    update_repo()
+    update_requirements()
+    update_db()
+    update_static()
+    update_settings()
+    restart()
+    purge_cloudflare_static()
 
 
 def start():
@@ -82,36 +110,32 @@ def db_backup():
         sudo('./db_backup.sh')
 
 
-def put_settings():
-    put('conf/local.py', '%s/aor/settings_local.py' % PROJECT_BASEDIR, use_sudo=True, temp_dir='/home/zeus/tmp')
-    with settings(sudo_user='root'):
-        sudo('chown zeus:zeus %s/aor/settings_local.py' % PROJECT_BASEDIR)
-
-
 def put_backup_script():
-    put('conf/db_backup.sh', '%s/db_backup.sh' % PROJECT_BASEDIR, use_sudo=True, temp_dir='/home/zeus/tmp')
-    with settings(sudo_user='root'):
-        sudo('chown zeus:zeus %s/db_backup.sh' % PROJECT_BASEDIR)
-        sudo('chmod +x %s/db_backup.sh' % PROJECT_BASEDIR)
-
-
-def put_nginx_config():
-    with settings(sudo_user='root'), cd(PROJECT_BASEDIR):
-        sudo('cp conf/archlinux.conf /etc/nginx/conf.d/archlinux.conf')
-        sudo('/etc/init.d/nginx restart')
+    with cd(CONTROL_PATH):
+        sudo('git pull')
+    with cd(PROJECT_BASEDIR):
+        sudo('cp %s/%s/db_backup.sh %s/db_backup.sh' % (CONTROL_PATH, PROJECT_NAME, PROJECT_BASEDIR))
 
 
 def put_supervisord_settings():
-    remote_path = '%s/supervisord/conf/%s_sv.conf' % (HOME, PROJECT_NAME)
-    put('conf/%s_sv.conf' % PROJECT_NAME, remote_path, use_sudo=True, temp_dir='/home/zeus/tmp')
-    with settings(sudo_user='root'):
-        sudo('chown zeus:zeus %s' % remote_path)
-        sudo('chmod +x %s' % remote_path)
+    with cd(CONTROL_PATH):
+        sudo('git pull')
+    with cd(PROJECT_BASEDIR):
+        sudo('cp %s/%s/%s_sv.conf %s/supervisord/conf/%s_sv.conf' % (CONTROL_PATH, PROJECT_NAME, PROJECT_NAME, HOME, PROJECT_NAME))
+
     sudo('supervisorctl -c %s/supervisord/supervisord.conf reread' % HOME)
     sudo('supervisorctl -c %s/supervisord/supervisord.conf update' % HOME)
 
 
-def purge_clouflare_static():
+def put_nginx_config():
+    with cd(CONTROL_PATH):
+        sudo('git pull')
+    with settings(sudo_user='root'), cd(CONTROL_PATH):
+        sudo('cp %s/%s.conf /etc/nginx/conf.d/%s.conf' % (PROJECT_NAME, PROJECT_NAME, PROJECT_NAME))
+        sudo('/etc/init.d/nginx restart')
+
+
+def purge_cloudflare_static():
     token = os.environ.get('CLOUDFLARE_TOKEN', CLOUDFLARE_TOKEN)
     email = os.environ.get('CLOUDFLARE_EMAIL', CLOUDFLARE_EMAIL)
     if not token or not email:
