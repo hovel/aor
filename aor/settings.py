@@ -1,3 +1,4 @@
+import bbcode
 from django.utils.html import urlize
 from django.utils.translation import ugettext_lazy as _
 from markdown import Markdown
@@ -152,18 +153,6 @@ AOR_THEMES = (
 )
 
 ACCOUNT_ACTIVATION_DAYS = 3
-
-LinkTag._safe_chars = LinkTag._safe_chars.union(',')
-PYBB_MARKUP_ENGINES = {
-    'bbcode': lambda msg_str:
-    urlize(render_bbcode(
-        msg_str,
-        exclude_tags=['size', 'center'],
-        cosmetic_replace=False,
-        render_unknown_tags=True,
-        auto_urls=False)),
-    'markdown': lambda msg_str: Markdown(safe_mode='escape').convert(msg_str)
-}
 
 AJAX_LOOKUP_CHANNELS = {
     'postman_users': {'model': 'auth.user', 'search_field': 'username'},
