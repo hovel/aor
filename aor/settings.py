@@ -147,7 +147,7 @@ PYBB_POLL_MAX_ANSWERS = 30
 AUTH_PROFILE_MODULE = 'profiles.Profile'
 PYBB_PROFILE_RELATED_NAME = 'profile'
 
-bbcode_parser = bbcode.Parser()
+bbcode_parser = bbcode.Parser(replace_cosmetic=False)
 bbcode_parser.add_simple_formatter('img', '<img src="%(value)s">', replace_links=False)
 bbcode_parser.add_simple_formatter('code', '<pre><code>%(value)s</code></pre>', render_embedded=False, transform_newlines=False, swallow_trailing_newline=True)
 def _render_quote(name, value, options, parent, context):
