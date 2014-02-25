@@ -160,7 +160,7 @@ bbcode_parser.add_formatter('quote', _render_quote, strip=True, swallow_trailing
 
 
 PYBB_MARKUP_ENGINES = {
-    'bbcode': lambda str: bbcode_parser.format(str, replace_cosmetic=False),
+    'bbcode': lambda str: bbcode_parser.format(str),
     'markdown': lambda str: urlize(Markdown(safe_mode='escape').convert(str))
 }
 
