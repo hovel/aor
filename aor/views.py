@@ -7,7 +7,7 @@ from pure_pagination import Paginator, PaginationMixin
 from pybb import defaults
 from pybb.forms import PostForm
 from pybb.models import Post, Topic
-from pybb.views import AddPostView, EditPostView
+from pybb.views import AddPostView, EditPostView, TopicView
 from aor.forms import MovePostForm
 
 BLOGS_FORUM_ID = getattr(settings, 'PYBB_BLOGS_FORUM_ID', 1)
@@ -77,3 +77,7 @@ class AorAddPostView(AddPostView):
 class AorEditPostView(EditPostView):
     def get_form_class(self):
         return PostForm
+
+
+class AorTopicView(TopicView):
+    admin_post_form_class = PostForm
