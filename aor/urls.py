@@ -1,13 +1,12 @@
 from django.conf import settings
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-from django.contrib.auth import views as auth_views
 from django.views.generic.base import TemplateView
 from pybb.views import ProfileEditView
 from registration.backends.default.views import RegistrationView
 from aor.forms import AORProfileForm, RegistrationFormCaptcha
 from aor.sitemaps import sitemaps
-from aor.views import Search, MovePostView
+from aor.views import Search, MovePostView, AorAddPostView, AorEditPostView
 from profiles.views import UserTopics, UserPosts
 
 admin.autodiscover()
@@ -34,6 +33,9 @@ urlpatterns = patterns(
     url(r'^forum/users/(?P<username>[^/]+)/posts/$', UserPosts.as_view(),
         name='user_posts'),
     url(r'^forum/post/(?P<pk>\d+)/move/$', MovePostView.as_view(), name='move_post'),
+    url(r'^forum/forum/(?P<forum_id>\d+)/topic/add/$', AorAddPostView.as_view(), name='add_topic'),
+    url(r'^forum/topic/(?P<topic_id>\d+)/post/add/$', AorAddPostView.as_view(), name='add_post'),
+    url(r'^forum/post/(?P<pk>\d+)/edit/$', AorEditPostView.as_view(), name='edit_post'),
     url(r'^forum/', include('pybb.urls', namespace='pybb')),
 #    url(r'^search/$', Search.as_view(), name='search'),
     url(r'^news/', include('pybb4news.urls', namespace='news')),

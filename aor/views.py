@@ -5,7 +5,9 @@ from django.utils import timezone
 from django.views import generic
 from pure_pagination import Paginator, PaginationMixin
 from pybb import defaults
+from pybb.forms import PostForm
 from pybb.models import Post, Topic
+from pybb.views import AddPostView, EditPostView
 from aor.forms import MovePostForm
 
 BLOGS_FORUM_ID = getattr(settings, 'PYBB_BLOGS_FORUM_ID', 1)
@@ -65,3 +67,13 @@ class MovePostView(generic.UpdateView):
         old_forum.update_counters()
 
         return super(MovePostView, self).form_valid(form)
+
+
+class AorAddPostView(AddPostView):
+    def get_form_class(self):
+        return PostForm
+
+
+class AorEditPostView(EditPostView):
+    def get_form_class(self):
+        return PostForm
