@@ -20,9 +20,9 @@
 <form action="{% block pm_form_action %}{% endblock %}" method="post">{% csrf_token %}
 {% block pm_form_buttons %}
     <div id="pm_buttons" class="btn-group">
-        {% block pm_delete_button %}<button class="btn btn-danger btn-small" type="submit" onclick="this.form.action='{% url 'postman_delete' %}'">{% trans "Delete" %}</button>{% endblock %}
-        {% block pm_archive_button %}<button class="btn btn-warning btn-small" type="submit" onclick="this.form.action='{% url 'postman_archive' %}'">{% trans "Archive" %}</button>{% endblock %}
-        {% block pm_undelete_button %}<button class="btn" type="submit" onclick="this.form.action='{% url 'postman_undelete' %}'">{% trans "Undelete" %}</button>{% endblock %}
+        {% block pm_delete_button %}<button class="btn btn-danger btn-sm" type="submit" onclick="this.form.action='{% url 'postman_delete' %}'">{% trans "Delete" %}</button>{% endblock %}
+        {% block pm_archive_button %}<button class="btn btn-warning btn-sm" type="submit" onclick="this.form.action='{% url 'postman_archive' %}'">{% trans "Archive" %}</button>{% endblock %}
+        {% block pm_undelete_button %}<button class="btn btn-default" type="submit" onclick="this.form.action='{% url 'postman_undelete' %}'">{% trans "Undelete" %}</button>{% endblock %}
     </div>
 {% endblock %}
 <br><br>

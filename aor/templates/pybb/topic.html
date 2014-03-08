@@ -22,18 +22,18 @@
             <div class="controls btn-group top-page-controls">
                 {% if user.is_moderator %}
                     {% if topic.sticky %}
-                        <a class="btn" href="{% url 'pybb:unstick_topic' topic.id %}">{% trans "Unstick topic" %}</a>
+                        <a class="btn btn-default" href="{% url 'pybb:unstick_topic' topic.id %}">{% trans "Unstick topic" %}</a>
                     {% else %}
-                        <a class="btn" href="{% url 'pybb:stick_topic' topic.id %}">{% trans "Stick topic" %}</a>
+                        <a class="btn btn-default" href="{% url 'pybb:stick_topic' topic.id %}">{% trans "Stick topic" %}</a>
                     {% endif %}
 
                     {% if topic.closed %}
-                        <a class="btn" href="{% url 'pybb:open_topic' topic.id %}">{% trans "Open topic" %}</a>
+                        <a class="btn btn-default" href="{% url 'pybb:open_topic' topic.id %}">{% trans "Open topic" %}</a>
                     {% else %}
-                        <a class="btn" href="{% url 'pybb:close_topic' topic.id %}">{% trans "Close topic" %}</a>
+                        <a class="btn btn-default" href="{% url 'pybb:close_topic' topic.id %}">{% trans "Close topic" %}</a>
                     {% endif %}
                     {% if perms.pybb.change_topic and user.is_staff %}
-                        <a class="btn" href="{% url 'admin:pybb_topic_change' topic.id %}">{% trans 'Admin' %}</a>
+                        <a class="btn btn-default" href="{% url 'admin:pybb_topic_change' topic.id %}">{% trans 'Admin' %}</a>
                     {% endif %}
                     {% comment %}
                         <a class="btn" href="{% url 'pybb:merge_topics' %}?topic={{ topic.id }}">{% trans 'Merge topics' %}</a>
@@ -41,9 +41,9 @@
                 {% endif %}
 
                 {% if user.is_subscribed %}
-                    <a class="btn" href="{% url 'pybb:delete_subscription' topic.id %}?from_topic">{% trans "Unsubscribe" %}</a>
+                    <a class="btn btn-default" href="{% url 'pybb:delete_subscription' topic.id %}?from_topic">{% trans "Unsubscribe" %}</a>
                 {% else %}
-                    <a class="btn" href="{% url 'pybb:add_subscription' topic.id %}">{% trans "Subscribe" %}</a>
+                    <a class="btn btn-default" href="{% url 'pybb:add_subscription' topic.id %}">{% trans "Subscribe" %}</a>
                 {% endif %}
             </div>
         {% endif %}
@@ -77,18 +77,18 @@
             <div class="controls btn-group">
                 {% if user.is_moderator %}
                     {% if topic.sticky %}
-                        <a class="btn" href="{% url 'pybb:unstick_topic' topic.id %}">{% trans "Unstick topic" %}</a>
+                        <a class="btn btn-default" href="{% url 'pybb:unstick_topic' topic.id %}">{% trans "Unstick topic" %}</a>
                     {% else %}
-                        <a class="btn" href="{% url 'pybb:stick_topic' topic.id %}">{% trans "Stick topic" %}</a>
+                        <a class="btn btn-default" href="{% url 'pybb:stick_topic' topic.id %}">{% trans "Stick topic" %}</a>
                     {% endif %}
 
                     {% if topic.closed %}
-                        <a class="btn" href="{% url 'pybb:open_topic' topic.id %}">{% trans "Open topic" %}</a>
+                        <a class="btn btn-default" href="{% url 'pybb:open_topic' topic.id %}">{% trans "Open topic" %}</a>
                     {% else %}
-                        <a class="btn" href="{% url 'pybb:close_topic' topic.id %}">{% trans "Close topic" %}</a>
+                        <a class="btn btn-default" href="{% url 'pybb:close_topic' topic.id %}">{% trans "Close topic" %}</a>
                     {% endif %}
                     {% if perms.pybb.change_topic and user.is_staff %}
-                        <a class="btn" href="{% url 'admin:pybb_topic_change' topic.id %}">{% trans 'Admin' %}</a>
+                        <a class="btn btn-default" href="{% url 'admin:pybb_topic_change' topic.id %}">{% trans 'Admin' %}</a>
                     {% endif %}
                     {% comment %}
                         <a class="btn" href="{% url 'pybb:merge_topics' %}?topic={{ topic.id }}">{% trans 'Merge topics' %}</a>
@@ -96,9 +96,9 @@
                 {% endif %}
 
                 {% if user.is_subscribed %}
-                    <a class="btn" href="{% url 'pybb:delete_subscription' topic.id %}?from_topic">{% trans "Unsubscribe" %}</a>
+                    <a class="btn btn-default" href="{% url 'pybb:delete_subscription' topic.id %}?from_topic">{% trans "Unsubscribe" %}</a>
                 {% else %}
-                    <a class="btn" href="{% url 'pybb:add_subscription' topic.id %}">{% trans "Subscribe" %}</a>
+                    <a class="btn btn-default" href="{% url 'pybb:add_subscription' topic.id %}">{% trans "Subscribe" %}</a>
                 {% endif %}
             </div>
         {% endif %}

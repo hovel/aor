@@ -14,7 +14,7 @@
     <div class="forum">
         {% if user.is_authenticated %}
             <div id='mark-all-as-read' class="top-page-controls">
-                <a class="btn" href='{% url 'pybb:mark_all_as_read' %}'>
+                <a class="btn btn-default" href='{% url 'pybb:mark_all_as_read' %}'>
                     {% trans "Mark all topics as read" %}
                 </a>
             </div>
@@ -34,7 +34,7 @@
 
         {% if user.is_authenticated %}
             <div id='mark-all-as-read'>
-                <a class="btn" href='{% url 'pybb:mark_all_as_read' %}'>
+                <a class="btn btn-default" href='{% url 'pybb:mark_all_as_read' %}'>
                     {% trans "Mark all topics as read" %}
                 </a>
             </div>

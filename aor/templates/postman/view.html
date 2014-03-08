@@ -53,13 +53,13 @@
         <form action="" method="post">{% csrf_token %}
             <input type="hidden" {% if pm_messages|length > 1 and message.thread_id %}name="tpks" value="{{ message.thread_id }}"{% else %}name="pks" value="{{ message.pk }}"{% endif %} />
 
-            <a href="{{ next_url }}" class="btn">{% trans "Back" %}</a>
+            <a href="{{ next_url }}" class="btn btn-default">{% trans "Back" %}</a>
             <span id="pm_buttons">
-                <button class="btn btn-danger btn-small" type="submit" onclick="this.form.action='{% url 'postman_delete' %}?next={{ next_url|urlencode }}'">
+                <button class="btn btn-danger btn-sm" type="submit" onclick="this.form.action='{% url 'postman_delete' %}?next={{ next_url|urlencode }}'">
                     {% trans "Delete" %}{% if pm_messages|length > 1 and message.thread_id %} {% trans "all thread" %}{% endif %}
                 </button>
                 {% if not archived %}
-                    <button class="btn btn-warning btn-small" type="submit" onclick="this.form.action='{% url 'postman_archive' %}?next={{ next_url|urlencode }}'">
+                    <button class="btn btn-warning btn-sm" type="submit" onclick="this.form.action='{% url 'postman_archive' %}?next={{ next_url|urlencode }}'">
                         {% trans "Archive" %}{% if pm_messages|length > 1 and message.thread_id %} {% trans "all thread" %}{% endif %}
                     </button>
                 {% endif %}

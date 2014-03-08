@@ -12,12 +12,12 @@
 {% block content %}
     <div class="btn-group top-page-controls">
         <a href="{% url 'pybb:topic_latest' %}"
-           class="btn">
+           class="btn btn-default">
             {% trans "Last updates in topics" %}
         </a>
         {% if user.is_authenticated %}
             <a href="{% url 'pybb:mark_all_as_read' %}"
-               class="btn">
+               class="btn btn-default">
                 {% trans "Mark all forums as read" %}
             </a>
         {% endif %}
@@ -32,12 +32,12 @@
     {% endif %}
     <div class="btn-group">
         <a href="{% url 'pybb:topic_latest' %}"
-           class="btn">
+           class="btn btn-default">
             {% trans "Last updates in topics" %}
         </a>
         {% if user.is_authenticated %}
             <a href="{% url 'pybb:mark_all_as_read' %}"
-               class="btn">
+               class="btn btn-default">
                 {% trans "Mark all forums as read" %}
             </a>
         {% endif %}
