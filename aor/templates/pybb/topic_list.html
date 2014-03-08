@@ -24,7 +24,7 @@
                 <div class="topic-name-header">
                     <a href="{{ topic.get_absolute_url }}">{{ topic.name|truncatechars:60 }}</a>
                     {% if topic.sticky %} &nbsp;<span class="label label-info">{% trans "Sticky" %}</span> {% endif %}
-                    {% if topic.closed %} &nbsp;<span class="label label-important">{% trans "Closed" %}</span> {% endif %}
+                    {% if topic.closed %} &nbsp;<span class="label label-danger">{% trans "Closed" %}</span> {% endif %}
                 </div>
                 {% with topic|pybb_topic_inline_pagination as pages %}
                     <div class="inline-pagination pagination pagination-mini">

@@ -35,7 +35,7 @@
             </label>
         {% endif %}
         <div class="controls">
-            {% field field class="span12" placeholder=field.help_text %}
+            {% field field class="col-md-12" placeholder=field.help_text %}
             {% for error in field.errors %}
                 <span class="help-inline">{{ field.errors }}</span>
             {% endfor %}

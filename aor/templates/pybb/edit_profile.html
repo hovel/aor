@@ -4,14 +4,14 @@
 {% block title %}{% trans "Profile editing" %}{% endblock title %}
 
 {% block content %}
-    <div class="row-fluid">
-        <div class="span4">
+    <div class="row">
+        <div class="col-md-4">
             {% include "pybb/avatar.html" %}
             <p>
                 <a href="{% url 'auth_password_change' %}">{% trans "Change the password" %}</a>
             </p>
         </div>
-        <div class="span8">
+        <div class="col-md-8">
             <form action="" method="post" enctype="multipart/form-data"
                   class="form-horizontal">
                 {% include "pybb/form.html" %}
@@ -23,8 +23,8 @@
             </form>
         </div>
     </div>
-    <div class="row-fluid">
-        <div class="span12">
+    <div class="row">
+        <div class="col-md-12">
             <h1>{% trans "Subscriptions on topics" %}</h1>
             <ul>
                 {% for sub in user.subscriptions.all %}
