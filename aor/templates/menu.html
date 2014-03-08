@@ -1,127 +1,55 @@
 {% load i18n %}
-<ul class="nav">
-    <li>
-        <a class="brand" href="/" style="vertical-align: bottom">
-            <img src="{{ STATIC_URL }}logo.png" alt=""
-                 style="opacity: .7; vertical-align: top">
-        </a>
-    </li>
-    <li class="{{ menu_news }}">
-        <a href="{% url 'news:list' %}">
-            {% trans "News" %}
-        </a>
-    </li>
-    <li class="{{ menu_forum }}">
-        <a href="{% url 'pybb:index' %}">
-            {% trans "Forum" %}
-        </a>
-    </li>
-    <li class="{{ menu_blogs }}">
-        <a href="{% url 'blogs:list' %}">
-            {% trans "Blogs" %}
-        </a>
-    </li>
-    <li>
-        <a href="https://archlinux.org/">
-            Eng
-        </a>
-    </li>
-    <li>
-        <a href="https://wiki.archlinux.org/index.php/Main_Page_%28%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9%29">
-            Wiki
-        </a>
-    </li>
-    <li>
-        <a href="https://aur.archlinux.org/?setlang=ru">
-            AUR
-        </a>
-    </li>
-    <li>
-        <a href="https://archlinux.org/download/">
-            {% trans "Download" %}
-        </a>
-    </li>
+<ul class="nav navbar-nav">
+    <li><a href="{% url 'news:list' %}">{% trans "News" %}</a></li>
+    <li><a href="{% url 'pybb:index' %}">{% trans "Forum" %}</a></li>
+    <li><a href="{% url 'blogs:list' %}">{% trans "Blogs" %}</a></li>
+    <li><a href="https://archlinux.org/">Eng</a></li>
+    <li><a href="https://wiki.archlinux.org/index.php/Main_Page_%28%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9%29">Wiki</a></li>
+    <li><a href="https://aur.archlinux.org/?setlang=ru">AUR</a></li>
+    <li><a href="https://archlinux.org/download/">{% trans "Download" %}</a></li>
 </ul>
 
-<ul class="nav pull-right">
-    <li>
-        <a href="{% url 'donate' %}">
-            Помощь ресурсу
-        </a>
-    </li>
-    <li>
-        <a href="{% url 'irc' %}#chat">
-            {% trans "Chat" %}
-        </a>
-    </li>
+<form class="navbar-form navbar-left" role="search" action="http://www.google.ru/cse">
+    <input type="hidden" name="cx" value="018428664132160064944:ntsma9ch2ug"/>
+    <input type="hidden" name="ie" value="UTF-8"/>
+    <div class="form-group">
+        <input type="text" name="q" class="form-control" placeholder="Что ищем?">
+    </div>
+    <button type="submit" name="sa" class="btn btn-default">Найти</button>
+</form>
+
+<ul class="nav navbar-nav navbar-right">
+    <li><a href="{% url 'donate' %}">Помощь ресурсу</a></li>
+    <li><a href="{% url 'irc' %}#chat">{% trans "Chat" %}</a></li>
+
     <li class="dropdown">
-        <a class="dropdown-toggle" role="button" data-toggle="dropdown"
-           href="#">
-            {% if user.is_authenticated %}
-                {{ user }} {% if postman_unread_count %}<i class="icon icon-comment" title="{% trans 'New pesonal messages' %}"></i>{% endif %}
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% if user.is_authenticated %}
+                {{ user }}{% if postman_unread_count %}
+                <i class="icon icon-comment" title="{% trans 'New pesonal messages' %}"></i>{% endif %}
             {% else %}
                 {% trans "Profile" %}
             {% endif %}
             <b class="caret"></b>
         </a>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+        <ul class="dropdown-menu">
             {% if user.is_authenticated %}
+                <li><a href="{{ user.get_profile.get_absolute_url }}">{% trans "Profile" %}</a></li>
                 <li>
-                    <a href="{{ user.get_profile.get_absolute_url }}">
-                        {% trans "Profile" %}
-                    </a>
+                    <a href="{% url 'postman_inbox' %}">{% trans 'Personal messages' %}
+                            {% if postman_unread_count %} ({{ postman_unread_count }}){% endif %}</a>
                 </li>
-                <li>
-                    <a href="{% url 'postman_inbox' %}">{% trans 'Personal messages' %}{% if postman_unread_count %} ({{ postman_unread_count }}){% endif %}</a>
-                </li>
-                <li>
-                    <a href="{% url 'pybb:edit_profile' %}">{% trans 'Profile settings' %}</a>
-                </li>
+                <li><a href="{% url 'pybb:edit_profile' %}">{% trans 'Profile settings' %}</a></li>
                 {% if user.is_staff %}
                     <li class="divider"></li>
-                    <li class="{{ menu_admin }}">
-                        <a href="{% url 'admin:index' %}">
-                            {% trans "Admin" %}
-                        </a>
+                    <li class="{{ menu_admin }}"><a href="{% url 'admin:index' %}">{% trans "Admin" %}</a>
                     </li>
                 {% endif %}
                 <li class="divider"></li>
-                <li>
-                    <a href="{% url 'auth_logout' %}">
-                        {% trans "Logout" %}
-                    </a>
-                </li>
+                <li><a href="{% url 'auth_logout' %}">{% trans "Logout" %}</a></li>
             {% else %}
-                <li>
-                    <a href="{% url 'auth_login' %}">
-                        {% trans "Login" %}
-                    </a>
-                </li>
-                <li>
-                    <a href="{% url 'registration_register' %}">
-                        {% trans "Registration" %}
-                    </a>
-                </li>
+                <li><a href="{% url 'auth_login' %}">{% trans "Login" %}</a></li>
+                <li><a href="{% url 'registration_register' %}">{% trans "Registration" %}</a></li>
             {% endif %}
         </ul>
     </li>
 </ul>
-
-<form action="http://www.google.ru/cse" id="cse-search-box"
-      class="form-search navbar-form">
-    <div>
-        <input type="hidden" name="cx" value="018428664132160064944:ntsma9ch2ug" />
-        <input type="hidden" name="ie" value="UTF-8" />
-        <div class="input-append">
-        <input type="text" name="q" id="appendedInputButton"
-               class="search-query" placeholder="Что ищем?" />
-        <button type="submit" name="sa" class="btn btn-default">Найти</button>
-        </div>
-    </div>
-</form>
-
-{#<form action="{% url 'search' %}" method="get" class="navbar-form pull-right">#}
-    {#    {% csrf_token %}#}
-{#    <input name="q" type="text" placeholder="{% trans "Search" %}"#}
-{#           class="search-query" value="{{ query }}">#}
-{#</form>#}
