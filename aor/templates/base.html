@@ -8,17 +8,12 @@
             {% trans "Arch Linux Russian Community" %}
         {% endblock %}
     </title>
-    <link rel="shortcut icon" href="{{ STATIC_URL }}favicon.ico"
-          type="image/x-icon" />
+    <link rel="shortcut icon" href="{{ STATIC_URL }}favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/{{ AOR_THEME }}">
-    <link rel="stylesheet" type="text/css"
-                  href="{{ STATIC_URL }}bootstrap/css/bootstrap-responsive.min.css">
     {% block css %}{% endblock %}
     {% block extra_style %}{% endblock %}
-    <script type="text/javascript"
-            src="{{ STATIC_URL }}jquery-1.8.3.min.js"></script>
-    <script type="text/javascript"
-            src="{{ STATIC_URL }}bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}pybb/js/pybbjs.js"></script>
     {% block js %}{% endblock %}
     {% block extra_head %}{% endblock %}

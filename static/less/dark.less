@@ -4,7 +4,7 @@
 @import "metric";
 @import "variables_dark";
 
-.gradient(@direction: top, @c1: @gray, @c2: @grayDark) {
+.gradient(@direction: top, @c1: @gray, @c2: @gray-dark) {
   background-image: -webkit-linear-gradient(@direction, @c1, @c2);
   background-image: -moz-linear-gradient(@direction, @c1, @c2);
   background-image: -ms-linear-gradient(@direction, @c1, @c2);
@@ -12,7 +12,7 @@
   background-image: linear-gradient(@direction, @c1, @c2);
 }
 
-.gradient-darken(@direction: top, @c1: @gray, @c2: @grayDark) {
+.gradient-darken(@direction: top, @c1: @gray, @c2: @gray-dark) {
   background-image: -webkit-linear-gradient(@direction, darken(@c1, 2%), darken(@c2, 2%));
   background-image: -moz-linear-gradient(@direction, darken(@c1, 2%), darken(@c2, 2%));
   background-image: -ms-linear-gradient(@direction, darken(@c1, 2%), darken(@c2, 2%));
@@ -20,54 +20,12 @@
   background-image: linear-gradient(@direction, darken(@c1, 2%), darken(@c2, 2%));
 }
 
-.gradient-lighten(@direction: top, @c1: @gray, @c2: @grayDark) {
+.gradient-lighten(@direction: top, @c1: @gray, @c2: @gray-dark) {
   background-image: -webkit-linear-gradient(@direction, lighten(@c1, 2%), lighten(@c2, 2%));
   background-image: -moz-linear-gradient(@direction, lighten(@c1, 2%), lighten(@c2, 2%));
   background-image: -ms-linear-gradient(@direction, lighten(@c1, 2%), lighten(@c2, 2%));
   background-image: -o-linear-gradient(@direction, lighten(@c1, 2%), lighten(@c2, 2%));
   background-image: linear-gradient(@direction, lighten(@c1, 2%), lighten(@c2, 2%));
-}
-
-// Dark gray
-.btn {
-  .buttonBackground(@btnInverseBackground, @btnInverseBackgroundHighlight);
-  color: @aluminium
-}
-// White
-.btn-inverse {
-  .buttonBackground(@btnBackground, @btnBackgroundHighlight, @grayDark, 0 1px 1px rgba(255,255,255,.75));
-}
-// Fix wrong cascade
-.btn-warning {
-  .buttonBackground(@btnWarningBackground, @btnWarningBackgroundHighlight);
-}
-.btn-danger {
-  .buttonBackground(@btnDangerBackground, @btnDangerBackgroundHighlight);
-}
-.btn-info {
-  .buttonBackground(@btnInfoBackground, @btnInfoBackgroundHighlight);
-}
-
-.btn-primary {
-  color: @aluminium;
-  background-color: @skyblue;
-  border-color: @skyblue @skyblue @skyblueDark @skyblue;
-  .gradient(top, @skyblue, @skyblueDark);
-  &:hover {
-    background-position: 0 0;
-    .gradient-darken(top, @skyblue, @skyblueDark);
-  }
-}
-
-.btn-success {
-  color: @aluminiumLight;
-  background-color: @chameleon;
-  border-color: @chameleon @chameleon @chameleonDark @chameleon;
-  .gradient(top, @chameleon, @chameleonDark);
-  &:hover {
-    background-position: 0 0;
-    .gradient-darken(top, @chameleon, @chameleonDark);
-  }
 }
 
 .form-search.navbar-form {
@@ -82,7 +40,7 @@ blockquote {
 }
 
 pre {
-  color: @aluminiumDark;
+  color: @aluminium-dark;
   background: #343636;
 }
 
@@ -119,8 +77,8 @@ input[type="color"],
 
 .navbar .nav {
   li a {
-    color: @aluminiumDark;
-    text-shadow: 0 -1px 0 @grayDark;
+    color: @aluminium-dark;
+    text-shadow: 0 -1px 0 @gray-dark;
     &:hover {
       color: @aluminium;
     }
@@ -133,7 +91,7 @@ input[type="color"],
   .active {
     background: @gray;
     a {
-      color: @aluminiumDark;
+      color: @aluminium-dark;
       background: @gray;
       &:hover {
         color: @aluminium;
@@ -150,28 +108,28 @@ input[type="color"],
     text-shadow: 0 -1px 0 @gray;
   }
   a {
-    color: @skyblueLight;
+    color: @skyblue-light;
     text-shadow: 0 -1px 0 @gray;
   }
 }
 
 .navbar .nav > li > .dropdown-menu::before,
 .navbar .nav > li > .dropdown-menu::after {
-  border-bottom-color: @grayLight;
+  border-bottom-color: @gray-light;
 }
 
 .dropdown-menu .divider {
   background-color: @gray;
-  border-top-color: @grayDark;
-  border-bottom-color: darken(@grayDark,2%);
+  border-top-color: @gray-dark;
+  border-bottom-color: darken(@gray-dark,2%);
 }
 
 .form-actions {
-  border-color: @grayLight;
+  border-color: @gray-light;
 }
 
 .head-row, .post-extra-info, .post-date {
-  color: @grayLight;
+  color: @gray-light;
 }
 
 .state-indicator, .state-indicator {
@@ -179,7 +137,7 @@ input[type="color"],
   height: 10px;
   border-radius: 5px;
   margin: 5px 5px 0 0;
-  background-color: @grayLight;
+  background-color: @gray-light;
   float: left;
 }
 
@@ -188,12 +146,12 @@ input[type="color"],
 }
 
 .post-signature {
-  color: @aluminiumDark;
+  color: @aluminium-dark;
   border-top-color: @gray;
 }
 
 .post-info, .post thead, .post tfoot, .block .header, .block .info {
-  background: darken(@grayDark, 3%);
+  background: darken(@gray-dark, 3%);
 }
 
 .post-author {
@@ -217,7 +175,7 @@ input[type="color"],
 }
 
 .copyright {
-  color: @grayLight;
+  color: @gray-light;
 }
 
 body .markItUp .markItUpButton1 a,
