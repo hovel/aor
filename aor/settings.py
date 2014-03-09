@@ -112,7 +112,6 @@ INSTALLED_APPS = (
     'captcha',
     'gunicorn',
     'pybb',
-    'django-field-attributes',
     'aor',
     'pybb4news',
     'pybb4blogs',
