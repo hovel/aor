@@ -6,6 +6,8 @@
     margin: 0px;
     padding: 0px;
     outline: none;
+    -moz-box-sizing: content-box;
+         box-sizing: content-box;
 }
 
 .markItUp a:link,
