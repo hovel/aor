@@ -24,7 +24,7 @@
                 </td>
                 <td class="post-date">
                     <div class="post-control">
-                        <a href="#" title="{% trans 'quote selected' %}" class="quote-selected-link"><i class="icon-hand-down"></i></a>
+                        <a href="#" title="{% trans 'quote selected' %}" class="quote-selected-link"><i class="glyphicon glyphicon-hand-down"></i></a>
                     </div>
                     {{ message.subject }}
                     {% if request_user_profile.date_show_type == 1 %}{{ message.sent_at }}{% else %}{{ message.sent_at|timesince }} {% trans "ago" %}{% endif %}
