@@ -121,7 +121,8 @@ INSTALLED_APPS = (
     'ajax_select',
     'postman',
     'aor_messages',
-    'storages'
+    'storages',
+    'bootstrapform'
 )
 
 CAPTCHA_LENGTH = 7

@@ -1678,7 +1678,7 @@ output {
   padding-top: 7px;
   font-size: 14px;
   line-height: 1.428571429;
-  color: #555555;
+  color: #d3d7cf;
 }
 .form-control {
   display: block;
@@ -1687,7 +1687,7 @@ output {
   padding: 6px 12px;
   font-size: 14px;
   line-height: 1.428571429;
-  color: #555555;
+  color: #d3d7cf;
   background-color: #444444;
   background-image: none;
   border: 1px solid #cccccc;
@@ -3367,7 +3367,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   font-size: 14px;
   font-weight: normal;
   line-height: 1;
-  color: #555555;
+  color: #d3d7cf;
   text-align: center;
   background-color: #eeeeee;
   border: 1px solid #cccccc;
@@ -4154,8 +4154,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .pagination > li > a:focus,
 .pagination > li > span:focus {
   color: #3a87ad;
-  background-color: #eeeeee;
-  border-color: #dddddd;
+  background-color: #222222;
+  border-color: #555555;
 }
 .pagination > .active > a,
 .pagination > .active > span,
@@ -4176,8 +4176,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .pagination > .disabled > a:hover,
 .pagination > .disabled > a:focus {
   color: #999999;
-  background-color: #ffffff;
-  border-color: #dddddd;
+  background-color: #333333;
+  border-color: #555555;
   cursor: not-allowed;
 }
 .pagination-lg > li > a,
@@ -4230,7 +4230,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .pager li > a:hover,
 .pager li > a:focus {
   text-decoration: none;
-  background-color: #eeeeee;
+  background-color: #222222;
 }
 .pager .next > a,
 .pager .next > span {
@@ -6006,26 +6006,6 @@ pre {
   color: #babdb6;
   background: #343636;
 }
-select,
-textarea,
-input[type="text"],
-input[type="password"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="date"],
-input[type="month"],
-input[type="time"],
-input[type="week"],
-input[type="number"],
-input[type="email"],
-input[type="url"],
-input[type="search"],
-input[type="tel"],
-input[type="color"],
-.uneditable-input {
-  color: #ddd;
-  border: 1px solid #666;
-}
 .label,
 .badge {
   color: #ddd;
@@ -6122,9 +6102,20 @@ input[type="color"],
   background: #555555;
   opacity: 1;
 }
-.pagination ul > li > a:hover,
-.pagination ul > li > span:hover {
-  background: #555555;
+.pagination-xs > li > a,
+.pagination-xs > li > span {
+  padding: 1px 5px;
+  font-size: 12px;
+}
+.pagination-xs > li:first-child > a,
+.pagination-xs > li:first-child > span {
+  border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
+}
+.pagination-xs > li:last-child > a,
+.pagination-xs > li:last-child > span {
+  border-bottom-right-radius: 3px;
+  border-top-right-radius: 3px;
 }
 .copyright {
   color: #999999;

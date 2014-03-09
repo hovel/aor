@@ -44,27 +44,6 @@ pre {
   background: #343636;
 }
 
-select,
-textarea,
-input[type="text"],
-input[type="password"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="date"],
-input[type="month"],
-input[type="time"],
-input[type="week"],
-input[type="number"],
-input[type="email"],
-input[type="url"],
-input[type="search"],
-input[type="tel"],
-input[type="color"],
-.uneditable-input {
-  color: #ddd;
-  border: 1px solid #666;
-}
-
 .label,
 .badge {
   color: #ddd;
@@ -168,10 +147,8 @@ input[type="color"],
   }
 }
 
-.pagination ul > li > a, .pagination ul > li > span {
-  &:hover {
-    background: @gray;
-  }
+.pagination-xs {
+  .pagination-size(@padding-xs-vertical; @padding-xs-horizontal; @font-size-small; @border-radius-small);
 }
 
 .copyright {

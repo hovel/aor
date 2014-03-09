@@ -19,3 +19,4 @@ pytz
 boto
 django-storages
 python-dateutil<2.0
+django-bootstrap-form>=3

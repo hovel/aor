@@ -27,28 +27,26 @@
                     {% if topic.closed %} &nbsp;<span class="label label-danger">{% trans "Closed" %}</span> {% endif %}
                 </div>
                 {% with topic|pybb_topic_inline_pagination as pages %}
-                    <div class="inline-pagination pagination pagination-mini">
-                        <ul>
-                            {% if pages|length > 1 %}
-                                {% for page in pages %}
-                                    {% if page == "..." %}
-                                        <li class="disabled">
-                                            <span>...</span>
-                                        </li>
-                                    {% else %}
-                                        <li>
-                                            <a href="{{ topic.get_absolute_url }}?page={{ page }}">{{ page }}</a>
-                                        </li>
-                                    {% endif %}
-                                {% endfor %}
-                            {% endif %}
-                            {% if topic.unread %}
-                            <li>
-                                <a href="{{ topic.get_absolute_url }}?first-unread=1" class="first-unread-post-link" title="{% trans 'Go to first unread post' %}">⇨</a>
-                            </li>
-                            {% endif %}
-                        </ul>
-                    </div>
+                    <ul class="inline-pagination pagination pagination-xs">
+                        {% if pages|length > 1 %}
+                            {% for page in pages %}
+                                {% if page == "..." %}
+                                    <li class="disabled">
+                                        <span>...</span>
+                                    </li>
+                                {% else %}
+                                    <li>
+                                        <a href="{{ topic.get_absolute_url }}?page={{ page }}">{{ page }}</a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                        {% if topic.unread %}
+                        <li>
+                            <a href="{{ topic.get_absolute_url }}?first-unread=1" class="first-unread-post-link" title="{% trans 'Go to first unread post' %}">⇨</a>
+                        </li>
+                        {% endif %}
+                    </ul>
                 {% endwith %}
                 <div class="topic-meta">
                     {% trans 'Author' %}: <a href="{% url 'pybb:user' topic.user.get_username %}">{{ topic.user.get_username }}</a>
