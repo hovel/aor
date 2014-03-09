@@ -2,9 +2,7 @@ import bbcode
 from django.utils.html import urlize
 from django.utils.translation import ugettext_lazy as _
 from markdown import Markdown
-from postmarkup import render_bbcode
 import os
-from postmarkup.parser import LinkTag
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
