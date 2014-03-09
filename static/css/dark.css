@@ -6228,8 +6228,8 @@ td.topic-last-post {
 }
 .post-control a {
   border-radius: 3px;
-  padding: 3px 10px 7px;
-  opacity: .7;
+  padding: 5px 10px;
+  font-size: 12px;
 }
 .controls.btn-group {
   margin-bottom: 20px;
@@ -6438,13 +6438,11 @@ pre {
 .post-author {
   font-weight: bold;
 }
-.post-control a [class^="icon-"],
-.post-control a [class*=" icon-"] {
-  background-image: url(../img/glyphicons-halflings-white.png);
+.post-control a {
+  color: #C0C0C0;
 }
 .post-control a:hover {
   background: #555555;
-  opacity: 1;
 }
 .pagination-xs > li > a,
 .pagination-xs > li > span {
@@ -6529,7 +6527,4 @@ body .markItUpHeader ul .markItUpSeparator {
   background-color: #555;
   color: #555;
   /* chrome */
-}
-.glyphicon {
-  color: #fff;
 }
