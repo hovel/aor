@@ -38,7 +38,9 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      {% include 'menu.html' %}
+      {% block menu %}
+        {% include 'menu.html' with menu_forum="active" %}
+      {% endblock %}
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
