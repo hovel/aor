@@ -1,3 +1,12 @@
+@padding-base-vertical: 4px;
+@navbar-height: 40px;
+
+/* [1- for development */
+body {
+  overflow-y: scroll;
+}
+/* -1] */
+
 h1 {
   font-size: 1.6em;
 }
@@ -30,8 +39,7 @@ blockquote {
 }
 
 .wrapper {
-  max-width: 1200px;
-  margin: auto;
+  max-width: 1230px;
 }
 
 .navbar-inner {
@@ -124,8 +132,8 @@ td.forum-last-post, td.topic-last-post {
 
 .post-control a {
   border-radius: 3px;
-  padding: 3px 10px 7px;
-  opacity: .7;
+  padding: 5px 10px;
+  font-size: 12px;
 }
 
 .controls.btn-group {
@@ -217,4 +225,7 @@ label[for="avatar-clear_id"] {
 }
 #postman textarea {
   width: 100%;
+}
+.breadcrumb .divider {
+  display: none;
 }

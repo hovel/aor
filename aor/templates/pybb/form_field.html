@@ -1,1 +1,4 @@
-{% include "form_field.html" %}
+{% load bootstrap %}
+{% csrf_token %}
+
+{{ field|bootstrap }}

@@ -10,7 +10,7 @@
         {% include "pybb/avatar.html" with user=target_user %}
         <div class="info">
             {% if profile.icq or profile.skype or profile.jabber or profile.site or profile.interests %}
-                <div class="label">{% trans "Information" %}</div>
+                <div class="label label-info">{% trans "Information" %}</div>
             {% endif %}
             {% if profile.icq %}
                 <div>ICQ: {{ profile.icq }}</div>
@@ -28,7 +28,7 @@
                 <div>{% trans 'Interests' %}: {{ profile.interests }}</div>
             {% endif %}
 
-            <div class="label">{% trans "Statistics" %}</div>
+            <div class="label label-info">{% trans "Statistics" %}</div>
             <div>
                 <a href="{% url 'user_topics' target_user %}">
                     {% trans "Number of topics" %}:
@@ -61,9 +61,9 @@
             {% endif %}
         {% endif %}
         {% if perms.pybb.can_edit %}
-            <a href="{% url 'admin:profiles_profile_change' target_user.get_profile.id %}" class="btn">{% trans 'Admin' %}</a>
+            <a href="{% url 'admin:profiles_profile_change' target_user.get_profile.id %}" class="btn btn-default">{% trans 'Admin' %}</a>
         {% endif %}
-        <a class="btn" href="{% url 'postman_write' target_user.username %}">{% trans "Write personal message" %}</a>
+        <a class="btn btn-default" href="{% url 'postman_write' target_user.username %}">{% trans "Write personal message" %}</a>
     </div>
 
 {% endblock %}
