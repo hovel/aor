@@ -11,14 +11,14 @@
 {% endblock %}
 
 {% block content %}
+    {% if user.is_authenticated %}
+        <div id='mark-all-as-read' class="top-page-controls">
+            <a class="btn btn-default" href='{% url 'pybb:mark_all_as_read' %}'>
+                {% trans "Mark all topics as read" %}
+            </a>
+        </div>
+    {% endif %}
     <div class="forum">
-        {% if user.is_authenticated %}
-            <div id='mark-all-as-read' class="top-page-controls">
-                <a class="btn btn-default" href='{% url 'pybb:mark_all_as_read' %}'>
-                    {% trans "Mark all topics as read" %}
-                </a>
-            </div>
-        {% endif %}
         <h1>{% trans "Last updates in topics" %}</h1>
         {% if forum.headline %}
             <div class="forum-headline alert alert-block">

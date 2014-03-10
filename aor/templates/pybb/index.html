@@ -28,7 +28,10 @@
         {% endfor %}
     {% else %}
         <h2>{% trans "Forum categories are not created" %}</h2>
-        <a href="{% url 'admin:pybb_category_add' %}">{% trans "Add a category now" %}</a>
+        <a href="{% url 'admin:pybb_category_add' %}"
+           class="btn btn-primary">
+            {% trans "Add a category now" %}
+        </a>
     {% endif %}
     <div class="btn-group">
         <a href="{% url 'pybb:topic_latest' %}"
