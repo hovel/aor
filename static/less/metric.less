@@ -1,5 +1,6 @@
 @padding-base-vertical: 4px;
 @navbar-height: 40px;
+@blockquote-font-size: @font-size-base;
 
 /* [1- for development */
 body {
@@ -164,6 +165,10 @@ td.forum-last-post, td.topic-last-post {
 
 .pagination {
   text-align: center;
+}
+
+.pagination-xs {
+  .pagination-size(@padding-xs-vertical; @padding-xs-horizontal; @font-size-small; @border-radius-small);
 }
 
 .inline-pagination {
