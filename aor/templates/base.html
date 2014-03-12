@@ -22,27 +22,14 @@
 <body>
 
 <nav class="navbar {% if AOR_THEME == 'dark.css' %}navbar-inverse{% else %}navbar-default{% endif %}" role="navigation">
-  <div class="container-fluid wrapper">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="{% url 'home' %}">
-          <img src="{{ STATIC_URL }}logo.png" alt="" style="opacity: .7; vertical-align: top">
-      </a>
+    <div class="container-fluid wrapper">
+        <a class="navbar-brand" href="{% url 'home' %}">
+            <img src="{{ STATIC_URL }}logo.png" alt="" style="opacity: .7; vertical-align: top">
+        </a>
+        {% block menu %}
+            {% include 'menu.html' %}
+        {% endblock %}
     </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      {% block menu %}
-        {% include 'menu.html' %}
-      {% endblock %}
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
 </nav>
 
 <div class="container-fluid wrapper">

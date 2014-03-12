@@ -1,6 +1,23 @@
 @padding-base-vertical: 4px;
 @navbar-height: 40px;
 @blockquote-font-size: @font-size-base;
+@jumbotron-font-size: ceil(@font-size-base * 1.25);
+@jumbotron-padding: 20px;
+
+@media (max-width: @grid-float-breakpoint) {
+    .navbar {
+        .nav > li {
+            display: inline-block;
+        }
+    }
+
+    .navbar-brand {
+        float: none;
+        display: block;
+        height: auto;
+        padding: @navbar-padding-vertical 0 0 0;
+    }
+}
 
 /* [1- for development */
 body {
