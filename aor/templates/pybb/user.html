@@ -49,7 +49,7 @@
         <div class="clear"></div>
     </div><br>
     <div class='controls'>
-        {% if perms.pybb.block_users %}
+        {% if perms.pybb.block_users and target_user != user %}
             {% if target_user.is_active %}
                 <form method="post" action="{% url 'pybb:block_user' target_user.username %}" style="display: inline-block;">{% csrf_token %}
                     <button class="btn btn-danger">{% trans 'Block' %}</button>
@@ -63,7 +63,14 @@
         {% if perms.pybb.can_edit %}
             <a href="{% url 'admin:profiles_profile_change' target_user.get_profile.id %}" class="btn btn-default">{% trans 'Admin' %}</a>
         {% endif %}
-        <a class="btn btn-default" href="{% url 'postman_write' target_user.username %}">{% trans "Write personal message" %}</a>
+        {% if target_user == user %}
+            <a class="btn btn-default" href="{% url 'pybb:edit_profile' %}">{% trans 'Profile settings' %}</a>
+            <a class="btn btn-default" href="{% url 'postman_inbox' %}">
+                {% trans 'Personal messages' %} {% if postman_unread_count %}({{ postman_unread_count }}){% endif %}
+            </a>
+        {% endif %}
+        {% if target_user != user %}
+            <a class="btn btn-default" href="{% url 'postman_write' target_user.username %}">{% trans "Write personal message" %}</a>
+        {% endif %}
     </div>
-
 {% endblock %}
