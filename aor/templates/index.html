@@ -15,13 +15,15 @@
                 каким должен быть дистрибутив GNU/Linux®, тогда добро
                 пожаловать в сообщество Arch Linux!</p>
 
-            <div class="controls pull-right">
-                <a href="{% url 'registration_register' %}" class="btn btn-primary btn-lg">
-                    {% trans "Join us" %}
-                </a>
-                <a href="{% url 'auth_login' %}" class="btn btn-success btn-lg">
-                    {% trans "Login" %}
-                </a>
+            <div class="controls clearfix">
+                <div class="pull-right">
+                    <a href="{% url 'registration_register' %}" class="btn btn-primary">
+                        {% trans "Join us" %}
+                    </a>
+                    <a href="{% url 'auth_login' %}" class="btn btn-success">
+                        {% trans "Login" %}
+                    </a>
+                </div>
             </div>
         </div>
     {% endif %}
