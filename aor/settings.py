@@ -70,7 +70,6 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
     'pybb.middleware.PybbMiddleware',
 )
 
@@ -84,7 +83,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.i18n',
     'django.core.context_processors.media',
     'django.core.context_processors.static',
-    'django.contrib.messages.context_processors.messages',
     'pybb.context_processors.processor',
     'profiles.context_processor.user_theme',
     'django.core.context_processors.request',
@@ -96,7 +94,6 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
-    'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
     # 'django.contrib.comments',
