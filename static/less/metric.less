@@ -1,3 +1,30 @@
+@padding-base-vertical: 4px;
+@navbar-height: 40px;
+@blockquote-font-size: @font-size-base;
+@jumbotron-font-size: ceil(@font-size-base * 1.25);
+@jumbotron-padding: 20px;
+
+@media (max-width: @grid-float-breakpoint) {
+    .navbar {
+        .nav > li {
+            display: inline-block;
+        }
+    }
+
+    .navbar-brand {
+        float: none;
+        display: block;
+        height: auto;
+        padding: @navbar-padding-vertical 0 0 0;
+    }
+}
+
+/* [1- for development */
+body {
+  overflow-y: scroll;
+}
+/* -1] */
+
 h1 {
   font-size: 1.6em;
 }
@@ -30,8 +57,7 @@ blockquote {
 }
 
 .wrapper {
-  max-width: 1200px;
-  margin: auto;
+  max-width: 1230px;
 }
 
 .navbar-inner {
@@ -62,11 +88,6 @@ td.forum-topic-count, td.forum-post-count, td.topic-post-count, td.topic-view-co
   font-size: .8em;
   text-align: center;
   width: 10%;
-}
-
-td.forum-topic-count, td.forum-post-count, td.forum-last-post,
-td.topic-post-count, td.topic-view-count, td.topic-last-post {
-  vertical-align: middle
 }
 
 td.forum-last-post, td.topic-last-post {
@@ -112,6 +133,7 @@ td.forum-last-post, td.topic-last-post {
 
 .post-content {
   max-width: 1033px;
+  word-wrap: break-word;
 }
 
 .post-control {
@@ -124,8 +146,8 @@ td.forum-last-post, td.topic-last-post {
 
 .post-control a {
   border-radius: 3px;
-  padding: 3px 10px 7px;
-  opacity: .7;
+  padding: 5px 10px;
+  font-size: 12px;
 }
 
 .controls.btn-group {
@@ -158,6 +180,10 @@ td.forum-last-post, td.topic-last-post {
   text-align: center;
 }
 
+.pagination-xs {
+  .pagination-size(@padding-xs-vertical; @padding-xs-horizontal; @font-size-small; @border-radius-small);
+}
+
 .inline-pagination {
   display: inline-block;
   margin: 0;
@@ -181,6 +207,11 @@ label.checkbox ul, label.radio ul {
 .topic-list, .category-table {
   .table-bordered;
   .table-striped;
+  
+  .forum-topic-count, .forum-post-count, .forum-last-post,
+  .topic-post-count, .topic-view-count, .topic-last-post {
+    vertical-align: middle;
+  }
 }
 
 .topic-meta {
@@ -213,4 +244,7 @@ label[for="avatar-clear_id"] {
 }
 #postman textarea {
   width: 100%;
+}
+.breadcrumb .divider {
+  display: none;
 }

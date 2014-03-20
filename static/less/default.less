@@ -1,8 +1,8 @@
 @import "bootstrap/bootstrap";
+@import "bootstrap/theme";
 
 @import "metric";
 @import "variables_default";
-
 
 blockquote {
     background: #f5f2d0;
@@ -38,12 +38,12 @@ blockquote {
   height: 10px;
   border-radius: 5px;
   margin: 5px 5px 0 0;
-  background-color: @grayLight;
+  background-color: @gray-light;
   float: left;
 }
 
 .forum-unread .state-indicator, .topic-unread .state-indicator {
-  background-color: @linkColor;
+  background-color: @link-color;
 }
 
 .post-info {
@@ -77,15 +77,19 @@ blockquote {
 }
 
 .post-info {
-  color: @grayLight;
+  color: @gray-light;
 }
 
 .post-date {
     color: #999;
 }
 
-.post-control a:hover {
+.post-control a {
+  color: #6D6D6D;
+  
+  &:hover {
     background: #eaeaea;
+  }
 }
 
 .block {

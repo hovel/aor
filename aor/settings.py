@@ -107,7 +107,6 @@ INSTALLED_APPS = (
     'captcha',
     'gunicorn',
     'pybb',
-    'django-field-attributes',
     'aor',
     'pybb4news',
     'pybb4blogs',
@@ -116,7 +115,8 @@ INSTALLED_APPS = (
     'ajax_select',
     'postman',
     'aor_messages',
-    'storages'
+    'storages',
+    'bootstrapform'
 )
 
 CAPTCHA_LENGTH = 7
@@ -202,10 +202,6 @@ LOGGING = {
     }
 }
 
-try:
-    from settings_local import *
-except ImportError:
-    pass
 
 if DEBUG:
     MIDDLEWARE_CLASSES += ('debug_toolbar.middleware.DebugToolbarMiddleware',)
@@ -213,3 +209,8 @@ if DEBUG:
     INTERNAL_IPS = ('127.0.0.1',)
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
     DEBUG_TOOLBAR_CONFIG = {'INTERCEPT_REDIRECTS': False}
+
+try:
+    from settings_local import *
+except ImportError:
+    pass
