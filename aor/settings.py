@@ -181,6 +181,8 @@ POSTMAN_DISALLOW_MULTIRECIPIENTS = True
 POSTMAN_DISALLOW_COPIES_ON_REPLY = True
 POSTMAN_AUTO_MODERATE_AS = True
 
+MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.SessionStorage'
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
