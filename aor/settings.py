@@ -110,7 +110,6 @@ INSTALLED_APPS = (
     'captcha',
     'gunicorn',
     'pybb',
-    'django-field-attributes',
     'aor',
     'pybb4news',
     'pybb4blogs',
@@ -119,6 +118,7 @@ INSTALLED_APPS = (
     'ajax_select',
     'postman',
     'aor_messages',
+    'bootstrapform',
     'storages'
 )
 
