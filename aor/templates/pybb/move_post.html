@@ -1,5 +1,6 @@
-{% extends 'pybb/base.html' %}
-{% load i18n thumbnail pybb_tags static %}
+{% extends 'pybb/topic.html' %}
+
+{% load i18n static %}
 
 {% block title %}{% trans "Move post to another topic" %}{% endblock title %}
 
@@ -11,45 +12,56 @@
     <script type="text/javascript" src="{% static 'chosen/chosen.jquery.min.js' %}"></script>
     <script type="text/javascript">
         $(document).ready(function(){
-            $('#{{ form.topic.auto_id }}').chosen({ search_contains: true });
+            $('#move_to_topic').chosen({ search_contains: true });
         });
     </script>
 {% endblock %}
 
 {% block content %}
-    <div class="row">
-        <h1>{% trans 'Moving post' %}</h1>
-        <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
-            {% csrf_token %}
-            <div class="control-group">
-                <label class="control-label" for="{{ form.topic.auto_id }}">
-                    {% trans 'Choose topic where to move post' %}
-                </label>
-                <div class="controls">
-                    <select name="{{ form.topic.html_name }}" id="{{ form.topic.auto_id }}" class="col-md-12">
+    <form action="{% url 'move_post_processing' %}" method="post" class="form-horizontal">
+        {% csrf_token %}
+        <input type="hidden" name="move_from_topic" value="{{ topic.id }}" />
 
-                        {% for topic in form.fields.topic.queryset %}
-                            {% ifchanged topic.forum.id %}
-                              {% if not forloop.first %}</optgroup>{% endif %}
-                              <optgroup label="{{ topic.forum.name }}">
-                            {% endifchanged %}
-                            <option value="{{ topic.id }}" {% if object.topic.id == topic.id %}selected="selected"{% endif %}>
-                              {{ topic.name }}
+        <label class="control-label" for="move_to_topic">
+            {% trans 'Choose topic where to move post' %}
+        </label>
+        <div class="controls">
+            <select name="move_to_topic" id="move_to_topic" class="form-control">
+                {% for mtt in move_to_topic_list %}
+                    {% ifchanged mtt.forum.id %}
+                        {% if not forloop.first %}</optgroup>{% endif %}
+                        <optgroup label="{{ mtt.forum.name }}">
+                    {% endifchanged %}
+                            <option value="{{ mtt.id }}" {% if mtt.id == topic.id %}selected{% endif %}>
+                                {{ mtt.name }}
                             </option>
-                        {% endfor %}
-                        </optgroup>
-                    </select>
-                    {% for error in field.errors %}
-                        <span class="help-inline">{{ field.errors }}</span>
-                    {% endfor %}
-                </div>
+                        {% if forloop.last %}</optgroup>{% endif %}
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="topic">
+            <h1>{{ topic.name }}</h1>
+            {% with _('Posts') as label %}
+                {% include "pybb/pagination.html" %}
+            {% endwith %}
+
+            <div class="posts">
+                {% if first_post %}{% ifnotequal first_post post_list.0 %}
+                    {% with first_post as post %}
+                        <li class="first_post">{% include "pybb/post_template.html" %}</li>
+                    {% endwith %}
+                {% endifnotequal %}{% endif %}
+                {% for post in post_list %}
+                    {% cycle 'odd' 'even' as rowcolors silent %}
+                    {% include "pybb/post_template.html" %}
+                {% endfor %}
             </div>
-            <div class="form-actions">
-                <button type="submit" class="btn btn-primary">
-                    {% trans "Save" %}
-                </button>
-            </div>
-        </form>
-        {% include 'pybb/post_template.html' with post=object %}
-    </div>
-{% endblock content %}
+
+            {% with _('Posts') as label %}
+                {% include "pybb/pagination.html" %}
+            {% endwith %}
+        </div>
+        <input class="btn btn-danger" type="submit" value="{% trans 'Move selected posts' %}" />
+    </form>
+{% endblock %}
