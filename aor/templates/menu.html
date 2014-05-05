@@ -45,7 +45,7 @@
                     <li class="{{ menu_admin }}"><a href="{% url 'admin:index' %}">{% trans "Admin" %}</a></li>
                 {% endif %}
                 <li class="divider"></li>
-                <li><a href="{% url 'auth_logout' %}">{% trans "Logout" %}</a></li>
+                <li><a><form action="{% url 'auth_logout' %}" method="post">{% csrf_token %}<button class="btn btn-logout">{% trans "Logout" %}</button></form></a></li>
             </ul>
         {% else %}
             <a href="{% url 'auth_login' %}" class="dropdown-toggle" data-toggle="dropdown">

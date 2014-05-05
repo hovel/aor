@@ -1,6 +1,10 @@
 from django.contrib.auth.models import User
+from django.contrib.auth.views import logout_then_login
 from django.shortcuts import get_object_or_404
 from django.views import generic
+from django.views.decorators.cache import never_cache
+from django.views.decorators.csrf import csrf_protect
+from django.views.decorators.http import require_POST
 from pure_pagination import Paginator
 from pybb import defaults
 from pybb.models import Post, Topic
@@ -53,3 +57,9 @@ class UserTopics(generic.ListView):
         context['target'] = self.user
         return context
 
+
+@csrf_protect
+@require_POST
+@never_cache
+def safe_logout(request):
+    return logout_then_login(request, request.POST.get('next'))

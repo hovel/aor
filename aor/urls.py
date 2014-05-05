@@ -7,7 +7,7 @@ from registration.backends.default.views import RegistrationView
 from aor.forms import AORProfileForm, RegistrationFormCaptcha
 from aor.sitemaps import sitemaps
 from aor.views import Search, MovePostView, AorAddPostView, AorEditPostView, AorTopicView
-from profiles.views import UserTopics, UserPosts
+from profiles.views import UserTopics, UserPosts, safe_logout
 
 admin.autodiscover()
 
@@ -22,6 +22,7 @@ urlpatterns = patterns(
 
     url(r'^accounts/register/$', RegistrationView.as_view(form_class=RegistrationFormCaptcha),
         name="registration_register"),
+    url(r'^accounts/logout/$', safe_logout, name='auth_logout'),
     url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^accounts/', include('django.contrib.auth.urls')),
 
