@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-25 15:54+0400\n"
+"POT-Creation-Date: 2014-07-24 20:05+0400\n"
 "PO-Revision-Date: 2012-02-02 23:43+0400\n"
 "Last-Translator: Vladimir Korsun <korsun.vladimir@gmail.com>\n"
 "Language-Team: Russian <>\n"
@@ -30,11 +30,11 @@ msgstr "Введите текст с изображения каптчи"
 msgid "Signature"
 msgstr "Подпись"
 
-#: settings.py:151
+#: settings.py:166
 msgid "default theme"
 msgstr "тема по умолчанию"
 
-#: settings.py:152
+#: settings.py:167
 msgid "dark theme"
 msgstr "темная"
 
@@ -42,27 +42,29 @@ msgstr "темная"
 msgid "Arch Linux Russian Community"
 msgstr "Русскоязычное Сообщество Arch Linux"
 
-#: templates/index.html:24
+#: templates/index.html:21
 msgid "Join us"
 msgstr "Присоединиться"
 
-#: templates/index.html:28 templates/menu.html:97
+#: templates/index.html:24 templates/menu.html:56
 #: templates/registration/login.html:9
+#: templates/registration/password_reset_confirm.html:20
 msgid "Login"
 msgstr "Вход"
 
-#: templates/index.html:39 templates/menu.html:11
-#: templates/pybb4blogs/forum.html:4 templates/pybb4news/base.html:11
-#: templates/pybb4news/forum.html:4 templates/pybb4news/forum.html.py:14
+#: templates/index.html:35 templates/menu.html:3
+#: templates/pybb4news/base.html:11 templates/pybb4news/forum.html:4
+#: templates/pybb4news/forum.html.py:13
 msgid "News"
 msgstr "Новости"
 
-#: templates/index.html:45 templates/menu.html:21
-#: templates/pybb4blogs/base.html:6 templates/pybb4blogs/forum.html:14
+#: templates/index.html:41 templates/menu.html:5
+#: templates/pybb4blogs/base.html:6 templates/pybb4blogs/forum.html:4
+#: templates/pybb4blogs/forum.html.py:13
 msgid "Blogs"
 msgstr "Блоги"
 
-#: templates/index.html:53
+#: templates/index.html:51
 msgid "Last topics"
 msgstr "Последние темы"
 
@@ -70,44 +72,44 @@ msgstr "Последние темы"
 msgid "Arch Chat"
 msgstr "Чат"
 
-#: templates/menu.html:16
+#: templates/menu.html:4
 msgid "Forum"
 msgstr "Форум"
 
-#: templates/menu.html:41
+#: templates/menu.html:9
 msgid "Download"
 msgstr "Скачать"
 
-#: templates/menu.html:54
+#: templates/menu.html:23
 msgid "Chat"
 msgstr "Чат"
 
-#: templates/menu.html:61
+#: templates/menu.html:30
 msgid "New pesonal messages"
 msgstr "Новые личные сообщения"
 
-#: templates/menu.html:63 templates/menu.html.py:71
+#: templates/menu.html:35 templates/menu.html.py:52
 msgid "Profile"
 msgstr "Профиль"
 
-#: templates/menu.html:75
+#: templates/menu.html:38 templates/pybb/user.html:69
 msgid "Personal messages"
 msgstr "Личные сообщения"
 
-#: templates/menu.html:78
+#: templates/menu.html:42 templates/pybb/user.html:67
 msgid "Profile settings"
 msgstr "Редактирование профиля"
 
-#: templates/menu.html:84 templates/pybb/topic.html:36
-#: templates/pybb/topic.html.py:92 templates/pybb/user.html:64
+#: templates/menu.html:45 templates/pybb/topic.html:35
+#: templates/pybb/topic.html.py:91 templates/pybb/user.html:64
 msgid "Admin"
 msgstr "Админка"
 
-#: templates/menu.html:91
+#: templates/menu.html:48
 msgid "Logout"
 msgstr "Выйти"
 
-#: templates/menu.html:102 templates/registration/registration_form.html:9
+#: templates/menu.html:57 templates/registration/registration_form.html:9
 msgid "Registration"
 msgstr "Регистрация"
 
@@ -148,7 +150,7 @@ msgid "by message"
 msgstr "по сообщениям"
 
 #: templates/postman/base_folder.html:23 templates/postman/view.html:59
-#: templates/pybb/post_template.html:34
+#: templates/pybb/post_template.html:39
 msgid "Delete"
 msgstr "Удалить"
 
@@ -196,22 +198,22 @@ msgstr "Беседа"
 msgid "Message"
 msgstr "Сообщение"
 
-#: templates/postman/view.html:27 templates/pybb/post_template.html:46
+#: templates/postman/view.html:27 templates/pybb/post_template.html:51
 msgid "quote selected"
 msgstr "цитирование выделенного"
 
 #: templates/postman/view.html:30 templates/pybb/forum_last_update_info.html:7
-#: templates/pybb/post_template.html:52
+#: templates/pybb/post_template.html:58
 #: templates/pybb/topic_last_message_info.html:9
-#: templates/pybb/user_topics.html:82
+#: templates/pybb/user_topics.html:80
 msgid "ago"
 msgstr "назад"
 
-#: templates/postman/view.html:39 templates/pybb/post_template.html:76
+#: templates/postman/view.html:39 templates/pybb/post_template.html:82
 msgid "Member since"
 msgstr "Участник с"
 
-#: templates/postman/view.html:42 templates/pybb/post_template.html:79
+#: templates/postman/view.html:42 templates/pybb/post_template.html:85
 msgid "blocked"
 msgstr "заблокирован"
 
@@ -287,7 +289,7 @@ msgstr "Редактирование профиля"
 msgid "Change the password"
 msgstr "Сменить пароль"
 
-#: templates/pybb/edit_profile.html:20 templates/pybb/move_post.html:49
+#: templates/pybb/edit_profile.html:20
 msgid "Save"
 msgstr "Сохранить"
 
@@ -303,13 +305,13 @@ msgstr "удалить"
 msgid "Index"
 msgstr "Все темы"
 
-#: templates/pybb/index.html:16 templates/pybb/index.html.py:36
+#: templates/pybb/index.html:16 templates/pybb/index.html.py:39
 #: templates/pybb/latest_topics.html:5 templates/pybb/latest_topics.html:8
 #: templates/pybb/latest_topics.html:22
 msgid "Last updates in topics"
 msgstr "Последние обновления в темах форума"
 
-#: templates/pybb/index.html:21 templates/pybb/index.html.py:41
+#: templates/pybb/index.html:21 templates/pybb/index.html.py:44
 msgid "Mark all forums as read"
 msgstr "Отметить форумы прочитанными"
 
@@ -317,94 +319,103 @@ msgstr "Отметить форумы прочитанными"
 msgid "Forum categories are not created"
 msgstr "Нет категорий"
 
-#: templates/pybb/index.html:31
+#: templates/pybb/index.html:33
 msgid "Add a category now"
 msgstr "Добавить форум сейчас"
 
-#: templates/pybb/latest_topics.html:18 templates/pybb/latest_topics.html:38
+#: templates/pybb/latest_topics.html:17 templates/pybb/latest_topics.html:38
 msgid "Mark all topics as read"
 msgstr "Отметить форумы прочитанными"
 
-#: templates/pybb/move_post.html:4
+#: templates/pybb/move_post.html:5
 msgid "Move post to another topic"
 msgstr "Переместить сообщение в другую тему"
-
-#: templates/pybb/move_post.html:21
-msgid "Moving post"
-msgstr "Переместить сообщение"
 
 #: templates/pybb/move_post.html:26
 msgid "Choose topic where to move post"
 msgstr "Выберите тему для перемещения"
 
-#: templates/pybb/post_template.html:22
-msgid "Move post"
-msgstr "Переместить сообщение"
-
-#: templates/pybb/post_template.html:27
-msgid "Approve post"
-msgstr "Подтвердить комментарий"
-
-#: templates/pybb/post_template.html:31
-msgid "Delete post?"
-msgstr "Удалить сообщение?"
-
-#: templates/pybb/post_template.html:39
-msgid "Edit"
-msgstr "Редактировать"
-
-#: templates/pybb/post_template.html:43
-msgid "quote"
-msgstr "цитировать"
-
-#: templates/pybb/post_template.html:48 templates/pybb/user.html:66
-msgid "Write personal message"
-msgstr "Написать ЛС"
-
-#: templates/pybb/post_template.html:54
-msgid "from"
-msgstr "с адреса"
-
-#: templates/pybb/post_template.html:64
-msgid "Topics"
-msgstr "Темы"
-
-#: templates/pybb/post_template.html:70 templates/pybb/topic.html:53
-#: templates/pybb/topic.html.py:73 templates/pybb/topic_list.html:10
+#: templates/pybb/move_post.html:45 templates/pybb/move_post.html.py:61
+#: templates/pybb/post_template.html:76 templates/pybb/topic.html:52
+#: templates/pybb/topic.html.py:72 templates/pybb/topic_list.html:10
 #: templates/pybb/user_posts.html:20 templates/pybb/user_topics.html:22
 #: templates/search/search.html:13
 msgid "Posts"
 msgstr "Сообщения"
 
-#: templates/pybb/post_template.html:92
+#: templates/pybb/move_post.html:65
+msgid "Move selected posts"
+msgstr "Переместить выбранные сообщения"
+
+#: templates/pybb/pagination.html:7 templates/search/pagination.html:8
+msgid "previous page"
+msgstr "предыдущая страница"
+
+#: templates/pybb/pagination.html:21 templates/search/pagination.html:11
+msgid "next page"
+msgstr "следующая страница"
+
+#: templates/pybb/post_template.html:27
+msgid "Move post"
+msgstr "Переместить сообщение"
+
+#: templates/pybb/post_template.html:32
+msgid "Approve post"
+msgstr "Подтвердить комментарий"
+
+#: templates/pybb/post_template.html:36
+msgid "Delete post?"
+msgstr "Удалить сообщение?"
+
+#: templates/pybb/post_template.html:44
+msgid "Edit"
+msgstr "Редактировать"
+
+#: templates/pybb/post_template.html:48
+msgid "quote"
+msgstr "цитировать"
+
+#: templates/pybb/post_template.html:53 templates/pybb/user.html:73
+msgid "Write personal message"
+msgstr "Написать ЛС"
+
+#: templates/pybb/post_template.html:60
+msgid "from"
+msgstr "с адреса"
+
+#: templates/pybb/post_template.html:70
+msgid "Topics"
+msgstr "Темы"
+
+#: templates/pybb/post_template.html:98
 msgid "Edited"
 msgstr "Отредактированный"
 
-#: templates/pybb/topic.html:25 templates/pybb/topic.html.py:81
+#: templates/pybb/topic.html:24 templates/pybb/topic.html.py:80
 msgid "Unstick topic"
 msgstr "Открепить тему"
 
-#: templates/pybb/topic.html:27 templates/pybb/topic.html.py:83
+#: templates/pybb/topic.html:26 templates/pybb/topic.html.py:82
 msgid "Stick topic"
 msgstr "Закрепить тему"
 
-#: templates/pybb/topic.html:31 templates/pybb/topic.html.py:87
+#: templates/pybb/topic.html:30 templates/pybb/topic.html.py:86
 msgid "Open topic"
 msgstr "Открыть тему"
 
-#: templates/pybb/topic.html:33 templates/pybb/topic.html.py:89
+#: templates/pybb/topic.html:32 templates/pybb/topic.html.py:88
 msgid "Close topic"
 msgstr "Закрыть тему"
 
-#: templates/pybb/topic.html:45 templates/pybb/topic.html.py:101
+#: templates/pybb/topic.html:44 templates/pybb/topic.html.py:100
 msgid "Unsubscribe"
 msgstr "Отписаться"
 
-#: templates/pybb/topic.html:47 templates/pybb/topic.html.py:103
+#: templates/pybb/topic.html:46 templates/pybb/topic.html.py:102
 msgid "Subscribe"
 msgstr "Подписаться"
 
-#: templates/pybb/topic.html:122
+#: templates/pybb/topic.html:121
 msgid "Subscribers"
 msgstr "Подписчики"
 
@@ -437,15 +448,15 @@ msgstr "Закреплена"
 msgid "Closed"
 msgstr "Закрыта"
 
-#: templates/pybb/topic_list.html:47 templates/pybb/user_topics.html:59
+#: templates/pybb/topic_list.html:46 templates/pybb/user_topics.html:58
 msgid "Go to first unread post"
 msgstr "Перейти к первому непрочитанному"
 
-#: templates/pybb/topic_list.html:54
+#: templates/pybb/topic_list.html:52
 msgid "Author"
 msgstr "Автор"
 
-#: templates/pybb/topic_list.html:56 templates/pybb/user_topics.html:66
+#: templates/pybb/topic_list.html:54 templates/pybb/user_topics.html:64
 msgid "posted in"
 msgstr "размещено"
 
@@ -493,15 +504,15 @@ msgstr "Сообщения"
 msgid "topics"
 msgstr "Темы"
 
-#: templates/pybb4blogs/forum.html:29
+#: templates/pybb4blogs/forum.html:28
 msgid "wrote"
 msgstr "писал"
 
-#: templates/pybb4blogs/forum.html:31
+#: templates/pybb4blogs/forum.html:30
 msgid "Comments"
 msgstr "Комментарии"
 
-#: templates/pybb4blogs/forum.html:43
+#: templates/pybb4blogs/forum.html:42
 msgid "New topic"
 msgstr "Новая тема"
 
@@ -509,7 +520,7 @@ msgstr "Новая тема"
 msgid "Latest news"
 msgstr "Последние новости"
 
-#: templates/pybb4news/forum.html:34
+#: templates/pybb4news/forum.html:33
 msgid "Add news"
 msgstr "Добавить новость"
 
@@ -531,6 +542,7 @@ msgid "Your account activated."
 msgstr "Ваш аккаунт успешно активирован"
 
 #: templates/registration/login.html:12
+#: templates/registration/password_reset_confirm.html:21
 #: templates/registration/password_reset_form.html:9
 msgid "Password reset"
 msgstr "Сброс пароля"
@@ -550,7 +562,7 @@ msgstr "Смена пароля завершена"
 
 #: templates/registration/password_change_form.html:10
 #: templates/registration/password_change_form.html:38
-#: templates/registration/password_reset_confirm.html:11
+#: templates/registration/password_reset_confirm.html:12
 msgid "Change password"
 msgstr "Сменить пароль"
 
@@ -559,7 +571,11 @@ msgstr "Сменить пароль"
 msgid "Password reset complete"
 msgstr "Сброс пароля завершен"
 
-#: templates/registration/password_reset_confirm.html:25
+#: templates/registration/password_reset_confirm.html:19
+msgid "Reset link is broken."
+msgstr "Ссылка для сброса пароля неверна."
+
+#: templates/registration/password_reset_confirm.html:33
 msgid "Password reset confirm"
 msgstr "Сброс пароля завершен"
 
@@ -591,14 +607,9 @@ msgstr "Регистрация  завершена"
 msgid "Register"
 msgstr "Регистрация"
 
-#: templates/search/pagination.html:8
-msgid "previous page"
-msgstr "предыдущая страница"
-
-#: templates/search/pagination.html:11
-msgid "next page"
-msgstr "следующая страница"
-
 #: templates/search/search.html:34
 msgid "pages"
 msgstr "страница"
+
+#~ msgid "Moving post"
+#~ msgstr "Переместить сообщение"
