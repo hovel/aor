@@ -56,6 +56,14 @@
             </div>
             <a class="permalink" href="{{ post.get_absolute_url }}">#</a>
             {% if request_user_profile.date_show_type == 1 %}{{ post.created }}{% else %}{{ post.created|timesince }} {% trans "ago" %}{% endif %}
+            {% if post.updated %}
+                ({% trans "edited" %}
+                {% if request_user_profile.date_show_type == 1 %}
+                    {{ post.updated }})
+                {% else %}
+                    {{ post.updated|timesince }} {% trans "ago" %})
+                {% endif %}
+            {% endif %}
             {% if user.is_superuser %}
                 {% trans "from" %} {{ post.user_ip }}
             {% endif %}
@@ -93,9 +101,6 @@
                         {{ post_user_profile.signature_html|safe }}
                     </div>
                 {% endif %}
-            {% endif %}
-            {% if post.updated %}
-                <div class="updated-message">{% trans "Edited" %} {% pybb_time post.updated %}</div>
             {% endif %}
 
             <div class="post-related">

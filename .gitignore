@@ -4,3 +4,4 @@ database.db
 settings_local.py
 local.py
 media/*
+.idea/*

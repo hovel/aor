@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-24 20:05+0400\n"
+"POT-Creation-Date: 2014-09-04 07:30+0400\n"
 "PO-Revision-Date: 2012-02-02 23:43+0400\n"
 "Last-Translator: Vladimir Korsun <korsun.vladimir@gmail.com>\n"
 "Language-Team: Russian <>\n"
@@ -30,11 +30,11 @@ msgstr "Введите текст с изображения каптчи"
 msgid "Signature"
 msgstr "Подпись"
 
-#: settings.py:166
+#: settings.py:167
 msgid "default theme"
 msgstr "тема по умолчанию"
 
-#: settings.py:167
+#: settings.py:168
 msgid "dark theme"
 msgstr "темная"
 
@@ -203,17 +203,17 @@ msgid "quote selected"
 msgstr "цитирование выделенного"
 
 #: templates/postman/view.html:30 templates/pybb/forum_last_update_info.html:7
-#: templates/pybb/post_template.html:58
+#: templates/pybb/post_template.html:58 templates/pybb/post_template.html:64
 #: templates/pybb/topic_last_message_info.html:9
 #: templates/pybb/user_topics.html:80
 msgid "ago"
 msgstr "назад"
 
-#: templates/postman/view.html:39 templates/pybb/post_template.html:82
+#: templates/postman/view.html:39 templates/pybb/post_template.html:90
 msgid "Member since"
 msgstr "Участник с"
 
-#: templates/postman/view.html:42 templates/pybb/post_template.html:85
+#: templates/postman/view.html:42 templates/pybb/post_template.html:93
 msgid "blocked"
 msgstr "заблокирован"
 
@@ -336,7 +336,7 @@ msgid "Choose topic where to move post"
 msgstr "Выберите тему для перемещения"
 
 #: templates/pybb/move_post.html:45 templates/pybb/move_post.html.py:61
-#: templates/pybb/post_template.html:76 templates/pybb/topic.html:52
+#: templates/pybb/post_template.html:84 templates/pybb/topic.html:52
 #: templates/pybb/topic.html.py:72 templates/pybb/topic_list.html:10
 #: templates/pybb/user_posts.html:20 templates/pybb/user_topics.html:22
 #: templates/search/search.html:13
@@ -380,16 +380,16 @@ msgid "Write personal message"
 msgstr "Написать ЛС"
 
 #: templates/pybb/post_template.html:60
+msgid "edited"
+msgstr "отредактировано"
+
+#: templates/pybb/post_template.html:68
 msgid "from"
 msgstr "с адреса"
 
-#: templates/pybb/post_template.html:70
+#: templates/pybb/post_template.html:78
 msgid "Topics"
 msgstr "Темы"
-
-#: templates/pybb/post_template.html:98
-msgid "Edited"
-msgstr "Отредактированный"
 
 #: templates/pybb/topic.html:24 templates/pybb/topic.html.py:80
 msgid "Unstick topic"
