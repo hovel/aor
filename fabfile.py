@@ -139,15 +139,18 @@ def purge_cloudflare_static():
     token = os.environ.get('CLOUDFLARE_TOKEN', CLOUDFLARE_TOKEN)
     email = os.environ.get('CLOUDFLARE_EMAIL', CLOUDFLARE_EMAIL)
     if not token or not email:
-        print 'purge static files failed'
+        print 'no cf token and/or email provided'
         return
 
-    response = urllib2.urlopen('https://www.cloudflare.com/api_json.html',
-                               data=urllib.urlencode({
-                                   'a': 'fpurge_ts',
-                                   'tkn': token,
-                                   'email': email,
-                                   'z': 'archlinux.org.ru',
-                                   'v': '1'
-                               }))
-    print response.read()
+    try:
+        response = urllib2.urlopen('https://www.cloudflare.com/api_json.html',
+                                   data=urllib.urlencode({
+                                       'a': 'fpurge_ts',
+                                       'tkn': token,
+                                       'email': email,
+                                       'z': 'archlinux.org.ru',
+                                       'v': '1'
+                                   }))
+        print response.read()
+    except Exception, ex:
+        print 'cf static purge failed: %s' % ex
