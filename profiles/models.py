@@ -39,18 +39,3 @@ class Profile(PybbProfile):
 
     def get_absolute_url(self):
         return reverse('pybb:user', kwargs={'username': self.user.username})
-
-
-def user_saved(instance, created, **kwargs):
-    if not created:
-        return
-    try:
-        add_post_permission = Permission.objects.get_by_natural_key('add_post', 'pybb', 'post')
-        add_topic_permission = Permission.objects.get_by_natural_key('add_topic', 'pybb', 'topic')
-    except Permission.DoesNotExist:
-        return
-    instance.user_permissions.add(add_post_permission, add_topic_permission)
-    instance.save()
-    Profile.objects.create(user=instance)
-
-post_save.connect(user_saved, sender=User)
