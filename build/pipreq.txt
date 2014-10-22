@@ -11,6 +11,7 @@ git+https://github.com/hovel/pybbm.git#egg=pybbm
 pytils
 sorl-thumbnail==11.12
 -e git+https://github.com/hovel/django-pure-pagination.git#egg=django_pure_pagination
+django-mailer
 hg+http://bitbucket.org/GeyseR/django-postman/#egg=django-postman
 django-ajax-selects
 pytz
