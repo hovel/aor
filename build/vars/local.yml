@@ -1,0 +1,25 @@
+---
+hovel_dev_run: True
+
+hovel_settings_template: local/settings_local.py.j2
+
+hovel_project_name: archlinux_local
+hovel_project_path: ""
+hovel_project_root: archlinux
+
+hovel_db:
+  name: archlinux
+  host: archlinux_db
+  port: 3306
+  user: root
+  password: qwerty
+  backup_prefix: archlinux
+
+hovel_django_secret_key: "local-secret"
+hovel_django_debug: "True"
+
+hovel_http:
+  port: 8000
+  domain: archlinux.org.ru
+
+execute_syncdb: True

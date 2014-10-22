@@ -1,0 +1,25 @@
+upstream app_server_djangoapp_{{ hovel_project_name }} {
+    server 127.0.0.1:{{ hovel_http.port }} fail_timeout=0;
+}
+
+server {
+    listen 80;
+    server_name www.{{ hovel_http.domain }};
+    return 301 https://{{ hovel_http.domain }}$request_uri;
+}
+
+server {
+    listen 80;
+    server_name {{ hovel_http.domain }} *.{{ hovel_http.domain }};
+
+    access_log  /var/log/nginx/{{ hovel_project_name }}-access.log;
+    error_log  /var/log/nginx/{{ hovel_project_name }}-error.log info;
+
+    location / {
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $http_host;
+        proxy_redirect off;
+        proxy_pass http://app_server_djangoapp_{{ hovel_project_name }};
+        break;
+    }
+}
