@@ -22,7 +22,7 @@ DATABASES = {
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-        'LOCATION': '{{ hovel_django_cache.host }}:{{ hovel_django_cache.post }}',
+        'LOCATION': '{{ hovel_django_cache.host }}:{{ hovel_django_cache.port }}',
         'KEY_PREFIX': '{{ hovel_project_name }}'
     }
 }
