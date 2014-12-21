@@ -1,7 +1,3 @@
-import bbcode
-from django.utils.html import urlize
-from django.utils.translation import ugettext_lazy as _
-from markdown import Markdown
 import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
