@@ -1,8 +1,12 @@
 {% extends "postman/base.html" %}
 {% load i18n bootstrap %}
 
-{% block extra_head %}
-    {{ form.media }}
+{% block extra_style %}
+    {{ form.media.css }}
+{% endblock %}
+
+{% block extra_script %}
+    {{ form.media.js }}
 {% endblock %}
 
 {% block content %}
