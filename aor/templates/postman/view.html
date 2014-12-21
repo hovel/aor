@@ -2,8 +2,12 @@
 {% load url from future %}
 {% load i18n postman_tags pybb_tags %}
 
+{% block extra_style %}
+    {{ form.media.css }}
+{% endblock %}
+
 {% block extra_script %}
-    {% include 'pybb/_markitup.html' %}
+    {{ form.media.js }}
 {% endblock %}
 
 {% block content %}

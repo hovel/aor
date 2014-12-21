@@ -1,6 +1,7 @@
 from django.db.models import Q
 from django.views.generic.base import TemplateView
 from postman.views import DisplayMixin, ReplyView
+from aor_messages.forms import AorFullReplyForm
 
 
 class AorReplyView(ReplyView):
@@ -11,6 +12,8 @@ class AorReplyView(ReplyView):
 
 
 class FixedFormInitialMixin(object):
+    form_class = AorFullReplyForm
+
     def get_context_data(self, **kwargs):
         context = super(FixedFormInitialMixin, self).get_context_data(**kwargs)
         form = context.get('form')

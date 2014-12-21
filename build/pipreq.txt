@@ -7,7 +7,7 @@ django-annoying
 django-registration
 django-simple-captcha
 gunicorn
-git+https://github.com/hovel/pybbm.git#egg=pybbm
+pybbm==0.16
 pytils
 sorl-thumbnail==11.12
 -e git+https://github.com/hovel/django-pure-pagination.git#egg=django_pure_pagination

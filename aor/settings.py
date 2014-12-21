@@ -147,21 +147,8 @@ PYBB_POLL_MAX_ANSWERS = 30
 AUTH_PROFILE_MODULE = 'profiles.Profile'
 PYBB_PROFILE_RELATED_NAME = 'profile'
 
-bbcode_parser = bbcode.Parser(replace_cosmetic=False)
-bbcode_parser.add_simple_formatter('img', '<img src="%(value)s">', replace_links=False)
-bbcode_parser.add_simple_formatter('code', '<pre><code>%(value)s</code></pre>', render_embedded=False, transform_newlines=False, swallow_trailing_newline=True)
-def _render_quote(name, value, options, parent, context):
-    if options and 'quote' in options:
-        origin_author = '<em>%s</em>' % options['quote']
-    else:
-        origin_author = ''
-    return '<blockquote>%s<br>%s</blockquote>' % (origin_author, value)
-bbcode_parser.add_formatter('quote', _render_quote, strip=True, swallow_trailing_newline=True)
-
-
-PYBB_MARKUP_ENGINES = {
-    'bbcode': lambda str: bbcode_parser.format(str),
-    'markdown': lambda str: urlize(Markdown(safe_mode='escape').convert(str))
+PYBB_MARKUP_ENGINES_PATHS = {
+    'bbcode': 'aor.markup_parsers.AorBBCodeParser'
 }
 
 AOR_THEMES = (

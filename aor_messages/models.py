@@ -5,7 +5,7 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch.dispatcher import receiver
 from postman.models import Message
-from pybb import defaults
+from pybb import util as pybb_util
 
 
 class AorMessage(models.Model):
@@ -13,7 +13,7 @@ class AorMessage(models.Model):
     body_html = models.TextField()
 
     def save(self, *args, **kwargs):
-        self.body_html = defaults.PYBB_MARKUP_ENGINES[defaults.PYBB_MARKUP](self.message.body)
+        self.body_html = pybb_util.get_markup_engine().format(self.message.body)
         super(AorMessage, self).save(*args, **kwargs)
 
 

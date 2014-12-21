@@ -2,8 +2,6 @@ from django.contrib.auth.forms import AuthenticationForm
 from django import forms
 from django.utils.translation import ugettext as _
 from pybb.forms import EditProfileForm
-from pybb.models import Post, Topic
-from pybb.permissions import perms
 from registration.forms import RegistrationFormUniqueEmail
 from captcha.fields import CaptchaField
 from profiles.models import Profile
