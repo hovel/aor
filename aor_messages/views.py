@@ -1,10 +1,16 @@
 from django.db.models import Q
 from django.views.generic.base import TemplateView
-from postman.views import DisplayMixin, ReplyView
-from aor_messages.forms import AorFullReplyForm
+from postman.views import DisplayMixin, ReplyView, WriteView
+from aor_messages.forms import AorFullReplyForm, AorWriteForm
+
+
+class AorWriteView(WriteView):
+    form_classes = (AorWriteForm, )
 
 
 class AorReplyView(ReplyView):
+    form_class = AorFullReplyForm
+
     def get_initial(self):
         self.initial = super(AorReplyView, self).get_initial()
         self.initial['body'] = None
