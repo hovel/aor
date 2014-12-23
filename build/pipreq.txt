@@ -7,7 +7,7 @@ django-annoying
 django-registration
 django-simple-captcha
 gunicorn
-pybbm==0.16
+pybbm==0.16.1
 pytils
 sorl-thumbnail==11.12
 -e git+https://github.com/hovel/django-pure-pagination.git#egg=django_pure_pagination
@@ -21,4 +21,3 @@ python-dateutil<2.0
 django-bootstrap-form>=3
 django-debug-toolbar
 bbcode
-
