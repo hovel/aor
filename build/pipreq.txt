@@ -8,7 +8,7 @@ django-simple-captcha
 gunicorn
 pybbm==0.16.1
 pytils
-sorl-thumbnail==12.12
+sorl-thumbnail==12.2
 django-mailer
 django-ajax-selects
 pytz
