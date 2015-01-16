@@ -54,6 +54,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'Insert your SECRET_KEY from your local.py'
 
+TEST_RUNNER = 'django.test.runner.DiscoverRunner'
+
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
@@ -102,7 +104,6 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
-    'south',
     'registration',
     'sorl.thumbnail',
     'captcha',

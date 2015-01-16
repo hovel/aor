@@ -61,7 +61,7 @@
             {% endif %}
         {% endif %}
         {% if perms.pybb.can_edit %}
-            <a href="{% url 'admin:profiles_profile_change' target_user.get_profile.id %}" class="btn btn-default">{% trans 'Admin' %}</a>
+            <a href="{% url 'admin:profiles_profile_change' target_user.profile.id %}" class="btn btn-default">{% trans 'Admin' %}</a>
         {% endif %}
         {% if target_user == user %}
             <a class="btn btn-default" href="{% url 'pybb:edit_profile' %}">{% trans 'Profile settings' %}</a>

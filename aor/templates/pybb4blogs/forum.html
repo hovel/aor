@@ -22,7 +22,7 @@
             </div>
             {{ topic.head.body_html|truncatewords_html:50|safe }}
             <div class="info">
-                <a href="{{ topic.user.get_profile.get_absolute_url }}">
+                <a href="{{ topic.user.profile.get_absolute_url }}">
                     {{ topic.user }}
                 </a>
                 {% trans "wrote" %}
@@ -35,7 +35,7 @@
 
     {% include "pybb/pagination.html" %}
 
-    {% if PYBB_ENABLE_ANONYMOUS_POST or not user.get_profile.is_banned %}
+    {% if PYBB_ENABLE_ANONYMOUS_POST or not user.profile.is_banned %}
         <div class="controls">
             <a href="{% url 'pybb:add_topic' forum.id %}"
                class="btn btn-primary">

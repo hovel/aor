@@ -1,7 +1,7 @@
 {% load thumbnail %}
 
 <div class="avatar">
-    {% thumbnail user.get_profile.avatar "80x80" format="PNG" as avatar %}
+    {% thumbnail user.profile.avatar "80x80" format="PNG" as avatar %}
         <img src="{{ avatar.url }}" alt="{{ user }} avatar" />
     {% endthumbnail %}
 </div>

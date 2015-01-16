@@ -1,9 +1,8 @@
 from annoying.fields import AutoOneToOneField
-from django.contrib.auth.models import User, Permission
+from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 from django.core.validators import RegexValidator
 from django.db import models
-from django.db.models.signals import post_save
 from django.utils.translation import ugettext_lazy as _
 from pybb.models import PybbProfile
 from aor.settings import AOR_THEMES
@@ -17,7 +16,7 @@ class Profile(PybbProfile):
         (PROFILE_DATE_SHOW_REVERTED, _(u'Reverted')),
         (PROFILE_DATE_SHOW_CLASSIC, _(u'Classic')),
     )
-    user = AutoOneToOneField(User)
+    user = AutoOneToOneField(User, related_name='profile')
     theme = models.CharField(max_length=32, choices=AOR_THEMES, default='default')
     date_show_type = models.IntegerField(verbose_name=_(u'Date show type'), choices=PROFILE_DATE_SHOW_TYPES,
                                          default=PROFILE_DATE_SHOW_REVERTED)

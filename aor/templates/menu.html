@@ -24,7 +24,7 @@
 
     <li class="dropdown">
         {% if user.is_authenticated %}
-            <a href="{{ user.get_profile.get_absolute_url }}" class="dropdown-toggle" data-toggle="dropdown">
+            <a href="{{ user.profile.get_absolute_url }}" class="dropdown-toggle" data-toggle="dropdown">
                 {{ user }}
                 {% if postman_unread_count %}
                     <i class="glyphicon glyphicon-comment" title="{% trans 'New pesonal messages' %}"></i>
@@ -32,7 +32,7 @@
                 <b class="caret"></b>
             </a>            
             <ul class="dropdown-menu">
-                <li><a href="{{ user.get_profile.get_absolute_url }}">{% trans "Profile" %}</a></li>
+                <li><a href="{{ user.profile.get_absolute_url }}">{% trans "Profile" %}</a></li>
                 <li>
                     <a href="{% url 'postman_inbox' %}">
                         {% trans 'Personal messages' %}
