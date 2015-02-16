@@ -121,8 +121,9 @@ INSTALLED_APPS = (
     'storages'
 )
 
-CAPTCHA_LENGTH = 7
-CAPTCHA_LETTER_ROTATION = (-70, 70)
+CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.math_challenge'
+#CAPTCHA_LENGTH = 7
+CAPTCHA_LETTER_ROTATION = (-10, 10)
 CAPTCHA_TIMEOUT = 1
 CAPTCHA_NOISE_FUNCTIONS = ('captcha.helpers.noise_dots',)
 #AUTH_PROFILE_MODULE = 'pybb.Profile'

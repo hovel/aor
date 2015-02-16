@@ -7,274 +7,514 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-12-19 15:31+0200\n"
+"POT-Creation-Date: 2015-02-16 15:50+0300\n"
 "PO-Revision-Date: 2012-12-19 18:02+0300\n"
 "Last-Translator: Sergey Tereschenko <serg.partizan@gmail.com>\n"
 "Language-Team: Ukraine <ua@li.org>\n"
+"Language: Ukrainian\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: Ukrainian\n"
 
-#: forms.py:10 forms.py:15
+#: forms.py:11 forms.py:15
 msgid "Captcha"
 msgstr "Капча"
 
-#: forms.py:11 forms.py:16
-msgid "Enter text from captcha image"
-msgstr "Введіть текст із зображення"
-
-#: forms.py:20
+#: forms.py:24
 msgid "Signature"
 msgstr "Підпис"
+
+#: settings.py:154
+msgid "default theme"
+msgstr ""
+
+#: settings.py:155
+msgid "dark theme"
+msgstr ""
 
 #: templates/base.html:8
 msgid "Arch Linux Russian Community"
 msgstr "Російська спільнота Arch Linux"
 
-#: templates/forum.html:8
-msgid "Front page"
-msgstr "Головна сторінка"
-
-#: templates/index.html:22
+#: templates/index.html:21
 msgid "Join us"
 msgstr "Приєднатися"
 
-#: templates/index.html:26 templates/menu.html:76
+#: templates/index.html:24 templates/menu.html:56
 #: templates/registration/login.html:9
+#: templates/registration/password_reset_confirm.html:20
 msgid "Login"
 msgstr "Вхід"
 
-#: templates/index.html:36 templates/menu.html:11
-#: templates/pybb4blogs/forum.html:4 templates/pybb4news/base.html:21
-#: templates/pybb4news/forum.html:4
+#: templates/index.html:35 templates/menu.html:3
+#: templates/pybb4news/base.html:11 templates/pybb4news/forum.html:4
+#: templates/pybb4news/forum.html.py:13
 msgid "News"
 msgstr "Новини"
 
-#: templates/index.html:49 templates/menu.html:21
-#: templates/pybb4blogs/base.html:21
+#: templates/index.html:41 templates/menu.html:5
+#: templates/pybb4blogs/base.html:6 templates/pybb4blogs/forum.html:4
+#: templates/pybb4blogs/forum.html.py:13
 msgid "Blogs"
 msgstr "Блоги"
 
-#: templates/menu.html:16
+#: templates/index.html:51
+#, fuzzy
+#| msgid "Last post"
+msgid "Last topics"
+msgstr "Останнє повідомлення"
+
+#: templates/irc_mibbit_widget.html:18
+msgid "Arch Chat"
+msgstr ""
+
+#: templates/menu.html:4
 msgid "Forum"
 msgstr "Форум"
 
-#: templates/menu.html:26
-msgid "Wiki"
-msgstr "Вікі"
-
-#: templates/menu.html:31
+#: templates/menu.html:9
 msgid "Download"
 msgstr "Завантажити"
 
-#: templates/menu.html:43 templates/menu.html.py:51
+#: templates/menu.html:23
+msgid "Chat"
+msgstr ""
+
+#: templates/menu.html:30
+msgid "New pesonal messages"
+msgstr ""
+
+#: templates/menu.html:35 templates/menu.html.py:52
 msgid "Profile"
 msgstr "Профіль"
 
-#: templates/menu.html:56
-msgid "Password change"
-msgstr "Змінити пароль"
+#: templates/menu.html:38 templates/pybb/user.html:69
+msgid "Personal messages"
+msgstr ""
 
-#: templates/menu.html:63 templates/pybb/post_template.html:108
-#: templates/pybb/topic.html:55 templates/pybb/user.html:39
+#: templates/menu.html:42 templates/pybb/user.html:67
+#, fuzzy
+#| msgid "Profile editing"
+msgid "Profile settings"
+msgstr "Редагування профілю"
+
+#: templates/menu.html:45 templates/pybb/topic.html:39
+#: templates/pybb/topic.html.py:95 templates/pybb/user.html:64
 msgid "Admin"
 msgstr "Адмінка"
 
-#: templates/menu.html:70
+#: templates/menu.html:48
 msgid "Logout"
 msgstr "Вихід"
 
-#: templates/menu.html:81 templates/registration/registration_form.html:9
+#: templates/menu.html:57 templates/registration/registration_form.html:9
 msgid "Registration"
 msgstr "Реєстрація"
 
-#: templates/paginator.html:7
-msgid "previous"
-msgstr "попередня"
+#: templates/postman/base.html:4
+msgid "Messaging"
+msgstr ""
 
-#: templates/paginator.html:11
-msgid "Page"
-msgstr "Сторінка"
+#: templates/postman/base.html:13
+msgid "Inbox"
+msgstr ""
 
-#: templates/paginator.html:11
-msgid "of"
-msgstr "з"
+#: templates/postman/base.html:14
+msgid "Sent Messages"
+msgstr ""
 
-#: templates/paginator.html:15
-msgid "next"
-msgstr "наступна"
+#: templates/postman/base.html:15
+msgid "Write"
+msgstr ""
 
-#: templates/pybb/category.html:9 templates/pybb/category.html.py:31
-msgid "Hidden"
-msgstr "Сховано"
+#: templates/postman/base.html:16
+msgid "Archives"
+msgstr ""
 
-#: templates/pybb/category.html:12
-msgid "Topics"
-msgstr "Теми"
+#: templates/postman/base.html:17
+msgid "Trash"
+msgstr ""
 
-#: templates/pybb/category.html:15 templates/pybb/forum.html:26
-#: templates/pybb/topic.html:36
-msgid "Posts"
-msgstr "Повідомлення"
+#: templates/postman/base_folder.html:10
+msgid "Sorry, this page number is invalid."
+msgstr ""
 
-#: templates/pybb/category.html:18
-msgid "Last posts"
-msgstr "Останні повідомлення"
+#: templates/postman/base_folder.html:15
+msgid "by conversation"
+msgstr ""
 
-#: templates/pybb/category.html:50
-msgid "No forums created"
-msgstr "Не створоено жодного форуму"
+#: templates/postman/base_folder.html:16
+msgid "by message"
+msgstr ""
 
-#: templates/pybb/category.html:51
-msgid "Add forum now"
-msgstr "Додати форум"
+#: templates/postman/base_folder.html:23 templates/postman/view.html:63
+#: templates/pybb/post_template.html:39
+msgid "Delete"
+msgstr "Видалити"
+
+#: templates/postman/base_folder.html:24 templates/postman/view.html:67
+msgid "Archive"
+msgstr ""
+
+#: templates/postman/base_folder.html:25
+#, fuzzy
+#| msgid "delete"
+msgid "Undelete"
+msgstr "видалити"
+
+#: templates/postman/base_folder.html:33
+msgid "Action"
+msgstr ""
+
+#: templates/postman/base_folder.html:34
+msgid "Sender"
+msgstr ""
+
+#: templates/postman/base_folder.html:35
+msgid "Recipient"
+msgstr ""
+
+#: templates/postman/base_folder.html:36
+msgid "Subject"
+msgstr ""
+
+#: templates/postman/base_folder.html:37
+msgid "Date"
+msgstr ""
+
+#: templates/postman/base_folder.html:64
+msgid "No messages."
+msgstr ""
+
+#: templates/postman/base_write.html:21
+msgid "Send"
+msgstr ""
+
+#: templates/postman/view.html:15
+msgid "Conversation"
+msgstr ""
+
+#: templates/postman/view.html:15
+msgid "Message"
+msgstr ""
+
+#: templates/postman/view.html:31 templates/pybb/post_template.html:51
+msgid "quote selected"
+msgstr ""
+
+#: templates/postman/view.html:34 templates/pybb/forum_last_update_info.html:7
+#: templates/pybb/post_template.html:58 templates/pybb/post_template.html:64
+#: templates/pybb/topic_last_message_info.html:9
+#: templates/pybb/user_topics.html:80
+msgid "ago"
+msgstr ""
+
+#: templates/postman/view.html:43 templates/pybb/post_template.html:90
+msgid "Member since"
+msgstr ""
+
+#: templates/postman/view.html:46 templates/pybb/post_template.html:93
+#, fuzzy
+#| msgid "Block"
+msgid "blocked"
+msgstr "Блок"
+
+#: templates/postman/view.html:60
+msgid "Back"
+msgstr ""
+
+#: templates/postman/view.html:63 templates/postman/view.html.py:67
+msgid "all thread"
+msgstr ""
+
+#: templates/postman/view.html:74 templates/postman/view.html.py:77
+msgid "Reply"
+msgstr ""
 
 #: templates/pybb/edit_profile.html:4
 msgid "Profile editing"
 msgstr "Редагування профілю"
 
-#: templates/pybb/edit_profile.html:17
+#: templates/pybb/edit_profile.html:11
 msgid "Change the password"
 msgstr "Змінити пароль"
 
-#: templates/pybb/edit_profile.html:26
+#: templates/pybb/edit_profile.html:20
 msgid "Save"
 msgstr "Зберегти"
 
-#: templates/pybb/edit_profile.html:34
+#: templates/pybb/edit_profile.html:28
 msgid "Subscriptions on topics"
 msgstr "Підписка на теми"
 
-#: templates/pybb/edit_profile.html:41
+#: templates/pybb/edit_profile.html:35
 msgid "delete"
 msgstr "видалити"
 
-#: templates/pybb/forum.html:23
-msgid "Topic"
-msgstr "Тема"
+#: templates/pybb/index.html:7
+msgid "Index"
+msgstr ""
 
-#: templates/pybb/forum.html:29
-msgid "Views"
-msgstr "Перегляди"
+#: templates/pybb/index.html:16 templates/pybb/index.html.py:39
+#: templates/pybb/latest_topics.html:5 templates/pybb/latest_topics.html:8
+#: templates/pybb/latest_topics.html:22
+msgid "Last updates in topics"
+msgstr ""
 
-#: templates/pybb/forum.html:32
-msgid "Last post"
-msgstr "Останнє повідомлення"
+#: templates/pybb/index.html:21 templates/pybb/index.html.py:44
+#, fuzzy
+#| msgid "No forums created"
+msgid "Mark all forums as read"
+msgstr "Не створоено жодного форуму"
 
-#: templates/pybb/forum.html:42
-msgid "Sticky"
-msgstr "Закріплено"
+#: templates/pybb/index.html:30
+msgid "Forum categories are not created"
+msgstr ""
 
-#: templates/pybb/forum.html:43
-msgid "Closed"
-msgstr "Закрито"
+#: templates/pybb/index.html:33
+#, fuzzy
+#| msgid "Add forum now"
+msgid "Add a category now"
+msgstr "Додати форум"
 
-#: templates/pybb/forum.html:47
-msgid "pages"
-msgstr "сторінок"
+#: templates/pybb/latest_topics.html:17 templates/pybb/latest_topics.html:38
+msgid "Mark all topics as read"
+msgstr ""
 
-#: templates/pybb/post_template.html:27
-msgid "Rank"
-msgstr "Ранг"
+#: templates/pybb/move_post.html:5
+msgid "Move post to another topic"
+msgstr ""
 
-#: templates/pybb/post_template.html:48
-msgid "Edited"
-msgstr "Відредаговано"
+#: templates/pybb/move_post.html:26
+msgid "Choose topic where to move post"
+msgstr ""
 
-#: templates/pybb/post_template.html:82
-msgid "quote"
-msgstr "цитувати"
+#: templates/pybb/move_post.html:45 templates/pybb/move_post.html.py:61
+#: templates/pybb/post_template.html:84 templates/pybb/topic.html:56
+#: templates/pybb/topic.html.py:76 templates/pybb/topic_list.html:10
+#: templates/pybb/user_posts.html:20 templates/pybb/user_topics.html:22
+#: templates/search/search.html:13
+msgid "Posts"
+msgstr "Повідомлення"
 
-#: templates/pybb/post_template.html:87 templates/pybb/user.html:34
-msgid "Edit"
-msgstr "Редагувати"
-
-#: templates/pybb/post_template.html:92
-msgid "Delete post?"
+#: templates/pybb/move_post.html:65
+#, fuzzy
+#| msgid "Delete post?"
+msgid "Move selected posts"
 msgstr "Видалити повідомлення?"
 
-#: templates/pybb/post_template.html:95
-msgid "Delete"
-msgstr "Видалити"
+#: templates/pybb/pagination.html:7 templates/search/pagination.html:8
+#, fuzzy
+#| msgid "previous"
+msgid "previous page"
+msgstr "попередня"
 
-#: templates/pybb/post_template.html:100
+#: templates/pybb/pagination.html:21 templates/search/pagination.html:11
+#, fuzzy
+#| msgid "Front page"
+msgid "next page"
+msgstr "Головна сторінка"
+
+#: templates/pybb/post_template.html:27
+#, fuzzy
+#| msgid "Approve post"
+msgid "Move post"
+msgstr "Одобрити повідомлення"
+
+#: templates/pybb/post_template.html:32
 msgid "Approve post"
 msgstr "Одобрити повідомлення"
 
-#: templates/pybb/topic.html:44
+#: templates/pybb/post_template.html:36
+msgid "Delete post?"
+msgstr "Видалити повідомлення?"
+
+#: templates/pybb/post_template.html:44
+msgid "Edit"
+msgstr "Редагувати"
+
+#: templates/pybb/post_template.html:48
+msgid "quote"
+msgstr "цитувати"
+
+#: templates/pybb/post_template.html:53 templates/pybb/user.html:73
+msgid "Write personal message"
+msgstr ""
+
+#: templates/pybb/post_template.html:60
+#, fuzzy
+#| msgid "Edited"
+msgid "edited"
+msgstr "Відредаговано"
+
+#: templates/pybb/post_template.html:68
+msgid "from"
+msgstr ""
+
+#: templates/pybb/post_template.html:78
+msgid "Topics"
+msgstr "Теми"
+
+#: templates/pybb/topic.html:28 templates/pybb/topic.html.py:84
 msgid "Unstick topic"
 msgstr "Відкріпити тему"
 
-#: templates/pybb/topic.html:46
+#: templates/pybb/topic.html:30 templates/pybb/topic.html.py:86
 msgid "Stick topic"
 msgstr "Закріпити тему"
 
-#: templates/pybb/topic.html:50
+#: templates/pybb/topic.html:34 templates/pybb/topic.html.py:90
 msgid "Open topic"
 msgstr "Відкрити тему"
 
-#: templates/pybb/topic.html:52
+#: templates/pybb/topic.html:36 templates/pybb/topic.html.py:92
 msgid "Close topic"
 msgstr "Закрити тему"
 
-#: templates/pybb/topic.html:64
+#: templates/pybb/topic.html:48 templates/pybb/topic.html.py:104
 msgid "Unsubscribe"
 msgstr "Відписатися"
 
-#: templates/pybb/topic.html:66
+#: templates/pybb/topic.html:50 templates/pybb/topic.html.py:106
 msgid "Subscribe"
 msgstr "Підписатися"
 
-#: templates/pybb/topic.html:83
+#: templates/pybb/topic.html:125
 msgid "Subscribers"
 msgstr "Підписалися"
 
-#: templates/pybb/user.html:17
+#: templates/pybb/topic_last_message_info.html:12
+msgid "posted by"
+msgstr ""
+
+#: templates/pybb/topic_list.html:7 templates/pybb/user_topics.html:19
+#: templates/search/search.html:10
+msgid "Topic"
+msgstr "Тема"
+
+#: templates/pybb/topic_list.html:13 templates/pybb/user_topics.html:25
+#: templates/search/search.html:16
+msgid "Views"
+msgstr "Перегляди"
+
+#: templates/pybb/topic_list.html:16 templates/pybb/user_topics.html:28
+#: templates/search/search.html:19
+msgid "Last post"
+msgstr "Останнє повідомлення"
+
+#: templates/pybb/topic_list.html:26 templates/pybb/user_topics.html:38
+#: templates/search/search.html:29
+msgid "Sticky"
+msgstr "Закріплено"
+
+#: templates/pybb/topic_list.html:27 templates/pybb/user_topics.html:39
+#: templates/search/search.html:30
+msgid "Closed"
+msgstr "Закрито"
+
+#: templates/pybb/topic_list.html:46 templates/pybb/user_topics.html:58
+msgid "Go to first unread post"
+msgstr ""
+
+#: templates/pybb/topic_list.html:52
+msgid "Author"
+msgstr ""
+
+#: templates/pybb/topic_list.html:54 templates/pybb/user_topics.html:64
+msgid "posted in"
+msgstr ""
+
+#: templates/pybb/user.html:13
+msgid "Information"
+msgstr ""
+
+#: templates/pybb/user.html:25
+msgid "Personal site"
+msgstr ""
+
+#: templates/pybb/user.html:28
+msgid "Interests"
+msgstr ""
+
+#: templates/pybb/user.html:31
 msgid "Statistics"
 msgstr "Статистика"
 
-#: templates/pybb/user.html:18
-msgid "Number of posts"
-msgstr "Кількість повідомлень"
-
-#: templates/pybb/user.html:20
+#: templates/pybb/user.html:34
 msgid "Number of topics"
 msgstr "Кількість тем"
 
-#: templates/pybb/user.html:29
+#: templates/pybb/user.html:40
+msgid "Number of posts"
+msgstr "Кількість повідомлень"
+
+#: templates/pybb/user.html:45
 msgid "Date of registration"
 msgstr "Дата реєстрації"
 
-#: templates/pybb/user.html:36
+#: templates/pybb/user.html:55
 msgid "Block"
 msgstr "Блок"
 
-#: templates/pybb4blogs/forum.html:23
+#: templates/pybb/user.html:59
+#, fuzzy
+#| msgid "Block"
+msgid "Unblock"
+msgstr "Блок"
+
+#: templates/pybb/user_posts.html:4 templates/pybb/user_posts.html.py:8
+#, fuzzy
+#| msgid "Posts"
+msgid "posts"
+msgstr "Повідомлення"
+
+#: templates/pybb/user_topics.html:4 templates/pybb/user_topics.html.py:8
+#, fuzzy
+#| msgid "Topics"
+msgid "topics"
+msgstr "Теми"
+
+#: templates/pybb4blogs/forum.html:28
 msgid "wrote"
 msgstr "написав"
 
-#: templates/pybb4blogs/forum.html:25
+#: templates/pybb4blogs/forum.html:30
 msgid "Comments"
 msgstr "Коментарі"
 
-#: templates/pybb4blogs/forum.html:37
+#: templates/pybb4blogs/forum.html:42
 msgid "New topic"
 msgstr "Нова тема"
 
-#: templates/pybb4news/forum.html:28
+#: templates/pybb4news/base.html:6
+msgid "Latest news"
+msgstr ""
+
+#: templates/pybb4news/forum.html:33
 msgid "Add news"
 msgstr "Додати новину"
+
+#: templates/registration/activate.html:5
+#, fuzzy
+#| msgid "Registration complete"
+msgid "Registration almost complete"
+msgstr "Реєстрацію завершено."
+
+#: templates/registration/activate.html:7
+msgid "Activation of the account is successfull."
+msgstr ""
+
+#: templates/registration/activate.html:14
+#: templates/registration/activation_complete.html:11
+msgid "Activation completed"
+msgstr "Активацію завершено"
 
 #: templates/registration/activation_complete.html:6
 msgid "Your account activated."
 msgstr "Ваш аккаунт активовано"
 
-#: templates/registration/activation_complete.html:11
-msgid "Activation completed"
-msgstr "Активацію завершено"
-
 #: templates/registration/login.html:12
+#: templates/registration/password_reset_confirm.html:21
 #: templates/registration/password_reset_form.html:9
 msgid "Password reset"
 msgstr "Забули пароль?"
@@ -294,7 +534,7 @@ msgstr "Пароль змінено успішно."
 
 #: templates/registration/password_change_form.html:10
 #: templates/registration/password_change_form.html:38
-#: templates/registration/password_reset_confirm.html:11
+#: templates/registration/password_reset_confirm.html:12
 msgid "Change password"
 msgstr "Змінити пароль"
 
@@ -303,7 +543,11 @@ msgstr "Змінити пароль"
 msgid "Password reset complete"
 msgstr "Зміну паролю завершено"
 
-#: templates/registration/password_reset_confirm.html:25
+#: templates/registration/password_reset_confirm.html:19
+msgid "Reset link is broken."
+msgstr ""
+
+#: templates/registration/password_reset_confirm.html:33
 msgid "Password reset confirm"
 msgstr "Підтвердження зміни паролю"
 
@@ -334,3 +578,34 @@ msgstr "Реєстрацію завершено."
 #: templates/registration/registration_form.html:31
 msgid "Register"
 msgstr "Зареєструватися"
+
+#: templates/search/search.html:34
+msgid "pages"
+msgstr "сторінок"
+
+#~ msgid "Enter text from captcha image"
+#~ msgstr "Введіть текст із зображення"
+
+#~ msgid "Wiki"
+#~ msgstr "Вікі"
+
+#~ msgid "Password change"
+#~ msgstr "Змінити пароль"
+
+#~ msgid "Page"
+#~ msgstr "Сторінка"
+
+#~ msgid "of"
+#~ msgstr "з"
+
+#~ msgid "next"
+#~ msgstr "наступна"
+
+#~ msgid "Hidden"
+#~ msgstr "Сховано"
+
+#~ msgid "Last posts"
+#~ msgstr "Останні повідомлення"
+
+#~ msgid "Rank"
+#~ msgstr "Ранг"

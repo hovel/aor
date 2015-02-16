@@ -8,13 +8,11 @@ from profiles.models import Profile
 
 
 class RegistrationFormCaptcha(RegistrationFormUniqueEmail):
-    captcha = CaptchaField(label=_('Captcha'),
-        help_text=_('Enter text from captcha image'))
+    captcha = CaptchaField(label=_('Captcha'))
 
 
 class AuthenticationFormCaptcha(AuthenticationForm):
-    captcha = CaptchaField(label=_('Captcha'),
-        help_text=_('Enter text from captcha image'))
+    captcha = CaptchaField(label=_('Captcha'))
 
 
 class AORProfileForm(EditProfileForm):

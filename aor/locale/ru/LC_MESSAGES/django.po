@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-04 07:30+0400\n"
+"POT-Creation-Date: 2015-02-16 15:50+0300\n"
 "PO-Revision-Date: 2012-02-02 23:43+0400\n"
 "Last-Translator: Vladimir Korsun <korsun.vladimir@gmail.com>\n"
 "Language-Team: Russian <>\n"
@@ -18,23 +18,19 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Lokalize 1.4\n"
 
-#: forms.py:13 forms.py:18
+#: forms.py:11 forms.py:15
 msgid "Captcha"
 msgstr "Каптча"
 
-#: forms.py:14 forms.py:19
-msgid "Enter text from captcha image"
-msgstr "Введите текст с изображения каптчи"
-
-#: forms.py:28
+#: forms.py:24
 msgid "Signature"
 msgstr "Подпись"
 
-#: settings.py:167
+#: settings.py:154
 msgid "default theme"
 msgstr "тема по умолчанию"
 
-#: settings.py:168
+#: settings.py:155
 msgid "dark theme"
 msgstr "темная"
 
@@ -100,8 +96,8 @@ msgstr "Личные сообщения"
 msgid "Profile settings"
 msgstr "Редактирование профиля"
 
-#: templates/menu.html:45 templates/pybb/topic.html:35
-#: templates/pybb/topic.html.py:91 templates/pybb/user.html:64
+#: templates/menu.html:45 templates/pybb/topic.html:39
+#: templates/pybb/topic.html.py:95 templates/pybb/user.html:64
 msgid "Admin"
 msgstr "Админка"
 
@@ -149,12 +145,12 @@ msgstr "по беседам"
 msgid "by message"
 msgstr "по сообщениям"
 
-#: templates/postman/base_folder.html:23 templates/postman/view.html:59
+#: templates/postman/base_folder.html:23 templates/postman/view.html:63
 #: templates/pybb/post_template.html:39
 msgid "Delete"
 msgstr "Удалить"
 
-#: templates/postman/base_folder.html:24 templates/postman/view.html:63
+#: templates/postman/base_folder.html:24 templates/postman/view.html:67
 msgid "Archive"
 msgstr "Архивировать"
 
@@ -186,100 +182,48 @@ msgstr "Дата отправки"
 msgid "No messages."
 msgstr "Сообщений нет."
 
-#: templates/postman/base_write.html:17
+#: templates/postman/base_write.html:21
 msgid "Send"
 msgstr "Отправить"
 
-#: templates/postman/view.html:11
+#: templates/postman/view.html:15
 msgid "Conversation"
 msgstr "Беседа"
 
-#: templates/postman/view.html:11
+#: templates/postman/view.html:15
 msgid "Message"
 msgstr "Сообщение"
 
-#: templates/postman/view.html:27 templates/pybb/post_template.html:51
+#: templates/postman/view.html:31 templates/pybb/post_template.html:51
 msgid "quote selected"
 msgstr "цитирование выделенного"
 
-#: templates/postman/view.html:30 templates/pybb/forum_last_update_info.html:7
+#: templates/postman/view.html:34 templates/pybb/forum_last_update_info.html:7
 #: templates/pybb/post_template.html:58 templates/pybb/post_template.html:64
 #: templates/pybb/topic_last_message_info.html:9
 #: templates/pybb/user_topics.html:80
 msgid "ago"
 msgstr "назад"
 
-#: templates/postman/view.html:39 templates/pybb/post_template.html:90
+#: templates/postman/view.html:43 templates/pybb/post_template.html:90
 msgid "Member since"
 msgstr "Участник с"
 
-#: templates/postman/view.html:42 templates/pybb/post_template.html:93
+#: templates/postman/view.html:46 templates/pybb/post_template.html:93
 msgid "blocked"
 msgstr "заблокирован"
 
-#: templates/postman/view.html:56
+#: templates/postman/view.html:60
 msgid "Back"
 msgstr "Назад"
 
-#: templates/postman/view.html:59 templates/postman/view.html.py:63
+#: templates/postman/view.html:63 templates/postman/view.html.py:67
 msgid "all thread"
 msgstr "все сообщения в беседе"
 
-#: templates/postman/view.html:70 templates/postman/view.html.py:73
+#: templates/postman/view.html:74 templates/postman/view.html.py:77
 msgid "Reply"
 msgstr "Ответить"
-
-#: templates/pybb/_markitup.html:14
-msgid "Bold"
-msgstr "Жирный"
-
-#: templates/pybb/_markitup.html:15
-msgid "Italic"
-msgstr "Курсив"
-
-#: templates/pybb/_markitup.html:16
-msgid "Underline"
-msgstr "Подчёркнутый"
-
-#: templates/pybb/_markitup.html:17
-msgid "Stroke"
-msgstr "Зачёркнутый"
-
-#: templates/pybb/_markitup.html:19
-msgid "Picture"
-msgstr "Изображение"
-
-#: templates/pybb/_markitup.html:20
-msgid "Link"
-msgstr "Ссылка"
-
-#: templates/pybb/_markitup.html:22
-msgid "Bulleted list"
-msgstr "Ненумерованный список"
-
-#: templates/pybb/_markitup.html:23
-msgid "Numeric list"
-msgstr "Нумерованный список"
-
-#: templates/pybb/_markitup.html:24
-msgid "List item"
-msgstr "Элемент списка"
-
-#: templates/pybb/_markitup.html:26
-msgid "Quotes"
-msgstr "Цитировать"
-
-#: templates/pybb/_markitup.html:27
-msgid "Code"
-msgstr "Код"
-
-#: templates/pybb/_markitup.html:29
-msgid "Clean"
-msgstr "Очистить"
-
-#: templates/pybb/_markitup.html:30
-msgid "Preview"
-msgstr "Предосмотр"
 
 #: templates/pybb/edit_profile.html:4
 msgid "Profile editing"
@@ -336,8 +280,8 @@ msgid "Choose topic where to move post"
 msgstr "Выберите тему для перемещения"
 
 #: templates/pybb/move_post.html:45 templates/pybb/move_post.html.py:61
-#: templates/pybb/post_template.html:84 templates/pybb/topic.html:52
-#: templates/pybb/topic.html.py:72 templates/pybb/topic_list.html:10
+#: templates/pybb/post_template.html:84 templates/pybb/topic.html:56
+#: templates/pybb/topic.html.py:76 templates/pybb/topic_list.html:10
 #: templates/pybb/user_posts.html:20 templates/pybb/user_topics.html:22
 #: templates/search/search.html:13
 msgid "Posts"
@@ -391,31 +335,31 @@ msgstr "с адреса"
 msgid "Topics"
 msgstr "Темы"
 
-#: templates/pybb/topic.html:24 templates/pybb/topic.html.py:80
+#: templates/pybb/topic.html:28 templates/pybb/topic.html.py:84
 msgid "Unstick topic"
 msgstr "Открепить тему"
 
-#: templates/pybb/topic.html:26 templates/pybb/topic.html.py:82
+#: templates/pybb/topic.html:30 templates/pybb/topic.html.py:86
 msgid "Stick topic"
 msgstr "Закрепить тему"
 
-#: templates/pybb/topic.html:30 templates/pybb/topic.html.py:86
+#: templates/pybb/topic.html:34 templates/pybb/topic.html.py:90
 msgid "Open topic"
 msgstr "Открыть тему"
 
-#: templates/pybb/topic.html:32 templates/pybb/topic.html.py:88
+#: templates/pybb/topic.html:36 templates/pybb/topic.html.py:92
 msgid "Close topic"
 msgstr "Закрыть тему"
 
-#: templates/pybb/topic.html:44 templates/pybb/topic.html.py:100
+#: templates/pybb/topic.html:48 templates/pybb/topic.html.py:104
 msgid "Unsubscribe"
 msgstr "Отписаться"
 
-#: templates/pybb/topic.html:46 templates/pybb/topic.html.py:102
+#: templates/pybb/topic.html:50 templates/pybb/topic.html.py:106
 msgid "Subscribe"
 msgstr "Подписаться"
 
-#: templates/pybb/topic.html:121
+#: templates/pybb/topic.html:125
 msgid "Subscribers"
 msgstr "Подписчики"
 
@@ -610,6 +554,48 @@ msgstr "Регистрация"
 #: templates/search/search.html:34
 msgid "pages"
 msgstr "страница"
+
+#~ msgid "Enter text from captcha image"
+#~ msgstr "Введите текст с изображения каптчи"
+
+#~ msgid "Bold"
+#~ msgstr "Жирный"
+
+#~ msgid "Italic"
+#~ msgstr "Курсив"
+
+#~ msgid "Underline"
+#~ msgstr "Подчёркнутый"
+
+#~ msgid "Stroke"
+#~ msgstr "Зачёркнутый"
+
+#~ msgid "Picture"
+#~ msgstr "Изображение"
+
+#~ msgid "Link"
+#~ msgstr "Ссылка"
+
+#~ msgid "Bulleted list"
+#~ msgstr "Ненумерованный список"
+
+#~ msgid "Numeric list"
+#~ msgstr "Нумерованный список"
+
+#~ msgid "List item"
+#~ msgstr "Элемент списка"
+
+#~ msgid "Quotes"
+#~ msgstr "Цитировать"
+
+#~ msgid "Code"
+#~ msgstr "Код"
+
+#~ msgid "Clean"
+#~ msgstr "Очистить"
+
+#~ msgid "Preview"
+#~ msgstr "Предосмотр"
 
 #~ msgid "Moving post"
 #~ msgstr "Переместить сообщение"
