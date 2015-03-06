@@ -17,14 +17,13 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'circle_test',
-        'USER': 'ubuntu',
-        'PASSWORD': '',
-        'HOST': '',
-        'PORT': '',
-        'TEST_NAME': 'circle_test',
-        'TEST_CHARSET': 'utf8',
-        'TEST_COLLATION': 'utf8_general_ci'
+        'NAME': os.environ.get('DB_ENV_MYSQL_DATABASE', 'local_db'),
+        'HOST': os.environ.get('DB_PORT_3306_TCP_ADDR', 'localhost'),
+        'PORT': os.environ.get('DB_PORT_3306_TCP_PORT', 3306),
+        'USER': 'root',
+        'PASSWORD': os.environ.get('DB_ENV_MYSQL_ROOT_PASSWORD', 'pass'),
+        'TEST_CHARSET': 'UTF8',
+        'ATOMIC_REQUESTS': True,
     }
 }
 
