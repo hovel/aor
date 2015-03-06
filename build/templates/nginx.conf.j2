@@ -26,6 +26,7 @@ server {
 
 server {
     listen 443;
+    ssl on;
     server_name {{ hovel_http.domain }} www.{{ hovel_http.domain }};
-    return 301 http://{{ hovel_http.domain }}$request_uri;
+    rewrite ^ http://$server_name$request_uri? permanent;
 }
