@@ -5,6 +5,7 @@ dependencies:
   override:
     - "docker build -t zeus/${CIRCLE_PROJECT_REPONAME}:${CIRCLE_BRANCH} ."
     - "docker run -d -e MYSQL_ROOT_PASSWORD=pass -e MYSQL_DATABASE=test_db --name db mysql mysqld --character-set-server=utf8"
+    - sleep 15
 test:
   override:
     - docker run -it --link db:db zeus/${CIRCLE_PROJECT_REPONAME}:${CIRCLE_BRANCH} /root/src/manage.py test aor --noinput
