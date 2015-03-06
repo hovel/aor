@@ -23,3 +23,9 @@ server {
         break;
     }
 }
+
+server {
+    listen 443;
+    server_name {{ hovel_http.domain }} www.{{ hovel_http.domain }};
+    return 301 http://{{ hovel_http.domain }}$request_uri;
+}
