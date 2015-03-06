@@ -23,10 +23,3 @@ server {
         break;
     }
 }
-
-server {
-    listen 443;
-    ssl on;
-    server_name {{ hovel_http.domain }} www.{{ hovel_http.domain }};
-    rewrite ^ http://$server_name$request_uri? permanent;
-}
