@@ -55,7 +55,7 @@ AWS_STORAGE_BUCKET_NAME = 'static.{{ hovel_http.domain }}'
 AWS_S3_CUSTOM_DOMAIN = 'static.{{ hovel_http.domain }}'
 AWS_CALLING_FORMAT = SubdomainCallingFormat
 AWS_QUERYSTRING_AUTH = False
-AWS_S3_SECURE_URLS = True
+AWS_S3_SECURE_URLS = False
 
 STATIC_BASE_URL = 'http://%s' % AWS_S3_CUSTOM_DOMAIN
 STATIC_URL = STATIC_BASE_URL + '/static/'
