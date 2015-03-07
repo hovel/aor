@@ -23,3 +23,14 @@ server {
         break;
     }
 }
+
+server {
+    listen 443;
+    server_name {{ hovel_http.domain }} www.{{ hovel_http.domain }};
+
+    ssl on;
+    ssl_certificate /etc/ssl/certs/{{ hovel_project_name }}-ssl-bundle.crt;
+    ssl_certificate_key /etc/ssl/private/{{ hovel_project_name }}.key;
+
+    rewrite ^ http://$server_name$request_uri? permanent;
+}
