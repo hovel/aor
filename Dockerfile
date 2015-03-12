@@ -5,5 +5,3 @@ ADD . /root/src/
 RUN pip install -r /root/src/build/pipreq.txt -U
 
 ADD build/supervisor.conf /etc/supervisor/conf.d/
-
-EXPOSE 8081
