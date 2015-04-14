@@ -11,11 +11,6 @@
 {% endblock %}
 
 {% block content %}
-    {% with _('Posts') as label %}
-        <div class="text-center">
-            {% include "pure_pagination/pagination-bootstrap.html" with verbose=True %}
-        </div>
-    {% endwith %}
     <div class="posts">
         {% for post in object_list %}
             {% include "pybb/post_template.html" %}
@@ -23,9 +18,7 @@
     </div>
     <div>&nbsp;</div>
     {% with _('Posts') as label %}
-        <div class="text-center">
-            {% include "pure_pagination/pagination-bootstrap.html" with verbose=True %}
-        </div>
+        {% include "pybb/pagination.html" %}
     {% endwith %}
 
 {% endblock %}

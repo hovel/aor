@@ -53,9 +53,7 @@
     <div class="topic">
         <h1>{{ topic.name }}</h1>
         {% with _('Posts') as label %}
-            <div class="text-center">
-                {% include "pure_pagination/pagination-bootstrap.html" with verbose=True %}
-            </div>
+            {% include "pybb/pagination.html" %}
         {% endwith %}
 
         {% if topic.poll_type != 0 %}
@@ -75,9 +73,7 @@
         </div>
         <div>&nbsp;</div>
         {% with _('Posts') as label %}
-            <div class="text-center">
-                {% include "pure_pagination/pagination-bootstrap.html" with verbose=True %}
-            </div>
+            {% include "pybb/pagination.html" %}
         {% endwith %}
 
         {% if user.is_authenticated %}

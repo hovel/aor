@@ -60,9 +60,7 @@
         {%  endfor %}
         </tbody>
     </table>
-    <div class="text-center">
-        {% include "pure_pagination/pagination-bootstrap.html" with verbose=True %}
-    </div>
+    {% include "pybb/pagination.html" %}
 {% endblock %}
 
 {% block breadcrumb %}

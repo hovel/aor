@@ -12,10 +12,6 @@
 
 
 {% block content %}
-    <div class="text-center">
-        {% include "pure_pagination/pagination-bootstrap.html" with verbose=True %}
-    </div>
-
     <table class="table table-bordered table-striped topic-list">
         <thead>
         <tr class="topic-row head-row">
@@ -92,7 +88,6 @@
         </tbody>
     </table>
 
-    <div class="text-center">
-        {% include "pure_pagination/pagination-bootstrap.html" with verbose=True %}
-    </div>
+    {% include "pybb/pagination.html" %}
+
 {% endblock content %}
