@@ -43,7 +43,7 @@
         <div class="topic">
             <h1>{{ topic.name }}</h1>
             {% with _('Posts') as label %}
-                {% include "pybb/pagination.html" %}
+                {% include "pure_pagination/pagination-bootstrap.html" %}
             {% endwith %}
 
             <div class="posts">
@@ -59,7 +59,7 @@
             </div>
 
             {% with _('Posts') as label %}
-                {% include "pybb/pagination.html" %}
+                {% include "pure_pagination/pagination-bootstrap.html" %}
             {% endwith %}
         </div>
         <input class="btn btn-danger" type="submit" value="{% trans 'Move selected posts' %}" />

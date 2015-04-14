@@ -117,7 +117,8 @@ INSTALLED_APPS = (
     'postman',
     'aor_messages',
     'bootstrapform',
-    'storages'
+    'storages',
+    'pure_pagination',
 )
 
 CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.math_challenge'

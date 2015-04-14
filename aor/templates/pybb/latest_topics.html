@@ -26,11 +26,15 @@
             </div>
         {% endif %}
 
-        {% include "pybb/pagination.html" %}
+        <div class="text-center">
+            {% include "pure_pagination/pagination-bootstrap.html" with verbose=True %}
+        </div>
 
         {% include "pybb/topic_list.html" %}
 
-        {% include "pybb/pagination.html" %}
+        <div class="text-center">
+            {% include "pure_pagination/pagination-bootstrap.html" with verbose=True %}
+        </div>
 
         {% if user.is_authenticated %}
             <div id='mark-all-as-read'>

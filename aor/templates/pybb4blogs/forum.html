@@ -33,7 +33,9 @@
         </div>
     {% endfor %}
 
-    {% include "pybb/pagination.html" %}
+    <div class="text-center">
+        {% include "pure_pagination/pagination-bootstrap.html" with verbose=True %}
+    </div>
 
     {% if PYBB_ENABLE_ANONYMOUS_POST or not user.profile.is_banned %}
         <div class="controls">
