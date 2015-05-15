@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-16 15:50+0300\n"
+"POT-Creation-Date: 2015-05-15 20:44+0300\n"
 "PO-Revision-Date: 2012-02-02 23:43+0400\n"
 "Last-Translator: Vladimir Korsun <korsun.vladimir@gmail.com>\n"
 "Language-Team: Russian <>\n"
@@ -26,11 +26,11 @@ msgstr "Каптча"
 msgid "Signature"
 msgstr "Подпись"
 
-#: settings.py:154
+#: settings.py:155
 msgid "default theme"
 msgstr "тема по умолчанию"
 
-#: settings.py:155
+#: settings.py:156
 msgid "dark theme"
 msgstr "темная"
 
@@ -42,7 +42,7 @@ msgstr "Русскоязычное Сообщество Arch Linux"
 msgid "Join us"
 msgstr "Присоединиться"
 
-#: templates/index.html:24 templates/menu.html:56
+#: templates/index.html:24 templates/menu.html:57
 #: templates/registration/login.html:9
 #: templates/registration/password_reset_confirm.html:20
 msgid "Login"
@@ -72,40 +72,44 @@ msgstr "Чат"
 msgid "Forum"
 msgstr "Форум"
 
-#: templates/menu.html:9
+#: templates/menu.html:8
+msgid "Packages"
+msgstr "Пакеты"
+
+#: templates/menu.html:10
 msgid "Download"
 msgstr "Скачать"
 
-#: templates/menu.html:23
+#: templates/menu.html:24
 msgid "Chat"
 msgstr "Чат"
 
-#: templates/menu.html:30
+#: templates/menu.html:31
 msgid "New pesonal messages"
 msgstr "Новые личные сообщения"
 
-#: templates/menu.html:35 templates/menu.html.py:52
+#: templates/menu.html:36 templates/menu.html.py:53
 msgid "Profile"
 msgstr "Профиль"
 
-#: templates/menu.html:38 templates/pybb/user.html:69
+#: templates/menu.html:39 templates/pybb/user.html:69
 msgid "Personal messages"
 msgstr "Личные сообщения"
 
-#: templates/menu.html:42 templates/pybb/user.html:67
+#: templates/menu.html:43 templates/pybb/user.html:67
 msgid "Profile settings"
 msgstr "Редактирование профиля"
 
-#: templates/menu.html:45 templates/pybb/topic.html:39
+#: templates/menu.html:46 templates/pybb/topic.html:39
 #: templates/pybb/topic.html.py:95 templates/pybb/user.html:64
 msgid "Admin"
 msgstr "Админка"
 
-#: templates/menu.html:48
+#: templates/menu.html:49
 msgid "Logout"
 msgstr "Выйти"
 
-#: templates/menu.html:57 templates/registration/registration_form.html:9
+#: templates/menu.html:58 templates/registration/registration_form.html:9
 msgid "Registration"
 msgstr "Регистрация"
 
@@ -290,14 +294,6 @@ msgstr "Сообщения"
 #: templates/pybb/move_post.html:65
 msgid "Move selected posts"
 msgstr "Переместить выбранные сообщения"
-
-#: templates/pybb/pagination.html:7 templates/search/pagination.html:8
-msgid "previous page"
-msgstr "предыдущая страница"
-
-#: templates/pybb/pagination.html:21 templates/search/pagination.html:11
-msgid "next page"
-msgstr "следующая страница"
 
 #: templates/pybb/post_template.html:27
 msgid "Move post"
@@ -550,6 +546,14 @@ msgstr "Регистрация  завершена"
 #: templates/registration/registration_form.html:31
 msgid "Register"
 msgstr "Регистрация"
+
+#: templates/search/pagination.html:8
+msgid "previous page"
+msgstr "предыдущая страница"
+
+#: templates/search/pagination.html:11
+msgid "next page"
+msgstr "следующая страница"
 
 #: templates/search/search.html:34
 msgid "pages"
