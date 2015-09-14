@@ -23,7 +23,8 @@
             </form>
         </div>
     </div>
-    <div class="row">
+    {% if user.subscriptions.all %}
+      <div class="row">
         <div class="col-md-12">
             <h1>{% trans "Subscriptions on topics" %}</h1>
             <ul>
@@ -38,5 +39,6 @@
                 {% endfor %}
             </ul>
         </div>
-    </div>
+      </div>
+    {% endif %}
 {% endblock content %}
