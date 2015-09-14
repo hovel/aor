@@ -32,7 +32,7 @@
     </div>
 </nav>
 
-{% if postman_unread_count and user.is_authenticated %}
+{% if user.is_authenticated and postman_unread_count %}
   <script type="text/javascript">
     if (document.URL.search('messages') == -1)
       $(window).load(function(){
