@@ -23,9 +23,6 @@
 
 <nav class="navbar {% if AOR_THEME == 'dark.css' %}navbar-inverse{% else %}navbar-default{% endif %}" role="navigation">
     <div class="container-fluid wrapper">
-        <a class="navbar-brand" href="{% url 'home' %}">
-            <img src="{{ STATIC_URL }}logo.png" alt="" style="opacity: .7; vertical-align: top">
-        </a>
         {% block menu %}
             {% include 'menu.html' %}
         {% endblock %}
