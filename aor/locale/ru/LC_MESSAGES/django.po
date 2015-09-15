@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-12 22:22+0300\n"
+"POT-Creation-Date: 2015-09-14 21:16+0300\n"
 "PO-Revision-Date: 2012-02-02 23:43+0400\n"
 "Last-Translator: Vladimir Korsun <korsun.vladimir@gmail.com>\n"
 "Language-Team: Russian <>\n"
@@ -88,7 +88,7 @@ msgstr "Скачать"
 msgid "Chat"
 msgstr "Чат"
 
-#: templates/menu.html:38
+#: templates/menu.html:38 templates/pybb/index.html:61
 msgid "New pesonal messages"
 msgstr "Новые личные сообщения"
 
@@ -245,11 +245,11 @@ msgstr "Сменить пароль"
 msgid "Save"
 msgstr "Сохранить"
 
-#: templates/pybb/edit_profile.html:28
+#: templates/pybb/edit_profile.html:29
 msgid "Subscriptions on topics"
 msgstr "Подписки на темы"
 
-#: templates/pybb/edit_profile.html:35
+#: templates/pybb/edit_profile.html:36
 msgid "delete"
 msgstr "удалить"
 
@@ -257,23 +257,27 @@ msgstr "удалить"
 msgid "Index"
 msgstr "Все темы"
 
-#: templates/pybb/index.html:16 templates/pybb/index.html.py:39
+#: templates/pybb/index.html:16 templates/pybb/index.html.py:46
 #: templates/pybb/latest_topics.html:5 templates/pybb/latest_topics.html:8
 #: templates/pybb/latest_topics.html:22
 msgid "Last updates in topics"
 msgstr "Последние обновления в темах форума"
 
-#: templates/pybb/index.html:21 templates/pybb/index.html.py:44
+#: templates/pybb/index.html:21 templates/pybb/index.html.py:51
 msgid "Mark all forums as read"
 msgstr "Отметить форумы прочитанными"
 
-#: templates/pybb/index.html:30
+#: templates/pybb/index.html:37
 msgid "Forum categories are not created"
 msgstr "Нет категорий"
 
-#: templates/pybb/index.html:33
+#: templates/pybb/index.html:40
 msgid "Add a category now"
 msgstr "Добавить форум сейчас"
+
+#: templates/pybb/index.html:68
+msgid "Go to inbox"
+msgstr "Перейти в папку Входящие"
 
 #: templates/pybb/latest_topics.html:17 templates/pybb/latest_topics.html:38
 msgid "Mark all topics as read"

@@ -32,6 +32,31 @@
     </div>
 </nav>
 
+{% if user.is_authenticated and postman_unread_count %}
+  <script type="text/javascript">
+    if (document.URL.search('messages') == -1)
+      $(window).load(function(){
+        $('#new_pm_notify').modal('show');
+      });
+  </script>
+{% endif %}
+
+<div class="modal fade" id='new_pm_notify' role="dialog" aria-labelledby="gridSystemModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content modal-sm {% if AOR_THEME == 'dark.css' %}navbar-inverse{% else %}navbar-default{% endif %}">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="gridSystemModalLabel">{% trans "New pesonal messages" %}</h4>
+      </div>
+      <div class="row">
+        <div class="modal-body col-sm-offset-2">
+          <a href="{% url 'postman_inbox' %}" class="btn btn-primary">{% trans "Go to inbox" %} <span class="badge">{{ postman_unread_count }}</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="container-fluid wrapper">
     <div class="row">
         <div class="col-md-12">
