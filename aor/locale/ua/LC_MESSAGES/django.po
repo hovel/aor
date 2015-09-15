@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: aor\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-14 21:16+0300\n"
+"POT-Creation-Date: 2015-09-15 15:27+0300\n"
 "PO-Revision-Date: 2012-12-19 18:02+0300\n"
 "Last-Translator: Sergey Tereschenko <serg.partizan@gmail.com>\n"
 "Language-Team: Ukraine <ua@li.org>\n"
@@ -36,11 +36,19 @@ msgstr ""
 msgid "Arch Linux Russian Community"
 msgstr "Російська спільнота Arch Linux"
 
+#: templates/base.html:49 templates/menu.html:37
+msgid "New pesonal messages"
+msgstr ""
+
+#: templates/base.html:53
+msgid "Go to inbox"
+msgstr "Перейти в папку Вхідні"
+
 #: templates/index.html:21
 msgid "Join us"
 msgstr "Приєднатися"
 
-#: templates/index.html:24 templates/menu.html:64
+#: templates/index.html:24 templates/menu.html:75
 #: templates/registration/login.html:9
 #: templates/registration/password_reset_confirm.html:20
 msgid "Login"
@@ -84,38 +92,34 @@ msgstr "Офіційні репозиторії"
 msgid "Download"
 msgstr "Завантажити"
 
-#: templates/menu.html:31
-msgid "Chat"
-msgstr ""
+#: templates/menu.html:35
+msgid "Chats"
+msgstr "Чати"
 
-#: templates/menu.html:38 templates/pybb/index.html:61
-msgid "New pesonal messages"
-msgstr ""
-
-#: templates/menu.html:43 templates/menu.html.py:60
-msgid "Profile"
-msgstr "Профіль"
-
-#: templates/menu.html:46 templates/pybb/user.html:69
+#: templates/menu.html:44 templates/pybb/user.html:69
 msgid "Personal messages"
 msgstr ""
 
-#: templates/menu.html:50 templates/pybb/user.html:67
+#: templates/menu.html:57 templates/menu.html.py:71
+msgid "Profile"
+msgstr "Профіль"
+
+#: templates/menu.html:58 templates/pybb/user.html:67
 #, fuzzy
 #| msgid "Profile editing"
 msgid "Profile settings"
 msgstr "Редагування профілю"
 
-#: templates/menu.html:53 templates/pybb/topic.html:39
+#: templates/menu.html:61 templates/pybb/topic.html:39
 #: templates/pybb/topic.html.py:95 templates/pybb/user.html:64
 msgid "Admin"
 msgstr "Адмінка"
 
-#: templates/menu.html:56
+#: templates/menu.html:64
 msgid "Logout"
 msgstr "Вихід"
 
-#: templates/menu.html:65 templates/registration/registration_form.html:9
+#: templates/menu.html:76 templates/registration/registration_form.html:9
 msgid "Registration"
 msgstr "Реєстрація"
 
@@ -263,31 +267,27 @@ msgstr "видалити"
 msgid "Index"
 msgstr ""
 
-#: templates/pybb/index.html:16 templates/pybb/index.html.py:46
+#: templates/pybb/index.html:16 templates/pybb/index.html.py:39
 #: templates/pybb/latest_topics.html:5 templates/pybb/latest_topics.html:8
 #: templates/pybb/latest_topics.html:22
 msgid "Last updates in topics"
 msgstr ""
 
-#: templates/pybb/index.html:21 templates/pybb/index.html.py:51
+#: templates/pybb/index.html:21 templates/pybb/index.html.py:44
 #, fuzzy
 #| msgid "No forums created"
 msgid "Mark all forums as read"
 msgstr "Не створоено жодного форуму"
 
-#: templates/pybb/index.html:37
+#: templates/pybb/index.html:30
 msgid "Forum categories are not created"
 msgstr ""
 
-#: templates/pybb/index.html:40
+#: templates/pybb/index.html:33
 #, fuzzy
 #| msgid "Add forum now"
 msgid "Add a category now"
 msgstr "Додати форум"
-
-#: templates/pybb/index.html:68
-msgid "Go to inbox"
-msgstr "Перейти в папку Вхідні"
 
 #: templates/pybb/latest_topics.html:17 templates/pybb/latest_topics.html:38
 msgid "Mark all topics as read"
