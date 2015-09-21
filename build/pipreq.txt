@@ -8,7 +8,7 @@ django-simple-captcha
 gunicorn
 pybbm==0.16.1
 pytils
-sorl-thumbnail==12.2
+sorl-thumbnail==12.3
 django-mailer
 django-ajax-selects
 pytz
@@ -19,4 +19,4 @@ django-bootstrap-form>=3
 django-debug-toolbar
 bbcode
 django-postman==3.2.2
--e git+https://github.com/hovel/django-pure-pagination.git@e3e2a97c95dcb9c0fa469df1bf1bd64f68e62025#egg=django_pure_pagination
+-e git+https://github.com/hovel/django-pure-pagination.git@873a512f7023581688996ca0558530b5735d57bd#egg=django_pure_pagination
