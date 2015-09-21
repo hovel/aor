@@ -153,6 +153,7 @@ PYBB_MARKUP_ENGINES_PATHS = {
 
 AOR_THEMES = (
     ('default', _('default theme')),
+    ('default-flat', _('default flat theme')),
     ('dark', _('dark theme')),
 )
 

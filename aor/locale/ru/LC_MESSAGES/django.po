@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-15 15:27+0300\n"
+"POT-Creation-Date: 2015-09-21 23:27+0300\n"
 "PO-Revision-Date: 2012-02-02 23:43+0400\n"
 "Last-Translator: Vladimir Korsun <korsun.vladimir@gmail.com>\n"
 "Language-Team: Russian <>\n"
@@ -31,6 +31,10 @@ msgid "default theme"
 msgstr "тема по умолчанию"
 
 #: settings.py:156
+msgid "default flat theme"
+msgstr "по умолчанию (плоская)"
+
+#: settings.py:157
 msgid "dark theme"
 msgstr "темная"
 
@@ -38,11 +42,11 @@ msgstr "темная"
 msgid "Arch Linux Russian Community"
 msgstr "Русскоязычное Сообщество Arch Linux"
 
-#: templates/base.html:49 templates/menu.html:37
+#: templates/base.html:46 templates/menu.html:44
 msgid "New pesonal messages"
 msgstr "Новые личные сообщения"
 
-#: templates/base.html:53
+#: templates/base.html:49
 msgid "Go to inbox"
 msgstr "Перейти в папку Входящие"
 
@@ -50,19 +54,19 @@ msgstr "Перейти в папку Входящие"
 msgid "Join us"
 msgstr "Присоединиться"
 
-#: templates/index.html:24 templates/menu.html:75
+#: templates/index.html:24 templates/menu.html:82
 #: templates/registration/login.html:9
 #: templates/registration/password_reset_confirm.html:20
 msgid "Login"
 msgstr "Вход"
 
-#: templates/index.html:35 templates/menu.html:3
+#: templates/index.html:35 templates/menu.html:8
 #: templates/pybb4news/base.html:11 templates/pybb4news/forum.html:4
 #: templates/pybb4news/forum.html.py:13
 msgid "News"
 msgstr "Новости"
 
-#: templates/index.html:41 templates/menu.html:5
+#: templates/index.html:41 templates/menu.html:10
 #: templates/pybb4blogs/base.html:6 templates/pybb4blogs/forum.html:4
 #: templates/pybb4blogs/forum.html.py:13
 msgid "Blogs"
@@ -76,48 +80,48 @@ msgstr "Последние темы"
 msgid "Arch Chat"
 msgstr "Чат"
 
-#: templates/menu.html:4
+#: templates/menu.html:9
 msgid "Forum"
 msgstr "Форум"
 
-#: templates/menu.html:10
+#: templates/menu.html:15
 msgid "Packages"
 msgstr "Пакеты"
 
-#: templates/menu.html:14
+#: templates/menu.html:19
 msgid "Official repositories"
 msgstr "Официальные репозитории"
 
-#: templates/menu.html:17
+#: templates/menu.html:22
 msgid "Download"
 msgstr "Скачать"
 
-#: templates/menu.html:35
+#: templates/menu.html:42
 msgid "Chats"
 msgstr "Чаты"
 
-#: templates/menu.html:44 templates/pybb/user.html:69
+#: templates/menu.html:51 templates/pybb/user.html:69
 msgid "Personal messages"
 msgstr "Личные сообщения"
 
-#: templates/menu.html:57 templates/menu.html.py:71
+#: templates/menu.html:64 templates/menu.html.py:78
 msgid "Profile"
 msgstr "Профиль"
 
-#: templates/menu.html:58 templates/pybb/user.html:67
+#: templates/menu.html:65 templates/pybb/user.html:67
 msgid "Profile settings"
 msgstr "Редактирование профиля"
 
-#: templates/menu.html:61 templates/pybb/topic.html:39
+#: templates/menu.html:68 templates/pybb/topic.html:39
 #: templates/pybb/topic.html.py:95 templates/pybb/user.html:64
 msgid "Admin"
 msgstr "Админка"
 
-#: templates/menu.html:64
+#: templates/menu.html:71
 msgid "Logout"
 msgstr "Выйти"
 
-#: templates/menu.html:76 templates/registration/registration_form.html:9
+#: templates/menu.html:83 templates/registration/registration_form.html:9
 msgid "Registration"
 msgstr "Регистрация"
 
