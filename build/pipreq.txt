@@ -19,4 +19,4 @@ django-bootstrap-form>=3
 django-debug-toolbar
 bbcode
 django-postman==3.2.2
--e git+https://github.com/hovel/django-pure-pagination.git@873a512f7023581688996ca0558530b5735d57bd#egg=django_pure_pagination
+-e git+https://github.com/hovel/django-pure-pagination.git@3fb90e8025d65f5793a0085514eeadcaabd55b56#egg=django_pure_pagination
