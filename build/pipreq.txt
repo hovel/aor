@@ -1,22 +1,22 @@
 Django>=1.7,<1.8
 Fabric>=1.5.1
-MySQL-python>=1.2.4
-Pillow
-django-annoying
-django-registration-redux
-django-simple-captcha
-gunicorn
+MySQL-python>=1.2.5
+Pillow==3.1.1
+django-annoying==0.8.4
+django-registration-redux==1.2
+django-simple-captcha==0.4.6
+gunicorn==19.3.0
 pybbm==0.16.1
-pytils
+pytils==0.3
 sorl-thumbnail==12.3
-django-mailer
-django-ajax-selects
+django-mailer==1.1
+django-ajax-selects==1.3.6
 pytz
-boto
-django-storages
+boto==2.38.0
+django-storages==1.1.8
 python-dateutil<2.0
 django-bootstrap-form>=3
-django-debug-toolbar
-bbcode
+django-debug-toolbar==1.4
+bbcode==1.0.22
 django-postman==3.2.2
--e git+https://github.com/hovel/django-pure-pagination.git@3fb90e8025d65f5793a0085514eeadcaabd55b56#egg=django_pure_pagination
+-e git+https://github.com/hovel/django-pure-pagination.git@4e5febe5f6df7fda8488b77fd827b8547d436f26#egg=django_pure_pagination
