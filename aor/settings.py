@@ -121,12 +121,13 @@ INSTALLED_APPS = (
     'pure_pagination',
 )
 
-CAPTCHA_FONT_SIZE = 24
+CAPTCHA_FONT_PATH = 'fonts/captcha_font.ttf'
+CAPTCHA_FONT_SIZE = 26
 CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.random_char_challenge'
 CAPTCHA_LENGTH = 7
-CAPTCHA_LETTER_ROTATION = (-30, 30)
+CAPTCHA_LETTER_ROTATION = (-10, 15)
 CAPTCHA_TIMEOUT = 1
-CAPTCHA_NOISE_FUNCTIONS = ('captcha.helpers.noise_arcs','captcha.helpers.noise_dots')
+CAPTCHA_NOISE_FUNCTIONS = ('captcha.helpers.noise_dots',)
 #AUTH_PROFILE_MODULE = 'pybb.Profile'
 FILE_UPLOAD_PERMISSIONS = 0644
 LOGIN_REDIRECT_URL = '/'
