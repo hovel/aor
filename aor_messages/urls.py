@@ -6,5 +6,5 @@ urlpatterns = patterns(
     url(r'^view/(?P<message_id>[\d]+)/$', AorMessageView.as_view(), name='postman_view'),
     url(r'^view/t/(?P<thread_id>[\d]+)/$', AorConversationView.as_view(), name='postman_view_conversation'),
     url(r'^write/(?:(?P<recipients>[^/]+)/)?$', AorWriteView.as_view(), name='postman_write'),
-    url(r'^', include('postman.urls')),
+    url(r'^', include('postman.urls', namespace='postman', app_name='postman')),
 )

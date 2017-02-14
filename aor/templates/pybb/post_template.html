@@ -1,4 +1,4 @@
-{% load i18n pybb_tags thumbnail %}
+{% load i18n pybb_tags thumbnail staticfiles %}
 
 {% pybb_get_profile post.user as post_user_profile %}
 {% pybb_get_profile request.user as request_user_profile %}
@@ -107,7 +107,7 @@
                 <div class='attachments'>
                     {% for attachment in post.attachments.all %}
                         <a href="{{ attachment.file.url }}">
-                          <img src="{{ STATIC_URL }}pybb/img/attachment.png"> {{ attachment.size_display }}
+                          <img src="{% static 'pybb/img/attachment.png' %}"> {{ attachment.size_display }}
                         </a>
                     {% endfor %}
                 </div>

@@ -28,5 +28,5 @@ class AorBBCodeParser(BBCodeParser):
         super(AorBBCodeParser, self).__init__()
         self._parser.replace_cosmetic = False
 
-    def format(self, text):
+    def format(self, text, instance=None):
         return self._parser.format(text)

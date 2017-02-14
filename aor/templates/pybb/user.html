@@ -65,7 +65,7 @@
         {% endif %}
         {% if target_user == user %}
             <a class="btn btn-default" href="{% url 'pybb:edit_profile' %}">{% trans 'Profile settings' %}</a>
-            <a class="btn btn-default" href="{% url 'postman_inbox' %}">
+            <a class="btn btn-default" href="{% url 'postman:inbox' %}">
                 {% trans 'Personal messages' %} {% if postman_unread_count %}({{ postman_unread_count }}){% endif %}
             </a>
         {% endif %}

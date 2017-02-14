@@ -10,11 +10,11 @@
 {% block main %}
     {% block postman_menu %}
     <div id="postman_menu" class="btn-group">{% postman_unread as unread_count %}
-     <a class="btn btn-default" href="{% url 'postman_inbox' %}">{% trans "Inbox" %}{% if unread_count %} <strong>({{ unread_count }})</strong>{% endif %}</a>
-     <a class="btn btn-default" href="{% url 'postman_sent' %}">{% trans "Sent Messages" %}</a>
+     <a class="btn btn-default" href="{% url 'postman:inbox' %}">{% trans "Inbox" %}{% if unread_count %} <strong>({{ unread_count }})</strong>{% endif %}</a>
+     <a class="btn btn-default" href="{% url 'postman:sent' %}">{% trans "Sent Messages" %}</a>
      <a class="btn btn-default" href="{% url 'postman_write' %}">{% trans "Write" %}</a>
-     <a class="btn btn-default" href="{% url 'postman_archives' %}">{% trans "Archives" %}</a>
-     <a class="btn btn-default" href="{% url 'postman_trash' %}">{% trans "Trash" %}</a>
+     <a class="btn btn-default" href="{% url 'postman:archives' %}">{% trans "Archives" %}</a>
+     <a class="btn btn-default" href="{% url 'postman:trash' %}">{% trans "Trash" %}</a>
     </div>
     {% endblock %}
 

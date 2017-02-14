@@ -4,8 +4,6 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 DEBUG = True
-TEMPLATE_DEBUG = DEBUG
-THUMBNAIL_DEBUG = DEBUG
 
 ADMINS = (
     ('Pavel Zhukov', 'gelios@gmail.com'),
@@ -55,11 +53,33 @@ SECRET_KEY = 'Insert your SECRET_KEY from your local.py'
 
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
 
-TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
-    #     'django.template.loaders.eggs.Loader',
-)
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+            os.path.join(BASE_DIR, 'aor', 'templates'),
+        ],
+        'OPTIONS': {
+            'context_processors': [
+                'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.debug',
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
+                'django.template.context_processors.request',
+                'django.contrib.messages.context_processors.messages',
+                'pybb.context_processors.processor',
+                'profiles.context_processor.user_theme',
+                'postman.context_processors.inbox'
+            ],
+            'loaders': [
+                'django.template.loaders.filesystem.Loader',
+                'django.template.loaders.app_directories.Loader',
+            ],
+            'debug': DEBUG
+        },
+    },
+]
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
@@ -74,21 +94,6 @@ MIDDLEWARE_CLASSES = (
 )
 
 ROOT_URLCONF = 'aor.urls'
-
-TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'aor', 'templates'),)
-
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.contrib.auth.context_processors.auth',
-    'django.core.context_processors.debug',
-    'django.core.context_processors.i18n',
-    'django.core.context_processors.media',
-    'django.core.context_processors.static',
-    'django.contrib.messages.context_processors.messages',
-    'pybb.context_processors.processor',
-    'profiles.context_processor.user_theme',
-    'django.core.context_processors.request',
-    'postman.context_processors.inbox'
-)
 
 INSTALLED_APPS = (
     'django.contrib.auth',
