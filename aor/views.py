@@ -41,7 +41,7 @@ class Search(PaginationMixin, generic.ListView):
 
 
 class MovePostView(TopicView):
-    template_name = 'pybb/move_post.html'
+    template_name = 'pybb/move_post_pg.html'
 
     def dispatch(self, request, *args, **kwargs):
         topic = Topic.objects.get(pk=kwargs['pk'])

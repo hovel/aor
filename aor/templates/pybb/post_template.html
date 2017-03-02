@@ -21,36 +21,57 @@
                         <input type="checkbox" name="move_post_list" value="{{ post.id }}" />
                     {% endif %}
                 {% else %}
-                    {% if user.is_moderator %}
-                        {% if post != post.topic.head %}
-                            <a href="{% url 'move_post' pk=topic.id %}"
-                               title="{% trans "Move post" %}">
-                                <i class="glyphicon glyphicon-arrow-right"></i></a>
+                    {% if user.is_authenticated %}
+                        {% if user|pybb_may_admin_post:post %}
+                            <a href="{% url 'admin:pybb_post_change' post.id %}" title="{% trans 'Admin' %}">
+                            <i class="glyphicon glyphicon-user"></i></a>
                         {% endif %}
-                        {% if post.on_moderation %}
-                            <a href="{% url 'pybb:moderate_post' pk=post.id %}"
-                               title="{% trans "Approve post" %}">
-                                <i class="glyphicon glyphicon-check"></i></a>
+
+                        {% if user.is_moderator %}
+                            {% if post != post.topic.head %}
+                                <a href="{% url 'move_post' pk=topic.id %}"
+                                   title="{% trans "Move post" %}">
+                                    <i class="glyphicon glyphicon-arrow-right"></i></a>
+                            {% endif %}
+
+                            <a href="{% url 'pybb:move_post' pk=post.id %}">
+                                    {% if post.is_topic_head %}
+                                        <i class="glyphicon glyphicon-arrow-right" title="{% trans "Move post" %}">
+                                    {% else %}
+                                        <i class="glyphicon glyphicon-transfer" title="{% trans "Split post" %}">
+                                    {% endif %}</i></a>
+
+                            {% if post.on_moderation %}
+                                <a href="{% url 'pybb:moderate_post' pk=post.id %}"
+                                   title="{% trans "Approve post" %}">
+                                    <i class="glyphicon glyphicon-check"></i></a>
+                            {% endif %}
                         {% endif %}
-                        <a onclick="pybb_delete_post('{% url 'pybb:delete_post' post.id %}',
-                                'post-{{ post.id }}', '{% trans 'Delete post?' %}'); return false;"
-                           class="post-control-delete"
-                           href="{% url 'pybb:delete_post' post.id %}"
-                           title="{% trans "Delete" %}">
-                            <i class="glyphicon glyphicon-remove"></i></a>
-                    {% endif %}
-                    {% if user.is_moderator or post|pybb_posted_by:user %}
-                        <a href="{% url 'pybb:edit_post' pk=post.id %}"
-                           title="{% trans "Edit" %}">
-                            <i class="glyphicon glyphicon-pencil"></i></a>
-                    {% endif %}
-                    <a href="{% url 'pybb:add_post' post.topic.id %}?quote_id={{ post.id }}"
-                       title="{% trans "quote" %}"
-                       class="quote-link">
-                        <i class="glyphicon glyphicon-comment"></i></a>
-                    <a href="#" title="{% trans 'quote selected' %}" class="quote-selected-link"><i class="glyphicon glyphicon-hand-down"></i></a>
-                    {% if user.id != post.user.id %}
-                        <a href="{% url 'postman_write' post.user.username %}" title="{% trans "Write personal message" %}"><i class="glyphicon glyphicon-envelope"></i></a>
+
+                        {% if user|pybb_may_delete_post:post %}
+                            <a onclick="pybb_delete_post('{% url 'pybb:delete_post' post.id %}',
+                                        'post-{{ post.id }}', '{% trans 'Delete post?' %}'); return false;"
+                                   class="post-control-delete"
+                                   href="{% url 'pybb:delete_post' post.id %}"
+                                   title="{% trans "Delete" %}">
+                                    <i class="glyphicon glyphicon-remove"></i></a>
+                        {% endif %}
+
+                        {% if user|pybb_may_edit_post:post %}
+                            <a href="{% url 'pybb:edit_post' pk=post.id %}"
+                               title="{% trans "Edit" %}">
+                                <i class="glyphicon glyphicon-pencil"></i></a>
+                        {% endif %}
+
+                        <a href="{% url 'pybb:add_post' post.topic.id %}?quote_id={{ post.id }}"
+                           title="{% trans "quote" %}"
+                           class="quote-link">
+                            <i class="glyphicon glyphicon-comment"></i></a>
+                        <a href="#" title="{% trans 'quote selected' %}" class="quote-selected-link"><i class="glyphicon glyphicon-hand-down"></i></a>
+
+                        {% if user.id != post.user.id %}
+                            <a href="{% url 'postman_write' post.user.username %}" title="{% trans "Write personal message" %}"><i class="glyphicon glyphicon-envelope"></i></a>
+                        {% endif %}
                     {% endif %}
                 {% endif %}
             </div>

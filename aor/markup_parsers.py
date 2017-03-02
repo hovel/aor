@@ -29,4 +29,6 @@ class AorBBCodeParser(BBCodeParser):
         self._parser.replace_cosmetic = False
 
     def format(self, text, instance=None):
+        if instance and instance.pk:
+            text = self.format_attachments(text, attachments=instance.attachments.all())
         return self._parser.format(text)
