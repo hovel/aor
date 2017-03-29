@@ -22,11 +22,6 @@
                     {% endif %}
                 {% else %}
                     {% if user.is_authenticated %}
-                        {% if user|pybb_may_admin_post:post %}
-                            <a href="{% url 'admin:pybb_post_change' post.id %}" title="{% trans 'Admin' %}">
-                            <i class="glyphicon glyphicon-user"></i></a>
-                        {% endif %}
-
                         {% if user.is_moderator %}
                             {% if post != post.topic.head %}
                                 <a href="{% url 'move_post' pk=topic.id %}"
@@ -38,7 +33,7 @@
                                     {% if post.is_topic_head %}
                                         <i class="glyphicon glyphicon-arrow-right" title="{% trans "Move post" %}">
                                     {% else %}
-                                        <i class="glyphicon glyphicon-transfer" title="{% trans "Split post" %}">
+                                        <i class="glyphicon glyphicon-transfer" title="{% trans "Split posts" %}">
                                     {% endif %}</i></a>
 
                             {% if post.on_moderation %}
@@ -70,7 +65,7 @@
                         <a href="#" title="{% trans 'quote selected' %}" class="quote-selected-link"><i class="glyphicon glyphicon-hand-down"></i></a>
 
                         {% if user.id != post.user.id %}
-                            <a href="{% url 'postman_write' post.user.username %}" title="{% trans "Write personal message" %}"><i class="glyphicon glyphicon-envelope"></i></a>
+                            <a href="{% url 'postman:write' post.user.username %}" title="{% trans "Write personal message" %}"><i class="glyphicon glyphicon-envelope"></i></a>
                         {% endif %}
                     {% endif %}
                 {% endif %}

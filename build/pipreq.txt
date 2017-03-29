@@ -13,11 +13,10 @@ django-ajax-selects==1.5.2
 django-bootstrap-form>=3
 django-debug-toolbar==1.6
 django-postman==3.5.1
-django-mailer==1.2.2
 django-annoying==0.10.3
 django-registration-redux==1.4
 django-simple-captcha==0.5.3
 django-storages==1.5.2
 
 -e git+https://github.com/hovel/django-pure-pagination.git@4e5febe5f6df7fda8488b77fd827b8547d436f26#egg=django_pure_pagination
--e git+https://github.com/hovel/pybbm.git@3d859ac8aa04f03ea1815e7f0a6943af0b70315a#egg=pybbm
+-e git+https://github.com/hovel/pybbm.git@32c21aa39783cd667a6984e31bba5c84e3c45a99#egg=pybbm

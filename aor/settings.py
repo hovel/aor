@@ -1,13 +1,13 @@
-from django.utils.translation import ugettext_lazy as _
 import os
+from django.utils.log import DEFAULT_LOGGING
+from django.utils.translation import ugettext_lazy as _
 
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 DEBUG = True
 
 ADMINS = (
     ('Pavel Zhukov', 'gelios@gmail.com'),
-    ('Sergey Fursov', 'geyser85@gmail.com'),
 )
 
 MANAGERS = ADMINS
@@ -20,8 +20,11 @@ DATABASES = {
         'PORT': os.environ.get('DB_PORT_3306_TCP_PORT', 3306),
         'USER': 'root',
         'PASSWORD': os.environ.get('DB_ENV_MYSQL_ROOT_PASSWORD', 'pass'),
-        'TEST_CHARSET': 'UTF8',
         'ATOMIC_REQUESTS': True,
+        'TEST': {
+            'CHARSET': 'utf8',
+            'COLLATION': 'utf8_general_ci'
+        }
     }
 }
 
@@ -35,7 +38,9 @@ LANGUAGES = (
     ('ua', 'Ukraine'),)
 
 USE_I18N = True
+
 USE_L10N = True
+
 USE_TZ = True
 
 STATIC_URL = '/static/'
@@ -45,7 +50,6 @@ STATICFILES_DIRS = (
 )
 
 MEDIA_URL = '/media/'
-
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Make this unique, and don't share it with anybody.
@@ -117,7 +121,6 @@ INSTALLED_APPS = (
     'pybb4news',
     'pybb4blogs',
     'profiles',
-    'mailer',
     'ajax_select',
     'postman',
     'aor_messages',
@@ -179,29 +182,56 @@ POSTMAN_AUTO_MODERATE_AS = True
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'filters': {
-        'require_debug_false': {
-            '()': 'django.utils.log.RequireDebugFalse'
-        }
-    },
-    'handlers': {
-        'mail_admins': {
-            'level': 'ERROR',
-            'filters': ['require_debug_false'],
-            'class': 'django.utils.log.AdminEmailHandler'
-        }
-    },
-    'loggers': {
-        'django.request': {
-            'handlers': ['mail_admins'],
-            'level': 'ERROR',
-            'propagate': True,
-        },
+LOGGING = DEFAULT_LOGGING
+LOGGING.setdefault('formatters', {})
+LOGGING['formatters'].update({
+    'verbose': {
+        'format': '%(levelname)s %(asctime)s %(pathname)s:%(lineno)d\n%(message)s'
     }
-}
+})
+LOGGING.setdefault('filters', {})
+LOGGING['filters'].update({})
+LOGGING.setdefault('handlers', {})
+LOGGING['handlers'].update({
+    'debug_console': {
+        'class': 'logging.StreamHandler',
+        'level': 'DEBUG',
+        'formatter': 'verbose',
+        'filters': ['require_debug_true'],
+    },
+    # This handler will be used mostly for management commands (see below),
+    # so the debug level can be useful in production.
+    'production_console': {
+        'class': 'logging.StreamHandler',
+        'level': 'DEBUG',
+        'formatter': 'verbose',
+        'filters': ['require_debug_false'],
+    },
+    'production_rotate_file': {
+        'class': 'logging.handlers.RotatingFileHandler',
+        'level': 'INFO',
+        'formatter': 'verbose',
+        'filters': ['require_debug_false'],
+        'filename': os.path.join(BASE_DIR, '../logs/aor_inner.log'),
+        'maxBytes': 1024 * 1024 * 10,
+        'backupCount': 3,
+    },
+    'production_mail_admins': {
+        'class': 'django.utils.log.AdminEmailHandler',
+        'level': 'ERROR',
+        'formatter': 'verbose',
+        'filters': ['require_debug_false'],
+    },
+})
+LOGGING.setdefault('loggers', {})
+LOGGING['loggers'].update({
+    'hovel': {
+        'level': 'DEBUG',
+        'handlers': ['debug_console',
+                     'production_rotate_file',
+                     'production_mail_admins'],
+    },
+})
 
 
 if DEBUG:

@@ -50,7 +50,7 @@
     </div><br>
     <div class='controls'>
         {% if request.user|pybb_may_manage_moderators %}
-            <a href="{% url 'pybb:edit_privileges' target_user.get_username %}" class="btn">{% trans 'Moderator' %}</a>
+            <a href="{% url 'pybb:edit_privileges' target_user.get_username %}" class="btn btn-default">{% trans 'Moderator' %}</a>
         {% endif %}
         {% if perms.pybb.block_users and target_user != user %}
             {% if target_user.is_active %}
@@ -73,7 +73,7 @@
             </a>
         {% endif %}
         {% if target_user != user %}
-            <a class="btn btn-default" href="{% url 'postman_write' target_user.username %}">{% trans "Write personal message" %}</a>
+            <a class="btn btn-default" href="{% url 'postman:write' target_user.username %}">{% trans "Write personal message" %}</a>
         {% endif %}
     </div>
 {% endblock %}

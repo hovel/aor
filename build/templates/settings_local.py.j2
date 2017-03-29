@@ -2,7 +2,7 @@ import os
 
 DEBUG = {{ hovel_django_debug }}
 
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = '{{ hovel_django_secret_key }}'
 
@@ -13,7 +13,12 @@ DATABASES = {
         'HOST': '{{ hovel_db.host }}',
         'PORT': {{ hovel_db.port }},
         'USER': '{{ hovel_db.user }}',
-        'PASSWORD': '{{ hovel_db.password }}'
+        'PASSWORD': '{{ hovel_db.password }}',
+        'ATOMIC_REQUESTS': True,
+        'TEST': {
+            'CHARSET': 'utf8',
+            'COLLATION': 'utf8_general_ci'
+        }
     }
 }
 
@@ -21,7 +26,7 @@ CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
         'LOCATION': '{{ hovel_django_cache.host }}:{{ hovel_django_cache.port }}',
-        'KEY_PREFIX': '{{ hovel_project_name }}'
+        'KEY_PREFIX': '{{ hovel_project_name }}',
     }
 }
 
@@ -40,7 +45,6 @@ ADMINS = (
         ('{{ admin.name }}', '{{ admin.email }}'),
     {% endfor %}
 )
-MANAGERS = ADMINS
 
 # static and media
 from boto.s3.connection import SubdomainCallingFormat
