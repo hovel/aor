@@ -159,6 +159,7 @@ PYBB_PROFILE_RELATED_NAME = 'profile'
 PYBB_MARKUP_ENGINES_PATHS = {
     'bbcode': 'aor.markup_parsers.AorBBCodeParser'
 }
+PYBB_ALLOW_DELETE_OWN_POST = False
 
 AOR_THEMES = (
     ('default', _('default theme')),
