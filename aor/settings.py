@@ -130,9 +130,9 @@ INSTALLED_APPS = (
 )
 
 CAPTCHA_FONT_PATH = 'fonts/captcha_font.ttf'
-CAPTCHA_FONT_SIZE = 26
+CAPTCHA_FONT_SIZE = 28
 CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.random_char_challenge'
-CAPTCHA_LENGTH = 7
+CAPTCHA_LENGTH = 5
 CAPTCHA_LETTER_ROTATION = (-10, 15)
 CAPTCHA_TIMEOUT = 1
 CAPTCHA_NOISE_FUNCTIONS = ('captcha.helpers.noise_null', 'captcha.helpers.noise_arcs',)
