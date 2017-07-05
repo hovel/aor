@@ -20,3 +20,6 @@ Disallow: /forum/users
 Disallow: /forum/topic/latest
 Disallow: /messages
 Crawl-delay: 1
+
+User-agent: dotbot
+Disallow: /
