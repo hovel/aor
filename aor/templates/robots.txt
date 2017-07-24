@@ -23,3 +23,6 @@ Crawl-delay: 1
 
 User-agent: dotbot
 Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
