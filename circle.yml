@@ -7,10 +7,10 @@ dependencies:
   override:
     - cp build/supervisor_${CIRCLE_BRANCH}.conf build/supervisor.conf || true
     - "docker build -t zeus/${CIRCLE_PROJECT_REPONAME}:${CIRCLE_BRANCH} ."
-    - "docker run -d -e MYSQL_ROOT_PASSWORD=pass -e MYSQL_DATABASE=test_db --name db mysql:latest mysqld --character-set-server=utf8"
-    - sleep 10
 test:
   override:
+    - "docker run -d -e MYSQL_ROOT_PASSWORD=pass -e MYSQL_DATABASE=test_db --name db mysql:latest mysqld --character-set-server=utf8"
+    - sleep 10
     - docker run -it --link db:db zeus/${CIRCLE_PROJECT_REPONAME}:${CIRCLE_BRANCH} /root/src/manage.py test aor --noinput
 deployment:
   master:
