@@ -1,8 +1,10 @@
 # coding=utf-8
 from __future__ import unicode_literals
 
+from django.utils.deprecation import MiddlewareMixin
 
-class RemoteAddrMiddleware(object):
+
+class RemoteAddrMiddleware(MiddlewareMixin):
     def process_request(self, request):
         remote_addr = request.META.get('REMOTE_ADDR')
         if not remote_addr or remote_addr == '127.0.0.1' or remote_addr.startswith('172.'):

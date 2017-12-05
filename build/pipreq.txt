@@ -1,22 +1,22 @@
-Django>=1.8,<1.9
-Fabric>=1.13.1
+Django>=1.11,<2.0
 MySQL-python>=1.2.5
-Pillow==4.0.0
-bbcode==1.0.24
-boto==2.45.0
-gunicorn==19.6.0
+Pillow==4.3.0
+bbcode==1.0.26
+boto==2.48.0
+boto3
+gunicorn==19.7.0
 pytils==0.3
 python-dateutil<2.0
 pytz
-sorl-thumbnail==12.4a1
-django-ajax-selects==1.5.2
+sorl-thumbnail==12.4.1
+django-ajax-selects==1.6.1  # may be buggy
 django-bootstrap-form>=3
-django-debug-toolbar==1.6
-django-postman==3.5.1
+django-debug-toolbar==1.9.1
+django-postman==3.6.0
 django-annoying==0.10.3
-django-registration-redux==1.4
-django-simple-captcha==0.5.3
-django-storages==1.5.2
+django-registration-redux==1.9
+django-simple-captcha==0.5.6
+django-storages==1.6.5
 
 -e git+https://github.com/hovel/django-pure-pagination.git@4e5febe5f6df7fda8488b77fd827b8547d436f26#egg=django_pure_pagination
--e git+https://github.com/hovel/pybbm.git@32c21aa39783cd667a6984e31bba5c84e3c45a99#egg=pybbm
+-e git+https://github.com/hovel/pybbm.git@c480efeab3a388628322015ac65099b684d7088c#egg=pybbm

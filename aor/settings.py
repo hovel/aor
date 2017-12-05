@@ -85,7 +85,7 @@ TEMPLATES = [
     },
 ]
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.gzip.GZipMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -95,7 +95,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'pybb.middleware.PybbMiddleware',
     'aor.middleware.RemoteAddrMiddleware',
-)
+]
 
 ROOT_URLCONF = 'aor.urls'
 
@@ -236,7 +236,7 @@ LOGGING['loggers'].update({
 
 
 if DEBUG:
-    MIDDLEWARE_CLASSES += ('debug_toolbar.middleware.DebugToolbarMiddleware',)
+    MIDDLEWARE += ('debug_toolbar.middleware.DebugToolbarMiddleware',)
     INSTALLED_APPS += ('debug_toolbar', )
     INTERNAL_IPS = ('127.0.0.1',)
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

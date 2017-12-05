@@ -1,6 +1,7 @@
 from django.conf import settings
-from django.conf.urls import patterns, include, url
+from django.conf.urls import include, url
 from django.contrib import admin
+from django.contrib.sitemaps.views import sitemap
 from django.views.generic.base import TemplateView
 from pybb.views import ProfileEditView
 from registration.backends.default.views import RegistrationView
@@ -9,13 +10,10 @@ from aor.sitemaps import sitemaps
 from aor.views import Search, MovePostView, AorAddPostView, AorEditPostView, AorTopicView, move_post_processing
 from profiles.views import UserTopics, UserPosts, safe_logout
 
-admin.autodiscover()
-
-urlpatterns = patterns(
-    '',
+urlpatterns = [
     url(r'^robots.txt$', TemplateView.as_view(template_name='robots.txt')),
     url(r'^yandex_72c667563364196f.html$', TemplateView.as_view(template_name='yandex_72c667563364196f.html')),
-    url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),
+    url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps}),
 
     url(r'^donate/$', TemplateView.as_view(template_name='donate.html'), name='donate'),
     url(r'^$', TemplateView.as_view(template_name='index.html'), name='home'),
@@ -55,13 +53,10 @@ urlpatterns = patterns(
     url(r'^irc/$',
         TemplateView.as_view(template_name='irc_mibbit_widget.html'),
         name='irc'),
-)
+]
 
 if settings.DEBUG:
     import debug_toolbar
-    urlpatterns += patterns('',
-        url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {
-            'document_root': settings.MEDIA_ROOT,
-        }),
+    urlpatterns += [
         url(r'^__debug__/', include(debug_toolbar.urls)),
-    )
+    ]
