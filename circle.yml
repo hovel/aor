@@ -3,7 +3,7 @@ machine:
     - docker
 dependencies:
   pre:
-    - pip install -U ansible boto six
+    - pip install -U "ansible<2.4" boto six
   override:
     - cp build/supervisor_${CIRCLE_BRANCH}.conf build/supervisor.conf || true
     - "docker build -t zeus/${CIRCLE_PROJECT_REPONAME}:${CIRCLE_BRANCH} ."
