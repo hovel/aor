@@ -1,0 +1,27 @@
+version: 0.1
+
+phases:
+  install:
+    commands:
+      - curl -L "https://github.com/docker/compose/releases/download/1.11.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && chmod +x /usr/local/bin/docker-compose
+  build:
+    commands:
+      - apt-get update
+      - apt-get --assume-yes install openssh-client
+      - mkdir ~/.aws
+      - echo "[default]\nregion = us-east-1" > ~/.aws/config
+      - echo "[default]\naws_access_key_id = ${AWS_ACCESS_KEY_ID}\naws_secret_access_key = ${AWS_SECRET_ACCESS_KEY}" > ~/.aws/credentials
+      - mkdir ~/.ssh
+      - echo $SSH_PRIVATE_KEY | base64 --decode -i > ~/.ssh/id_rsa
+      - chmod 700 ~/.ssh && chmod 600 ~/.ssh/*
+      - ssh-keyscan -t rsa github.com > /root/.ssh/known_hosts
+      - pip install -U "ansible<2.4" boto boto3 six
+      - cp build/supervisor_${GIT_BRANCH}.conf build/supervisor.conf || true
+      - docker build -t zeus/${CIRCLE_PROJECT_REPONAME}:${GIT_BRANCH} .
+      - docker-compose -f docker-env.yml up -d
+      - docker-compose -f docker-test.yml run tests
+      - docker login -e ${DOCKER_EMAIL} -u ${DOCKER_USER} -p ${DOCKER_PASS}
+      - docker push zeus/${CIRCLE_PROJECT_REPONAME}:${GIT_BRANCH}
+      - git clone -b direct_ansible git@github.com:hovel/deploy-inventory.git ~/deploy-inventory
+      - cp ~/deploy-inventory/ansible_circle.cfg ~/.ansible.cfg
+      - ansible-playbook ~/deploy-inventory/ansible/playbooks_new/aor_${GIT_BRANCH}/i_aor_${GIT_BRANCH}.yml --tags=application

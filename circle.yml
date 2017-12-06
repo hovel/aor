@@ -1,23 +1,6 @@
-machine:
-  services:
-    - docker
 dependencies:
-  pre:
-    - pip install -U "ansible<2.4" boto six
   override:
-    - cp build/supervisor_${CIRCLE_BRANCH}.conf build/supervisor.conf || true
-    - "docker build -t zeus/${CIRCLE_PROJECT_REPONAME}:${CIRCLE_BRANCH} ."
+    - echo "This section is intentionally skipped."
 test:
   override:
-    - "docker run -d -e MYSQL_ROOT_PASSWORD=pass -e MYSQL_DATABASE=test_db --name db mysql:latest mysqld --character-set-server=utf8"
-    - sleep 10
-    - docker run -it --link db:db zeus/${CIRCLE_PROJECT_REPONAME}:${CIRCLE_BRANCH} /root/src/manage.py test aor --noinput
-deployment:
-  master:
-    branch: master
-    commands:
-      - "docker login -e ${DOCKER_EMAIL} -u ${DOCKER_USER} -p ${DOCKER_PASS}"
-      - "docker push zeus/${CIRCLE_PROJECT_REPONAME}:${CIRCLE_BRANCH}"
-      - "git clone -b direct_ansible git@github.com:hovel/deploy-inventory.git ~/deploy-inventory"
-      - "cp ~/deploy-inventory/ansible_circle.cfg ~/.ansible.cfg"
-      - "ansible-playbook ~/deploy-inventory/ansible/playbooks_new/aor/i_aor.yml --tags=application"
+    - echo "This section is intentionally skipped."

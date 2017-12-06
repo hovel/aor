@@ -15,24 +15,27 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.environ.get('DB_ENV_MYSQL_DATABASE', 'local_db'),
-        'HOST': os.environ.get('DB_PORT_3306_TCP_ADDR', 'localhost'),
-        'PORT': os.environ.get('DB_PORT_3306_TCP_PORT', 3306),
+        'NAME': 'local_db',
+        'HOST': 'db',
+        'PORT': 3306,
         'USER': 'root',
-        'PASSWORD': os.environ.get('DB_ENV_MYSQL_ROOT_PASSWORD', 'pass'),
+        'PASSWORD': 'pass',
         'ATOMIC_REQUESTS': True,
+        'OPTIONS': {
+            'isolation_level': 'read committed',
+        },
         'TEST': {
             'CHARSET': 'utf8',
-            'COLLATION': 'utf8_general_ci'
-        }
-    }
+            'COLLATION': 'utf8_general_ci',
+        },
+    },
 }
 
 SITE_ID = 1
 
 TIME_ZONE = 'Europe/Moscow'
 
-LANGUAGE_CODE = 'ru-RU'
+LANGUAGE_CODE = 'ru'
 LANGUAGES = (
     ('ru', 'Russian'),
     ('ua', 'Ukraine'),)
@@ -99,7 +102,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'aor.urls'
 
-INSTALLED_APPS = (
+INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -127,7 +130,7 @@ INSTALLED_APPS = (
     'bootstrapform',
     'storages',
     'pure_pagination',
-)
+]
 
 CAPTCHA_FONT_PATH = 'fonts/captcha_font.ttf'
 CAPTCHA_FONT_SIZE = 28
@@ -234,11 +237,21 @@ LOGGING['loggers'].update({
     },
 })
 
+BROKER_URL = 'redis://redis:6379'
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': 'redis://redis:6379',
+        'TIMEOUT': 186400,
+        'KEY_PREFIX': 'archlinux',
+    }
+}
 
 if DEBUG:
-    MIDDLEWARE += ('debug_toolbar.middleware.DebugToolbarMiddleware',)
-    INSTALLED_APPS += ('debug_toolbar', )
-    INTERNAL_IPS = ('127.0.0.1',)
+    MIDDLEWARE += ['debug_toolbar.middleware.DebugToolbarMiddleware']
+    INSTALLED_APPS += ['debug_toolbar']
+    INTERNAL_IPS = ['127.0.0.1']
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
     DEBUG_TOOLBAR_CONFIG = {'INTERCEPT_REDIRECTS': False}
 

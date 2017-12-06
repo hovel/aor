@@ -1,5 +1,7 @@
 Django>=1.11,<2.0
 MySQL-python>=1.2.5
+redis
+django-redis
 Pillow==4.3.0
 bbcode==1.0.26
 boto==2.48.0

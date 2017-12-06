@@ -1,0 +1,10 @@
+version: '2.1'
+services:
+  redis:
+    image: redis
+  db:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: pass
+      MYSQL_DATABASE: local_db
+    command: mysqld --character-set-server=utf8
