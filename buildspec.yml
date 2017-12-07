@@ -15,13 +15,14 @@ phases:
       - echo $SSH_PRIVATE_KEY | base64 --decode -i > ~/.ssh/id_rsa
       - chmod 700 ~/.ssh && chmod 600 ~/.ssh/*
       - ssh-keyscan -t rsa github.com > /root/.ssh/known_hosts
-      - pip install -U "ansible<2.4" boto boto3 six
-      - cp build/supervisor_${GIT_BRANCH}.conf build/supervisor.conf || true
-      - docker build -t zeus/${CIRCLE_PROJECT_REPONAME}:${GIT_BRANCH} .
+      - git clone -v -b lambda git@github.com:hovel/deploy-inventory.git ../deploy-inventory
+      - docker-compose --version
+      # Run enviroment
       - docker-compose -f docker-env.yml up -d
+      # Run tests
       - docker-compose -f docker-test.yml run tests
-      - docker login -e ${DOCKER_EMAIL} -u ${DOCKER_USER} -p ${DOCKER_PASS}
-      - docker push zeus/${CIRCLE_PROJECT_REPONAME}:${GIT_BRANCH}
-      - git clone -b direct_ansible git@github.com:hovel/deploy-inventory.git ~/deploy-inventory
-      - cp ~/deploy-inventory/ansible_circle.cfg ~/.ansible.cfg
-      - ansible-playbook ~/deploy-inventory/ansible/playbooks_new/aor_${GIT_BRANCH}/i_aor_${GIT_BRANCH}.yml --tags=application
+      # Teardown enviroment
+      - docker-compose -f docker-env.yml down
+      # Deploy package
+      - ls -l ../deploy-inventory
+      - docker-compose -f docker-zappa.yml run deploy

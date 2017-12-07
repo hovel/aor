@@ -1,14 +1,17 @@
+# -*- coding: utf-8 -*-
 import os
-from django.utils.log import DEFAULT_LOGGING
+from aor.logging import LOGGING
 from django.utils.translation import ugettext_lazy as _
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 DEBUG = True
 
-ADMINS = (
+ALLOWED_HOSTS = []
+
+ADMINS = [
     ('Pavel Zhukov', 'gelios@gmail.com'),
-)
+]
 
 MANAGERS = ADMINS
 
@@ -89,6 +92,7 @@ TEMPLATES = [
 ]
 
 MIDDLEWARE = [
+    'aor.middleware.XForwardedHostMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.gzip.GZipMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -118,7 +122,6 @@ INSTALLED_APPS = [
     'registration',
     'sorl.thumbnail',
     'captcha',
-    'gunicorn',
     'pybb',
     'aor',
     'pybb4news',
@@ -186,57 +189,6 @@ POSTMAN_AUTO_MODERATE_AS = True
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
-LOGGING = DEFAULT_LOGGING
-LOGGING.setdefault('formatters', {})
-LOGGING['formatters'].update({
-    'verbose': {
-        'format': '%(levelname)s %(asctime)s %(pathname)s:%(lineno)d\n%(message)s'
-    }
-})
-LOGGING.setdefault('filters', {})
-LOGGING['filters'].update({})
-LOGGING.setdefault('handlers', {})
-LOGGING['handlers'].update({
-    'debug_console': {
-        'class': 'logging.StreamHandler',
-        'level': 'DEBUG',
-        'formatter': 'verbose',
-        'filters': ['require_debug_true'],
-    },
-    # This handler will be used mostly for management commands (see below),
-    # so the debug level can be useful in production.
-    'production_console': {
-        'class': 'logging.StreamHandler',
-        'level': 'DEBUG',
-        'formatter': 'verbose',
-        'filters': ['require_debug_false'],
-    },
-    'production_rotate_file': {
-        'class': 'logging.handlers.RotatingFileHandler',
-        'level': 'INFO',
-        'formatter': 'verbose',
-        'filters': ['require_debug_false'],
-        'filename': os.path.join(BASE_DIR, '../logs/aor_inner.log'),
-        'maxBytes': 1024 * 1024 * 10,
-        'backupCount': 3,
-    },
-    'production_mail_admins': {
-        'class': 'django.utils.log.AdminEmailHandler',
-        'level': 'ERROR',
-        'formatter': 'verbose',
-        'filters': ['require_debug_false'],
-    },
-})
-LOGGING.setdefault('loggers', {})
-LOGGING['loggers'].update({
-    'hovel': {
-        'level': 'DEBUG',
-        'handlers': ['debug_console',
-                     'production_rotate_file',
-                     'production_mail_admins'],
-    },
-})
-
 BROKER_URL = 'redis://redis:6379'
 
 CACHES = {
@@ -248,14 +200,21 @@ CACHES = {
     }
 }
 
+try:
+    from settings_dev import *
+except ImportError:
+    try:
+        from settings_local import *
+    except ImportError:
+        pass
+
+
+CSRF_TRUSTED_ORIGINS = ALLOWED_HOSTS[:]
+
+
 if DEBUG:
     MIDDLEWARE += ['debug_toolbar.middleware.DebugToolbarMiddleware']
     INSTALLED_APPS += ['debug_toolbar']
     INTERNAL_IPS = ['127.0.0.1']
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
     DEBUG_TOOLBAR_CONFIG = {'INTERCEPT_REDIRECTS': False}
-
-try:
-    from settings_local import *
-except ImportError:
-    pass

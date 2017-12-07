@@ -1,0 +1,21 @@
+version: '3.3'
+services:
+  deploy:
+    build: .
+    environment:
+      - AWS_ACCESS_KEY_ID
+      - AWS_SECRET_ACCESS_KEY
+      - GIT_BRANCH
+    volumes:
+      - ".:/root/src"
+      - "~/.aws:/root/.aws"
+      - "../deploy-inventory/ansible:/ansible"
+      - "../deploy-inventory/ansible.cfg:/root/.ansible.cfg"
+    command: >
+               bash -c "
+               ansible-playbook /ansible/playbooks_new/aor_$$GIT_BRANCH/l_aor_$$GIT_BRANCH.yml -i /ansible/inventory_new/ &&
+               source /var/venv/bin/activate &&
+               cd /root/src/ &&
+               zappa update --all &&
+               zappa manage --all 'migrate --noinput'
+               "

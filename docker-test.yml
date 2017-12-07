@@ -2,7 +2,7 @@ version: '2.1'
 services:
   tests:
     build: .
-    command: python -Wd /root/src/manage.py test aor --noinput
+    command: bash -c "cd /root/src/ && /var/venv/bin/python manage.py test aor --noinput"
     volumes:
       - ".:/root/src"
       - "~/.aws:/root/.aws"

@@ -1,7 +1,11 @@
 *~
 *.pyc
 database.db
+settings_dev.py
 settings_local.py
 local.py
 media/*
 .idea/*
+
+zappa_settings.*
+s3_sandbox/*
