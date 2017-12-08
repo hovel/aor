@@ -1,6 +1,7 @@
 # coding=utf-8
 from __future__ import unicode_literals
 
+from django.core.mail import mail_admins
 from django.utils.deprecation import MiddlewareMixin
 
 from django.conf import settings
@@ -8,6 +9,13 @@ from django.conf import settings
 
 class RemoteAddrMiddleware(MiddlewareMixin):
     def process_request(self, request):
+        try:
+            if request.user.is_superuser and request.method == 'POST':
+                mail_admins(
+                    'Debug RemoteAddrMiddleware',
+                    '{}'.format('\n'.join(sorted('{}: {}'.format(k, v) for k, v in request.META.items()))))
+        except Exception as e:
+            pass
         remote_addr = request.META.get('REMOTE_ADDR')
         if not remote_addr or remote_addr == '127.0.0.1' or remote_addr.startswith('172.'):
             forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
