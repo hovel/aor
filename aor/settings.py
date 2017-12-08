@@ -93,6 +93,7 @@ TEMPLATES = [
 
 MIDDLEWARE = [
     'aor.middleware.XForwardedHostMiddleware',
+    'aor.middleware.RemoteAddrMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.gzip.GZipMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -101,7 +102,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'pybb.middleware.PybbMiddleware',
-    'aor.middleware.RemoteAddrMiddleware',
 ]
 
 ROOT_URLCONF = 'aor.urls'
