@@ -3,11 +3,11 @@ pymysql
 redis
 django-redis
 Pillow==4.3.0
-bbcode==1.0.26
+bbcode==1.0.27
 boto==2.48.0
 boto3
 pytils==0.3
-python-dateutil<2.0
+python-dateutil==2.6.1
 pytz
 sorl-thumbnail==12.4.1
 django-ajax-selects==1.6.1  # may be buggy
@@ -15,10 +15,10 @@ django-bootstrap-form>=3
 django-debug-toolbar==1.9.1
 django-postman==3.6.0
 django-annoying==0.10.3
-django-registration-redux==1.9
+django-registration-redux==2.0
 django-simple-captcha==0.5.6
 django-storages==1.6.5
 zappa
 
--e git+https://github.com/hovel/django-pure-pagination.git@4e5febe5f6df7fda8488b77fd827b8547d436f26#egg=django_pure_pagination
+-e git+https://github.com/hovel/django-pure-pagination.git@1bab7842cd3f50346fe778ae00212718a3863a4e#egg=django_pure_pagination
 -e git+https://github.com/hovel/pybbm.git@7a21d43f2828f072c2ae459f736df5e02c0f9aae#egg=pybbm
