@@ -21,4 +21,4 @@ django-storages==1.6.5
 zappa
 
 -e git+https://github.com/hovel/django-pure-pagination.git@1bab7842cd3f50346fe778ae00212718a3863a4e#egg=django_pure_pagination
--e git+https://github.com/hovel/pybbm.git@7a21d43f2828f072c2ae459f736df5e02c0f9aae#egg=pybbm
+-e git+https://github.com/hovel/pybbm.git@76efecba261173ac79e63d0a1809ef3ba7fc2af8#egg=pybbm
