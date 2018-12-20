@@ -8,21 +8,21 @@ phases:
     commands:
       - apt-get update
       - apt-get --assume-yes install openssh-client
-      - mkdir ~/.aws
+      - mkdir -p ~/.aws
       - echo "[default]\nregion = us-east-1" > ~/.aws/config
       - echo "[default]\naws_access_key_id = ${AWS_ACCESS_KEY_ID}\naws_secret_access_key = ${AWS_SECRET_ACCESS_KEY}" > ~/.aws/credentials
-      - mkdir ~/.ssh
+      - mkdir -p ~/.ssh
       - echo $SSH_PRIVATE_KEY | base64 --decode -i > ~/.ssh/id_rsa
       - chmod 700 ~/.ssh && chmod 600 ~/.ssh/*
       - ssh-keyscan -t rsa github.com > /root/.ssh/known_hosts
-      - git clone -v -b lambda git@github.com:hovel/deploy-inventory.git ../deploy-inventory
       - docker-compose --version
       # Run enviroment
       - docker-compose -f docker-env.yml up -d
       # Run tests
       - docker-compose -f docker-test.yml run tests
-      # Teardown enviroment
-      - docker-compose -f docker-env.yml down
       # Deploy package
+      - git clone -v -b lambda git@github.com:hovel/deploy-inventory.git ../deploy-inventory
       - ls -l ../deploy-inventory
       - docker-compose -f docker-zappa.yml run deploy
+      # Teardown enviroment
+      - docker-compose -f docker-env.yml down

@@ -11,9 +11,12 @@ web:
     ROOT_PASS: 123
   volumes:
     - ".:/root/src"
-  command: /dev.sh
+  command: bash -c "cd /root/src/ && /var/venv/bin/python manage.py runserver 0.0.0.0:80"
+  privileged: true
+  dns:
+    - 8.8.8.8
 db:
-  image: mysql
+  image: mysql:5.7
   environment:
     MYSQL_ROOT_PASSWORD: pass
     MYSQL_DATABASE: local_db
