@@ -13,3 +13,5 @@ RUN virtualenv /var/venv
 
 RUN source /var/venv/bin/activate && pip install --upgrade "pip==9.0.1" wheel "setuptools<39.0"
 RUN source /var/venv/bin/activate && pip install -r /root/src/requirements.txt -U
+
+EXPOSE 80

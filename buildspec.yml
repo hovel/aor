@@ -21,7 +21,7 @@ phases:
       # Run tests
       - docker-compose -f docker-test.yml run tests
       # Deploy package
-      - git clone -v -b lambda git@github.com:hovel/deploy-inventory.git ../deploy-inventory
+      - git clone -v -b yandex git@github.com:hovel/deploy-inventory.git ../deploy-inventory
       - ls -l ../deploy-inventory
       - docker-compose -f docker-zappa.yml run deploy
       # Teardown enviroment
